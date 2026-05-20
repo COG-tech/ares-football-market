@@ -1,6 +1,6 @@
-# ARES Soccer Market
+﻿# ARES Football Market
 
-ARES Soccer Market is a static soccer market board for ARES performance scores, market asset scores, player search, clubs, leagues, transfers, and watchlist records.
+ARES Football Market is a static football market board for ARES performance scores, market asset scores, player search, clubs, leagues, transfers, and watchlist records.
 
 The current site is a placeholder-only build. It uses generic player and club names, initials/placeholders, and no scraped Transfermarkt, club logo, player photo, or protected commercial data.
 

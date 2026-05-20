@@ -1,8 +1,8 @@
-# ARES Soccer Market Site Audit
+﻿# ARES Football Market Site Audit
 
 ## Status
 
-Static site build is complete for a placeholder-only soccer preview.
+Static site build is complete for a placeholder-only football preview.
 
 ## Pages Created
 
@@ -58,7 +58,7 @@ Static site build is complete for a placeholder-only soccer preview.
 - Real soccer ingestion is not connected.
 - Player, club, and league template pages currently render one sample profile each.
 - Generated individual player pages are not created yet.
-- Advanced Metronic chart widgets are available but not wired to real soccer time-series data yet.
+- Advanced Metronic chart widgets are available but not wired to real football time-series data yet.
 
 ## Public Upload Rule
 
