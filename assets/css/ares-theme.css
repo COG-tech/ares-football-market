@@ -61,11 +61,17 @@ body,
 
 .ares-brand::before {
   content: "";
-  width: 0.75rem;
-  height: 2rem;
+  width: 2.75rem;
+  height: 2.75rem;
   flex: 0 0 auto;
-  background: var(--ares-gold);
-  border-radius: 4px;
+  background-color: #06182c;
+  background-image: url("../media/brand/ares-logo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid rgba(247, 201, 72, 0.85);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08), 0 6px 16px rgba(0, 0, 0, 0.24);
 }
 
 .ares-nav {
