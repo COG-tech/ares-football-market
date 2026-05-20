@@ -65,10 +65,10 @@ body,
   height: 2.75rem;
   flex: 0 0 auto;
   background-color: #06182c;
-  background-image: url("../media/brand/ares-logo.svg");
+  background-image: url("../media/brand/ares-logo.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 140%;
   border: 2px solid rgba(247, 201, 72, 0.85);
   border-radius: 50%;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08), 0 6px 16px rgba(0, 0, 0, 0.24);
