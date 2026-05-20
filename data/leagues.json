@@ -1,0 +1,62 @@
+[
+  {
+    "league_id": "league-placeholder-001",
+    "league_name": "Atlantic Premier",
+    "league_url": "leagues/league-template.html",
+    "league_level": "Top tier",
+    "ranked_or_tracked": "Ranked",
+    "clubs": 18,
+    "players_tracked": 426,
+    "average_age": 25.1,
+    "average_ares_score": 72.4,
+    "average_market_score": 70.8,
+    "top_player": "Mateo Vale",
+    "total_squad_value_score": 24100,
+    "is_placeholder": true
+  },
+  {
+    "league_id": "league-placeholder-002",
+    "league_name": "Continental League",
+    "league_url": "leagues/league-template.html",
+    "league_level": "Top tier",
+    "ranked_or_tracked": "Ranked",
+    "clubs": 20,
+    "players_tracked": 484,
+    "average_age": 24.7,
+    "average_ares_score": 71.9,
+    "average_market_score": 72.6,
+    "top_player": "Elias Nouri",
+    "total_squad_value_score": 24880,
+    "is_placeholder": true
+  },
+  {
+    "league_id": "league-placeholder-003",
+    "league_name": "Northern Championship",
+    "league_url": "leagues/league-template.html",
+    "league_level": "Second tier",
+    "ranked_or_tracked": "Ranked",
+    "clubs": 22,
+    "players_tracked": 532,
+    "average_age": 24.2,
+    "average_ares_score": 68.7,
+    "average_market_score": 69.3,
+    "top_player": "Theo Park",
+    "total_squad_value_score": 21920,
+    "is_placeholder": true
+  },
+  {
+    "league_id": "league-placeholder-004",
+    "league_name": "Youth Elite",
+    "league_url": "leagues/league-template.html",
+    "league_level": "Development",
+    "ranked_or_tracked": "Tracked",
+    "clubs": 20,
+    "players_tracked": 312,
+    "average_age": 18.4,
+    "average_ares_score": 58.2,
+    "average_market_score": 64.9,
+    "top_player": "Milan Duarte",
+    "total_squad_value_score": 13220,
+    "is_placeholder": true
+  }
+]

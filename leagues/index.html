@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leagues | ARES Soccer Market</title>
+  <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-theme.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-components.css" rel="stylesheet" type="text/css">
+  <style>.soccer-main{width:min(100%,1280px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}</style>
+</head>
+<body class="ares-shell">
+  <header class="ares-topbar">
+    <a class="ares-brand" href="../index.html">ARES Soccer Market</a>
+    <nav class="ares-nav" aria-label="Primary">
+      <a href="../index.html">Home</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../players/index.html">Players</a><a href="../clubs/index.html">Clubs</a><a class="active" href="index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>
+    </nav>
+  </header>
+  <main class="soccer-main">
+    <div class="ares-page-title"><h1>Leagues</h1><p>League market strength, tracked player volume, and ranking readiness.</p></div>
+    <section class="ares-section ares-card">
+      <input id="leagues-search" class="ares-search mb-3" type="search" placeholder="Search league...">
+      <div class="table-responsive">
+        <table id="leagues-table" class="ares-table" data-count-id="leagues-count">
+          <thead><tr><th><button data-sort="league_name">League</button></th><th>Level</th><th>Status</th><th>Clubs</th><th>Players Tracked</th><th>Average ARES</th><th>Average Market</th><th>Top Player</th><th>Profile</th></tr></thead>
+          <tbody id="leagues-body"><tr><td>Atlantic Premier</td><td>Top tier</td><td>Ranked</td><td>18</td><td>426</td><td>72.4</td><td>70.8</td><td>Mateo Vale</td><td><a href="league-template.html">Open</a></td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class="ares-footer">League records are placeholders.</footer>
+  <script src="../assets/plugins/global/plugins.bundle.js"></script>
+  <script src="../assets/js/scripts.bundle.js"></script>
+  <script src="../assets/js/ares-data-loader.js"></script>
+  <script src="../assets/js/ares-tables.js"></script>
+  <script src="../assets/js/soccer-pages.js"></script>
+  <script>
+    AresSoccer.initTable({dataPath:"../data/leagues.json",tableId:"leagues-table",bodyId:"leagues-body",searchId:"leagues-search",columns:[{key:"league_name",render:"leagueLink",pathPrefix:"../"},{key:"league_level"},{key:"ranked_or_tracked"},{key:"clubs"},{key:"players_tracked"},{key:"average_ares_score",render:"score"},{key:"average_market_score",render:"market"},{key:"top_player",render:function(value){return AresTables.renderLink(value,"../players/player-template.html");}},{key:"league_id",render:function(){return '<a href="league-template.html">Open</a>';}}]});
+  </script>
+</body>
+</html>

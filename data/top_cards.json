@@ -1,0 +1,36 @@
+{
+  "top_ares_player": {
+    "player_id": "soc-placeholder-001",
+    "player_name": "Mateo Vale",
+    "player_url": "players/player-template.html",
+    "club": "Northbank FC",
+    "club_url": "clubs/club-template.html",
+    "score": 91.4,
+    "is_placeholder": true
+  },
+  "top_market_asset": {
+    "player_id": "soc-placeholder-005",
+    "player_name": "Theo Park",
+    "player_url": "players/player-template.html",
+    "club": "Lakeside 1899",
+    "club_url": "clubs/club-template.html",
+    "score": 93.1,
+    "is_placeholder": true
+  },
+  "top_youth_asset": {
+    "player_id": "soc-placeholder-006",
+    "player_name": "Milan Duarte",
+    "player_url": "players/player-template.html",
+    "club": "Portside Rovers",
+    "club_url": "clubs/club-template.html",
+    "score": 84.7,
+    "is_placeholder": true
+  },
+  "top_transfer_signal": {
+    "player_id": "soc-placeholder-006",
+    "player_name": "Milan Duarte",
+    "player_url": "players/player-template.html",
+    "movement": "Youth academy promotion",
+    "is_placeholder": true
+  }
+}

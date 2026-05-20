@@ -1,0 +1,14 @@
+{
+  "league_id": "league-placeholder-001",
+  "league_name": "Atlantic Premier",
+  "league_level": "Top tier",
+  "ranked_or_tracked": "Ranked",
+  "clubs": 18,
+  "players_tracked": 426,
+  "average_age": 25.1,
+  "average_ares_score": 72.4,
+  "average_market_score": 70.8,
+  "top_player": "Mateo Vale",
+  "total_squad_value_score": 24100,
+  "is_placeholder": true
+}

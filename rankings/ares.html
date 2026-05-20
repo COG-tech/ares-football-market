@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARES Rankings | ARES Soccer Market</title>
+  <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-theme.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-components.css" rel="stylesheet" type="text/css">
+  <style>.soccer-main{width:min(100%,1280px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}</style>
+</head>
+<body class="ares-shell">
+  <header class="ares-topbar">
+    <a class="ares-brand" href="../index.html">ARES Soccer Market</a>
+    <nav class="ares-nav" aria-label="Primary">
+      <a href="../index.html">Home</a><a class="active" href="ares.html">ARES Rankings</a><a href="market.html">Market Rankings</a><a href="../players/index.html">Players</a><a href="../clubs/index.html">Clubs</a><a href="../leagues/index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>
+    </nav>
+  </header>
+  <main class="soccer-main">
+    <div class="ares-page-title"><h1>ARES Rankings</h1><p>On-field soccer quality rankings.</p></div>
+    <section class="ares-section ares-card">
+      <input id="ares-search" class="ares-search mb-3" type="search" placeholder="Search player, club, league, or position...">
+      <div class="table-responsive">
+        <table id="ares-table" class="ares-table" data-count-id="ares-count">
+          <thead><tr><th><button data-sort="rank" data-type="number">Rank</button></th><th><button data-sort="player_name">Player</button></th><th>Position</th><th>Club</th><th>League</th><th><button data-sort="age" data-type="number">Age</button></th><th><button data-sort="ares_score" data-type="number">ARES Score</button></th><th>ARES Tier</th><th>Trend</th><th>Confidence</th></tr></thead>
+          <tbody id="ares-body"><tr><td>1</td><td>Mateo Vale</td><td>AM</td><td>Northbank FC</td><td>Atlantic Premier</td><td>24</td><td>91.4</td><td>Elite</td><td>Up</td><td>High</td></tr></tbody>
+        </table>
+      </div>
+      <p class="mt-3 mb-0 text-muted">Placeholder data shown until the real soccer model pipeline is connected.</p>
+    </section>
+  </main>
+  <footer class="ares-footer">ARES Soccer Market</footer>
+  <script src="../assets/plugins/global/plugins.bundle.js"></script>
+  <script src="../assets/js/scripts.bundle.js"></script>
+  <script src="../assets/js/ares-data-loader.js"></script>
+  <script src="../assets/js/ares-tables.js"></script>
+  <script src="../assets/js/soccer-pages.js"></script>
+  <script>
+    AresSoccer.initTable({dataPath:"../data/ares_rankings.json",tableId:"ares-table",bodyId:"ares-body",searchId:"ares-search",columns:[{key:"rank"},{key:"player_name",render:"playerLink",pathPrefix:"../"},{key:"position"},{key:"club",render:"clubLink",pathPrefix:"../"},{key:"league",render:"leagueLink",pathPrefix:"../"},{key:"age"},{key:"ares_score",render:"score"},{key:"ares_tier",render:"tier"},{key:"trend",render:"trend"},{key:"confidence",render:"confidence"}]});
+  </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+.ares-section {
+  margin: 1.5rem 0;
+}
+
+.ares-card,
+.ares-stat-card {
+  background: var(--ares-white);
+  border: 1px solid var(--ares-border);
+  border-radius: 8px;
+  box-shadow: var(--ares-shadow);
+}
+
+.ares-card {
+  padding: 1.25rem;
+}
+
+.ares-stat-card {
+  display: grid;
+  gap: 0.45rem;
+  min-height: 8.5rem;
+  padding: 1rem;
+}
+
+.ares-stat-card .label {
+  color: var(--ares-muted);
+  font-size: 0.8rem;
+  font-weight: 750;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.ares-stat-card .value {
+  color: var(--ares-text);
+  font-size: 1.55rem;
+  font-weight: 850;
+  line-height: 1.15;
+}
+
+.ares-stat-card .meta {
+  color: var(--ares-muted);
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.ares-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: min(100%, 44rem);
+}
+
+.ares-search input,
+input.ares-search {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  color: var(--ares-text);
+  background: var(--ares-white);
+  border: 1px solid var(--ares-border);
+  border-radius: 8px;
+  outline: none;
+}
+
+.ares-search input:focus,
+input.ares-search:focus {
+  border-color: var(--ares-gold);
+  box-shadow: 0 0 0 3px rgba(247, 201, 72, 0.22);
+}
+
+.ares-score-chip,
+.ares-market-chip,
+.ares-tier-chip,
+.ares-trend-up,
+.ares-trend-down,
+.ares-trend-flat,
+.ares-confidence-high,
+.ares-confidence-medium,
+.ares-confidence-low {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.65rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ares-score-chip {
+  color: var(--ares-navy);
+  background: rgba(27, 43, 69, 0.08);
+  border: 1px solid rgba(27, 43, 69, 0.16);
+}
+
+.ares-market-chip {
+  color: #6A4A00;
+  background: rgba(247, 201, 72, 0.22);
+  border: 1px solid rgba(247, 201, 72, 0.72);
+}
+
+.ares-tier-chip {
+  color: var(--ares-text);
+  background: #EEF2F7;
+  border: 1px solid var(--ares-border);
+}
+
+.ares-trend-up {
+  color: var(--ares-up);
+  background: rgba(47, 107, 79, 0.12);
+  border: 1px solid rgba(47, 107, 79, 0.28);
+}
+
+.ares-trend-down {
+  color: var(--ares-down);
+  background: rgba(180, 35, 24, 0.1);
+  border: 1px solid rgba(180, 35, 24, 0.25);
+}
+
+.ares-trend-flat {
+  color: var(--ares-flat);
+  background: rgba(95, 107, 122, 0.12);
+  border: 1px solid rgba(95, 107, 122, 0.24);
+}
+
+.ares-confidence-high {
+  color: var(--ares-up);
+  background: rgba(47, 107, 79, 0.12);
+}
+
+.ares-confidence-medium {
+  color: #7A5600;
+  background: rgba(247, 201, 72, 0.24);
+}
+
+.ares-confidence-low {
+  color: var(--ares-down);
+  background: rgba(180, 35, 24, 0.1);
+}
+
+.ares-table {
+  width: 100%;
+  color: var(--ares-text);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.ares-table th {
+  padding: 0.75rem;
+  color: var(--ares-muted);
+  background: #EEF2F7;
+  border-bottom: 1px solid var(--ares-border);
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ares-table td {
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid rgba(201, 207, 216, 0.72);
+  font-size: 0.925rem;
+  line-height: 1.35;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.ares-table tbody tr:hover {
+  background: rgba(27, 43, 69, 0.035);
+}
+
+.ares-table a {
+  color: var(--ares-navy);
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.ares-table a:hover {
+  color: #6A4A00;
+  text-decoration: underline;
+}
+
+.ares-table .ares-text-left {
+  text-align: left;
+}
+
+.ares-muted-note {
+  color: var(--ares-muted);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.ares-player-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 2.5rem;
+  color: var(--ares-navy);
+  background: rgba(27, 43, 69, 0.08);
+  border: 1px solid rgba(27, 43, 69, 0.14);
+  border-radius: 50%;
+  font-size: 0.875rem;
+  font-weight: 850;
+}
+
+@media (max-width: 768px) {
+  .ares-card,
+  .ares-stat-card {
+    padding: 1rem;
+  }
+
+  .ares-stat-card .value {
+    font-size: 1.3rem;
+  }
+
+  .ares-table th,
+  .ares-table td {
+    padding: 0.65rem;
+    font-size: 0.85rem;
+  }
+}

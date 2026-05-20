@@ -1,0 +1,44 @@
+[
+  {
+    "player_id": "soc-watch-001",
+    "player_name": "Samir Penn",
+    "player_url": "players/player-template.html",
+    "position": "CM",
+    "level": "Youth academy",
+    "club": "Crescent United U19",
+    "club_url": "clubs/club-template.html",
+    "tracking_reason": "Youth academy minutes rising",
+    "status": "Tracked",
+    "last_movement": "Academy promotion watch",
+    "confidence": "Low",
+    "is_placeholder": true
+  },
+  {
+    "player_id": "soc-watch-002",
+    "player_name": "Luca Reyes",
+    "player_url": "players/player-template.html",
+    "position": "ST",
+    "level": "Loan market",
+    "club": "Harbor City B",
+    "club_url": "clubs/club-template.html",
+    "tracking_reason": "Loan scoring signal",
+    "status": "Tracked",
+    "last_movement": "Loan shortlist",
+    "confidence": "Medium",
+    "is_placeholder": true
+  },
+  {
+    "player_id": "soc-watch-003",
+    "player_name": "Owen Hale",
+    "player_url": "players/player-template.html",
+    "position": "RB",
+    "level": "Free agent",
+    "club": "Unattached",
+    "club_url": "clubs/club-template.html",
+    "tracking_reason": "Training camp trial",
+    "status": "Tracked",
+    "last_movement": "Trial invite",
+    "confidence": "Low",
+    "is_placeholder": true
+  }
+]

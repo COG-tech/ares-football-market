@@ -1,0 +1,50 @@
+[
+  {
+    "date": "2026-01-18",
+    "player_id": "soc-placeholder-006",
+    "player_name": "Milan Duarte",
+    "player_url": "players/player-template.html",
+    "position": "LB",
+    "from": "Portside Academy",
+    "from_url": "clubs/club-template.html",
+    "to": "Portside Rovers",
+    "to_url": "clubs/club-template.html",
+    "transfer_type": "Youth academy promotion",
+    "ares_impact": 4.2,
+    "market_impact": 8.4,
+    "confidence": "Medium",
+    "is_placeholder": true
+  },
+  {
+    "date": "2026-01-12",
+    "player_id": "soc-placeholder-005",
+    "player_name": "Theo Park",
+    "player_url": "players/player-template.html",
+    "position": "RW",
+    "from": "Loan Watch",
+    "from_url": "clubs/club-template.html",
+    "to": "Lakeside 1899",
+    "to_url": "clubs/club-template.html",
+    "transfer_type": "Loan return",
+    "ares_impact": 2.1,
+    "market_impact": 5.8,
+    "confidence": "Medium",
+    "is_placeholder": true
+  },
+  {
+    "date": "2026-01-06",
+    "player_id": "soc-placeholder-004",
+    "player_name": "Rafa Sol",
+    "player_url": "players/player-template.html",
+    "position": "ST",
+    "from": "Metro Albion",
+    "from_url": "clubs/club-template.html",
+    "to": "Continental Loan Pool",
+    "to_url": "clubs/club-template.html",
+    "transfer_type": "Loan interest",
+    "ares_impact": -1.4,
+    "market_impact": 1.2,
+    "confidence": "Low",
+    "is_placeholder": true
+  }
+]

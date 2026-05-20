@@ -1,0 +1,15 @@
+{
+  "club_id": "club-placeholder-001",
+  "club_name": "Northbank FC",
+  "league": "Atlantic Premier",
+  "country": "Placeholder Country",
+  "squad_size": 26,
+  "average_age": 24.8,
+  "average_ares_score": 76.3,
+  "average_market_score": 71.9,
+  "total_squad_value_score": 1844,
+  "top_ares_player": "Mateo Vale",
+  "top_market_asset": "Mateo Vale",
+  "top_young_asset": "Ilan Cross",
+  "is_placeholder": true
+}

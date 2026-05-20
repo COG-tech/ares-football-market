@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>League Template | ARES Soccer Market</title>
+  <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-theme.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-components.css" rel="stylesheet" type="text/css">
+  <style>.soccer-main{width:min(100%,1280px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}@media(max-width:900px){.metric-grid{grid-template-columns:1fr}}</style>
+</head>
+<body class="ares-shell">
+  <header class="ares-topbar">
+    <a class="ares-brand" href="../index.html">ARES Soccer Market</a>
+    <nav class="ares-nav" aria-label="Primary">
+      <a href="../index.html">Home</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../players/index.html">Players</a><a href="../clubs/index.html">Clubs</a><a class="active" href="index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>
+    </nav>
+  </header>
+  <main class="soccer-main">
+    <div class="ares-page-title"><h1 id="league-name">League Name</h1><p><span id="league-level"></span> | <span id="ranked-status"></span></p></div>
+    <section class="ares-section metric-grid">
+      <div class="ares-stat-card"><span class="label">Clubs</span><span id="clubs" class="value"></span><span class="meta">League count</span></div>
+      <div class="ares-stat-card"><span class="label">Players Tracked</span><span id="players-tracked" class="value"></span><span class="meta">Database coverage</span></div>
+      <div class="ares-stat-card"><span class="label">Average ARES</span><span id="avg-ares" class="value"></span><span class="meta">Quality signal</span></div>
+      <div class="ares-stat-card"><span class="label">Average Market</span><span id="avg-market" class="value"></span><span class="meta">Asset signal</span></div>
+    </section>
+    <section class="ares-section ares-card"><h2>League Summary</h2><p>Top Player: <strong id="top-player"></strong></p><p>Total Squad Value Score: <strong id="league-value"></strong></p></section>
+  </main>
+  <footer class="ares-footer">Static league template.</footer>
+  <script src="../assets/plugins/global/plugins.bundle.js"></script>
+  <script src="../assets/js/scripts.bundle.js"></script>
+  <script src="../assets/js/ares-data-loader.js"></script>
+  <script src="../assets/js/soccer-pages.js"></script>
+  <script>
+    AresSoccer.initProfile("../data/league_profile_sample.json",{"league-name":"league_name","league-level":"league_level","ranked-status":"ranked_or_tracked","clubs":"clubs","players-tracked":"players_tracked","avg-ares":"average_ares_score","avg-market":"average_market_score","top-player":"top_player","league-value":"total_squad_value_score"});
+  </script>
+</body>
+</html>
