@@ -22,10 +22,12 @@
     .search-results.is-open{display:block}
     .search-results a,.search-results div{display:block;padding:.75rem .9rem;color:var(--ares-text);border-bottom:1px solid rgba(201,207,216,.7);text-decoration:none}
     .search-results small{display:block;color:var(--ares-muted);font-size:.75rem}
-    .market-map{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem}
-    .market-map span{min-height:4.25rem;padding:.75rem;border:1px solid rgba(255,255,255,.18);border-radius:8px;background:rgba(255,255,255,.1);color:#fff;font-weight:800}
+    .hero-country-panel{display:grid;gap:.75rem}
+    .hero-country-panel h2{margin:0;color:#fff;font-size:1.05rem;font-weight:850}
+    .hero-country-panel .ares-country-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .hero-country-panel .ares-country-card{min-height:4rem;background:rgba(255,255,255,.94);box-shadow:none}
     @media(max-width:1100px){.hero-grid,.table-grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:680px){.stat-grid,.market-map{grid-template-columns:1fr}}
+    @media(max-width:680px){.stat-grid,.hero-country-panel .ares-country-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body class="ares-shell">
@@ -55,14 +57,23 @@
           <div id="soccer-search-results" class="search-results"></div>
         </div>
       </div>
-      <div class="market-map" aria-label="Soccer market coverage">
-        <span>Players</span>
-        <span>Clubs</span>
-        <span>Leagues</span>
-        <span>Transfers</span>
-        <span>Loans</span>
-        <span>Academies</span>
+      <div class="hero-country-panel" aria-label="Football country coverage">
+        <h2>Country coverage</h2>
+        <div id="home-country-flags" class="ares-country-grid">
+          <a class="ares-country-card" href="leagues/index.html?country=england"><span class="ares-media-badge ares-media-fallback">EN</span><strong>England</strong></a>
+          <a class="ares-country-card" href="leagues/index.html?country=spain"><span class="ares-media-badge ares-media-fallback">ES</span><strong>Spain</strong></a>
+          <a class="ares-country-card" href="leagues/index.html?country=germany"><span class="ares-media-badge ares-media-fallback">DE</span><strong>Germany</strong></a>
+          <a class="ares-country-card" href="leagues/index.html?country=usa"><span class="ares-media-badge ares-media-fallback">US</span><strong>USA</strong></a>
+        </div>
       </div>
+    </section>
+
+    <section class="ares-section ares-card">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0">World Football Markets</h2>
+        <span class="ares-muted-note">Real flag assets from the local template package.</span>
+      </div>
+      <div id="country-coverage-grid" class="ares-country-grid"></div>
     </section>
 
     <section class="ares-section stat-grid" aria-label="Headline cards">
@@ -108,8 +119,42 @@
   <script src="assets/js/scripts.bundle.js"></script>
   <script src="assets/js/ares-data-loader.js"></script>
   <script src="assets/js/ares-tables.js"></script>
+  <script src="assets/js/ares-media.js"></script>
   <script src="assets/js/soccer-pages.js"></script>
   <script>
+    (function(){
+      "use strict";
+      const countries = [
+        ["england", "England", "Premier League, Championship"],
+        ["spain", "Spain", "La Liga, Segunda"],
+        ["germany", "Germany", "Bundesliga"],
+        ["italy", "Italy", "Serie A, Serie B"],
+        ["france", "France", "Ligue 1, Ligue 2"],
+        ["usa", "USA", "MLS, USL"],
+        ["mexico", "Mexico", "Liga MX"],
+        ["brazil", "Brazil", "Serie A"],
+        ["argentina", "Argentina", "Primera"],
+        ["netherlands", "Netherlands", "Eredivisie"],
+        ["portugal", "Portugal", "Liga Portugal"]
+      ];
+      function safe(value) {
+        return String(value || "").replace(/[&<>"']/g, function(char) {
+          return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[char];
+        });
+      }
+      function countryCard(items, country) {
+        const media = window.AresMedia.mediaFor(items, "country", country[0], "flag");
+        return '<a class="ares-country-card" href="leagues/index.html?country=' + encodeURIComponent(country[0]) + '">' +
+          window.AresMedia.renderBadge(media, country[1]) +
+          '<span><strong>' + safe(country[1]) + '</strong><span>' + safe(country[2]) + '</span></span></a>';
+      }
+      window.AresMedia.loadRegistry("data/media_registry.json").then(function(items){
+        const fullGrid = document.getElementById("country-coverage-grid");
+        const heroGrid = document.getElementById("home-country-flags");
+        if (fullGrid) fullGrid.innerHTML = countries.map(function(country){ return countryCard(items, country); }).join("");
+        if (heroGrid) heroGrid.innerHTML = countries.slice(0, 4).map(function(country){ return countryCard(items, country); }).join("");
+      });
+    }());
     AresSoccer.initSearch("soccer-search", "soccer-search-results", "data/player_search.json");
     AresSoccer.initTable({dataPath:"data/ares_rankings.json",tableId:"home-ares-table",bodyId:"home-ares-body",columns:[{key:"rank"},{key:"player_name",render:"playerLink"},{key:"club",render:"clubLink"},{key:"ares_score",render:"score"},{key:"trend",render:"trend"}]});
     AresSoccer.initTable({dataPath:"data/market_rankings.json",tableId:"home-market-table",bodyId:"home-market-body",columns:[{key:"rank"},{key:"player_name",render:"playerLink"},{key:"club",render:"clubLink"},{key:"market_score",render:"market"},{key:"market_tier",render:"tier"}]});
