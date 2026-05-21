@@ -1,48 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Players | ARES Football Market</title>
+  <meta name="description" content="Search football players by position, club, league, age, ARES quality, market score, trend, and data confidence.">
+  <link rel="shortcut icon" href="../assets/media/brand/ares-logo.png">
   <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css">
   <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-theme.css?v=20260520-logo2" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-components.css?v=20260520-logo1" rel="stylesheet" type="text/css">
-  <style>.soccer-main{width:min(100%,1280px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)}.filter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}@media(max-width:800px){.filter-grid{grid-template-columns:1fr}}</style>
-</head>
-<body class="ares-shell">
-  <header class="ares-topbar">
+  <link href="../assets/css/ares-theme.css?v=20260521-football-demo" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-components.css?v=20260521-football-demo" rel="stylesheet" type="text/css"><style>.soccer-main{width:min(100%,1440px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}.table-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.table-grid .wide{grid-column:1/-1}@media(max-width:1000px){.table-grid{grid-template-columns:1fr}}.quick{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}</style></head><body class="ares-shell"><header class="ares-topbar">
     <a class="ares-brand" href="../index.html">ARES Football Market</a>
     <nav class="ares-nav" aria-label="Primary">
-      <a href="../index.html">Home</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a class="active" href="index.html">Players</a><a href="../clubs/index.html">Clubs</a><a href="../leagues/index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>
+      <a href="../index.html">Home</a><a href="../players/index.html">Players</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../clubs/index.html">Clubs</a><a href="../leagues/index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><span class="ares-brand-switch"><a href="../index.html">Global Football</a><a href="https://cog-tech.github.io/ares-gridiron-market/">Gridiron</a></span>
     </nav>
-  </header>
-  <main class="soccer-main">
-    <div class="ares-page-title"><h1>Players</h1><p>Search placeholder player records by position, club, and league.</p></div>
-    <section class="ares-section filter-grid">
-      <div class="ares-stat-card"><span class="label">Position</span><span class="value">AM / DM / RW</span><span class="meta">Placeholder filter state</span></div>
-      <div class="ares-stat-card"><span class="label">League</span><span class="value">Ranked</span><span class="meta">Senior and development pools</span></div>
-      <div class="ares-stat-card"><span class="label">Contract Status</span><span class="value">Tracked</span><span class="meta">Loan, free agent, academy</span></div>
-    </section>
-    <section class="ares-section ares-card">
-      <input id="players-search" class="ares-search mb-3" type="search" placeholder="Search player, club, league, or position...">
-      <div class="table-responsive">
-        <table id="players-table" class="ares-table" data-count-id="players-count">
-          <thead><tr><th>Player</th><th>Position</th><th>Club</th><th>League</th><th>Type</th><th>Profile</th></tr></thead>
-          <tbody id="players-body"><tr><td>Mateo Vale</td><td>AM</td><td>Northbank FC</td><td>Atlantic Premier</td><td>player</td><td><a href="player-template.html">Open</a></td></tr></tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-  <footer class="ares-footer">Placeholder player data only.</footer>
-  <script src="../assets/plugins/global/plugins.bundle.js"></script>
+  </header><main class="soccer-main"><div class="ares-page-title"><h1>Players</h1><p>Search football players by position, club, league, age, ARES quality, market score, trend, and data confidence.</p></div><div class="ares-demo-banner">The live player database is not connected yet. This demo shows the structure ARES will use for player search, market ranking, and performance scoring.</div><section class="ares-section ares-card"><div class="quick"><a class="ares-filter-chip" href="?q=U21">U21</a><a class="ares-filter-chip" href="?q=U23">U23</a><a class="ares-filter-chip" href="?q=Free Agents">Free Agents</a><a class="ares-filter-chip" href="?q=Loans">Loans</a><a class="ares-filter-chip" href="?q=Contract Ending">Contract Ending</a><a class="ares-filter-chip" href="?q=Rising">Rising</a><a class="ares-filter-chip" href="?q=Falling">Falling</a><a class="ares-filter-chip" href="?q=High Confidence">High Confidence</a><a class="ares-filter-chip" href="?q=Top League">Top League</a><a class="ares-filter-chip" href="?q=Lower Division">Lower Division</a></div><input id="players-search" class="ares-search mb-3" type="search" placeholder="Search player, club, league, country, or position..."><div class="table-responsive"><table id="players-table" class="ares-table" data-count-id="players-count"><thead><tr><th>Player</th><th>Pos</th><th>Age</th><th>Club</th><th>League</th><th>Country</th><th>ARES</th><th>Market</th><th>Trend</th><th>Profile</th></tr></thead><tbody id="players-body"><tr><td colspan="10">Demo player rows load from the public players file.</td></tr></tbody></table></div></section></main><footer class="ares-footer">Demo player search structure.</footer><script src="../assets/plugins/global/plugins.bundle.js"></script>
   <script src="../assets/js/scripts.bundle.js"></script>
   <script src="../assets/js/ares-data-loader.js"></script>
   <script src="../assets/js/ares-tables.js"></script>
   <script src="../assets/js/soccer-pages.js"></script>
-  <script>
-    AresSoccer.initTable({dataPath:"../data/player_search.json",tableId:"players-table",bodyId:"players-body",searchId:"players-search",columns:[{key:"player_name",render:"playerLink",pathPrefix:"../"},{key:"position"},{key:"club",render:"clubLink",pathPrefix:"../"},{key:"league",render:"leagueLink",pathPrefix:"../"},{key:"type"},{key:"url",render:"link",label:"Open",pathPrefix:"../",fallbackUrl:"players/player-template.html"}]});
-  </script>
-  <script src="../assets/js/ares-mega-nav.js?v=20260521-teamnav1"></script>
-</body>
-</html>
+  <script src="../assets/js/ares-mega-nav.js?v=20260521-footballdemo1"></script><script>AresSoccer.initTable({dataPath:"../data/players.json",tableId:"players-table",bodyId:"players-body",searchId:"players-search",columns:[{key:"player_name",render:"playerLink",pathPrefix:"../"},{key:"position"},{key:"age"},{key:"club",render:"clubLink",pathPrefix:"../"},{key:"league",render:"leagueLink",pathPrefix:"../"},{key:"country"},{key:"ares_score",render:"score"},{key:"market_score",render:"market"},{key:"trend",render:"trend"},{key:"url",render:"link",label:"Open",pathPrefix:"../",fallbackUrl:"players/player-template.html"}]});</script></body></html>

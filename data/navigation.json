@@ -4,14 +4,14 @@
     {
       "id": "players",
       "label": "Players",
-      "summary": "Search football players, public rows, and premium score previews.",
+      "summary": "Search players, watchlists, public demo rows, and premium score previews.",
       "sidebar": [
         {
-          "label": "Players",
+          "label": "Player Search",
           "href": "players/index.html"
         },
         {
-          "label": "Watchlist",
+          "label": "ARES Watchlist",
           "href": "watchlist/index.html"
         }
       ],
@@ -20,7 +20,7 @@
           "title": "Player Boards",
           "items": [
             {
-              "label": "Players",
+              "label": "Player Search",
               "href": "players/index.html"
             },
             {
@@ -32,21 +32,29 @@
               "href": "rankings/market.html"
             },
             {
-              "label": "Watchlist",
-              "href": "watchlist/index.html"
+              "label": "Youth Breakout Board",
+              "href": "watchlist/index.html?type=Youth"
+            },
+            {
+              "label": "Free Agents",
+              "href": "watchlist/index.html?type=Free%20Agent"
+            },
+            {
+              "label": "Loan Watch",
+              "href": "watchlist/index.html?type=Loan"
             }
           ]
         }
       ],
       "footer": {
-        "label": "Search players and market boards",
+        "label": "Search players, clubs, leagues, and market boards",
         "href": "players/index.html"
       }
     },
     {
       "id": "ares-rankings",
       "label": "ARES Rankings",
-      "summary": "Football player quality rankings with premium ARES fields.",
+      "summary": "Football player quality rankings by role, usage, efficiency, durability, and trend.",
       "sidebar": [
         {
           "label": "ARES Rankings",
@@ -62,16 +70,36 @@
           "title": "Quality Boards",
           "items": [
             {
-              "label": "ARES Rankings",
+              "label": "Overall",
               "href": "rankings/ares.html"
             },
             {
-              "label": "Market Rankings",
-              "href": "rankings/market.html"
+              "label": "Forwards",
+              "href": "rankings/ares.html?position=Forward"
             },
             {
-              "label": "Players",
-              "href": "players/index.html"
+              "label": "Midfielders",
+              "href": "rankings/ares.html?position=Midfielder"
+            },
+            {
+              "label": "Defenders",
+              "href": "rankings/ares.html?position=Defender"
+            },
+            {
+              "label": "Goalkeepers",
+              "href": "rankings/ares.html?position=GK"
+            },
+            {
+              "label": "U23",
+              "href": "rankings/ares.html?q=U23"
+            },
+            {
+              "label": "Risers",
+              "href": "rankings/ares.html?trend=Up"
+            },
+            {
+              "label": "Fallers",
+              "href": "rankings/ares.html?trend=Down"
             }
           ]
         }
@@ -84,7 +112,7 @@
     {
       "id": "market-rankings",
       "label": "Market Rankings",
-      "summary": "Transfermarkt-style market signal and premium asset scores.",
+      "summary": "Football asset value rankings with market tier, age curve, and transfer signal structure.",
       "sidebar": [
         {
           "label": "Market Rankings",
@@ -100,26 +128,42 @@
           "title": "Asset Boards",
           "items": [
             {
-              "label": "Market Rankings",
+              "label": "Most Valuable Players",
               "href": "rankings/market.html"
             },
             {
-              "label": "Transfers",
-              "href": "transfers/index.html"
-            },
-            {
-              "label": "Clubs",
+              "label": "Most Valuable Clubs",
               "href": "clubs/index.html"
             },
             {
-              "label": "Leagues",
+              "label": "Latest Market Value Changes",
+              "href": "rankings/market.html?trend=Up"
+            },
+            {
+              "label": "Biggest Risers",
+              "href": "rankings/market.html?trend=Up"
+            },
+            {
+              "label": "Biggest Fallers",
+              "href": "rankings/market.html?trend=Down"
+            },
+            {
+              "label": "Contracts Ending",
+              "href": "rankings/market.html?q=2026"
+            },
+            {
+              "label": "Free Agents",
+              "href": "watchlist/index.html?type=Free%20Agent"
+            },
+            {
+              "label": "League Market Strength",
               "href": "leagues/index.html"
             }
           ]
         }
       ],
       "footer": {
-        "label": "Market Score is an analytical asset score",
+        "label": "Market Score is an analytical asset score, not a transfer fee",
         "href": "methodology.html"
       }
     },
@@ -129,7 +173,7 @@
       "summary": "Browse all 449 football clubs in the public database.",
       "sidebar": [
         {
-          "label": "All Clubs",
+          "label": "Club Market Board",
           "href": "clubs/index.html"
         },
         {
@@ -2439,173 +2483,117 @@
         }
       ],
       "footer": {
-        "label": "Open the full club table",
+        "label": "Compare clubs by squad value, age curve, U23 assets, and transfer risk",
         "href": "clubs/index.html"
       }
     },
     {
       "id": "leagues",
       "label": "Leagues",
-      "summary": "Browse all 17 leagues and club competitions in the public database.",
+      "summary": "Browse 46 league rows, including MLS, North America, and Asia coverage targets.",
       "sidebar": [
         {
           "label": "All Leagues",
           "href": "leagues/index.html"
         },
         {
-          "label": "All Clubs",
-          "href": "clubs/index.html"
+          "label": "MLS Market Board",
+          "href": "leagues/mls.html"
+        },
+        {
+          "label": "Asia Market Board",
+          "href": "leagues/asia.html"
+        },
+        {
+          "label": "North America",
+          "href": "leagues/north-america.html"
         }
       ],
       "groups": [
         {
-          "title": "Belgium",
+          "title": "Region Boards",
           "items": [
             {
-              "label": "Jupiler League",
-              "href": "leagues/index.html?league=Jupiler%20League",
-              "abbr": "JUP"
-            }
-          ]
-        },
-        {
-          "title": "England",
-          "items": [
-            {
-              "label": "Championship",
-              "href": "leagues/index.html?league=Championship",
-              "abbr": "CHA"
+              "label": "Global",
+              "href": "leagues/index.html"
             },
             {
-              "label": "League One",
-              "href": "leagues/index.html?league=League%20One",
-              "abbr": "LEA"
+              "label": "Europe",
+              "href": "leagues/index.html?region=Europe"
             },
             {
-              "label": "League Two",
-              "href": "leagues/index.html?league=League%20Two",
-              "abbr": "LEA"
+              "label": "Asia",
+              "href": "leagues/asia.html"
             },
             {
-              "label": "Premier League",
-              "href": "leagues/index.html?league=Premier%20League",
-              "abbr": "PRE"
-            }
-          ]
-        },
-        {
-          "title": "France",
-          "items": [
-            {
-              "label": "Ligue 1",
-              "href": "leagues/index.html?league=Ligue%201",
-              "abbr": "LIG"
+              "label": "North America",
+              "href": "leagues/north-america.html"
             },
             {
-              "label": "Ligue 2",
-              "href": "leagues/index.html?league=Ligue%202",
-              "abbr": "LIG"
+              "label": "Oceania",
+              "href": "leagues/index.html?region=Oceania"
             }
           ]
         },
         {
-          "title": "Germany",
+          "title": "MLS and Americas",
           "items": [
             {
-              "label": "2. Bundesliga",
-              "href": "leagues/index.html?league=2.%20Bundesliga",
-              "abbr": "2. "
+              "label": "Major League Soccer",
+              "href": "leagues/mls.html"
             },
             {
-              "label": "Bundesliga",
-              "href": "leagues/index.html?league=Bundesliga",
-              "abbr": "BUN"
-            }
-          ]
-        },
-        {
-          "title": "Italy",
-          "items": [
-            {
-              "label": "Serie A",
-              "href": "leagues/index.html?league=Serie%20A",
-              "abbr": "SER"
+              "label": "MLS Next Pro",
+              "href": "leagues/index.html?league=MLS%20Next%20Pro"
             },
             {
-              "label": "Serie B",
-              "href": "leagues/index.html?league=Serie%20B",
-              "abbr": "SER"
-            }
-          ]
-        },
-        {
-          "title": "Netherlands",
-          "items": [
-            {
-              "label": "Eredivisie",
-              "href": "leagues/index.html?league=Eredivisie",
-              "abbr": "ERE"
-            }
-          ]
-        },
-        {
-          "title": "Portugal",
-          "items": [
-            {
-              "label": "Primeira Liga",
-              "href": "leagues/index.html?league=Primeira%20Liga",
-              "abbr": "PRI"
-            }
-          ]
-        },
-        {
-          "title": "Scotland",
-          "items": [
-            {
-              "label": "Premiership",
-              "href": "leagues/index.html?league=Premiership",
-              "abbr": "PRE"
-            }
-          ]
-        },
-        {
-          "title": "Spain",
-          "items": [
-            {
-              "label": "La Liga",
-              "href": "leagues/index.html?league=La%20Liga",
-              "abbr": "LA "
+              "label": "USL Championship",
+              "href": "leagues/index.html?league=USL%20Championship"
             },
             {
-              "label": "Segunda Division",
-              "href": "leagues/index.html?league=Segunda%20Division",
-              "abbr": "SEG"
+              "label": "Liga MX",
+              "href": "leagues/index.html?league=Liga%20MX"
             }
           ]
         },
         {
-          "title": "Turkey",
+          "title": "Asia Targets",
           "items": [
             {
-              "label": "Super Lig",
-              "href": "leagues/index.html?league=Super%20Lig",
-              "abbr": "SUP"
+              "label": "J1 League",
+              "href": "leagues/index.html?league=J1%20League"
+            },
+            {
+              "label": "K League 1",
+              "href": "leagues/index.html?league=K%20League%201"
+            },
+            {
+              "label": "Saudi Pro League",
+              "href": "leagues/index.html?league=Saudi%20Pro%20League"
+            },
+            {
+              "label": "Chinese Super League",
+              "href": "leagues/index.html?league=Chinese%20Super%20League"
+            },
+            {
+              "label": "AFC Champions League Elite",
+              "href": "leagues/index.html?league=AFC%20Champions%20League%20Elite"
             }
           ]
         }
       ],
       "footer": {
-        "label": "Open the full league table",
+        "label": "Compare leagues by quality, market value, age curve, and data confidence",
         "href": "leagues/index.html"
       }
     },
     {
       "id": "transfers",
       "label": "Transfers",
-      "summary": "Transfers, loans, free agents, and premium movement impact.",
+      "summary": "Transfers, loans, free agents, contract signals, and premium movement impact.",
       "sidebar": [
         {
-          "label": "Transfers",
+          "label": "Transfer Movement Board",
           "href": "transfers/index.html"
         },
         {
@@ -2618,63 +2606,99 @@
           "title": "Movement",
           "items": [
             {
-              "label": "Transfers",
-              "href": "transfers/index.html"
+              "label": "Permanent Transfers",
+              "href": "transfers/index.html?type=Permanent"
             },
             {
-              "label": "Market Rankings",
-              "href": "rankings/market.html"
+              "label": "Loans",
+              "href": "transfers/index.html?type=Loan"
             },
             {
-              "label": "Watchlist",
-              "href": "watchlist/index.html"
+              "label": "Free Agents",
+              "href": "transfers/index.html?type=Free%20agent"
+            },
+            {
+              "label": "Academy Promotions",
+              "href": "transfers/index.html?type=Academy"
+            },
+            {
+              "label": "Contract Signals",
+              "href": "transfers/index.html?type=Contract"
+            },
+            {
+              "label": "Market Movers",
+              "href": "rankings/market.html?trend=Up"
             }
           ]
         }
       ],
       "footer": {
-        "label": "Open transfer board",
+        "label": "ARES Impact and Market Impact are premium movement signals",
         "href": "transfers/index.html"
       }
     },
     {
       "id": "watchlist",
       "label": "Watchlist",
-      "summary": "Development watchlist and tracked football assets.",
+      "summary": "Early signal board for youth, loans, free agents, lower divisions, and thin-data players.",
       "sidebar": [
         {
-          "label": "Watchlist",
+          "label": "ARES Watchlist",
           "href": "watchlist/index.html"
+        },
+        {
+          "label": "Players",
+          "href": "players/index.html"
         }
       ],
       "groups": [
         {
-          "title": "Watch Boards",
+          "title": "Watchlist Categories",
           "items": [
             {
-              "label": "Watchlist",
-              "href": "watchlist/index.html"
+              "label": "Youth Breakout",
+              "href": "watchlist/index.html?type=Youth"
             },
             {
-              "label": "Players",
-              "href": "players/index.html"
+              "label": "Loan Watch",
+              "href": "watchlist/index.html?type=Loan"
             },
             {
-              "label": "Clubs",
-              "href": "clubs/index.html"
+              "label": "Free Agent",
+              "href": "watchlist/index.html?type=Free%20Agent"
+            },
+            {
+              "label": "Lower Division",
+              "href": "watchlist/index.html?type=Lower"
+            },
+            {
+              "label": "Role Expansion",
+              "href": "watchlist/index.html?type=Role"
+            },
+            {
+              "label": "Contract Signal",
+              "href": "watchlist/index.html?type=Contract"
+            },
+            {
+              "label": "Injury Return",
+              "href": "watchlist/index.html?type=Injury"
+            },
+            {
+              "label": "Scouting Flag",
+              "href": "watchlist/index.html?type=Scouting"
             }
           ]
         }
       ],
       "footer": {
-        "label": "Open watchlist",
+        "label": "Thin-data players stay separate until confidence improves",
         "href": "watchlist/index.html"
       }
     },
     {
       "id": "methodology",
       "label": "Methodology",
-      "summary": "What ARES measures and what stays premium.",
+      "summary": "What ARES measures, what Market Score measures, and what the model does not claim.",
       "sidebar": [
         {
           "label": "Methodology",
@@ -2687,26 +2711,68 @@
       ],
       "groups": [
         {
-          "title": "Model Notes",
+          "title": "Score Framework",
           "items": [
             {
               "label": "ARES Score",
               "href": "methodology.html"
             },
             {
-              "label": "About",
-              "href": "about.html"
+              "label": "Market Score",
+              "href": "methodology.html"
             },
             {
-              "label": "Switch to Gridiron",
-              "href": "https://gridiron.aresmarket.com"
+              "label": "Position Modules",
+              "href": "methodology.html"
+            },
+            {
+              "label": "Image Safety",
+              "href": "methodology.html"
+            },
+            {
+              "label": "Data Status",
+              "href": "about.html"
             }
           ]
         }
       ],
       "footer": {
-        "label": "Switch to ARES Gridiron Market",
-        "href": "https://gridiron.aresmarket.com"
+        "label": "Transparent methodology before live model output",
+        "href": "methodology.html"
+      }
+    },
+    {
+      "id": "ecosystem",
+      "label": "Global Football | Gridiron",
+      "summary": "One ARES ecosystem for global football and American football markets.",
+      "sidebar": [
+        {
+          "label": "Global Football",
+          "href": "index.html"
+        },
+        {
+          "label": "Gridiron",
+          "href": "https://cog-tech.github.io/ares-gridiron-market/"
+        }
+      ],
+      "groups": [
+        {
+          "title": "ARES Products",
+          "items": [
+            {
+              "label": "ARES Football Market",
+              "href": "index.html"
+            },
+            {
+              "label": "ARES Gridiron Market",
+              "href": "https://cog-tech.github.io/ares-gridiron-market/"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "label": "Switch between global football and gridiron boards",
+        "href": "https://cog-tech.github.io/ares-gridiron-market/"
       }
     }
   ]

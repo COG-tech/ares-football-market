@@ -1,52 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Player Template | ARES Football Market</title>
+  <title>Player Profile | ARES Football Market</title>
+  <meta name="description" content="ARES player profile with image-safe fallback avatar, public demo stats, and premium score fields.">
+  <link rel="shortcut icon" href="../assets/media/brand/ares-logo.png">
   <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css">
   <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-theme.css?v=20260520-logo2" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-components.css?v=20260520-logo1" rel="stylesheet" type="text/css">
-  <style>.soccer-main{width:min(100%,1280px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)}.profile-grid{display:grid;grid-template-columns:minmax(16rem,.35fr) minmax(0,.65fr);gap:1rem}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}@media(max-width:980px){.profile-grid,.metric-grid{grid-template-columns:1fr}}</style>
-</head>
-<body class="ares-shell">
-  <header class="ares-topbar">
+  <link href="../assets/css/ares-theme.css?v=20260521-football-demo" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-components.css?v=20260521-football-demo" rel="stylesheet" type="text/css"><style>.soccer-main{width:min(100%,1440px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}.table-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.table-grid .wide{grid-column:1/-1}@media(max-width:1000px){.table-grid{grid-template-columns:1fr}}.profile-grid{display:grid;grid-template-columns:minmax(18rem,.32fr) minmax(0,.68fr);gap:1rem}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}@media(max-width:980px){.profile-grid,.metric-grid{grid-template-columns:1fr}}</style></head><body class="ares-shell"><header class="ares-topbar">
     <a class="ares-brand" href="../index.html">ARES Football Market</a>
     <nav class="ares-nav" aria-label="Primary">
-      <a href="../index.html">Home</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a class="active" href="index.html">Players</a><a href="../clubs/index.html">Clubs</a><a href="../leagues/index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>
+      <a href="../index.html">Home</a><a href="../players/index.html">Players</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../clubs/index.html">Clubs</a><a href="../leagues/index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><span class="ares-brand-switch"><a href="../index.html">Global Football</a><a href="https://cog-tech.github.io/ares-gridiron-market/">Gridiron</a></span>
     </nav>
-  </header>
-  <main class="soccer-main">
-    <section class="ares-section profile-grid">
-      <div class="ares-card">
-        <span class="ares-player-avatar">MV</span>
-        <h1 id="player-name" class="mt-3">Player Name</h1>
-        <p><span id="position">Position</span> | <span id="club">Club</span> | <span id="league">League</span></p>
-        <p>Age <strong id="age"></strong> | Contract <strong id="contract-status"></strong></p>
-      </div>
-      <div class="metric-grid">
-        <div class="ares-stat-card"><span class="label">ARES Score</span><span id="ares-score" class="value"></span><span class="meta">On-field quality</span></div>
-        <div class="ares-stat-card"><span class="label">Market Score</span><span id="market-score" class="value"></span><span class="meta">Asset value</span></div>
-        <div class="ares-stat-card"><span class="label">Value Tier</span><span id="value-tier" class="value"></span><span class="meta">Placeholder tier</span></div>
-        <div class="ares-stat-card"><span class="label">Confidence</span><span id="confidence" class="value"></span><span class="meta">Data quality</span></div>
-      </div>
-    </section>
-    <section class="ares-section metric-grid">
-      <div class="ares-card"><h2>ARES Breakdown</h2><p>Performance <strong id="performance-score"></strong></p><p>Efficiency <strong id="efficiency-score"></strong></p><p>Role <strong id="role-score"></strong></p><p>Opponent Adjustment <strong id="opponent-score"></strong></p></div>
-      <div class="ares-card"><h2>Market Breakdown</h2><p>Age Upside <strong id="age-upside-score"></strong></p><p>Position Value <strong id="position-value-score"></strong></p><p>League Tier <strong id="league-tier-score"></strong></p><p>Market Signal <strong id="market-signal-score"></strong></p></div>
-      <div class="ares-card"><h2>Value History</h2><p>Chart placeholder for generated player value history.</p></div>
-      <div class="ares-card"><h2>Data Notes</h2><p>Generic initials are used instead of player photos or club logos.</p></div>
-    </section>
-  </main>
-  <footer class="ares-footer">Static player template.</footer>
-  <script src="../assets/plugins/global/plugins.bundle.js"></script>
+  </header><main class="soccer-main"><section class="ares-section profile-grid"><div class="ares-card"><div id="player-photo" class="ares-profile-photo" aria-label="ARES player avatar">AR</div><h1 id="player-name" class="mt-3">Player Name</h1><p><span id="position">Position</span> | <span id="club">Club</span> | <span id="league">League</span></p><p>Age <strong id="age"></strong> | Contract <strong id="contract-status"></strong></p><div class="ares-profile-meta"><span>Photo source: <strong id="photo-source"></strong></span><span>License: <strong id="photo-license"></strong></span><span>Credit: <strong id="photo-credit"></strong></span></div></div><div class="metric-grid"><div class="ares-stat-card"><span class="label">ARES Score</span><span id="ares-score" class="value"></span><span class="meta">Premium model preview</span></div><div class="ares-stat-card"><span class="label">Market Score</span><span id="market-score" class="value"></span><span class="meta">Premium asset preview</span></div><div class="ares-stat-card"><span class="label">Market Tier</span><span id="value-tier" class="value"></span><span class="meta">Demo tier</span></div><div class="ares-stat-card"><span class="label">Confidence</span><span id="confidence" class="value"></span><span class="meta">Data quality</span></div></div></section><section class="ares-section ares-card"><h2 class="h4">Public Tabs</h2><div class="ares-filter-bar"><a class="ares-filter-chip" href="#">Overview</a><a class="ares-filter-chip" href="#">Season Stats</a><a class="ares-filter-chip" href="#">Weekly Log</a><a class="ares-filter-chip" href="#">Snap Counts</a><a class="ares-filter-chip" href="#">Injury History</a><a class="ares-filter-chip" href="#">Depth Chart</a><a class="ares-filter-chip" href="#">Comparable Players</a><a class="ares-filter-chip" href="#">Market Notes</a></div></section><section class="ares-section ares-card"><h2 class="h4">Premium Tabs</h2><div class="ares-filter-bar"><a class="ares-filter-chip" href="#">ARES Components</a><a class="ares-filter-chip" href="#">Market Breakdown</a><a class="ares-filter-chip" href="#">Age Curve</a><a class="ares-filter-chip" href="#">Trade Value</a><a class="ares-filter-chip" href="#">Team Fit</a><a class="ares-filter-chip" href="#">Risk Score</a><a class="ares-filter-chip" href="#">Movement History</a></div></section><section class="ares-section ares-card"><h2 class="h4">Image Safety</h2><p>Player photos display only when a provider-supplied or properly licensed image URL exists in the player data. Otherwise ARES shows a branded avatar with initials, position, and club context.</p></section></main><footer class="ares-footer">Demo player profile.</footer><script src="../assets/plugins/global/plugins.bundle.js"></script>
   <script src="../assets/js/scripts.bundle.js"></script>
   <script src="../assets/js/ares-data-loader.js"></script>
+  <script src="../assets/js/ares-tables.js"></script>
   <script src="../assets/js/soccer-pages.js"></script>
-  <script>
-    AresSoccer.initProfile("../data/player_profile_sample.json",{"player-name":"player_name","position":"position","club":"club","league":"league","age":"age","contract-status":"contract_status","ares-score":"ares_score","market-score":"market_score","value-tier":"value_tier","confidence":"confidence","performance-score":"performance_score","efficiency-score":"efficiency_score","role-score":"role_score","opponent-score":"opponent_adjustment_score","age-upside-score":"age_upside_score","position-value-score":"position_value_score","league-tier-score":"league_tier_score","market-signal-score":"market_signal_score"});
-  </script>
-  <script src="../assets/js/ares-mega-nav.js?v=20260521-teamnav1"></script>
-</body>
-</html>
+  <script src="../assets/js/ares-mega-nav.js?v=20260521-footballdemo1"></script><script>AresSoccer.initProfile("../data/player_profile_sample.json",{"player-name":"player_name","position":"position","club":"club","league":"league","age":"age","contract-status":"contract_status","ares-score":"ares_score","market-score":"market_score","value-tier":"value_tier","confidence":"confidence"});</script></body></html>

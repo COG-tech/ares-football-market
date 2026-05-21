@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-05-21",
+  "real_player_data": "Not connected",
+  "real_club_data": "449 open club rows loaded from match data",
+  "real_league_data": "46 league rows including MLS, North America, and Asia expansion targets",
+  "transfer_data": "Demo mode only",
+  "match_data": "19080 open match rows loaded",
+  "ares_model": "Formula defined, not live",
+  "market_model": "Formula defined, not live",
+  "player_images_connected": "No",
+  "league_coverage_connected": "Metadata only for expanded leagues; API sync not connected",
+  "provider_options": "API-Football / Sportmonks / TheSportsDB / Wikimedia Commons",
+  "last_image_sync": "Not connected",
+  "last_league_sync": "2026-05-21",
+  "image_policy": "Only provider-supplied, licensed Commons, TheSportsDB, or ARES fallback images are allowed. Transfermarkt, Google Images, club sites, media agencies, and social media scraping are blocked."
+}

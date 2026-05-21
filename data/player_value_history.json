@@ -1,11 +1,11 @@
 [
   {
-    "player_id": "soc-placeholder-001",
-    "player_name": "Design Placeholder",
-    "date": "",
-    "ares_score": "",
-    "market_score": "",
-    "value_tier": "Placeholder",
-    "is_placeholder": true
+    "player_id": "demo-player-01",
+    "player_name": "Demo Attacking Midfielder",
+    "date": "2026-05-21",
+    "ares_score": "Premium",
+    "market_score": "Premium",
+    "value_tier": "Demo Mode",
+    "demo_mode": true
   }
 ]

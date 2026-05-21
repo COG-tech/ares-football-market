@@ -1,46 +1,20 @@
-﻿# ARES Football Market
+# ARES Football Market
 
-ARES Football Market is a static football market board for ARES performance scores, market asset scores, player search, clubs, leagues, transfers, and watchlist records.
+Professional demo build for the global football asset board.
 
-The current site is a placeholder-only build. It uses generic player and club names, initials/placeholders, and no scraped Transfermarkt, club logo, player photo, or protected commercial data.
+The site now uses demo-mode language instead of public old sample language, keeps the scoring framework visible, and exposes the product structure for player search, ARES rankings, market rankings, clubs, leagues, transfers, and watchlists. Live player, transfer, contract, and provider image feeds are not connected yet.
 
-## Preview Locally
+## Data safety
 
-From this folder:
+- Player images must come from provider-supplied API URLs, TheSportsDB artwork, properly licensed Wikimedia Commons files with attribution, or the ARES branded fallback avatar.
+- Do not scrape Transfermarkt, Google Images, club websites, media-agency previews, Getty/AP/Reuters/Imago, or social media.
+- Expanded league rows include MLS, USL, Liga MX, Japan, Korea, Saudi Arabia, China, Australia, India, Southeast Asia, and AFC competition coverage targets.
 
-```powershell
-python -m http.server 8001 -d site
-```
+## Current status
 
-Then open:
-
-```text
-http://127.0.0.1:8001/
-```
-
-## Static Publishing Rule
-
-Publish only:
-
-```text
-site/
-```
-
-Do not publish:
-
-```text
-data_raw/private/
-data_raw/restricted/
-D:\html
-raw Metronic source package files
-```
-
-## Data Pipeline
-
-Run:
-
-```powershell
-python src\run_pipeline.py
-```
-
-The pipeline keeps existing placeholder JSON if final CSV files are empty. Real soccer data ingestion has not been connected yet.
+- Open match rows: connected where local public CSV exports exist.
+- Open club rows: connected from the local match dataset.
+- Live player data: not connected.
+- Live transfer data: not connected.
+- ARES model output: formula defined, not live.
+- Market model output: formula defined, not live.

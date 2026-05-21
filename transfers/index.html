@@ -1,44 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Transfers | ARES Football Market</title>
+  <title>Transfer Movement Board | Football Transfers, Loans, Free Agents & Market Impact</title>
+  <meta name="description" content="Track permanent transfers, loans, free agents, academy promotions, contract signals, and market impact.">
+  <link rel="shortcut icon" href="../assets/media/brand/ares-logo.png">
   <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css">
   <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-theme.css?v=20260520-logo2" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-components.css?v=20260520-logo1" rel="stylesheet" type="text/css">
-  <style>.soccer-main{width:min(100%,1280px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)}.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}.tabs span{padding:.45rem .7rem;border:1px solid var(--ares-border);border-radius:999px;background:#fff;font-weight:800;color:var(--ares-muted)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}</style>
-</head>
-<body class="ares-shell">
-  <header class="ares-topbar">
+  <link href="../assets/css/ares-theme.css?v=20260521-football-demo" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-components.css?v=20260521-football-demo" rel="stylesheet" type="text/css"><style>.soccer-main{width:min(100%,1440px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}.table-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.table-grid .wide{grid-column:1/-1}@media(max-width:1000px){.table-grid{grid-template-columns:1fr}}</style></head><body class="ares-shell"><header class="ares-topbar">
     <a class="ares-brand" href="../index.html">ARES Football Market</a>
     <nav class="ares-nav" aria-label="Primary">
-      <a href="../index.html">Home</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../players/index.html">Players</a><a href="../clubs/index.html">Clubs</a><a href="../leagues/index.html">Leagues</a><a class="active" href="index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>
+      <a href="../index.html">Home</a><a href="../players/index.html">Players</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../clubs/index.html">Clubs</a><a href="../leagues/index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><span class="ares-brand-switch"><a href="../index.html">Global Football</a><a href="https://cog-tech.github.io/ares-gridiron-market/">Gridiron</a></span>
     </nav>
-  </header>
-  <main class="soccer-main">
-    <div class="ares-page-title"><h1>Transfer Board</h1><p>Tracking permanent transfers, loans, free agents, and youth academy movement.</p></div>
-    <section class="ares-section ares-card">
-      <div class="tabs"><span>Permanent transfer</span><span>Loan</span><span>Free agent</span><span>Youth academy</span><span>Contract signal</span></div>
-      <input id="transfers-search" class="ares-search mb-3" type="search" placeholder="Search player, club, or transfer type...">
-      <div class="table-responsive">
-        <table id="transfers-table" class="ares-table" data-count-id="transfers-count">
-          <thead><tr><th><button data-sort="date">Date</button></th><th>Player</th><th>Position</th><th>From</th><th>To</th><th>Transfer Type</th><th>ARES Impact</th><th>Market Impact</th><th>Confidence</th></tr></thead>
-          <tbody id="transfers-body"><tr><td>2026-01-18</td><td>Milan Duarte</td><td>LB</td><td>Portside Academy</td><td>Portside Rovers</td><td>Youth academy promotion</td><td>+2.1</td><td>+8.4</td><td>Low</td></tr></tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-  <footer class="ares-footer">Placeholder transfer data only.</footer>
-  <script src="../assets/plugins/global/plugins.bundle.js"></script>
+  </header><main class="soccer-main"><div class="ares-page-title"><h1>Transfer Movement Board</h1><p>Track player movement across permanent transfers, loans, free agents, academy promotions, contract signals, and market impact.</p></div><div class="ares-filter-bar"><a class="ares-filter-chip" href="?type=Permanent">Permanent</a><a class="ares-filter-chip" href="?type=Loan">Loan</a><a class="ares-filter-chip" href="?type=Free agent">Free agent</a><a class="ares-filter-chip" href="?type=Academy">Academy</a><a class="ares-filter-chip" href="?type=Contract ending">Contract ending</a><a class="ares-filter-chip" href="?type=Market riser">Market riser</a><a class="ares-filter-chip" href="?type=Market faller">Market faller</a><a class="ares-filter-chip" href="?type=High confidence">High confidence</a></div><section class="ares-section ares-card"><input id="transfers-search" class="ares-search mb-3" type="search" placeholder="Search player, club, movement type, or confidence..."><div class="table-responsive"><table id="transfers-table" class="ares-table" data-count-id="transfers-count"><thead><tr><th>Date</th><th>Player</th><th>Age</th><th>Pos</th><th>From</th><th>To</th><th>Type</th><th>ARES Impact</th><th>Market Impact</th><th>Confidence</th></tr></thead><tbody id="transfers-body"><tr><td colspan="10">Demo movement rows load from the transfer data file.</td></tr></tbody></table></div></section><section class="ares-section ares-card"><h2 class="h4">Impact Definitions</h2><p><strong>ARES Impact</strong> means how the move changes projected on-field role and quality. <strong>Market Impact</strong> means how the move changes asset value through age, league, club, role, and demand.</p></section></main><footer class="ares-footer">Demo transfer movement board.</footer><script src="../assets/plugins/global/plugins.bundle.js"></script>
   <script src="../assets/js/scripts.bundle.js"></script>
   <script src="../assets/js/ares-data-loader.js"></script>
   <script src="../assets/js/ares-tables.js"></script>
   <script src="../assets/js/soccer-pages.js"></script>
-  <script>
-    AresSoccer.initTable({dataPath:"../data/transfers.json",tableId:"transfers-table",bodyId:"transfers-body",searchId:"transfers-search",columns:[{key:"date"},{key:"player_name",render:"playerLink",pathPrefix:"../"},{key:"position"},{key:"from",render:function(value,row){return AresTables.renderLink(value,row.from_url,"clubs/club-template.html","../");}},{key:"to",render:function(value,row){return AresTables.renderLink(value,row.to_url,"clubs/club-template.html","../");}},{key:"transfer_type"},{key:"ares_impact",render:"score"},{key:"market_impact",render:"market"},{key:"confidence",render:"confidence"}]});
-  </script>
-  <script src="../assets/js/ares-mega-nav.js?v=20260521-teamnav1"></script>
-</body>
-</html>
+  <script src="../assets/js/ares-mega-nav.js?v=20260521-footballdemo1"></script><script>AresSoccer.initTable({dataPath:"../data/transfers.json",tableId:"transfers-table",bodyId:"transfers-body",searchId:"transfers-search",columns:[{key:"date"},{key:"player_name",render:"playerLink",pathPrefix:"../"},{key:"age"},{key:"position"},{key:"from",render:function(value,row){return AresTables.renderLink(value,row.from_url,"clubs/club-template.html","../");}},{key:"to",render:function(value,row){return AresTables.renderLink(value,row.to_url,"clubs/club-template.html","../");}},{key:"transfer_type"},{key:"ares_impact",render:"score"},{key:"market_impact",render:"market"},{key:"confidence",render:"confidence"}]});</script></body></html>

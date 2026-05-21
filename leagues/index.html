@@ -1,43 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Leagues | ARES Football Market</title>
+  <title>League Market Rankings | Football League Strength, Player Value & Squad Quality</title>
+  <meta name="description" content="Compare football leagues by player quality, market value, age curve, transfer movement, and data confidence.">
+  <link rel="shortcut icon" href="../assets/media/brand/ares-logo.png">
   <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css">
   <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-theme.css?v=20260520-logo2" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-components.css?v=20260520-logo1" rel="stylesheet" type="text/css">
-  <style>.soccer-main{width:min(100%,1280px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}</style>
-</head>
-<body class="ares-shell">
-  <header class="ares-topbar">
+  <link href="../assets/css/ares-theme.css?v=20260521-football-demo" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-components.css?v=20260521-football-demo" rel="stylesheet" type="text/css"><style>.soccer-main{width:min(100%,1440px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}.table-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.table-grid .wide{grid-column:1/-1}@media(max-width:1000px){.table-grid{grid-template-columns:1fr}}</style></head><body class="ares-shell"><header class="ares-topbar">
     <a class="ares-brand" href="../index.html">ARES Football Market</a>
     <nav class="ares-nav" aria-label="Primary">
-      <a href="../index.html">Home</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../players/index.html">Players</a><a href="../clubs/index.html">Clubs</a><a class="active" href="index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>
+      <a href="../index.html">Home</a><a href="../players/index.html">Players</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../clubs/index.html">Clubs</a><a href="../leagues/index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><span class="ares-brand-switch"><a href="../index.html">Global Football</a><a href="https://cog-tech.github.io/ares-gridiron-market/">Gridiron</a></span>
     </nav>
-  </header>
-  <main class="soccer-main">
-    <div class="ares-page-title"><h1>Leagues</h1><p>League market strength, tracked player volume, and ranking readiness.</p></div>
-    <section class="ares-section ares-card">
-      <input id="leagues-search" class="ares-search mb-3" type="search" placeholder="Search league...">
-      <div class="table-responsive">
-        <table id="leagues-table" class="ares-table" data-count-id="leagues-count">
-          <thead><tr><th><button data-sort="league_name">League</button></th><th>Level</th><th>Status</th><th>Clubs</th><th>Players Tracked</th><th>Average ARES</th><th>Average Market</th><th>Top Player</th><th>Profile</th></tr></thead>
-          <tbody id="leagues-body"><tr><td>Atlantic Premier</td><td>Top tier</td><td>Ranked</td><td>18</td><td>426</td><td>72.4</td><td>70.8</td><td>Mateo Vale</td><td><a href="league-template.html">Open</a></td></tr></tbody>
-        </table>
+  </header><main class="soccer-main"><div class="ares-page-title"><h1>Leagues</h1><p>Compare football leagues by player quality, market value, age curve, transfer movement, and data confidence.</p></div><section class="ares-section ares-card"><div class="ares-filter-bar"><a class="ares-filter-chip" href="?region=Global">Global</a><a class="ares-filter-chip" href="?region=Europe">Europe</a><a class="ares-filter-chip" href="?region=Asia">Asia</a><a class="ares-filter-chip" href="?region=North America">North America</a><a class="ares-filter-chip" href="?region=South America">South America</a><a class="ares-filter-chip" href="?region=Africa">Africa</a><a class="ares-filter-chip" href="?region=Oceania">Oceania</a><a class="ares-filter-chip" href="mls.html">MLS Board</a><a class="ares-filter-chip" href="asia.html">Asia Board</a><a class="ares-filter-chip" href="north-america.html">North America</a></div><input id="leagues-search" class="ares-search mb-3" type="search" placeholder="Search league, country, region, tier, or provider..."><div class="table-responsive"><table id="leagues-table" class="ares-table" data-count-id="leagues-count"><thead><tr><th>League</th><th>Country</th><th>Region</th><th>Tier</th><th>Clubs</th><th>Players Tracked</th><th>Avg ARES</th><th>Avg Market</th><th>U23 Share</th><th>Data Confidence</th><th>Last Updated</th></tr></thead><tbody id="leagues-body"><tr><td colspan="11">League rows load from the expanded public league dataset.</td></tr></tbody></table></div></section><section class="ares-section ares-card">
+      <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h4 mb-0">ARES Data Status</h2><span class="ares-muted-note">Last updated: May 21, 2026</span></div>
+      <div class="ares-status-grid">
+        <div class="ares-status-item"><strong>Real player data</strong><span>Not connected</span></div>
+        <div class="ares-status-item"><strong>Real club data</strong><span>Open club rows loaded from match data</span></div>
+        <div class="ares-status-item"><strong>Real league data</strong><span>Open European match rows plus MLS, North America, and Asia coverage targets</span></div>
+        <div class="ares-status-item"><strong>Transfer data</strong><span>Demo mode only</span></div>
+        <div class="ares-status-item"><strong>Match data</strong><span>Open match rows connected where local files exist</span></div>
+        <div class="ares-status-item"><strong>Player images</strong><span>Fallback avatars active; provider image sync not connected</span></div>
+        <div class="ares-status-item"><strong>ARES model</strong><span>Formula defined, not live</span></div>
+        <div class="ares-status-item"><strong>Market model</strong><span>Formula defined, not live</span></div>
+        <div class="ares-status-item"><strong>Image policy</strong><span>Provider-supplied, licensed Commons, TheSportsDB, or ARES fallback only</span></div>
       </div>
-    </section>
-  </main>
-  <footer class="ares-footer">League records are placeholders.</footer>
-  <script src="../assets/plugins/global/plugins.bundle.js"></script>
+    </section></main><footer class="ares-footer">Global league board.</footer><script src="../assets/plugins/global/plugins.bundle.js"></script>
   <script src="../assets/js/scripts.bundle.js"></script>
   <script src="../assets/js/ares-data-loader.js"></script>
   <script src="../assets/js/ares-tables.js"></script>
   <script src="../assets/js/soccer-pages.js"></script>
-  <script>
-    AresSoccer.initTable({dataPath:"../data/leagues.json",tableId:"leagues-table",bodyId:"leagues-body",searchId:"leagues-search",columns:[{key:"league_name",render:"leagueLink",pathPrefix:"../"},{key:"league_level"},{key:"ranked_or_tracked"},{key:"clubs"},{key:"players_tracked"},{key:"average_ares_score",render:"score"},{key:"average_market_score",render:"market"},{key:"top_player",render:function(value){return AresTables.renderLink(value,"../players/player-template.html");}},{key:"league_id",render:function(){return '<a href="league-template.html">Open</a>';}}]});
-  </script>
-  <script src="../assets/js/ares-mega-nav.js?v=20260521-teamnav1"></script>
-</body>
-</html>
+  <script src="../assets/js/ares-mega-nav.js?v=20260521-footballdemo1"></script><script>AresSoccer.initTable({dataPath:"../data/leagues.json",tableId:"leagues-table",bodyId:"leagues-body",searchId:"leagues-search",columns:[{key:"league_name",render:"leagueLink",pathPrefix:"../"},{key:"country"},{key:"region"},{key:"tier"},{key:"clubs"},{key:"players_tracked"},{key:"average_ares_score",render:"score"},{key:"average_market_score",render:"market"},{key:"u23_share"},{key:"data_confidence",render:"confidence"},{key:"last_updated"}]});</script></body></html>

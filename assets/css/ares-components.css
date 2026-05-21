@@ -302,3 +302,21 @@ input.ares-search:focus {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+.ares-brand-switch{display:inline-flex;align-items:center;gap:.35rem;color:rgba(255,255,255,.86);font-weight:850}
+.ares-brand-switch a{border-color:rgba(247,201,72,.4)}
+.ares-status-grid,.ares-market-grid,.ares-filter-bar,.ares-module-grid{display:grid;gap:.75rem}
+.ares-status-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ares-market-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ares-module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ares-filter-bar{grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));margin-bottom:1rem}
+.ares-filter-chip,.ares-status-item,.ares-board-link{display:flex;min-width:0;align-items:center;justify-content:space-between;gap:.65rem;padding:.72rem .85rem;color:var(--ares-text);background:#fff;border:1px solid var(--ares-border);border-radius:8px;text-decoration:none}
+.ares-filter-chip,.ares-board-link{font-weight:850}.ares-filter-chip:hover,.ares-board-link:hover{color:var(--ares-navy);border-color:rgba(247,201,72,.8);text-decoration:none}
+.ares-status-item{align-items:flex-start;flex-direction:column}.ares-status-item strong,.ares-board-link strong{color:var(--ares-text);font-size:.95rem;line-height:1.2}.ares-status-item span,.ares-board-link span{color:var(--ares-muted);font-size:.82rem;line-height:1.35}
+.ares-demo-banner{padding:.9rem 1rem;color:var(--ares-text);background:rgba(247,201,72,.18);border:1px solid rgba(247,201,72,.7);border-radius:8px;font-weight:750}
+.ares-player-identity{display:inline-flex;align-items:center;gap:.55rem;min-width:10rem;color:var(--ares-navy);font-weight:850;text-decoration:none}.ares-player-identity:hover{color:#6A4A00;text-decoration:none}
+.ares-player-photo,.ares-profile-photo{display:inline-flex;align-items:center;justify-content:center;overflow:hidden;color:var(--ares-navy);background:rgba(27,43,69,.08);border:1px solid rgba(27,43,69,.14);border-radius:50%;font-weight:900}
+.ares-player-photo{width:2.5rem;height:2.5rem;flex:0 0 2.5rem;font-size:.78rem}.ares-profile-photo{width:7rem;height:7rem;font-size:1.4rem}
+.ares-player-photo img,.ares-profile-photo img{width:100%;height:100%;object-fit:cover}.ares-profile-meta{display:grid;gap:.35rem;margin-top:.9rem;color:var(--ares-muted);font-size:.88rem}
+@media(max-width:900px){.ares-status-grid,.ares-market-grid,.ares-module-grid{grid-template-columns:1fr}}
+

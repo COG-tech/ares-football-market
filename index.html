@@ -3,173 +3,82 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ARES Football Market</title>
-  <meta name="description" content="ARES Football Market ranks football players with ARES performance scores and market asset scores.">
+  <title>ARES Football Market | Player Market Value, ARES Scores, Club Rankings & Transfer Intelligence</title>
+  <meta name="description" content="ARES Football Market ranks football players, clubs, leagues, and transfer movement using ARES performance scores and market asset scores. Track player quality, market value, age curves, squad value, and transfer signals.">
   <link rel="shortcut icon" href="assets/media/brand/ares-logo.png">
   <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
   <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css">
   <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/ares-theme.css?v=20260520-logo2" rel="stylesheet" type="text/css">
-  <link href="assets/css/ares-components.css?v=20260520-logo1" rel="stylesheet" type="text/css">
-  <style>
-    .soccer-main{width:min(100%,1440px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)}
-    .hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(18rem,.55fr);gap:1rem;align-items:end}
-    .stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
-    .table-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-    .table-grid .wide{grid-column:1/-1}
-    .search-panel{position:relative;width:min(100%,44rem)}
-    .search-results{position:absolute;top:calc(100% + .35rem);left:0;right:0;z-index:30;display:none;overflow:hidden;background:var(--ares-white);border:1px solid var(--ares-border);border-radius:8px;box-shadow:var(--ares-shadow)}
-    .search-results.is-open{display:block}
-    .search-results a,.search-results div{display:block;padding:.75rem .9rem;color:var(--ares-text);border-bottom:1px solid rgba(201,207,216,.7);text-decoration:none}
-    .search-results small{display:block;color:var(--ares-muted);font-size:.75rem}
-    .hero-country-panel{display:grid;gap:.75rem}
-    .hero-country-panel h2{margin:0;color:#fff;font-size:1.05rem;font-weight:850}
-    .hero-country-panel .ares-country-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .hero-country-panel .ares-country-card{min-height:4rem;background:rgba(255,255,255,.94);box-shadow:none}
-    @media(max-width:1100px){.hero-grid,.table-grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:680px){.stat-grid,.hero-country-panel .ares-country-grid{grid-template-columns:1fr}}
-  </style>
+  <link href="assets/css/ares-theme.css?v=20260521-football-demo" rel="stylesheet" type="text/css">
+  <link href="assets/css/ares-components.css?v=20260521-football-demo" rel="stylesheet" type="text/css">
+  <style>.soccer-main{width:min(100%,1440px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}.table-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.table-grid .wide{grid-column:1/-1}@media(max-width:1000px){.table-grid{grid-template-columns:1fr}}.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(18rem,.65fr);gap:1rem;align-items:start}.hero-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem}.hero-actions a{display:inline-flex;align-items:center;min-height:2.75rem;padding:.65rem .9rem;border-radius:8px;border:1px solid rgba(247,201,72,.72);background:rgba(255,255,255,.1);color:#fff;font-weight:850;text-decoration:none}.search-panel{position:relative;width:min(100%,44rem);margin-top:1rem}.search-results{position:absolute;top:calc(100% + .35rem);left:0;right:0;z-index:30;display:none;overflow:hidden;background:var(--ares-white);border:1px solid var(--ares-border);border-radius:8px;box-shadow:var(--ares-shadow)}.search-results.is-open{display:block}.search-results a,.search-results div{display:block;padding:.75rem .9rem;color:var(--ares-text);border-bottom:1px solid rgba(201,207,216,.7);text-decoration:none}.search-results small{display:block;color:var(--ares-muted);font-size:.75rem}@media(max-width:1100px){.hero-grid{grid-template-columns:1fr}}</style>
 </head>
 <body class="ares-shell">
   <header class="ares-topbar">
     <a class="ares-brand" href="index.html">ARES Football Market</a>
     <nav class="ares-nav" aria-label="Primary">
-      <a class="active" href="index.html">Home</a>
-      <a href="rankings/ares.html">ARES Rankings</a>
-      <a href="rankings/market.html">Market Rankings</a>
-      <a href="players/index.html">Players</a>
-      <a href="clubs/index.html">Clubs</a>
-      <a href="leagues/index.html">Leagues</a>
-      <a href="transfers/index.html">Transfers</a>
-      <a href="watchlist/index.html">Watchlist</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>
+      <a href="index.html">Home</a><a href="players/index.html">Players</a><a href="rankings/ares.html">ARES Rankings</a><a href="rankings/market.html">Market Rankings</a><a href="clubs/index.html">Clubs</a><a href="leagues/index.html">Leagues</a><a href="transfers/index.html">Transfers</a><a href="watchlist/index.html">Watchlist</a><a href="methodology.html">Methodology</a><span class="ares-brand-switch"><a href="index.html">Global Football</a><a href="https://cog-tech.github.io/ares-gridiron-market/">Gridiron</a></span>
     </nav>
   </header>
-
   <main class="soccer-main">
     <section class="ares-hero hero-grid">
       <div>
-        <h1>The football market board with performance intelligence.</h1>
-        <p>Ranking football players with ARES performance scores and market asset scores.</p>
-        <div class="ares-section search-panel">
-          <div class="ares-search"><input id="soccer-search" type="search" placeholder="Search player, club, league, or position..."></div>
-          <div id="soccer-search-results" class="search-results"></div>
-        </div>
+        <h1>ARES Football Market</h1>
+        <p><strong>The football asset board.</strong></p>
+        <p>Track football players by on-field quality, market value, age curve, league strength, role security, transfer movement, and squad value.</p>
+        <p><strong>ARES Score measures performance. Market Score measures asset value.</strong></p>
+        <div class="hero-actions"><a href="rankings/ares.html">View ARES Rankings</a><a href="rankings/market.html">View Market Rankings</a><a href="methodology.html">How the Scores Work</a></div>
+        <div class="search-panel"><div class="ares-search"><input id="soccer-search" type="search" placeholder="Search player, club, league, country, or position..."></div><div id="soccer-search-results" class="search-results"></div></div>
       </div>
-      <div class="hero-country-panel" aria-label="Football country coverage">
-        <h2>Country coverage</h2>
-        <div id="home-country-flags" class="ares-country-grid">
-          <a class="ares-country-card" href="leagues/index.html?country=england"><span class="ares-media-badge ares-media-fallback">EN</span><strong>England</strong></a>
-          <a class="ares-country-card" href="leagues/index.html?country=spain"><span class="ares-media-badge ares-media-fallback">ES</span><strong>Spain</strong></a>
-          <a class="ares-country-card" href="leagues/index.html?country=germany"><span class="ares-media-badge ares-media-fallback">DE</span><strong>Germany</strong></a>
-          <a class="ares-country-card" href="leagues/index.html?country=usa"><span class="ares-media-badge ares-media-fallback">US</span><strong>USA</strong></a>
-        </div>
+      <div class="ares-card" style="background:rgba(255,255,255,.96)">
+        <h2 class="h4">Global Football | Gridiron</h2>
+        <p class="ares-muted-note"><strong>ARES Football Market</strong> covers global football player value, club strength, and transfer intelligence.</p>
+        <p class="ares-muted-note"><strong>ARES Gridiron Market</strong> covers American football player quality, roster value, and movement intelligence.</p>
+        <a class="ares-board-link" href="https://cog-tech.github.io/ares-gridiron-market/"><strong>Open Gridiron</strong><span>NFL, college, and high school boards</span></a>
       </div>
     </section>
-
     <section class="ares-section ares-card">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="h4 mb-0">World Football Markets</h2>
-        <span class="ares-muted-note">Real flag assets from the local template package.</span>
+      <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h4 mb-0">ARES Data Status</h2><span class="ares-muted-note">Last updated: May 21, 2026</span></div>
+      <div class="ares-status-grid">
+        <div class="ares-status-item"><strong>Real player data</strong><span>Not connected</span></div>
+        <div class="ares-status-item"><strong>Real club data</strong><span>Open club rows loaded from match data</span></div>
+        <div class="ares-status-item"><strong>Real league data</strong><span>Open European match rows plus MLS, North America, and Asia coverage targets</span></div>
+        <div class="ares-status-item"><strong>Transfer data</strong><span>Demo mode only</span></div>
+        <div class="ares-status-item"><strong>Match data</strong><span>Open match rows connected where local files exist</span></div>
+        <div class="ares-status-item"><strong>Player images</strong><span>Fallback avatars active; provider image sync not connected</span></div>
+        <div class="ares-status-item"><strong>ARES model</strong><span>Formula defined, not live</span></div>
+        <div class="ares-status-item"><strong>Market model</strong><span>Formula defined, not live</span></div>
+        <div class="ares-status-item"><strong>Image policy</strong><span>Provider-supplied, licensed Commons, TheSportsDB, or ARES fallback only</span></div>
       </div>
-      <div id="country-coverage-grid" class="ares-country-grid"></div>
     </section>
-
-    <section class="ares-section stat-grid" aria-label="Headline cards">
-      <div class="ares-stat-card"><span class="label">Top ARES Player</span><span class="value">Mateo Vale</span><span class="meta">Northbank FC | 91.4</span></div>
-      <div class="ares-stat-card"><span class="label">Top Market Asset</span><span class="value">Theo Park</span><span class="meta">Lakeside 1899 | 93.1</span></div>
-      <div class="ares-stat-card"><span class="label">Top Youth Asset</span><span class="value">Milan Duarte</span><span class="meta">Academy signal | 84.7</span></div>
-      <div class="ares-stat-card"><span class="label">Top Transfer Signal</span><span class="value">Ilan Cross</span><span class="meta">Youth academy promotion</span></div>
+    <section class="ares-section ares-card">
+      <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h4 mb-0">Market Product Map</h2><span class="ares-muted-note">Demo mode shows the structure before live soccer feeds are connected.</span></div>
+      <div class="ares-market-grid">
+        <a class="ares-board-link" href="rankings/market.html?tier=Blue%20Chip"><strong>Most Valuable Players</strong><span>Market asset board</span></a>
+        <a class="ares-board-link" href="clubs/index.html"><strong>Most Valuable Clubs</strong><span>Squad value board</span></a>
+        <a class="ares-board-link" href="rankings/market.html?trend=Up"><strong>Latest Market Value Changes</strong><span>Risers and fallers</span></a>
+        <a class="ares-board-link" href="watchlist/index.html?type=Youth"><strong>Youth Breakout Board</strong><span>Thin-data prospects</span></a>
+        <a class="ares-board-link" href="transfers/index.html?type=Free%20agent"><strong>Free Agents</strong><span>Movement watch</span></a>
+        <a class="ares-board-link" href="rankings/market.html?q=2026"><strong>Contracts Ending</strong><span>Contract signal</span></a>
+        <a class="ares-board-link" href="transfers/index.html?type=Loan"><strong>Loan Watch</strong><span>Role movement</span></a>
+        <a class="ares-board-link" href="leagues/index.html"><strong>League Market Strength</strong><span>Global league board</span></a>
+      </div>
     </section>
-
     <section class="ares-section table-grid">
-      <div class="ares-card">
-        <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h4 mb-0">Top ARES Rankings</h2><a href="rankings/ares.html">Open</a></div>
-        <div class="table-responsive">
-          <table id="home-ares-table" class="ares-table" data-count-id="home-ares-count">
-            <thead><tr><th><button data-sort="rank" data-type="number">Rank</button></th><th><button data-sort="player_name">Player</button></th><th>Club</th><th><button data-sort="ares_score" data-type="number">ARES</button></th><th>Trend</th></tr></thead>
-            <tbody id="home-ares-body"><tr><td>1</td><td>Mateo Vale</td><td>Northbank FC</td><td>91.4</td><td>Up</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-      <div class="ares-card">
-        <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h4 mb-0">Top Market Rankings</h2><a href="rankings/market.html">Open</a></div>
-        <div class="table-responsive">
-          <table id="home-market-table" class="ares-table" data-count-id="home-market-count">
-            <thead><tr><th><button data-sort="rank" data-type="number">Rank</button></th><th><button data-sort="player_name">Player</button></th><th>Club</th><th><button data-sort="market_score" data-type="number">Market</button></th><th>Tier</th></tr></thead>
-            <tbody id="home-market-body"><tr><td>1</td><td>Theo Park</td><td>Lakeside 1899</td><td>93.1</td><td>Blue Chip</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-      <div class="ares-card wide">
-        <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h4 mb-0">Latest Transfers</h2><a href="transfers/index.html">Open</a></div>
-        <div class="table-responsive">
-          <table id="home-transfer-table" class="ares-table" data-count-id="home-transfer-count">
-            <thead><tr><th>Date</th><th>Player</th><th>From</th><th>To</th><th>Type</th><th>Market Impact</th></tr></thead>
-            <tbody id="home-transfer-body"><tr><td>2026-01-18</td><td>Milan Duarte</td><td>Portside Academy</td><td>Portside Rovers</td><td>Youth academy promotion</td><td>+8.4</td></tr></tbody>
-          </table>
-        </div>
-      </div>
       <div class="ares-card wide">
         <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h4 mb-0">Open Match Results</h2><span id="home-match-count" class="ares-muted-note"></span></div>
-        <div class="table-responsive">
-          <table id="home-match-table" class="ares-table" data-count-id="home-match-count">
-            <thead><tr><th>Date</th><th>Country</th><th>League</th><th>Home</th><th>Away</th><th>FT</th></tr></thead>
-            <tbody id="home-match-body"><tr><td colspan="6">Loading open match rows.</td></tr></tbody>
-          </table>
-        </div>
+        <div class="table-responsive"><table id="home-match-table" class="ares-table" data-count-id="home-match-count"><thead><tr><th>Date</th><th>Country</th><th>League</th><th>Home</th><th>Away</th><th>FT</th></tr></thead><tbody id="home-match-body"><tr><td colspan="6">Open match rows load from the local public match dataset.</td></tr></tbody></table></div>
       </div>
     </section>
+    <section class="ares-section ares-card"><h2 class="h4">How ARES Works</h2><p>ARES Score measures on-field football quality. Market Score measures football asset value. Live player, photo, transfer, and contract feeds are not connected yet, so premium score outputs remain locked until the data pipeline is approved.</p><a href="methodology.html">Learn the difference</a></section>
   </main>
-
-  <footer class="ares-footer">ARES Football Market is an independent analytical database. <a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>.</footer>
+  <footer class="ares-footer">ARES Football Market is an independent analytical database. <a href="https://cog-tech.github.io/ares-gridiron-market/">Open ARES Gridiron Market</a>.</footer>
   <script src="assets/plugins/global/plugins.bundle.js"></script>
   <script src="assets/js/scripts.bundle.js"></script>
   <script src="assets/js/ares-data-loader.js"></script>
   <script src="assets/js/ares-tables.js"></script>
-  <script src="assets/js/ares-media.js"></script>
   <script src="assets/js/soccer-pages.js"></script>
-  <script>
-    (function(){
-      "use strict";
-      const countries = [
-        ["england", "England", "Premier League, Championship"],
-        ["spain", "Spain", "La Liga, Segunda"],
-        ["germany", "Germany", "Bundesliga"],
-        ["italy", "Italy", "Serie A, Serie B"],
-        ["france", "France", "Ligue 1, Ligue 2"],
-        ["usa", "USA", "MLS, USL"],
-        ["mexico", "Mexico", "Liga MX"],
-        ["brazil", "Brazil", "Serie A"],
-        ["argentina", "Argentina", "Primera"],
-        ["netherlands", "Netherlands", "Eredivisie"],
-        ["portugal", "Portugal", "Liga Portugal"]
-      ];
-      function safe(value) {
-        return String(value || "").replace(/[&<>"']/g, function(char) {
-          return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[char];
-        });
-      }
-      function countryCard(items, country) {
-        const media = window.AresMedia.mediaFor(items, "country", country[0], "flag");
-        return '<a class="ares-country-card" href="leagues/index.html?country=' + encodeURIComponent(country[0]) + '">' +
-          window.AresMedia.renderBadge(media, country[1]) +
-          '<span><strong>' + safe(country[1]) + '</strong><span>' + safe(country[2]) + '</span></span></a>';
-      }
-      window.AresMedia.loadRegistry("data/media_registry.json").then(function(items){
-        const fullGrid = document.getElementById("country-coverage-grid");
-        const heroGrid = document.getElementById("home-country-flags");
-        if (fullGrid) fullGrid.innerHTML = countries.map(function(country){ return countryCard(items, country); }).join("");
-        if (heroGrid) heroGrid.innerHTML = countries.slice(0, 4).map(function(country){ return countryCard(items, country); }).join("");
-      });
-    }());
-    AresSoccer.initSearch("soccer-search", "soccer-search-results", "data/player_search.json");
-    AresSoccer.initTable({dataPath:"data/ares_rankings.json",tableId:"home-ares-table",bodyId:"home-ares-body",columns:[{key:"rank"},{key:"player_name",render:"playerLink"},{key:"club",render:"clubLink"},{key:"ares_score",render:"score"},{key:"trend",render:"trend"}]});
-    AresSoccer.initTable({dataPath:"data/market_rankings.json",tableId:"home-market-table",bodyId:"home-market-body",columns:[{key:"rank"},{key:"player_name",render:"playerLink"},{key:"club",render:"clubLink"},{key:"market_score",render:"market"},{key:"market_tier",render:"tier"}]});
-    AresSoccer.initTable({dataPath:"data/transfers.json",tableId:"home-transfer-table",bodyId:"home-transfer-body",columns:[{key:"date"},{key:"player_name",render:"playerLink"},{key:"from",render:function(value,row){return AresTables.renderLink(value,row.from_url,"clubs/club-template.html");}},{key:"to",render:function(value,row){return AresTables.renderLink(value,row.to_url,"clubs/club-template.html");}},{key:"transfer_type"},{key:"market_impact",render:"market"}]});
-    AresSoccer.initTable({dataPath:"data/matches.json",tableId:"home-match-table",bodyId:"home-match-body",columns:[{key:"date"},{key:"country"},{key:"league_name"},{key:"home_team"},{key:"away_team"},{key:"full_time_result"}]});
-  </script>
-  <script src="assets/js/ares-mega-nav.js?v=20260521-teamnav1"></script>
+  <script src="assets/js/ares-mega-nav.js?v=20260521-footballdemo1"></script>
+  <script>AresSoccer.initSearch("soccer-search", "soccer-search-results", "data/player_search.json"); AresSoccer.initTable({dataPath:"data/matches.json",tableId:"home-match-table",bodyId:"home-match-body",columns:[{key:"date"},{key:"country"},{key:"league_name"},{key:"home_team"},{key:"away_team"},{key:"full_time_result"}]});</script>
 </body>
 </html>

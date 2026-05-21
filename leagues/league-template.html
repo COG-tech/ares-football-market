@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>League Template | ARES Football Market</title>
+  <title>League Profile | ARES Football Market</title>
+  <meta name="description" content="League market snapshot with clubs, player value, transfer movement, and data confidence.">
+  <link rel="shortcut icon" href="../assets/media/brand/ares-logo.png">
   <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
+  <link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css">
   <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-theme.css?v=20260520-logo2" rel="stylesheet" type="text/css">
-  <link href="../assets/css/ares-components.css?v=20260520-logo1" rel="stylesheet" type="text/css">
-  <style>.soccer-main{width:min(100%,1280px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}@media(max-width:900px){.metric-grid{grid-template-columns:1fr}}</style>
-</head>
-<body class="ares-shell">
-  <header class="ares-topbar">
+  <link href="../assets/css/ares-theme.css?v=20260521-football-demo" rel="stylesheet" type="text/css">
+  <link href="../assets/css/ares-components.css?v=20260521-football-demo" rel="stylesheet" type="text/css"><style>.soccer-main{width:min(100%,1440px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)} th button{border:0;background:transparent;padding:0;color:inherit;font:inherit;text-transform:inherit}.table-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.table-grid .wide{grid-column:1/-1}@media(max-width:1000px){.table-grid{grid-template-columns:1fr}}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}@media(max-width:900px){.metric-grid{grid-template-columns:1fr}}</style></head><body class="ares-shell"><header class="ares-topbar">
     <a class="ares-brand" href="../index.html">ARES Football Market</a>
     <nav class="ares-nav" aria-label="Primary">
-      <a href="../index.html">Home</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../players/index.html">Players</a><a href="../clubs/index.html">Clubs</a><a class="active" href="index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><a href="https://gridiron.aresmarket.com">Switch to ARES Gridiron Market</a>
+      <a href="../index.html">Home</a><a href="../players/index.html">Players</a><a href="../rankings/ares.html">ARES Rankings</a><a href="../rankings/market.html">Market Rankings</a><a href="../clubs/index.html">Clubs</a><a href="../leagues/index.html">Leagues</a><a href="../transfers/index.html">Transfers</a><a href="../watchlist/index.html">Watchlist</a><a href="../methodology.html">Methodology</a><span class="ares-brand-switch"><a href="../index.html">Global Football</a><a href="https://cog-tech.github.io/ares-gridiron-market/">Gridiron</a></span>
     </nav>
-  </header>
-  <main class="soccer-main">
-    <div class="ares-page-title"><h1 id="league-name">League Name</h1><p><span id="league-level"></span> | <span id="ranked-status"></span></p></div>
-    <section class="ares-section metric-grid">
-      <div class="ares-stat-card"><span class="label">Clubs</span><span id="clubs" class="value"></span><span class="meta">League count</span></div>
-      <div class="ares-stat-card"><span class="label">Players Tracked</span><span id="players-tracked" class="value"></span><span class="meta">Database coverage</span></div>
-      <div class="ares-stat-card"><span class="label">Average ARES</span><span id="avg-ares" class="value"></span><span class="meta">Quality signal</span></div>
-      <div class="ares-stat-card"><span class="label">Average Market</span><span id="avg-market" class="value"></span><span class="meta">Asset signal</span></div>
-    </section>
-    <section class="ares-section ares-card"><h2>League Summary</h2><p>Top Player: <strong id="top-player"></strong></p><p>Total Squad Value Score: <strong id="league-value"></strong></p></section>
-  </main>
-  <footer class="ares-footer">Static league template.</footer>
-  <script src="../assets/plugins/global/plugins.bundle.js"></script>
+  </header><main class="soccer-main"><div class="ares-page-title"><h1 id="league-name">League Name</h1><p>Country: <span id="league-country"></span> | Tier: <span id="league-tier"></span> | Data Confidence: <span id="data-confidence"></span> | Last Updated: <span id="last-updated"></span></p></div><section class="ares-section metric-grid"><div class="ares-stat-card"><span class="label">Clubs</span><span id="clubs" class="value"></span><span class="meta">League count</span></div><div class="ares-stat-card"><span class="label">Players Tracked</span><span id="players-tracked" class="value"></span><span class="meta">Database coverage</span></div><div class="ares-stat-card"><span class="label">Average ARES</span><span id="avg-ares" class="value"></span><span class="meta">Quality signal</span></div><div class="ares-stat-card"><span class="label">Average Market</span><span id="avg-market" class="value"></span><span class="meta">Asset signal</span></div></section><section class="ares-section ares-card"><h2 class="h4">League Market Snapshot</h2><div class="ares-status-grid"><div class="ares-status-item"><strong>Total Squad Market Score</strong><span id="league-value"></span></div><div class="ares-status-item"><strong>Average Player Age</strong><span id="avg-age"></span></div><div class="ares-status-item"><strong>U23 Players Tracked</strong><span id="u23-share"></span></div><div class="ares-status-item"><strong>Top Club by Market</strong><span id="top-club"></span></div><div class="ares-status-item"><strong>Top Player by ARES</strong><span id="top-player"></span></div><div class="ares-status-item"><strong>Biggest Riser</strong><span id="biggest-riser"></span></div></div></section><section class="ares-section ares-card"><h2 class="h4">Clubs</h2><p>Club ranking table loads on the main Clubs page once a specific league filter is selected.</p><a href="../clubs/index.html">Open Club Market Board</a></section><section class="ares-section ares-card"><h2 class="h4">Transfer Movement</h2><p>Live transfer movement is not connected yet. Demo rows are shown on the Transfer Movement Board.</p><a href="../transfers/index.html">Open Transfers</a></section><section class="ares-section ares-card"><h2 class="h4">League Notes</h2><ul><li>Live player, transfer, and market feeds are not connected yet.</li><li>Open match coverage exists for selected European leagues.</li><li>MLS, North America, and Asia rows are coverage targets until provider sync is enabled.</li></ul></section></main><footer class="ares-footer">Demo league profile. Live club, player, transfer, and match data will appear once the football pipeline is connected.</footer><script src="../assets/plugins/global/plugins.bundle.js"></script>
   <script src="../assets/js/scripts.bundle.js"></script>
   <script src="../assets/js/ares-data-loader.js"></script>
+  <script src="../assets/js/ares-tables.js"></script>
   <script src="../assets/js/soccer-pages.js"></script>
-  <script>
-    AresSoccer.initProfile("../data/league_profile_sample.json",{"league-name":"league_name","league-level":"league_level","ranked-status":"ranked_or_tracked","clubs":"clubs","players-tracked":"players_tracked","avg-ares":"average_ares_score","avg-market":"average_market_score","top-player":"top_player","league-value":"total_squad_value_score"});
-  </script>
-  <script src="../assets/js/ares-mega-nav.js?v=20260521-teamnav1"></script>
-</body>
-</html>
+  <script src="../assets/js/ares-mega-nav.js?v=20260521-footballdemo1"></script><script>AresSoccer.initProfile("../data/league_profile_sample.json",{"league-name":"league_name","league-country":"country","league-tier":"tier","data-confidence":"data_confidence","last-updated":"last_updated","clubs":"clubs","players-tracked":"players_tracked","avg-ares":"average_ares_score","avg-market":"average_market_score","league-value":"total_squad_value_score","avg-age":"average_age","u23-share":"u23_share","top-club":"top_club_by_market","top-player":"top_player","biggest-riser":"biggest_riser"});</script></body></html>
