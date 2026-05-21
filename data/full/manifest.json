@@ -1,0 +1,142 @@
+{
+  "source": "ARES Football public export from local final CSV outputs",
+  "premium_locked": true,
+  "premium_note": "ARES, market, and internal model columns are excluded from this public full-data export.",
+  "tables": [
+    {
+      "source_csv": "matches.csv",
+      "path": "full/matches/part-0000.json",
+      "rows": 19080,
+      "columns": [
+        "match_id",
+        "source_season",
+        "country",
+        "league_code",
+        "league_name",
+        "date",
+        "home_team",
+        "away_team",
+        "full_time_home_goals",
+        "full_time_away_goals",
+        "full_time_result",
+        "half_time_home_goals",
+        "half_time_away_goals",
+        "half_time_result",
+        "source_url",
+        "source_confidence",
+        "is_placeholder"
+      ]
+    },
+    {
+      "source_csv": "clubs.csv",
+      "path": "full/clubs/part-0000.json",
+      "rows": 449,
+      "columns": [
+        "club_id",
+        "club_name",
+        "league",
+        "country",
+        "squad_size",
+        "average_age",
+        "top_young_asset",
+        "is_placeholder"
+      ]
+    },
+    {
+      "source_csv": "leagues.csv",
+      "path": "full/leagues/part-0000.json",
+      "rows": 17,
+      "columns": [
+        "league_id",
+        "league_name",
+        "league_level",
+        "ranked_or_tracked",
+        "clubs",
+        "players_tracked",
+        "average_age",
+        "top_player",
+        "is_placeholder"
+      ]
+    },
+    {
+      "source_csv": "players.csv",
+      "path": "full/players/part-0000.json",
+      "rows": 0,
+      "columns": [
+        "player_id",
+        "player_name",
+        "position",
+        "club_id",
+        "club",
+        "league",
+        "country",
+        "age",
+        "height",
+        "weight",
+        "contract_status",
+        "source",
+        "source_player_id",
+        "source_confidence",
+        "is_placeholder"
+      ]
+    },
+    {
+      "source_csv": "transfers.csv",
+      "path": "full/transfers/part-0000.json",
+      "rows": 0,
+      "columns": [
+        "date",
+        "player_id",
+        "player_name",
+        "position",
+        "from",
+        "to",
+        "transfer_type",
+        "confidence",
+        "is_placeholder"
+      ]
+    },
+    {
+      "source_csv": "watchlist.csv",
+      "path": "full/watchlist/part-0000.json",
+      "rows": 0,
+      "columns": [
+        "player_id",
+        "player_name",
+        "position",
+        "level",
+        "club",
+        "tracking_reason",
+        "status",
+        "last_movement",
+        "confidence",
+        "is_placeholder"
+      ]
+    },
+    {
+      "source_csv": "data_sources.csv",
+      "path": "full/data_sources/part-0000.json",
+      "rows": 1,
+      "columns": [
+        "source_name",
+        "source_type",
+        "source_url",
+        "access_type",
+        "license_notes",
+        "used_for",
+        "last_checked"
+      ]
+    },
+    {
+      "source_csv": "data_quality_report.csv",
+      "path": "full/data_quality_report/part-0000.json",
+      "rows": 0,
+      "columns": [
+        "check_name",
+        "status",
+        "details",
+        "created_at"
+      ]
+    }
+  ]
+}

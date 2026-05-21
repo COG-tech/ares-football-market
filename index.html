@@ -111,6 +111,15 @@
           </table>
         </div>
       </div>
+      <div class="ares-card wide">
+        <div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h4 mb-0">Open Match Results</h2><span id="home-match-count" class="ares-muted-note"></span></div>
+        <div class="table-responsive">
+          <table id="home-match-table" class="ares-table" data-count-id="home-match-count">
+            <thead><tr><th>Date</th><th>Country</th><th>League</th><th>Home</th><th>Away</th><th>FT</th></tr></thead>
+            <tbody id="home-match-body"><tr><td colspan="6">Loading open match rows.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -159,6 +168,7 @@
     AresSoccer.initTable({dataPath:"data/ares_rankings.json",tableId:"home-ares-table",bodyId:"home-ares-body",columns:[{key:"rank"},{key:"player_name",render:"playerLink"},{key:"club",render:"clubLink"},{key:"ares_score",render:"score"},{key:"trend",render:"trend"}]});
     AresSoccer.initTable({dataPath:"data/market_rankings.json",tableId:"home-market-table",bodyId:"home-market-body",columns:[{key:"rank"},{key:"player_name",render:"playerLink"},{key:"club",render:"clubLink"},{key:"market_score",render:"market"},{key:"market_tier",render:"tier"}]});
     AresSoccer.initTable({dataPath:"data/transfers.json",tableId:"home-transfer-table",bodyId:"home-transfer-body",columns:[{key:"date"},{key:"player_name",render:"playerLink"},{key:"from",render:function(value,row){return AresTables.renderLink(value,row.from_url,"clubs/club-template.html");}},{key:"to",render:function(value,row){return AresTables.renderLink(value,row.to_url,"clubs/club-template.html");}},{key:"transfer_type"},{key:"market_impact",render:"market"}]});
+    AresSoccer.initTable({dataPath:"data/matches.json",tableId:"home-match-table",bodyId:"home-match-body",columns:[{key:"date"},{key:"country"},{key:"league_name"},{key:"home_team"},{key:"away_team"},{key:"full_time_result"}]});
   </script>
 </body>
 </html>

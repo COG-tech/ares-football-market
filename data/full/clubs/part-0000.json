@@ -1,0 +1,4492 @@
+[
+  {
+    "club_id": "club_1deef55bc8e2",
+    "club_name": "Anderlecht",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_37324342c443",
+    "club_name": "Antwerp",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_39dbe5fe3b98",
+    "club_name": "Beerschot VA",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_604d760aa0a9",
+    "club_name": "Cercle Brugge",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_292ee554c708",
+    "club_name": "Charleroi",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_10f176c78cba",
+    "club_name": "Club Brugge",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_308e8349c7b3",
+    "club_name": "Dender",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_de0adb76c5d4",
+    "club_name": "Eupen",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_62e27007cde3",
+    "club_name": "Genk",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2349372efc2e",
+    "club_name": "Gent",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_40c0e15341bd",
+    "club_name": "Kortrijk",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2ecb469ae958",
+    "club_name": "Mechelen",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_956f79bb2fd8",
+    "club_name": "Oud-Heverlee Leuven",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2f0412a3b888",
+    "club_name": "RAAL La Louviere",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_9b6118d22851",
+    "club_name": "RWD Molenbeek",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3216ef384919",
+    "club_name": "St Truiden",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_10c6fefd3e9b",
+    "club_name": "St. Gilloise",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_519477cc69c7",
+    "club_name": "Standard",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0589e9825ccf",
+    "club_name": "Waregem",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8f923d1f579f",
+    "club_name": "Westerlo",
+    "league": "Jupiler League",
+    "country": "Belgium",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_eeb27d0665a5",
+    "club_name": "Birmingham",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_13a1802840d2",
+    "club_name": "Blackburn",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a7885d61a728",
+    "club_name": "Bristol City",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2d0858cdf099",
+    "club_name": "Burnley",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b97fa97ed76c",
+    "club_name": "Cardiff",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0ae639ff9a30",
+    "club_name": "Charlton",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_82a8951d311a",
+    "club_name": "Coventry",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_083a483adbf7",
+    "club_name": "Derby",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8daf13dc81aa",
+    "club_name": "Huddersfield",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3441117b68b7",
+    "club_name": "Hull",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c7f419afec0d",
+    "club_name": "Ipswich",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0a2070cc992d",
+    "club_name": "Leeds",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b184307bb1f9",
+    "club_name": "Leicester",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fc1bcf8f29c4",
+    "club_name": "Luton",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_52f054441c84",
+    "club_name": "Middlesbrough",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7639217ca314",
+    "club_name": "Millwall",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fbbfea53cc0f",
+    "club_name": "Norwich",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_521d0cf2f60f",
+    "club_name": "Oxford",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_45f39a4e9fb5",
+    "club_name": "Plymouth",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_93d524880158",
+    "club_name": "Portsmouth",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_19fb50418c43",
+    "club_name": "Preston",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_caa3335d9043",
+    "club_name": "QPR",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6c3d7106beec",
+    "club_name": "Rotherham",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_d22973aec8bf",
+    "club_name": "Sheffield United",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2991ad4b55d0",
+    "club_name": "Sheffield Weds",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_68008f394f22",
+    "club_name": "Southampton",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6c2693da4c6a",
+    "club_name": "Stoke",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c1cd92e36374",
+    "club_name": "Sunderland",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6356932a06e3",
+    "club_name": "Swansea",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a83f9eef8645",
+    "club_name": "Watford",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6d6535419138",
+    "club_name": "West Brom",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_9057a15d1700",
+    "club_name": "Wrexham",
+    "league": "Championship",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_eba234109e67",
+    "club_name": "AFC Wimbledon",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ae29f4c48d49",
+    "club_name": "Barnsley",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_4beb707f1e75",
+    "club_name": "Birmingham",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_cefd0075f2f9",
+    "club_name": "Blackpool",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_639871fc62ca",
+    "club_name": "Bolton",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7cb9fdc17a8d",
+    "club_name": "Bradford",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_80401769cae7",
+    "club_name": "Bristol Rvs",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3fd7a1f5c48e",
+    "club_name": "Burton",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7fa10573acc2",
+    "club_name": "Cambridge",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1d9aa1e979fb",
+    "club_name": "Cardiff",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6be2fb42b4a0",
+    "club_name": "Carlisle",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_80e601783fd9",
+    "club_name": "Charlton",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b1a56faa18c6",
+    "club_name": "Cheltenham",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ad8310f44294",
+    "club_name": "Crawley Town",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3b55d7cc7943",
+    "club_name": "Derby",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3a06f18aca18",
+    "club_name": "Doncaster",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f7a8aff2ade0",
+    "club_name": "Exeter",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_d0414cfd9f26",
+    "club_name": "Fleetwood Town",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2a8d16d2995a",
+    "club_name": "Huddersfield",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b7b9e459835b",
+    "club_name": "Leyton Orient",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_4063e6aab502",
+    "club_name": "Lincoln",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e590952d161a",
+    "club_name": "Luton",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a34e71bffb69",
+    "club_name": "Mansfield",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5f22edbf485c",
+    "club_name": "Northampton",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e3d0d8ed7006",
+    "club_name": "Oxford",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_9df6965691d1",
+    "club_name": "Peterboro",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_62afbd18ad60",
+    "club_name": "Plymouth",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_626e57370564",
+    "club_name": "Port Vale",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_96ebb5dde14b",
+    "club_name": "Portsmouth",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c530cf10f370",
+    "club_name": "Reading",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_029d250e9678",
+    "club_name": "Rotherham",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f8f851beccc9",
+    "club_name": "Shrewsbury",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_60021b5b0b3b",
+    "club_name": "Stevenage",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e1e4ece26fab",
+    "club_name": "Stockport",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7880a6e58315",
+    "club_name": "Wigan",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_59e579ff1e42",
+    "club_name": "Wrexham",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6ad27187b6f5",
+    "club_name": "Wycombe",
+    "league": "League One",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6ea62c680963",
+    "club_name": "AFC Wimbledon",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3d539b979cb0",
+    "club_name": "Accrington",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_48c44a6b40ea",
+    "club_name": "Barnet",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5874575fe065",
+    "club_name": "Barrow",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5856e70478a7",
+    "club_name": "Bradford",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1790cf7ff731",
+    "club_name": "Bristol Rvs",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_195eb6bf7bbe",
+    "club_name": "Bromley",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f7f720503b59",
+    "club_name": "Cambridge",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_57529af7e3d2",
+    "club_name": "Carlisle",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_062c2bbcfc39",
+    "club_name": "Cheltenham",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7a6759e25ffe",
+    "club_name": "Chesterfield",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_732bfd391c72",
+    "club_name": "Colchester",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0134b2835c59",
+    "club_name": "Crawley Town",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_bac7c5ac3f9d",
+    "club_name": "Crewe",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_29a1730b39e1",
+    "club_name": "Doncaster",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_116a0d18307a",
+    "club_name": "Fleetwood Town",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8ebd26043f34",
+    "club_name": "Forest Green",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_30428f3074d1",
+    "club_name": "Gillingham",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2e1571edc7fb",
+    "club_name": "Grimsby",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_9b34c62c49eb",
+    "club_name": "Harrogate",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2547df94dcd9",
+    "club_name": "Mansfield",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ca033bd1a4c3",
+    "club_name": "Milton Keynes Dons",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_372721406739",
+    "club_name": "Morecambe",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2d050907248e",
+    "club_name": "Newport County",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b5e858d7838a",
+    "club_name": "Notts County",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_04b89d3f3b26",
+    "club_name": "Oldham",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_14a44e5a7a26",
+    "club_name": "Port Vale",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5cacc3d0daa2",
+    "club_name": "Salford",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b1fbadffeffc",
+    "club_name": "Shrewsbury",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_cf3359318b13",
+    "club_name": "Stockport",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3e32e721961a",
+    "club_name": "Sutton",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_09c6c82acf21",
+    "club_name": "Swindon",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_cdb6774e8045",
+    "club_name": "Tranmere",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e8aa777d2541",
+    "club_name": "Walsall",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f0d77439b8c7",
+    "club_name": "Wrexham",
+    "league": "League Two",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0e912ad30e64",
+    "club_name": "Arsenal",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a7e748af676e",
+    "club_name": "Aston Villa",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_25881d09df04",
+    "club_name": "Bournemouth",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1099b85cf13e",
+    "club_name": "Brentford",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b4563e0d6e5b",
+    "club_name": "Brighton",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_92da20fbc0dc",
+    "club_name": "Burnley",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b443c62f2ad9",
+    "club_name": "Chelsea",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e959cebe3e40",
+    "club_name": "Crystal Palace",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8b0d8109dba4",
+    "club_name": "Everton",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fa7a5aba5446",
+    "club_name": "Fulham",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_63fddc126e52",
+    "club_name": "Ipswich",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_69cc203df0db",
+    "club_name": "Leeds",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3e89e3c51719",
+    "club_name": "Leicester",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8167dae79529",
+    "club_name": "Liverpool",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a33c47b7445f",
+    "club_name": "Luton",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_93184c16d455",
+    "club_name": "Man City",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_de9e754c5968",
+    "club_name": "Man United",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7c443d543767",
+    "club_name": "Newcastle",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_657088e47e57",
+    "club_name": "Nott'm Forest",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_02bc30c90e29",
+    "club_name": "Sheffield United",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_d55304792ef4",
+    "club_name": "Southampton",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8ff90825e027",
+    "club_name": "Sunderland",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_73875dbd565c",
+    "club_name": "Tottenham",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_36dd7ef8e908",
+    "club_name": "West Ham",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b6bf5feaa9b3",
+    "club_name": "Wolves",
+    "league": "Premier League",
+    "country": "England",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3d858534a168",
+    "club_name": "Angers",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ad1372bb8a8d",
+    "club_name": "Auxerre",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a24e6ed3a542",
+    "club_name": "Brest",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1f9223b19c82",
+    "club_name": "Clermont",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_85190efbe26d",
+    "club_name": "Le Havre",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fefac0697374",
+    "club_name": "Lens",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_177804ee1de6",
+    "club_name": "Lille",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_04c0494eed72",
+    "club_name": "Lorient",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_79980f0776f6",
+    "club_name": "Lyon",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5b3f8120c4d5",
+    "club_name": "Marseille",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_26e731cfff8b",
+    "club_name": "Metz",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e3849baf711e",
+    "club_name": "Monaco",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0464cc7030ea",
+    "club_name": "Montpellier",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_40e4c06d70a9",
+    "club_name": "Nantes",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f2b86543a4ca",
+    "club_name": "Nice",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7478edc26b86",
+    "club_name": "Paris FC",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0c004ac862d2",
+    "club_name": "Paris SG",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1f709f143217",
+    "club_name": "Reims",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_d16e241a0e07",
+    "club_name": "Rennes",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a97cbf501a56",
+    "club_name": "St Etienne",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_613fe152b172",
+    "club_name": "Strasbourg",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_947e113f5b6d",
+    "club_name": "Toulouse",
+    "league": "Ligue 1",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_87bfbbb09821",
+    "club_name": "Ajaccio",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_28c6b9a3895b",
+    "club_name": "Amiens",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_64c37e57c448",
+    "club_name": "Angers",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_feb808cac35c",
+    "club_name": "Annecy",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0c1154d959be",
+    "club_name": "Auxerre",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_be62315ca24c",
+    "club_name": "Bastia",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5140a6514517",
+    "club_name": "Bordeaux",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_790e327b2220",
+    "club_name": "Boulogne",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_404f7b618609",
+    "club_name": "Caen",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1258edf7c18e",
+    "club_name": "Clermont",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_977e56b0790a",
+    "club_name": "Concarneau",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_af1d14627616",
+    "club_name": "Dunkerque",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e1209f217d3c",
+    "club_name": "Grenoble",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_392431b4d122",
+    "club_name": "Guingamp",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0e60e689a3fb",
+    "club_name": "Laval",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8d93fe347f40",
+    "club_name": "Le Mans",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1b68b9153335",
+    "club_name": "Lorient",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8622d97ca18a",
+    "club_name": "Martigues",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7d7e1cc82f35",
+    "club_name": "Metz",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_441fefc26fef",
+    "club_name": "Montpellier",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b551c3717515",
+    "club_name": "Nancy",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_696f820b6bb5",
+    "club_name": "Paris FC",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a277e0a66b0f",
+    "club_name": "Pau FC",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_516b17524be3",
+    "club_name": "Quevilly Rouen",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0d581bc73e4c",
+    "club_name": "Red Star",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_781995f25bdb",
+    "club_name": "Reims",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_d66b593452eb",
+    "club_name": "Rodez",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b2e8f08a75e5",
+    "club_name": "St Etienne",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_61452306be42",
+    "club_name": "Troyes",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ad67c8be6b7a",
+    "club_name": "Valenciennes",
+    "league": "Ligue 2",
+    "country": "France",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_78a9ea3fb32a",
+    "club_name": "Bielefeld",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_184044191eb8",
+    "club_name": "Bochum",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3353cbb12313",
+    "club_name": "Braunschweig",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f9928e76aefc",
+    "club_name": "Darmstadt",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ccf350428b65",
+    "club_name": "Dresden",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5cba9f117837",
+    "club_name": "Elversberg",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_79a4db744a33",
+    "club_name": "FC Koln",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8e30d955e8e3",
+    "club_name": "Fortuna Dusseldorf",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b64b0a5207d6",
+    "club_name": "Greuther Furth",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1909cc11cdb9",
+    "club_name": "Hamburg",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_26bd4e9a9f8d",
+    "club_name": "Hannover",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7fcf29bb9ba5",
+    "club_name": "Hansa Rostock",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0a917fdd9d34",
+    "club_name": "Hertha",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_36493a4bbb94",
+    "club_name": "Holstein Kiel",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_56aea088533f",
+    "club_name": "Kaiserslautern",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0f376148e93e",
+    "club_name": "Karlsruhe",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_41e429ca9ad1",
+    "club_name": "Magdeburg",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ae2e63403c6c",
+    "club_name": "Nurnberg",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_69a2b0161cb4",
+    "club_name": "Osnabruck",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_dbafdc47fd6d",
+    "club_name": "Paderborn",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_05dd81c4a3fd",
+    "club_name": "Preu\u00c3\u009fen M\u00c3\u00bcnster",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0bfdf0fd4b49",
+    "club_name": "Regensburg",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_eb29b7a26749",
+    "club_name": "Schalke 04",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5d4b5f9996e9",
+    "club_name": "St Pauli",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f836d65fac8d",
+    "club_name": "Ulm",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_521b0b5dd68b",
+    "club_name": "Wehen",
+    "league": "2. Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f4e0cf823e72",
+    "club_name": "Augsburg",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0780eaa86de5",
+    "club_name": "Bayern Munich",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_bd3aa49f0757",
+    "club_name": "Bochum",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e14cccbc85ba",
+    "club_name": "Darmstadt",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_262bbb1a555a",
+    "club_name": "Dortmund",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_18dbb479fe13",
+    "club_name": "Ein Frankfurt",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f9de4ad0f95a",
+    "club_name": "FC Koln",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b12f6d764df5",
+    "club_name": "Freiburg",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_79b00258e2d1",
+    "club_name": "Hamburg",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b621fe945b37",
+    "club_name": "Heidenheim",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8cbda774022c",
+    "club_name": "Hoffenheim",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_d1158c0405b9",
+    "club_name": "Holstein Kiel",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_9e42795ca9b2",
+    "club_name": "Leverkusen",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2ccc546c43f2",
+    "club_name": "M'gladbach",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_71ae218ca839",
+    "club_name": "Mainz",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0daf66467aa7",
+    "club_name": "RB Leipzig",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_61dd0c5eb02c",
+    "club_name": "St Pauli",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_26dfd7806ff0",
+    "club_name": "Stuttgart",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_966c054cd253",
+    "club_name": "Union Berlin",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_cde632d2d0c8",
+    "club_name": "Werder Bremen",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a2293d80ec4f",
+    "club_name": "Wolfsburg",
+    "league": "Bundesliga",
+    "country": "Germany",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fad066e0462b",
+    "club_name": "Atalanta",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8f48ac7d8c23",
+    "club_name": "Bologna",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f29c3e7d4e1e",
+    "club_name": "Cagliari",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f0ff5e51aa4c",
+    "club_name": "Como",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c7c1f7cc4e19",
+    "club_name": "Cremonese",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_53eddda8b04f",
+    "club_name": "Empoli",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_12fee6704f98",
+    "club_name": "Fiorentina",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5e792fe1d277",
+    "club_name": "Frosinone",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f925138c684d",
+    "club_name": "Genoa",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_4428d081d110",
+    "club_name": "Inter",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7a0ca33ad372",
+    "club_name": "Juventus",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0342dd978dde",
+    "club_name": "Lazio",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_523305dbcd35",
+    "club_name": "Lecce",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_72ac0ed35941",
+    "club_name": "Milan",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f9a9f17d0e0b",
+    "club_name": "Monza",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8e18b5b3dbeb",
+    "club_name": "Napoli",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2a857308a09e",
+    "club_name": "Parma",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ff031921b0f3",
+    "club_name": "Pisa",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_493cf44e0f7b",
+    "club_name": "Roma",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b0cbe5eff5d1",
+    "club_name": "Salernitana",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ea78e6336a8a",
+    "club_name": "Sassuolo",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_51a766917f23",
+    "club_name": "Torino",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_08f8a7598698",
+    "club_name": "Udinese",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2f36b3fd9f72",
+    "club_name": "Venezia",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_848928b94ce5",
+    "club_name": "Verona",
+    "league": "Serie A",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6855a146a057",
+    "club_name": "Ascoli",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7611a08089c1",
+    "club_name": "Avellino",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7e400c751e0b",
+    "club_name": "Bari",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f8c1892ee23e",
+    "club_name": "Brescia",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c1e2c4375cb8",
+    "club_name": "Carrarese",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6eb6f3479670",
+    "club_name": "Catanzaro",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7e7c6cddcd9f",
+    "club_name": "Cesena",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_bab3b83881ee",
+    "club_name": "Cittadella",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_57325c07364f",
+    "club_name": "Como",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6fa9e9f79302",
+    "club_name": "Cosenza",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_bb069056433b",
+    "club_name": "Cremonese",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a560fb3ea6ac",
+    "club_name": "Empoli",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e357046feb81",
+    "club_name": "FeralpiSalo",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5a8f6a77e3e6",
+    "club_name": "Frosinone",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8e23bb861b96",
+    "club_name": "Juve Stabia",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6917a8565680",
+    "club_name": "Lecco",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1c0628c58c2a",
+    "club_name": "Mantova",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8aafee3d37eb",
+    "club_name": "Modena",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0aeac102e1ab",
+    "club_name": "Monza",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c1189f684aae",
+    "club_name": "Padova",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fd1a8b5cc4e2",
+    "club_name": "Palermo",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c7636d2ca967",
+    "club_name": "Parma",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6d9417ca1051",
+    "club_name": "Pescara",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_35b8056c6e1d",
+    "club_name": "Pisa",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f59af3a68bdd",
+    "club_name": "Reggiana",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5948e22dacc0",
+    "club_name": "Salernitana",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_28902e78e928",
+    "club_name": "Sampdoria",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_846b10d794a5",
+    "club_name": "Sassuolo",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_601605a3e6ef",
+    "club_name": "Spezia",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_39df773c04fd",
+    "club_name": "Sudtirol",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_4acd2b44e74c",
+    "club_name": "Ternana",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c965a0562d2e",
+    "club_name": "Venezia",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_d54ac36c7022",
+    "club_name": "Virtus Entella",
+    "league": "Serie B",
+    "country": "Italy",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_685972f7e49a",
+    "club_name": "AZ Alkmaar",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3dfb8049cf07",
+    "club_name": "Ajax",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_6f2ebb0ebfb7",
+    "club_name": "Almere City",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_089123a1f17f",
+    "club_name": "Excelsior",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ef1351baea5e",
+    "club_name": "Feyenoord",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1c68984d3d33",
+    "club_name": "For Sittard",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c5c81f17b195",
+    "club_name": "Go Ahead Eagles",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8d79420a773c",
+    "club_name": "Groningen",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b416762e8682",
+    "club_name": "Heerenveen",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_82681f9761cc",
+    "club_name": "Heracles",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e588ea389dab",
+    "club_name": "NAC Breda",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_db808985c1b9",
+    "club_name": "Nijmegen",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_39ed685cded6",
+    "club_name": "PSV Eindhoven",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_28af6d1e53eb",
+    "club_name": "Sparta Rotterdam",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_feb47d5f3e60",
+    "club_name": "Telstar",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c059db771bde",
+    "club_name": "Twente",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_dde3f4f66b36",
+    "club_name": "Utrecht",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a065abf00271",
+    "club_name": "Vitesse",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3f55cdee6438",
+    "club_name": "Volendam",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a700981a6d3b",
+    "club_name": "Waalwijk",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_09d99c67cf97",
+    "club_name": "Willem II",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8aee4680fe4a",
+    "club_name": "Zwolle",
+    "league": "Eredivisie",
+    "country": "Netherlands",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_65fcacc13950",
+    "club_name": "AVS",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2e1de6f62ffe",
+    "club_name": "Alverca",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_87b94ce4df66",
+    "club_name": "Arouca",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8ab7c3bb57fa",
+    "club_name": "Benfica",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e7faffb7e025",
+    "club_name": "Boavista",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_72e3f75eb1dd",
+    "club_name": "Casa Pia",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3e9499b25f8a",
+    "club_name": "Chaves",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_4bf808afbdf6",
+    "club_name": "Estoril",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1303f87a8f98",
+    "club_name": "Estrela",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_9066b25d45b0",
+    "club_name": "Famalicao",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a59181429e92",
+    "club_name": "Farense",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a0f73e1626a0",
+    "club_name": "Gil Vicente",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e89ecce2aab0",
+    "club_name": "Guimaraes",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_bd2eae4c2cec",
+    "club_name": "Moreirense",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_506f361fc204",
+    "club_name": "Nacional",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fe5777c2dfc2",
+    "club_name": "Portimonense",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_849f4abe487b",
+    "club_name": "Porto",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_cc9652b8c9c5",
+    "club_name": "Rio Ave",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fcbafa392327",
+    "club_name": "Santa Clara",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_16b303bc2003",
+    "club_name": "Sp Braga",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b7f20b1a6039",
+    "club_name": "Sp Lisbon",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2101428a5df1",
+    "club_name": "Tondela",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7f07fa310d6c",
+    "club_name": "Vizela",
+    "league": "Primeira Liga",
+    "country": "Portugal",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_47b85dad43a4",
+    "club_name": "Aberdeen",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_d87865b177fa",
+    "club_name": "Celtic",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_08f763a14cf1",
+    "club_name": "Dundee",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_104a93cc5a9a",
+    "club_name": "Dundee United",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fef67e69c58a",
+    "club_name": "Falkirk",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e167e5964e9d",
+    "club_name": "Hearts",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_c09c9fcb3974",
+    "club_name": "Hibernian",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ddb56bb1d97d",
+    "club_name": "Kilmarnock",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8466cd110262",
+    "club_name": "Livingston",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_aa288df588ab",
+    "club_name": "Motherwell",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_afa722b55826",
+    "club_name": "Rangers",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_4be7cc1982b5",
+    "club_name": "Ross County",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2cdcda94b371",
+    "club_name": "St Johnstone",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_da11429403ad",
+    "club_name": "St Mirren",
+    "league": "Premiership",
+    "country": "Scotland",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8aeeb39eb23b",
+    "club_name": "Alaves",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2a40f57de3a0",
+    "club_name": "Almeria",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7ed75c67b9ab",
+    "club_name": "Ath Bilbao",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_d937e5c77804",
+    "club_name": "Ath Madrid",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_cf57a73ae8e0",
+    "club_name": "Barcelona",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_340871bd448a",
+    "club_name": "Betis",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_60086dd4352d",
+    "club_name": "Cadiz",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_26b26978a94b",
+    "club_name": "Celta",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_28d89e50a805",
+    "club_name": "Elche",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_479b11d7f518",
+    "club_name": "Espanol",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_983c2c52078d",
+    "club_name": "Getafe",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f9711a1537d0",
+    "club_name": "Girona",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_59b94afa7ea4",
+    "club_name": "Granada",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ebd8094c912e",
+    "club_name": "Las Palmas",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_93bac2141d79",
+    "club_name": "Leganes",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a4beaac269da",
+    "club_name": "Levante",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e8f6fc04a5db",
+    "club_name": "Mallorca",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_034af08990d0",
+    "club_name": "Osasuna",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1311fc95aa4f",
+    "club_name": "Oviedo",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ced28ff64d21",
+    "club_name": "Real Madrid",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5042819b9a9e",
+    "club_name": "Sevilla",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_35f48f4d4cb8",
+    "club_name": "Sociedad",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_11da11a576ee",
+    "club_name": "Valencia",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_650680124fdd",
+    "club_name": "Valladolid",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_8ba068a9ec4b",
+    "club_name": "Vallecano",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_3eb7766e1ccd",
+    "club_name": "Villarreal",
+    "league": "La Liga",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_9e17c34bdca8",
+    "club_name": "Albacete",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ea438791f7bf",
+    "club_name": "Alcorcon",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_4eea62c1d882",
+    "club_name": "Almeria",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7cb18126bfe5",
+    "club_name": "Amorebieta",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_68b967771753",
+    "club_name": "Andorra",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2f84f53e1ba4",
+    "club_name": "Burgos",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b937e0640831",
+    "club_name": "Cadiz",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7ac9dd0379e2",
+    "club_name": "Cartagena",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_afe82e303f85",
+    "club_name": "Castellon",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b11ea43f14b1",
+    "club_name": "Ceuta",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a0060a64c94f",
+    "club_name": "Cordoba",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a8362e47df77",
+    "club_name": "Cultural Leonesa",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_19d7b41cf0a5",
+    "club_name": "Eibar",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7dade8b33b35",
+    "club_name": "Elche",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f81c1762e6ca",
+    "club_name": "Eldense",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2b0e0396350f",
+    "club_name": "Espanol",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7b701b0b98d7",
+    "club_name": "Ferrol",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5a82e238f045",
+    "club_name": "Granada",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2696e6f2f184",
+    "club_name": "Huesca",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e85020e1c433",
+    "club_name": "La Coruna",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5b0e5c6cda5d",
+    "club_name": "Las Palmas",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b7460f8df3b6",
+    "club_name": "Leganes",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_fa2fa03be814",
+    "club_name": "Levante",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_44de8c45fe84",
+    "club_name": "Malaga",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e5670c626ffe",
+    "club_name": "Mirandes",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_18cdcdbdfa26",
+    "club_name": "Oviedo",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_bee538e09d4c",
+    "club_name": "Santander",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_13e0151c3136",
+    "club_name": "Sociedad B",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7485b4e044d9",
+    "club_name": "Sp Gijon",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_4d5f4d286c16",
+    "club_name": "Tenerife",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_f83c90dc4094",
+    "club_name": "Valladolid",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a517dbc9f7d1",
+    "club_name": "Villarreal B",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a79280c4fc76",
+    "club_name": "Zaragoza",
+    "league": "Segunda Division",
+    "country": "Spain",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_813818920f33",
+    "club_name": "Ad. Demirspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_bb4be2444163",
+    "club_name": "Alanyaspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_9e6fa5f62837",
+    "club_name": "Ankaragucu",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_63efa9a9fb79",
+    "club_name": "Antalyaspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_093973f32ec1",
+    "club_name": "Besiktas",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b35164673efb",
+    "club_name": "Bodrumspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_abce4a7f3fcd",
+    "club_name": "Buyuksehyr",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a5b3af7ff323",
+    "club_name": "Eyupspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b7ba9351ffd6",
+    "club_name": "Fenerbahce",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_1bd53be9e8e2",
+    "club_name": "Galatasaray",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_98c72b9adff9",
+    "club_name": "Gaziantep",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ee03dd981d54",
+    "club_name": "Genclerbirligi",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_2fece55b7d1d",
+    "club_name": "Goztep",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_46dfe8fdc270",
+    "club_name": "Hatayspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_a72f3ec1203d",
+    "club_name": "Istanbulspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_7a925be1c1fd",
+    "club_name": "Karagumruk",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_99ed3f2d444b",
+    "club_name": "Kasimpasa",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_ae9afeaa3a77",
+    "club_name": "Kayserispor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_b4313b01c83d",
+    "club_name": "Kocaelispor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_397ac88ef8c2",
+    "club_name": "Konyaspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_e0393aad33e0",
+    "club_name": "Pendikspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_5c642e695406",
+    "club_name": "Rizespor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_582dfef7cb69",
+    "club_name": "Samsunspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_4e6e6f2a0e6b",
+    "club_name": "Sivasspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "club_id": "club_0802d41a4241",
+    "club_name": "Trabzonspor",
+    "league": "Super Lig",
+    "country": "Turkey",
+    "squad_size": "",
+    "average_age": "",
+    "top_young_asset": "Premium",
+    "is_placeholder": false
+  }
+]

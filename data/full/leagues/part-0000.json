@@ -1,0 +1,189 @@
+[
+  {
+    "league_id": "league_02d2c1f3ee1f",
+    "league_name": "Jupiler League",
+    "league_level": "Belgium",
+    "ranked_or_tracked": "926 open match rows",
+    "clubs": 20,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_0801974aa79d",
+    "league_name": "Premier League",
+    "league_level": "England",
+    "ranked_or_tracked": "1130 open match rows",
+    "clubs": 25,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_1bb5a378df8b",
+    "league_name": "Championship",
+    "league_level": "England",
+    "ranked_or_tracked": "1656 open match rows",
+    "clubs": 32,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_4333a132a2de",
+    "league_name": "League One",
+    "league_level": "England",
+    "ranked_or_tracked": "1656 open match rows",
+    "clubs": 37,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_cbb9ca1c2b1f",
+    "league_name": "League Two",
+    "league_level": "England",
+    "ranked_or_tracked": "1656 open match rows",
+    "clubs": 35,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_7a1f2cecf041",
+    "league_name": "Ligue 1",
+    "league_level": "France",
+    "ranked_or_tracked": "917 open match rows",
+    "clubs": 22,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_b0e3fa80bb24",
+    "league_name": "Ligue 2",
+    "league_level": "France",
+    "ranked_or_tracked": "991 open match rows",
+    "clubs": 30,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_1fbd7558b46b",
+    "league_name": "Bundesliga",
+    "league_level": "Germany",
+    "ranked_or_tracked": "918 open match rows",
+    "clubs": 21,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_bc5f6650c643",
+    "league_name": "2. Bundesliga",
+    "league_level": "Germany",
+    "ranked_or_tracked": "918 open match rows",
+    "clubs": 26,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_1eadce28faea",
+    "league_name": "Serie A",
+    "league_level": "Italy",
+    "ranked_or_tracked": "1130 open match rows",
+    "clubs": 25,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_92e062ad6605",
+    "league_name": "Serie B",
+    "league_level": "Italy",
+    "ranked_or_tracked": "1140 open match rows",
+    "clubs": 33,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_96f8f296dddc",
+    "league_name": "Eredivisie",
+    "league_level": "Netherlands",
+    "ranked_or_tracked": "918 open match rows",
+    "clubs": 22,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_fba974be0402",
+    "league_name": "Primeira Liga",
+    "league_level": "Portugal",
+    "ranked_or_tracked": "918 open match rows",
+    "clubs": 23,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_a5d68cde0ef4",
+    "league_name": "Premiership",
+    "league_level": "Scotland",
+    "ranked_or_tracked": "684 open match rows",
+    "clubs": 14,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_74dc625d72a2",
+    "league_name": "La Liga",
+    "league_level": "Spain",
+    "ranked_or_tracked": "1130 open match rows",
+    "clubs": 26,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_0a0dff8b26da",
+    "league_name": "Segunda Division",
+    "league_level": "Spain",
+    "ranked_or_tracked": "1364 open match rows",
+    "clubs": 33,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  },
+  {
+    "league_id": "league_140c3bcbbd4c",
+    "league_name": "Super Lig",
+    "league_level": "Turkey",
+    "ranked_or_tracked": "1028 open match rows",
+    "clubs": 25,
+    "players_tracked": "",
+    "average_age": "",
+    "top_player": "Premium",
+    "is_placeholder": false
+  }
+]

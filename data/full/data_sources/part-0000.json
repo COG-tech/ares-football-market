@@ -1,0 +1,11 @@
+[
+  {
+    "source_name": "football-data.co.uk",
+    "source_type": "Open football match CSV",
+    "source_url": "https://www.football-data.co.uk/",
+    "access_type": "public download",
+    "license_notes": "Use only match CSV fields from the public download source; no protected player grades or proprietary scouting data.",
+    "used_for": "soccer match results, club list, league list",
+    "last_checked": "2026-05-21"
+  }
+]
