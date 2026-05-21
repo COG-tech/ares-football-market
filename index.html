@@ -170,5 +170,6 @@
     AresSoccer.initTable({dataPath:"data/transfers.json",tableId:"home-transfer-table",bodyId:"home-transfer-body",columns:[{key:"date"},{key:"player_name",render:"playerLink"},{key:"from",render:function(value,row){return AresTables.renderLink(value,row.from_url,"clubs/club-template.html");}},{key:"to",render:function(value,row){return AresTables.renderLink(value,row.to_url,"clubs/club-template.html");}},{key:"transfer_type"},{key:"market_impact",render:"market"}]});
     AresSoccer.initTable({dataPath:"data/matches.json",tableId:"home-match-table",bodyId:"home-match-body",columns:[{key:"date"},{key:"country"},{key:"league_name"},{key:"home_team"},{key:"away_team"},{key:"full_time_result"}]});
   </script>
+  <script src="assets/js/ares-mega-nav.js?v=20260521-teamnav1"></script>
 </body>
 </html>

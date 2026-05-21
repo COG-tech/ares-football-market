@@ -1,0 +1,2713 @@
+{
+  "brand": "ARES Football Market",
+  "menus": [
+    {
+      "id": "players",
+      "label": "Players",
+      "summary": "Search football players, public rows, and premium score previews.",
+      "sidebar": [
+        {
+          "label": "Players",
+          "href": "players/index.html"
+        },
+        {
+          "label": "Watchlist",
+          "href": "watchlist/index.html"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Player Boards",
+          "items": [
+            {
+              "label": "Players",
+              "href": "players/index.html"
+            },
+            {
+              "label": "ARES Rankings",
+              "href": "rankings/ares.html"
+            },
+            {
+              "label": "Market Rankings",
+              "href": "rankings/market.html"
+            },
+            {
+              "label": "Watchlist",
+              "href": "watchlist/index.html"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "label": "Search players and market boards",
+        "href": "players/index.html"
+      }
+    },
+    {
+      "id": "ares-rankings",
+      "label": "ARES Rankings",
+      "summary": "Football player quality rankings with premium ARES fields.",
+      "sidebar": [
+        {
+          "label": "ARES Rankings",
+          "href": "rankings/ares.html"
+        },
+        {
+          "label": "Methodology",
+          "href": "methodology.html"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Quality Boards",
+          "items": [
+            {
+              "label": "ARES Rankings",
+              "href": "rankings/ares.html"
+            },
+            {
+              "label": "Market Rankings",
+              "href": "rankings/market.html"
+            },
+            {
+              "label": "Players",
+              "href": "players/index.html"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "label": "ARES Score measures football quality",
+        "href": "methodology.html"
+      }
+    },
+    {
+      "id": "market-rankings",
+      "label": "Market Rankings",
+      "summary": "Transfermarkt-style market signal and premium asset scores.",
+      "sidebar": [
+        {
+          "label": "Market Rankings",
+          "href": "rankings/market.html"
+        },
+        {
+          "label": "Transfers",
+          "href": "transfers/index.html"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Asset Boards",
+          "items": [
+            {
+              "label": "Market Rankings",
+              "href": "rankings/market.html"
+            },
+            {
+              "label": "Transfers",
+              "href": "transfers/index.html"
+            },
+            {
+              "label": "Clubs",
+              "href": "clubs/index.html"
+            },
+            {
+              "label": "Leagues",
+              "href": "leagues/index.html"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "label": "Market Score is an analytical asset score",
+        "href": "methodology.html"
+      }
+    },
+    {
+      "id": "clubs",
+      "label": "Clubs",
+      "summary": "Browse all 449 football clubs in the public database.",
+      "sidebar": [
+        {
+          "label": "All Clubs",
+          "href": "clubs/index.html"
+        },
+        {
+          "label": "Leagues",
+          "href": "leagues/index.html"
+        },
+        {
+          "label": "Transfers",
+          "href": "transfers/index.html"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Belgium",
+          "items": [
+            {
+              "label": "Anderlecht",
+              "href": "clubs/index.html?club=Anderlecht",
+              "abbr": "AND"
+            },
+            {
+              "label": "Antwerp",
+              "href": "clubs/index.html?club=Antwerp",
+              "abbr": "ANT"
+            },
+            {
+              "label": "Beerschot VA",
+              "href": "clubs/index.html?club=Beerschot%20VA",
+              "abbr": "BEE"
+            },
+            {
+              "label": "Cercle Brugge",
+              "href": "clubs/index.html?club=Cercle%20Brugge",
+              "abbr": "CER"
+            },
+            {
+              "label": "Charleroi",
+              "href": "clubs/index.html?club=Charleroi",
+              "abbr": "CHA"
+            },
+            {
+              "label": "Club Brugge",
+              "href": "clubs/index.html?club=Club%20Brugge",
+              "abbr": "CLU"
+            },
+            {
+              "label": "Dender",
+              "href": "clubs/index.html?club=Dender",
+              "abbr": "DEN"
+            },
+            {
+              "label": "Eupen",
+              "href": "clubs/index.html?club=Eupen",
+              "abbr": "EUP"
+            },
+            {
+              "label": "Genk",
+              "href": "clubs/index.html?club=Genk",
+              "abbr": "GEN"
+            },
+            {
+              "label": "Gent",
+              "href": "clubs/index.html?club=Gent",
+              "abbr": "GEN"
+            },
+            {
+              "label": "Kortrijk",
+              "href": "clubs/index.html?club=Kortrijk",
+              "abbr": "KOR"
+            },
+            {
+              "label": "Mechelen",
+              "href": "clubs/index.html?club=Mechelen",
+              "abbr": "MEC"
+            },
+            {
+              "label": "Oud-Heverlee Leuven",
+              "href": "clubs/index.html?club=Oud-Heverlee%20Leuven",
+              "abbr": "OUD"
+            },
+            {
+              "label": "RAAL La Louviere",
+              "href": "clubs/index.html?club=RAAL%20La%20Louviere",
+              "abbr": "RAA"
+            },
+            {
+              "label": "RWD Molenbeek",
+              "href": "clubs/index.html?club=RWD%20Molenbeek",
+              "abbr": "RWD"
+            },
+            {
+              "label": "St Truiden",
+              "href": "clubs/index.html?club=St%20Truiden",
+              "abbr": "ST "
+            },
+            {
+              "label": "St. Gilloise",
+              "href": "clubs/index.html?club=St.%20Gilloise",
+              "abbr": "ST."
+            },
+            {
+              "label": "Standard",
+              "href": "clubs/index.html?club=Standard",
+              "abbr": "STA"
+            },
+            {
+              "label": "Waregem",
+              "href": "clubs/index.html?club=Waregem",
+              "abbr": "WAR"
+            },
+            {
+              "label": "Westerlo",
+              "href": "clubs/index.html?club=Westerlo",
+              "abbr": "WES"
+            }
+          ]
+        },
+        {
+          "title": "England",
+          "items": [
+            {
+              "label": "Birmingham",
+              "href": "clubs/index.html?club=Birmingham",
+              "abbr": "BIR"
+            },
+            {
+              "label": "Blackburn",
+              "href": "clubs/index.html?club=Blackburn",
+              "abbr": "BLA"
+            },
+            {
+              "label": "Bristol City",
+              "href": "clubs/index.html?club=Bristol%20City",
+              "abbr": "BRI"
+            },
+            {
+              "label": "Burnley",
+              "href": "clubs/index.html?club=Burnley",
+              "abbr": "BUR"
+            },
+            {
+              "label": "Cardiff",
+              "href": "clubs/index.html?club=Cardiff",
+              "abbr": "CAR"
+            },
+            {
+              "label": "Charlton",
+              "href": "clubs/index.html?club=Charlton",
+              "abbr": "CHA"
+            },
+            {
+              "label": "Coventry",
+              "href": "clubs/index.html?club=Coventry",
+              "abbr": "COV"
+            },
+            {
+              "label": "Derby",
+              "href": "clubs/index.html?club=Derby",
+              "abbr": "DER"
+            },
+            {
+              "label": "Huddersfield",
+              "href": "clubs/index.html?club=Huddersfield",
+              "abbr": "HUD"
+            },
+            {
+              "label": "Hull",
+              "href": "clubs/index.html?club=Hull",
+              "abbr": "HUL"
+            },
+            {
+              "label": "Ipswich",
+              "href": "clubs/index.html?club=Ipswich",
+              "abbr": "IPS"
+            },
+            {
+              "label": "Leeds",
+              "href": "clubs/index.html?club=Leeds",
+              "abbr": "LEE"
+            },
+            {
+              "label": "Leicester",
+              "href": "clubs/index.html?club=Leicester",
+              "abbr": "LEI"
+            },
+            {
+              "label": "Luton",
+              "href": "clubs/index.html?club=Luton",
+              "abbr": "LUT"
+            },
+            {
+              "label": "Middlesbrough",
+              "href": "clubs/index.html?club=Middlesbrough",
+              "abbr": "MID"
+            },
+            {
+              "label": "Millwall",
+              "href": "clubs/index.html?club=Millwall",
+              "abbr": "MIL"
+            },
+            {
+              "label": "Norwich",
+              "href": "clubs/index.html?club=Norwich",
+              "abbr": "NOR"
+            },
+            {
+              "label": "Oxford",
+              "href": "clubs/index.html?club=Oxford",
+              "abbr": "OXF"
+            },
+            {
+              "label": "Plymouth",
+              "href": "clubs/index.html?club=Plymouth",
+              "abbr": "PLY"
+            },
+            {
+              "label": "Portsmouth",
+              "href": "clubs/index.html?club=Portsmouth",
+              "abbr": "POR"
+            },
+            {
+              "label": "Preston",
+              "href": "clubs/index.html?club=Preston",
+              "abbr": "PRE"
+            },
+            {
+              "label": "QPR",
+              "href": "clubs/index.html?club=QPR",
+              "abbr": "QPR"
+            },
+            {
+              "label": "Rotherham",
+              "href": "clubs/index.html?club=Rotherham",
+              "abbr": "ROT"
+            },
+            {
+              "label": "Sheffield United",
+              "href": "clubs/index.html?club=Sheffield%20United",
+              "abbr": "SHE"
+            },
+            {
+              "label": "Sheffield Weds",
+              "href": "clubs/index.html?club=Sheffield%20Weds",
+              "abbr": "SHE"
+            },
+            {
+              "label": "Southampton",
+              "href": "clubs/index.html?club=Southampton",
+              "abbr": "SOU"
+            },
+            {
+              "label": "Stoke",
+              "href": "clubs/index.html?club=Stoke",
+              "abbr": "STO"
+            },
+            {
+              "label": "Sunderland",
+              "href": "clubs/index.html?club=Sunderland",
+              "abbr": "SUN"
+            },
+            {
+              "label": "Swansea",
+              "href": "clubs/index.html?club=Swansea",
+              "abbr": "SWA"
+            },
+            {
+              "label": "Watford",
+              "href": "clubs/index.html?club=Watford",
+              "abbr": "WAT"
+            },
+            {
+              "label": "West Brom",
+              "href": "clubs/index.html?club=West%20Brom",
+              "abbr": "WES"
+            },
+            {
+              "label": "Wrexham",
+              "href": "clubs/index.html?club=Wrexham",
+              "abbr": "WRE"
+            },
+            {
+              "label": "AFC Wimbledon",
+              "href": "clubs/index.html?club=AFC%20Wimbledon",
+              "abbr": "AFC"
+            },
+            {
+              "label": "Barnsley",
+              "href": "clubs/index.html?club=Barnsley",
+              "abbr": "BAR"
+            },
+            {
+              "label": "Birmingham",
+              "href": "clubs/index.html?club=Birmingham",
+              "abbr": "BIR"
+            },
+            {
+              "label": "Blackpool",
+              "href": "clubs/index.html?club=Blackpool",
+              "abbr": "BLA"
+            },
+            {
+              "label": "Bolton",
+              "href": "clubs/index.html?club=Bolton",
+              "abbr": "BOL"
+            },
+            {
+              "label": "Bradford",
+              "href": "clubs/index.html?club=Bradford",
+              "abbr": "BRA"
+            },
+            {
+              "label": "Bristol Rvs",
+              "href": "clubs/index.html?club=Bristol%20Rvs",
+              "abbr": "BRI"
+            },
+            {
+              "label": "Burton",
+              "href": "clubs/index.html?club=Burton",
+              "abbr": "BUR"
+            },
+            {
+              "label": "Cambridge",
+              "href": "clubs/index.html?club=Cambridge",
+              "abbr": "CAM"
+            },
+            {
+              "label": "Cardiff",
+              "href": "clubs/index.html?club=Cardiff",
+              "abbr": "CAR"
+            },
+            {
+              "label": "Carlisle",
+              "href": "clubs/index.html?club=Carlisle",
+              "abbr": "CAR"
+            },
+            {
+              "label": "Charlton",
+              "href": "clubs/index.html?club=Charlton",
+              "abbr": "CHA"
+            },
+            {
+              "label": "Cheltenham",
+              "href": "clubs/index.html?club=Cheltenham",
+              "abbr": "CHE"
+            },
+            {
+              "label": "Crawley Town",
+              "href": "clubs/index.html?club=Crawley%20Town",
+              "abbr": "CRA"
+            },
+            {
+              "label": "Derby",
+              "href": "clubs/index.html?club=Derby",
+              "abbr": "DER"
+            },
+            {
+              "label": "Doncaster",
+              "href": "clubs/index.html?club=Doncaster",
+              "abbr": "DON"
+            },
+            {
+              "label": "Exeter",
+              "href": "clubs/index.html?club=Exeter",
+              "abbr": "EXE"
+            },
+            {
+              "label": "Fleetwood Town",
+              "href": "clubs/index.html?club=Fleetwood%20Town",
+              "abbr": "FLE"
+            },
+            {
+              "label": "Huddersfield",
+              "href": "clubs/index.html?club=Huddersfield",
+              "abbr": "HUD"
+            },
+            {
+              "label": "Leyton Orient",
+              "href": "clubs/index.html?club=Leyton%20Orient",
+              "abbr": "LEY"
+            },
+            {
+              "label": "Lincoln",
+              "href": "clubs/index.html?club=Lincoln",
+              "abbr": "LIN"
+            },
+            {
+              "label": "Luton",
+              "href": "clubs/index.html?club=Luton",
+              "abbr": "LUT"
+            },
+            {
+              "label": "Mansfield",
+              "href": "clubs/index.html?club=Mansfield",
+              "abbr": "MAN"
+            },
+            {
+              "label": "Northampton",
+              "href": "clubs/index.html?club=Northampton",
+              "abbr": "NOR"
+            },
+            {
+              "label": "Oxford",
+              "href": "clubs/index.html?club=Oxford",
+              "abbr": "OXF"
+            },
+            {
+              "label": "Peterboro",
+              "href": "clubs/index.html?club=Peterboro",
+              "abbr": "PET"
+            },
+            {
+              "label": "Plymouth",
+              "href": "clubs/index.html?club=Plymouth",
+              "abbr": "PLY"
+            },
+            {
+              "label": "Port Vale",
+              "href": "clubs/index.html?club=Port%20Vale",
+              "abbr": "POR"
+            },
+            {
+              "label": "Portsmouth",
+              "href": "clubs/index.html?club=Portsmouth",
+              "abbr": "POR"
+            },
+            {
+              "label": "Reading",
+              "href": "clubs/index.html?club=Reading",
+              "abbr": "REA"
+            },
+            {
+              "label": "Rotherham",
+              "href": "clubs/index.html?club=Rotherham",
+              "abbr": "ROT"
+            },
+            {
+              "label": "Shrewsbury",
+              "href": "clubs/index.html?club=Shrewsbury",
+              "abbr": "SHR"
+            },
+            {
+              "label": "Stevenage",
+              "href": "clubs/index.html?club=Stevenage",
+              "abbr": "STE"
+            },
+            {
+              "label": "Stockport",
+              "href": "clubs/index.html?club=Stockport",
+              "abbr": "STO"
+            },
+            {
+              "label": "Wigan",
+              "href": "clubs/index.html?club=Wigan",
+              "abbr": "WIG"
+            },
+            {
+              "label": "Wrexham",
+              "href": "clubs/index.html?club=Wrexham",
+              "abbr": "WRE"
+            },
+            {
+              "label": "Wycombe",
+              "href": "clubs/index.html?club=Wycombe",
+              "abbr": "WYC"
+            },
+            {
+              "label": "AFC Wimbledon",
+              "href": "clubs/index.html?club=AFC%20Wimbledon",
+              "abbr": "AFC"
+            },
+            {
+              "label": "Accrington",
+              "href": "clubs/index.html?club=Accrington",
+              "abbr": "ACC"
+            },
+            {
+              "label": "Barnet",
+              "href": "clubs/index.html?club=Barnet",
+              "abbr": "BAR"
+            },
+            {
+              "label": "Barrow",
+              "href": "clubs/index.html?club=Barrow",
+              "abbr": "BAR"
+            },
+            {
+              "label": "Bradford",
+              "href": "clubs/index.html?club=Bradford",
+              "abbr": "BRA"
+            },
+            {
+              "label": "Bristol Rvs",
+              "href": "clubs/index.html?club=Bristol%20Rvs",
+              "abbr": "BRI"
+            },
+            {
+              "label": "Bromley",
+              "href": "clubs/index.html?club=Bromley",
+              "abbr": "BRO"
+            },
+            {
+              "label": "Cambridge",
+              "href": "clubs/index.html?club=Cambridge",
+              "abbr": "CAM"
+            },
+            {
+              "label": "Carlisle",
+              "href": "clubs/index.html?club=Carlisle",
+              "abbr": "CAR"
+            },
+            {
+              "label": "Cheltenham",
+              "href": "clubs/index.html?club=Cheltenham",
+              "abbr": "CHE"
+            },
+            {
+              "label": "Chesterfield",
+              "href": "clubs/index.html?club=Chesterfield",
+              "abbr": "CHE"
+            },
+            {
+              "label": "Colchester",
+              "href": "clubs/index.html?club=Colchester",
+              "abbr": "COL"
+            },
+            {
+              "label": "Crawley Town",
+              "href": "clubs/index.html?club=Crawley%20Town",
+              "abbr": "CRA"
+            },
+            {
+              "label": "Crewe",
+              "href": "clubs/index.html?club=Crewe",
+              "abbr": "CRE"
+            },
+            {
+              "label": "Doncaster",
+              "href": "clubs/index.html?club=Doncaster",
+              "abbr": "DON"
+            },
+            {
+              "label": "Fleetwood Town",
+              "href": "clubs/index.html?club=Fleetwood%20Town",
+              "abbr": "FLE"
+            },
+            {
+              "label": "Forest Green",
+              "href": "clubs/index.html?club=Forest%20Green",
+              "abbr": "FOR"
+            },
+            {
+              "label": "Gillingham",
+              "href": "clubs/index.html?club=Gillingham",
+              "abbr": "GIL"
+            },
+            {
+              "label": "Grimsby",
+              "href": "clubs/index.html?club=Grimsby",
+              "abbr": "GRI"
+            },
+            {
+              "label": "Harrogate",
+              "href": "clubs/index.html?club=Harrogate",
+              "abbr": "HAR"
+            },
+            {
+              "label": "Mansfield",
+              "href": "clubs/index.html?club=Mansfield",
+              "abbr": "MAN"
+            },
+            {
+              "label": "Milton Keynes Dons",
+              "href": "clubs/index.html?club=Milton%20Keynes%20Dons",
+              "abbr": "MIL"
+            },
+            {
+              "label": "Morecambe",
+              "href": "clubs/index.html?club=Morecambe",
+              "abbr": "MOR"
+            },
+            {
+              "label": "Newport County",
+              "href": "clubs/index.html?club=Newport%20County",
+              "abbr": "NEW"
+            },
+            {
+              "label": "Notts County",
+              "href": "clubs/index.html?club=Notts%20County",
+              "abbr": "NOT"
+            },
+            {
+              "label": "Oldham",
+              "href": "clubs/index.html?club=Oldham",
+              "abbr": "OLD"
+            },
+            {
+              "label": "Port Vale",
+              "href": "clubs/index.html?club=Port%20Vale",
+              "abbr": "POR"
+            },
+            {
+              "label": "Salford",
+              "href": "clubs/index.html?club=Salford",
+              "abbr": "SAL"
+            },
+            {
+              "label": "Shrewsbury",
+              "href": "clubs/index.html?club=Shrewsbury",
+              "abbr": "SHR"
+            },
+            {
+              "label": "Stockport",
+              "href": "clubs/index.html?club=Stockport",
+              "abbr": "STO"
+            },
+            {
+              "label": "Sutton",
+              "href": "clubs/index.html?club=Sutton",
+              "abbr": "SUT"
+            },
+            {
+              "label": "Swindon",
+              "href": "clubs/index.html?club=Swindon",
+              "abbr": "SWI"
+            },
+            {
+              "label": "Tranmere",
+              "href": "clubs/index.html?club=Tranmere",
+              "abbr": "TRA"
+            },
+            {
+              "label": "Walsall",
+              "href": "clubs/index.html?club=Walsall",
+              "abbr": "WAL"
+            },
+            {
+              "label": "Wrexham",
+              "href": "clubs/index.html?club=Wrexham",
+              "abbr": "WRE"
+            },
+            {
+              "label": "Arsenal",
+              "href": "clubs/index.html?club=Arsenal",
+              "abbr": "ARS"
+            },
+            {
+              "label": "Aston Villa",
+              "href": "clubs/index.html?club=Aston%20Villa",
+              "abbr": "AST"
+            },
+            {
+              "label": "Bournemouth",
+              "href": "clubs/index.html?club=Bournemouth",
+              "abbr": "BOU"
+            },
+            {
+              "label": "Brentford",
+              "href": "clubs/index.html?club=Brentford",
+              "abbr": "BRE"
+            },
+            {
+              "label": "Brighton",
+              "href": "clubs/index.html?club=Brighton",
+              "abbr": "BRI"
+            },
+            {
+              "label": "Burnley",
+              "href": "clubs/index.html?club=Burnley",
+              "abbr": "BUR"
+            },
+            {
+              "label": "Chelsea",
+              "href": "clubs/index.html?club=Chelsea",
+              "abbr": "CHE"
+            },
+            {
+              "label": "Crystal Palace",
+              "href": "clubs/index.html?club=Crystal%20Palace",
+              "abbr": "CRY"
+            },
+            {
+              "label": "Everton",
+              "href": "clubs/index.html?club=Everton",
+              "abbr": "EVE"
+            },
+            {
+              "label": "Fulham",
+              "href": "clubs/index.html?club=Fulham",
+              "abbr": "FUL"
+            },
+            {
+              "label": "Ipswich",
+              "href": "clubs/index.html?club=Ipswich",
+              "abbr": "IPS"
+            },
+            {
+              "label": "Leeds",
+              "href": "clubs/index.html?club=Leeds",
+              "abbr": "LEE"
+            },
+            {
+              "label": "Leicester",
+              "href": "clubs/index.html?club=Leicester",
+              "abbr": "LEI"
+            },
+            {
+              "label": "Liverpool",
+              "href": "clubs/index.html?club=Liverpool",
+              "abbr": "LIV"
+            },
+            {
+              "label": "Luton",
+              "href": "clubs/index.html?club=Luton",
+              "abbr": "LUT"
+            },
+            {
+              "label": "Man City",
+              "href": "clubs/index.html?club=Man%20City",
+              "abbr": "MAN"
+            },
+            {
+              "label": "Man United",
+              "href": "clubs/index.html?club=Man%20United",
+              "abbr": "MAN"
+            },
+            {
+              "label": "Newcastle",
+              "href": "clubs/index.html?club=Newcastle",
+              "abbr": "NEW"
+            },
+            {
+              "label": "Nott'm Forest",
+              "href": "clubs/index.html?club=Nott'm%20Forest",
+              "abbr": "NOT"
+            },
+            {
+              "label": "Sheffield United",
+              "href": "clubs/index.html?club=Sheffield%20United",
+              "abbr": "SHE"
+            },
+            {
+              "label": "Southampton",
+              "href": "clubs/index.html?club=Southampton",
+              "abbr": "SOU"
+            },
+            {
+              "label": "Sunderland",
+              "href": "clubs/index.html?club=Sunderland",
+              "abbr": "SUN"
+            },
+            {
+              "label": "Tottenham",
+              "href": "clubs/index.html?club=Tottenham",
+              "abbr": "TOT"
+            },
+            {
+              "label": "West Ham",
+              "href": "clubs/index.html?club=West%20Ham",
+              "abbr": "WES"
+            },
+            {
+              "label": "Wolves",
+              "href": "clubs/index.html?club=Wolves",
+              "abbr": "WOL"
+            }
+          ]
+        },
+        {
+          "title": "France",
+          "items": [
+            {
+              "label": "Angers",
+              "href": "clubs/index.html?club=Angers",
+              "abbr": "ANG"
+            },
+            {
+              "label": "Auxerre",
+              "href": "clubs/index.html?club=Auxerre",
+              "abbr": "AUX"
+            },
+            {
+              "label": "Brest",
+              "href": "clubs/index.html?club=Brest",
+              "abbr": "BRE"
+            },
+            {
+              "label": "Clermont",
+              "href": "clubs/index.html?club=Clermont",
+              "abbr": "CLE"
+            },
+            {
+              "label": "Le Havre",
+              "href": "clubs/index.html?club=Le%20Havre",
+              "abbr": "LE "
+            },
+            {
+              "label": "Lens",
+              "href": "clubs/index.html?club=Lens",
+              "abbr": "LEN"
+            },
+            {
+              "label": "Lille",
+              "href": "clubs/index.html?club=Lille",
+              "abbr": "LIL"
+            },
+            {
+              "label": "Lorient",
+              "href": "clubs/index.html?club=Lorient",
+              "abbr": "LOR"
+            },
+            {
+              "label": "Lyon",
+              "href": "clubs/index.html?club=Lyon",
+              "abbr": "LYO"
+            },
+            {
+              "label": "Marseille",
+              "href": "clubs/index.html?club=Marseille",
+              "abbr": "MAR"
+            },
+            {
+              "label": "Metz",
+              "href": "clubs/index.html?club=Metz",
+              "abbr": "MET"
+            },
+            {
+              "label": "Monaco",
+              "href": "clubs/index.html?club=Monaco",
+              "abbr": "MON"
+            },
+            {
+              "label": "Montpellier",
+              "href": "clubs/index.html?club=Montpellier",
+              "abbr": "MON"
+            },
+            {
+              "label": "Nantes",
+              "href": "clubs/index.html?club=Nantes",
+              "abbr": "NAN"
+            },
+            {
+              "label": "Nice",
+              "href": "clubs/index.html?club=Nice",
+              "abbr": "NIC"
+            },
+            {
+              "label": "Paris FC",
+              "href": "clubs/index.html?club=Paris%20FC",
+              "abbr": "PAR"
+            },
+            {
+              "label": "Paris SG",
+              "href": "clubs/index.html?club=Paris%20SG",
+              "abbr": "PAR"
+            },
+            {
+              "label": "Reims",
+              "href": "clubs/index.html?club=Reims",
+              "abbr": "REI"
+            },
+            {
+              "label": "Rennes",
+              "href": "clubs/index.html?club=Rennes",
+              "abbr": "REN"
+            },
+            {
+              "label": "St Etienne",
+              "href": "clubs/index.html?club=St%20Etienne",
+              "abbr": "ST "
+            },
+            {
+              "label": "Strasbourg",
+              "href": "clubs/index.html?club=Strasbourg",
+              "abbr": "STR"
+            },
+            {
+              "label": "Toulouse",
+              "href": "clubs/index.html?club=Toulouse",
+              "abbr": "TOU"
+            },
+            {
+              "label": "Ajaccio",
+              "href": "clubs/index.html?club=Ajaccio",
+              "abbr": "AJA"
+            },
+            {
+              "label": "Amiens",
+              "href": "clubs/index.html?club=Amiens",
+              "abbr": "AMI"
+            },
+            {
+              "label": "Angers",
+              "href": "clubs/index.html?club=Angers",
+              "abbr": "ANG"
+            },
+            {
+              "label": "Annecy",
+              "href": "clubs/index.html?club=Annecy",
+              "abbr": "ANN"
+            },
+            {
+              "label": "Auxerre",
+              "href": "clubs/index.html?club=Auxerre",
+              "abbr": "AUX"
+            },
+            {
+              "label": "Bastia",
+              "href": "clubs/index.html?club=Bastia",
+              "abbr": "BAS"
+            },
+            {
+              "label": "Bordeaux",
+              "href": "clubs/index.html?club=Bordeaux",
+              "abbr": "BOR"
+            },
+            {
+              "label": "Boulogne",
+              "href": "clubs/index.html?club=Boulogne",
+              "abbr": "BOU"
+            },
+            {
+              "label": "Caen",
+              "href": "clubs/index.html?club=Caen",
+              "abbr": "CAE"
+            },
+            {
+              "label": "Clermont",
+              "href": "clubs/index.html?club=Clermont",
+              "abbr": "CLE"
+            },
+            {
+              "label": "Concarneau",
+              "href": "clubs/index.html?club=Concarneau",
+              "abbr": "CON"
+            },
+            {
+              "label": "Dunkerque",
+              "href": "clubs/index.html?club=Dunkerque",
+              "abbr": "DUN"
+            },
+            {
+              "label": "Grenoble",
+              "href": "clubs/index.html?club=Grenoble",
+              "abbr": "GRE"
+            },
+            {
+              "label": "Guingamp",
+              "href": "clubs/index.html?club=Guingamp",
+              "abbr": "GUI"
+            },
+            {
+              "label": "Laval",
+              "href": "clubs/index.html?club=Laval",
+              "abbr": "LAV"
+            },
+            {
+              "label": "Le Mans",
+              "href": "clubs/index.html?club=Le%20Mans",
+              "abbr": "LE "
+            },
+            {
+              "label": "Lorient",
+              "href": "clubs/index.html?club=Lorient",
+              "abbr": "LOR"
+            },
+            {
+              "label": "Martigues",
+              "href": "clubs/index.html?club=Martigues",
+              "abbr": "MAR"
+            },
+            {
+              "label": "Metz",
+              "href": "clubs/index.html?club=Metz",
+              "abbr": "MET"
+            },
+            {
+              "label": "Montpellier",
+              "href": "clubs/index.html?club=Montpellier",
+              "abbr": "MON"
+            },
+            {
+              "label": "Nancy",
+              "href": "clubs/index.html?club=Nancy",
+              "abbr": "NAN"
+            },
+            {
+              "label": "Paris FC",
+              "href": "clubs/index.html?club=Paris%20FC",
+              "abbr": "PAR"
+            },
+            {
+              "label": "Pau FC",
+              "href": "clubs/index.html?club=Pau%20FC",
+              "abbr": "PAU"
+            },
+            {
+              "label": "Quevilly Rouen",
+              "href": "clubs/index.html?club=Quevilly%20Rouen",
+              "abbr": "QUE"
+            },
+            {
+              "label": "Red Star",
+              "href": "clubs/index.html?club=Red%20Star",
+              "abbr": "RED"
+            },
+            {
+              "label": "Reims",
+              "href": "clubs/index.html?club=Reims",
+              "abbr": "REI"
+            },
+            {
+              "label": "Rodez",
+              "href": "clubs/index.html?club=Rodez",
+              "abbr": "ROD"
+            },
+            {
+              "label": "St Etienne",
+              "href": "clubs/index.html?club=St%20Etienne",
+              "abbr": "ST "
+            },
+            {
+              "label": "Troyes",
+              "href": "clubs/index.html?club=Troyes",
+              "abbr": "TRO"
+            },
+            {
+              "label": "Valenciennes",
+              "href": "clubs/index.html?club=Valenciennes",
+              "abbr": "VAL"
+            }
+          ]
+        },
+        {
+          "title": "Germany",
+          "items": [
+            {
+              "label": "Bielefeld",
+              "href": "clubs/index.html?club=Bielefeld",
+              "abbr": "BIE"
+            },
+            {
+              "label": "Bochum",
+              "href": "clubs/index.html?club=Bochum",
+              "abbr": "BOC"
+            },
+            {
+              "label": "Braunschweig",
+              "href": "clubs/index.html?club=Braunschweig",
+              "abbr": "BRA"
+            },
+            {
+              "label": "Darmstadt",
+              "href": "clubs/index.html?club=Darmstadt",
+              "abbr": "DAR"
+            },
+            {
+              "label": "Dresden",
+              "href": "clubs/index.html?club=Dresden",
+              "abbr": "DRE"
+            },
+            {
+              "label": "Elversberg",
+              "href": "clubs/index.html?club=Elversberg",
+              "abbr": "ELV"
+            },
+            {
+              "label": "FC Koln",
+              "href": "clubs/index.html?club=FC%20Koln",
+              "abbr": "FC "
+            },
+            {
+              "label": "Fortuna Dusseldorf",
+              "href": "clubs/index.html?club=Fortuna%20Dusseldorf",
+              "abbr": "FOR"
+            },
+            {
+              "label": "Greuther Furth",
+              "href": "clubs/index.html?club=Greuther%20Furth",
+              "abbr": "GRE"
+            },
+            {
+              "label": "Hamburg",
+              "href": "clubs/index.html?club=Hamburg",
+              "abbr": "HAM"
+            },
+            {
+              "label": "Hannover",
+              "href": "clubs/index.html?club=Hannover",
+              "abbr": "HAN"
+            },
+            {
+              "label": "Hansa Rostock",
+              "href": "clubs/index.html?club=Hansa%20Rostock",
+              "abbr": "HAN"
+            },
+            {
+              "label": "Hertha",
+              "href": "clubs/index.html?club=Hertha",
+              "abbr": "HER"
+            },
+            {
+              "label": "Holstein Kiel",
+              "href": "clubs/index.html?club=Holstein%20Kiel",
+              "abbr": "HOL"
+            },
+            {
+              "label": "Kaiserslautern",
+              "href": "clubs/index.html?club=Kaiserslautern",
+              "abbr": "KAI"
+            },
+            {
+              "label": "Karlsruhe",
+              "href": "clubs/index.html?club=Karlsruhe",
+              "abbr": "KAR"
+            },
+            {
+              "label": "Magdeburg",
+              "href": "clubs/index.html?club=Magdeburg",
+              "abbr": "MAG"
+            },
+            {
+              "label": "Nurnberg",
+              "href": "clubs/index.html?club=Nurnberg",
+              "abbr": "NUR"
+            },
+            {
+              "label": "Osnabruck",
+              "href": "clubs/index.html?club=Osnabruck",
+              "abbr": "OSN"
+            },
+            {
+              "label": "Paderborn",
+              "href": "clubs/index.html?club=Paderborn",
+              "abbr": "PAD"
+            },
+            {
+              "label": "Preu\u00c3\u009fen M\u00c3\u00bcnster",
+              "href": "clubs/index.html?club=Preu\u00c3\u009fen%20M\u00c3\u00bcnster",
+              "abbr": "PRE"
+            },
+            {
+              "label": "Regensburg",
+              "href": "clubs/index.html?club=Regensburg",
+              "abbr": "REG"
+            },
+            {
+              "label": "Schalke 04",
+              "href": "clubs/index.html?club=Schalke%2004",
+              "abbr": "SCH"
+            },
+            {
+              "label": "St Pauli",
+              "href": "clubs/index.html?club=St%20Pauli",
+              "abbr": "ST "
+            },
+            {
+              "label": "Ulm",
+              "href": "clubs/index.html?club=Ulm",
+              "abbr": "ULM"
+            },
+            {
+              "label": "Wehen",
+              "href": "clubs/index.html?club=Wehen",
+              "abbr": "WEH"
+            },
+            {
+              "label": "Augsburg",
+              "href": "clubs/index.html?club=Augsburg",
+              "abbr": "AUG"
+            },
+            {
+              "label": "Bayern Munich",
+              "href": "clubs/index.html?club=Bayern%20Munich",
+              "abbr": "BAY"
+            },
+            {
+              "label": "Bochum",
+              "href": "clubs/index.html?club=Bochum",
+              "abbr": "BOC"
+            },
+            {
+              "label": "Darmstadt",
+              "href": "clubs/index.html?club=Darmstadt",
+              "abbr": "DAR"
+            },
+            {
+              "label": "Dortmund",
+              "href": "clubs/index.html?club=Dortmund",
+              "abbr": "DOR"
+            },
+            {
+              "label": "Ein Frankfurt",
+              "href": "clubs/index.html?club=Ein%20Frankfurt",
+              "abbr": "EIN"
+            },
+            {
+              "label": "FC Koln",
+              "href": "clubs/index.html?club=FC%20Koln",
+              "abbr": "FC "
+            },
+            {
+              "label": "Freiburg",
+              "href": "clubs/index.html?club=Freiburg",
+              "abbr": "FRE"
+            },
+            {
+              "label": "Hamburg",
+              "href": "clubs/index.html?club=Hamburg",
+              "abbr": "HAM"
+            },
+            {
+              "label": "Heidenheim",
+              "href": "clubs/index.html?club=Heidenheim",
+              "abbr": "HEI"
+            },
+            {
+              "label": "Hoffenheim",
+              "href": "clubs/index.html?club=Hoffenheim",
+              "abbr": "HOF"
+            },
+            {
+              "label": "Holstein Kiel",
+              "href": "clubs/index.html?club=Holstein%20Kiel",
+              "abbr": "HOL"
+            },
+            {
+              "label": "Leverkusen",
+              "href": "clubs/index.html?club=Leverkusen",
+              "abbr": "LEV"
+            },
+            {
+              "label": "M'gladbach",
+              "href": "clubs/index.html?club=M'gladbach",
+              "abbr": "M'G"
+            },
+            {
+              "label": "Mainz",
+              "href": "clubs/index.html?club=Mainz",
+              "abbr": "MAI"
+            },
+            {
+              "label": "RB Leipzig",
+              "href": "clubs/index.html?club=RB%20Leipzig",
+              "abbr": "RB "
+            },
+            {
+              "label": "St Pauli",
+              "href": "clubs/index.html?club=St%20Pauli",
+              "abbr": "ST "
+            },
+            {
+              "label": "Stuttgart",
+              "href": "clubs/index.html?club=Stuttgart",
+              "abbr": "STU"
+            },
+            {
+              "label": "Union Berlin",
+              "href": "clubs/index.html?club=Union%20Berlin",
+              "abbr": "UNI"
+            },
+            {
+              "label": "Werder Bremen",
+              "href": "clubs/index.html?club=Werder%20Bremen",
+              "abbr": "WER"
+            },
+            {
+              "label": "Wolfsburg",
+              "href": "clubs/index.html?club=Wolfsburg",
+              "abbr": "WOL"
+            }
+          ]
+        },
+        {
+          "title": "Italy",
+          "items": [
+            {
+              "label": "Atalanta",
+              "href": "clubs/index.html?club=Atalanta",
+              "abbr": "ATA"
+            },
+            {
+              "label": "Bologna",
+              "href": "clubs/index.html?club=Bologna",
+              "abbr": "BOL"
+            },
+            {
+              "label": "Cagliari",
+              "href": "clubs/index.html?club=Cagliari",
+              "abbr": "CAG"
+            },
+            {
+              "label": "Como",
+              "href": "clubs/index.html?club=Como",
+              "abbr": "COM"
+            },
+            {
+              "label": "Cremonese",
+              "href": "clubs/index.html?club=Cremonese",
+              "abbr": "CRE"
+            },
+            {
+              "label": "Empoli",
+              "href": "clubs/index.html?club=Empoli",
+              "abbr": "EMP"
+            },
+            {
+              "label": "Fiorentina",
+              "href": "clubs/index.html?club=Fiorentina",
+              "abbr": "FIO"
+            },
+            {
+              "label": "Frosinone",
+              "href": "clubs/index.html?club=Frosinone",
+              "abbr": "FRO"
+            },
+            {
+              "label": "Genoa",
+              "href": "clubs/index.html?club=Genoa",
+              "abbr": "GEN"
+            },
+            {
+              "label": "Inter",
+              "href": "clubs/index.html?club=Inter",
+              "abbr": "INT"
+            },
+            {
+              "label": "Juventus",
+              "href": "clubs/index.html?club=Juventus",
+              "abbr": "JUV"
+            },
+            {
+              "label": "Lazio",
+              "href": "clubs/index.html?club=Lazio",
+              "abbr": "LAZ"
+            },
+            {
+              "label": "Lecce",
+              "href": "clubs/index.html?club=Lecce",
+              "abbr": "LEC"
+            },
+            {
+              "label": "Milan",
+              "href": "clubs/index.html?club=Milan",
+              "abbr": "MIL"
+            },
+            {
+              "label": "Monza",
+              "href": "clubs/index.html?club=Monza",
+              "abbr": "MON"
+            },
+            {
+              "label": "Napoli",
+              "href": "clubs/index.html?club=Napoli",
+              "abbr": "NAP"
+            },
+            {
+              "label": "Parma",
+              "href": "clubs/index.html?club=Parma",
+              "abbr": "PAR"
+            },
+            {
+              "label": "Pisa",
+              "href": "clubs/index.html?club=Pisa",
+              "abbr": "PIS"
+            },
+            {
+              "label": "Roma",
+              "href": "clubs/index.html?club=Roma",
+              "abbr": "ROM"
+            },
+            {
+              "label": "Salernitana",
+              "href": "clubs/index.html?club=Salernitana",
+              "abbr": "SAL"
+            },
+            {
+              "label": "Sassuolo",
+              "href": "clubs/index.html?club=Sassuolo",
+              "abbr": "SAS"
+            },
+            {
+              "label": "Torino",
+              "href": "clubs/index.html?club=Torino",
+              "abbr": "TOR"
+            },
+            {
+              "label": "Udinese",
+              "href": "clubs/index.html?club=Udinese",
+              "abbr": "UDI"
+            },
+            {
+              "label": "Venezia",
+              "href": "clubs/index.html?club=Venezia",
+              "abbr": "VEN"
+            },
+            {
+              "label": "Verona",
+              "href": "clubs/index.html?club=Verona",
+              "abbr": "VER"
+            },
+            {
+              "label": "Ascoli",
+              "href": "clubs/index.html?club=Ascoli",
+              "abbr": "ASC"
+            },
+            {
+              "label": "Avellino",
+              "href": "clubs/index.html?club=Avellino",
+              "abbr": "AVE"
+            },
+            {
+              "label": "Bari",
+              "href": "clubs/index.html?club=Bari",
+              "abbr": "BAR"
+            },
+            {
+              "label": "Brescia",
+              "href": "clubs/index.html?club=Brescia",
+              "abbr": "BRE"
+            },
+            {
+              "label": "Carrarese",
+              "href": "clubs/index.html?club=Carrarese",
+              "abbr": "CAR"
+            },
+            {
+              "label": "Catanzaro",
+              "href": "clubs/index.html?club=Catanzaro",
+              "abbr": "CAT"
+            },
+            {
+              "label": "Cesena",
+              "href": "clubs/index.html?club=Cesena",
+              "abbr": "CES"
+            },
+            {
+              "label": "Cittadella",
+              "href": "clubs/index.html?club=Cittadella",
+              "abbr": "CIT"
+            },
+            {
+              "label": "Como",
+              "href": "clubs/index.html?club=Como",
+              "abbr": "COM"
+            },
+            {
+              "label": "Cosenza",
+              "href": "clubs/index.html?club=Cosenza",
+              "abbr": "COS"
+            },
+            {
+              "label": "Cremonese",
+              "href": "clubs/index.html?club=Cremonese",
+              "abbr": "CRE"
+            },
+            {
+              "label": "Empoli",
+              "href": "clubs/index.html?club=Empoli",
+              "abbr": "EMP"
+            },
+            {
+              "label": "FeralpiSalo",
+              "href": "clubs/index.html?club=FeralpiSalo",
+              "abbr": "FER"
+            },
+            {
+              "label": "Frosinone",
+              "href": "clubs/index.html?club=Frosinone",
+              "abbr": "FRO"
+            },
+            {
+              "label": "Juve Stabia",
+              "href": "clubs/index.html?club=Juve%20Stabia",
+              "abbr": "JUV"
+            },
+            {
+              "label": "Lecco",
+              "href": "clubs/index.html?club=Lecco",
+              "abbr": "LEC"
+            },
+            {
+              "label": "Mantova",
+              "href": "clubs/index.html?club=Mantova",
+              "abbr": "MAN"
+            },
+            {
+              "label": "Modena",
+              "href": "clubs/index.html?club=Modena",
+              "abbr": "MOD"
+            },
+            {
+              "label": "Monza",
+              "href": "clubs/index.html?club=Monza",
+              "abbr": "MON"
+            },
+            {
+              "label": "Padova",
+              "href": "clubs/index.html?club=Padova",
+              "abbr": "PAD"
+            },
+            {
+              "label": "Palermo",
+              "href": "clubs/index.html?club=Palermo",
+              "abbr": "PAL"
+            },
+            {
+              "label": "Parma",
+              "href": "clubs/index.html?club=Parma",
+              "abbr": "PAR"
+            },
+            {
+              "label": "Pescara",
+              "href": "clubs/index.html?club=Pescara",
+              "abbr": "PES"
+            },
+            {
+              "label": "Pisa",
+              "href": "clubs/index.html?club=Pisa",
+              "abbr": "PIS"
+            },
+            {
+              "label": "Reggiana",
+              "href": "clubs/index.html?club=Reggiana",
+              "abbr": "REG"
+            },
+            {
+              "label": "Salernitana",
+              "href": "clubs/index.html?club=Salernitana",
+              "abbr": "SAL"
+            },
+            {
+              "label": "Sampdoria",
+              "href": "clubs/index.html?club=Sampdoria",
+              "abbr": "SAM"
+            },
+            {
+              "label": "Sassuolo",
+              "href": "clubs/index.html?club=Sassuolo",
+              "abbr": "SAS"
+            },
+            {
+              "label": "Spezia",
+              "href": "clubs/index.html?club=Spezia",
+              "abbr": "SPE"
+            },
+            {
+              "label": "Sudtirol",
+              "href": "clubs/index.html?club=Sudtirol",
+              "abbr": "SUD"
+            },
+            {
+              "label": "Ternana",
+              "href": "clubs/index.html?club=Ternana",
+              "abbr": "TER"
+            },
+            {
+              "label": "Venezia",
+              "href": "clubs/index.html?club=Venezia",
+              "abbr": "VEN"
+            },
+            {
+              "label": "Virtus Entella",
+              "href": "clubs/index.html?club=Virtus%20Entella",
+              "abbr": "VIR"
+            }
+          ]
+        },
+        {
+          "title": "Netherlands",
+          "items": [
+            {
+              "label": "AZ Alkmaar",
+              "href": "clubs/index.html?club=AZ%20Alkmaar",
+              "abbr": "AZ "
+            },
+            {
+              "label": "Ajax",
+              "href": "clubs/index.html?club=Ajax",
+              "abbr": "AJA"
+            },
+            {
+              "label": "Almere City",
+              "href": "clubs/index.html?club=Almere%20City",
+              "abbr": "ALM"
+            },
+            {
+              "label": "Excelsior",
+              "href": "clubs/index.html?club=Excelsior",
+              "abbr": "EXC"
+            },
+            {
+              "label": "Feyenoord",
+              "href": "clubs/index.html?club=Feyenoord",
+              "abbr": "FEY"
+            },
+            {
+              "label": "For Sittard",
+              "href": "clubs/index.html?club=For%20Sittard",
+              "abbr": "FOR"
+            },
+            {
+              "label": "Go Ahead Eagles",
+              "href": "clubs/index.html?club=Go%20Ahead%20Eagles",
+              "abbr": "GO "
+            },
+            {
+              "label": "Groningen",
+              "href": "clubs/index.html?club=Groningen",
+              "abbr": "GRO"
+            },
+            {
+              "label": "Heerenveen",
+              "href": "clubs/index.html?club=Heerenveen",
+              "abbr": "HEE"
+            },
+            {
+              "label": "Heracles",
+              "href": "clubs/index.html?club=Heracles",
+              "abbr": "HER"
+            },
+            {
+              "label": "NAC Breda",
+              "href": "clubs/index.html?club=NAC%20Breda",
+              "abbr": "NAC"
+            },
+            {
+              "label": "Nijmegen",
+              "href": "clubs/index.html?club=Nijmegen",
+              "abbr": "NIJ"
+            },
+            {
+              "label": "PSV Eindhoven",
+              "href": "clubs/index.html?club=PSV%20Eindhoven",
+              "abbr": "PSV"
+            },
+            {
+              "label": "Sparta Rotterdam",
+              "href": "clubs/index.html?club=Sparta%20Rotterdam",
+              "abbr": "SPA"
+            },
+            {
+              "label": "Telstar",
+              "href": "clubs/index.html?club=Telstar",
+              "abbr": "TEL"
+            },
+            {
+              "label": "Twente",
+              "href": "clubs/index.html?club=Twente",
+              "abbr": "TWE"
+            },
+            {
+              "label": "Utrecht",
+              "href": "clubs/index.html?club=Utrecht",
+              "abbr": "UTR"
+            },
+            {
+              "label": "Vitesse",
+              "href": "clubs/index.html?club=Vitesse",
+              "abbr": "VIT"
+            },
+            {
+              "label": "Volendam",
+              "href": "clubs/index.html?club=Volendam",
+              "abbr": "VOL"
+            },
+            {
+              "label": "Waalwijk",
+              "href": "clubs/index.html?club=Waalwijk",
+              "abbr": "WAA"
+            },
+            {
+              "label": "Willem II",
+              "href": "clubs/index.html?club=Willem%20II",
+              "abbr": "WIL"
+            },
+            {
+              "label": "Zwolle",
+              "href": "clubs/index.html?club=Zwolle",
+              "abbr": "ZWO"
+            }
+          ]
+        },
+        {
+          "title": "Portugal",
+          "items": [
+            {
+              "label": "AVS",
+              "href": "clubs/index.html?club=AVS",
+              "abbr": "AVS"
+            },
+            {
+              "label": "Alverca",
+              "href": "clubs/index.html?club=Alverca",
+              "abbr": "ALV"
+            },
+            {
+              "label": "Arouca",
+              "href": "clubs/index.html?club=Arouca",
+              "abbr": "ARO"
+            },
+            {
+              "label": "Benfica",
+              "href": "clubs/index.html?club=Benfica",
+              "abbr": "BEN"
+            },
+            {
+              "label": "Boavista",
+              "href": "clubs/index.html?club=Boavista",
+              "abbr": "BOA"
+            },
+            {
+              "label": "Casa Pia",
+              "href": "clubs/index.html?club=Casa%20Pia",
+              "abbr": "CAS"
+            },
+            {
+              "label": "Chaves",
+              "href": "clubs/index.html?club=Chaves",
+              "abbr": "CHA"
+            },
+            {
+              "label": "Estoril",
+              "href": "clubs/index.html?club=Estoril",
+              "abbr": "EST"
+            },
+            {
+              "label": "Estrela",
+              "href": "clubs/index.html?club=Estrela",
+              "abbr": "EST"
+            },
+            {
+              "label": "Famalicao",
+              "href": "clubs/index.html?club=Famalicao",
+              "abbr": "FAM"
+            },
+            {
+              "label": "Farense",
+              "href": "clubs/index.html?club=Farense",
+              "abbr": "FAR"
+            },
+            {
+              "label": "Gil Vicente",
+              "href": "clubs/index.html?club=Gil%20Vicente",
+              "abbr": "GIL"
+            },
+            {
+              "label": "Guimaraes",
+              "href": "clubs/index.html?club=Guimaraes",
+              "abbr": "GUI"
+            },
+            {
+              "label": "Moreirense",
+              "href": "clubs/index.html?club=Moreirense",
+              "abbr": "MOR"
+            },
+            {
+              "label": "Nacional",
+              "href": "clubs/index.html?club=Nacional",
+              "abbr": "NAC"
+            },
+            {
+              "label": "Portimonense",
+              "href": "clubs/index.html?club=Portimonense",
+              "abbr": "POR"
+            },
+            {
+              "label": "Porto",
+              "href": "clubs/index.html?club=Porto",
+              "abbr": "POR"
+            },
+            {
+              "label": "Rio Ave",
+              "href": "clubs/index.html?club=Rio%20Ave",
+              "abbr": "RIO"
+            },
+            {
+              "label": "Santa Clara",
+              "href": "clubs/index.html?club=Santa%20Clara",
+              "abbr": "SAN"
+            },
+            {
+              "label": "Sp Braga",
+              "href": "clubs/index.html?club=Sp%20Braga",
+              "abbr": "SP "
+            },
+            {
+              "label": "Sp Lisbon",
+              "href": "clubs/index.html?club=Sp%20Lisbon",
+              "abbr": "SP "
+            },
+            {
+              "label": "Tondela",
+              "href": "clubs/index.html?club=Tondela",
+              "abbr": "TON"
+            },
+            {
+              "label": "Vizela",
+              "href": "clubs/index.html?club=Vizela",
+              "abbr": "VIZ"
+            }
+          ]
+        },
+        {
+          "title": "Scotland",
+          "items": [
+            {
+              "label": "Aberdeen",
+              "href": "clubs/index.html?club=Aberdeen",
+              "abbr": "ABE"
+            },
+            {
+              "label": "Celtic",
+              "href": "clubs/index.html?club=Celtic",
+              "abbr": "CEL"
+            },
+            {
+              "label": "Dundee",
+              "href": "clubs/index.html?club=Dundee",
+              "abbr": "DUN"
+            },
+            {
+              "label": "Dundee United",
+              "href": "clubs/index.html?club=Dundee%20United",
+              "abbr": "DUN"
+            },
+            {
+              "label": "Falkirk",
+              "href": "clubs/index.html?club=Falkirk",
+              "abbr": "FAL"
+            },
+            {
+              "label": "Hearts",
+              "href": "clubs/index.html?club=Hearts",
+              "abbr": "HEA"
+            },
+            {
+              "label": "Hibernian",
+              "href": "clubs/index.html?club=Hibernian",
+              "abbr": "HIB"
+            },
+            {
+              "label": "Kilmarnock",
+              "href": "clubs/index.html?club=Kilmarnock",
+              "abbr": "KIL"
+            },
+            {
+              "label": "Livingston",
+              "href": "clubs/index.html?club=Livingston",
+              "abbr": "LIV"
+            },
+            {
+              "label": "Motherwell",
+              "href": "clubs/index.html?club=Motherwell",
+              "abbr": "MOT"
+            },
+            {
+              "label": "Rangers",
+              "href": "clubs/index.html?club=Rangers",
+              "abbr": "RAN"
+            },
+            {
+              "label": "Ross County",
+              "href": "clubs/index.html?club=Ross%20County",
+              "abbr": "ROS"
+            },
+            {
+              "label": "St Johnstone",
+              "href": "clubs/index.html?club=St%20Johnstone",
+              "abbr": "ST "
+            },
+            {
+              "label": "St Mirren",
+              "href": "clubs/index.html?club=St%20Mirren",
+              "abbr": "ST "
+            }
+          ]
+        },
+        {
+          "title": "Spain",
+          "items": [
+            {
+              "label": "Alaves",
+              "href": "clubs/index.html?club=Alaves",
+              "abbr": "ALA"
+            },
+            {
+              "label": "Almeria",
+              "href": "clubs/index.html?club=Almeria",
+              "abbr": "ALM"
+            },
+            {
+              "label": "Ath Bilbao",
+              "href": "clubs/index.html?club=Ath%20Bilbao",
+              "abbr": "ATH"
+            },
+            {
+              "label": "Ath Madrid",
+              "href": "clubs/index.html?club=Ath%20Madrid",
+              "abbr": "ATH"
+            },
+            {
+              "label": "Barcelona",
+              "href": "clubs/index.html?club=Barcelona",
+              "abbr": "BAR"
+            },
+            {
+              "label": "Betis",
+              "href": "clubs/index.html?club=Betis",
+              "abbr": "BET"
+            },
+            {
+              "label": "Cadiz",
+              "href": "clubs/index.html?club=Cadiz",
+              "abbr": "CAD"
+            },
+            {
+              "label": "Celta",
+              "href": "clubs/index.html?club=Celta",
+              "abbr": "CEL"
+            },
+            {
+              "label": "Elche",
+              "href": "clubs/index.html?club=Elche",
+              "abbr": "ELC"
+            },
+            {
+              "label": "Espanol",
+              "href": "clubs/index.html?club=Espanol",
+              "abbr": "ESP"
+            },
+            {
+              "label": "Getafe",
+              "href": "clubs/index.html?club=Getafe",
+              "abbr": "GET"
+            },
+            {
+              "label": "Girona",
+              "href": "clubs/index.html?club=Girona",
+              "abbr": "GIR"
+            },
+            {
+              "label": "Granada",
+              "href": "clubs/index.html?club=Granada",
+              "abbr": "GRA"
+            },
+            {
+              "label": "Las Palmas",
+              "href": "clubs/index.html?club=Las%20Palmas",
+              "abbr": "LAS"
+            },
+            {
+              "label": "Leganes",
+              "href": "clubs/index.html?club=Leganes",
+              "abbr": "LEG"
+            },
+            {
+              "label": "Levante",
+              "href": "clubs/index.html?club=Levante",
+              "abbr": "LEV"
+            },
+            {
+              "label": "Mallorca",
+              "href": "clubs/index.html?club=Mallorca",
+              "abbr": "MAL"
+            },
+            {
+              "label": "Osasuna",
+              "href": "clubs/index.html?club=Osasuna",
+              "abbr": "OSA"
+            },
+            {
+              "label": "Oviedo",
+              "href": "clubs/index.html?club=Oviedo",
+              "abbr": "OVI"
+            },
+            {
+              "label": "Real Madrid",
+              "href": "clubs/index.html?club=Real%20Madrid",
+              "abbr": "REA"
+            },
+            {
+              "label": "Sevilla",
+              "href": "clubs/index.html?club=Sevilla",
+              "abbr": "SEV"
+            },
+            {
+              "label": "Sociedad",
+              "href": "clubs/index.html?club=Sociedad",
+              "abbr": "SOC"
+            },
+            {
+              "label": "Valencia",
+              "href": "clubs/index.html?club=Valencia",
+              "abbr": "VAL"
+            },
+            {
+              "label": "Valladolid",
+              "href": "clubs/index.html?club=Valladolid",
+              "abbr": "VAL"
+            },
+            {
+              "label": "Vallecano",
+              "href": "clubs/index.html?club=Vallecano",
+              "abbr": "VAL"
+            },
+            {
+              "label": "Villarreal",
+              "href": "clubs/index.html?club=Villarreal",
+              "abbr": "VIL"
+            },
+            {
+              "label": "Albacete",
+              "href": "clubs/index.html?club=Albacete",
+              "abbr": "ALB"
+            },
+            {
+              "label": "Alcorcon",
+              "href": "clubs/index.html?club=Alcorcon",
+              "abbr": "ALC"
+            },
+            {
+              "label": "Almeria",
+              "href": "clubs/index.html?club=Almeria",
+              "abbr": "ALM"
+            },
+            {
+              "label": "Amorebieta",
+              "href": "clubs/index.html?club=Amorebieta",
+              "abbr": "AMO"
+            },
+            {
+              "label": "Andorra",
+              "href": "clubs/index.html?club=Andorra",
+              "abbr": "AND"
+            },
+            {
+              "label": "Burgos",
+              "href": "clubs/index.html?club=Burgos",
+              "abbr": "BUR"
+            },
+            {
+              "label": "Cadiz",
+              "href": "clubs/index.html?club=Cadiz",
+              "abbr": "CAD"
+            },
+            {
+              "label": "Cartagena",
+              "href": "clubs/index.html?club=Cartagena",
+              "abbr": "CAR"
+            },
+            {
+              "label": "Castellon",
+              "href": "clubs/index.html?club=Castellon",
+              "abbr": "CAS"
+            },
+            {
+              "label": "Ceuta",
+              "href": "clubs/index.html?club=Ceuta",
+              "abbr": "CEU"
+            },
+            {
+              "label": "Cordoba",
+              "href": "clubs/index.html?club=Cordoba",
+              "abbr": "COR"
+            },
+            {
+              "label": "Cultural Leonesa",
+              "href": "clubs/index.html?club=Cultural%20Leonesa",
+              "abbr": "CUL"
+            },
+            {
+              "label": "Eibar",
+              "href": "clubs/index.html?club=Eibar",
+              "abbr": "EIB"
+            },
+            {
+              "label": "Elche",
+              "href": "clubs/index.html?club=Elche",
+              "abbr": "ELC"
+            },
+            {
+              "label": "Eldense",
+              "href": "clubs/index.html?club=Eldense",
+              "abbr": "ELD"
+            },
+            {
+              "label": "Espanol",
+              "href": "clubs/index.html?club=Espanol",
+              "abbr": "ESP"
+            },
+            {
+              "label": "Ferrol",
+              "href": "clubs/index.html?club=Ferrol",
+              "abbr": "FER"
+            },
+            {
+              "label": "Granada",
+              "href": "clubs/index.html?club=Granada",
+              "abbr": "GRA"
+            },
+            {
+              "label": "Huesca",
+              "href": "clubs/index.html?club=Huesca",
+              "abbr": "HUE"
+            },
+            {
+              "label": "La Coruna",
+              "href": "clubs/index.html?club=La%20Coruna",
+              "abbr": "LA "
+            },
+            {
+              "label": "Las Palmas",
+              "href": "clubs/index.html?club=Las%20Palmas",
+              "abbr": "LAS"
+            },
+            {
+              "label": "Leganes",
+              "href": "clubs/index.html?club=Leganes",
+              "abbr": "LEG"
+            },
+            {
+              "label": "Levante",
+              "href": "clubs/index.html?club=Levante",
+              "abbr": "LEV"
+            },
+            {
+              "label": "Malaga",
+              "href": "clubs/index.html?club=Malaga",
+              "abbr": "MAL"
+            },
+            {
+              "label": "Mirandes",
+              "href": "clubs/index.html?club=Mirandes",
+              "abbr": "MIR"
+            },
+            {
+              "label": "Oviedo",
+              "href": "clubs/index.html?club=Oviedo",
+              "abbr": "OVI"
+            },
+            {
+              "label": "Santander",
+              "href": "clubs/index.html?club=Santander",
+              "abbr": "SAN"
+            },
+            {
+              "label": "Sociedad B",
+              "href": "clubs/index.html?club=Sociedad%20B",
+              "abbr": "SOC"
+            },
+            {
+              "label": "Sp Gijon",
+              "href": "clubs/index.html?club=Sp%20Gijon",
+              "abbr": "SP "
+            },
+            {
+              "label": "Tenerife",
+              "href": "clubs/index.html?club=Tenerife",
+              "abbr": "TEN"
+            },
+            {
+              "label": "Valladolid",
+              "href": "clubs/index.html?club=Valladolid",
+              "abbr": "VAL"
+            },
+            {
+              "label": "Villarreal B",
+              "href": "clubs/index.html?club=Villarreal%20B",
+              "abbr": "VIL"
+            },
+            {
+              "label": "Zaragoza",
+              "href": "clubs/index.html?club=Zaragoza",
+              "abbr": "ZAR"
+            }
+          ]
+        },
+        {
+          "title": "Turkey",
+          "items": [
+            {
+              "label": "Ad. Demirspor",
+              "href": "clubs/index.html?club=Ad.%20Demirspor",
+              "abbr": "AD."
+            },
+            {
+              "label": "Alanyaspor",
+              "href": "clubs/index.html?club=Alanyaspor",
+              "abbr": "ALA"
+            },
+            {
+              "label": "Ankaragucu",
+              "href": "clubs/index.html?club=Ankaragucu",
+              "abbr": "ANK"
+            },
+            {
+              "label": "Antalyaspor",
+              "href": "clubs/index.html?club=Antalyaspor",
+              "abbr": "ANT"
+            },
+            {
+              "label": "Besiktas",
+              "href": "clubs/index.html?club=Besiktas",
+              "abbr": "BES"
+            },
+            {
+              "label": "Bodrumspor",
+              "href": "clubs/index.html?club=Bodrumspor",
+              "abbr": "BOD"
+            },
+            {
+              "label": "Buyuksehyr",
+              "href": "clubs/index.html?club=Buyuksehyr",
+              "abbr": "BUY"
+            },
+            {
+              "label": "Eyupspor",
+              "href": "clubs/index.html?club=Eyupspor",
+              "abbr": "EYU"
+            },
+            {
+              "label": "Fenerbahce",
+              "href": "clubs/index.html?club=Fenerbahce",
+              "abbr": "FEN"
+            },
+            {
+              "label": "Galatasaray",
+              "href": "clubs/index.html?club=Galatasaray",
+              "abbr": "GAL"
+            },
+            {
+              "label": "Gaziantep",
+              "href": "clubs/index.html?club=Gaziantep",
+              "abbr": "GAZ"
+            },
+            {
+              "label": "Genclerbirligi",
+              "href": "clubs/index.html?club=Genclerbirligi",
+              "abbr": "GEN"
+            },
+            {
+              "label": "Goztep",
+              "href": "clubs/index.html?club=Goztep",
+              "abbr": "GOZ"
+            },
+            {
+              "label": "Hatayspor",
+              "href": "clubs/index.html?club=Hatayspor",
+              "abbr": "HAT"
+            },
+            {
+              "label": "Istanbulspor",
+              "href": "clubs/index.html?club=Istanbulspor",
+              "abbr": "IST"
+            },
+            {
+              "label": "Karagumruk",
+              "href": "clubs/index.html?club=Karagumruk",
+              "abbr": "KAR"
+            },
+            {
+              "label": "Kasimpasa",
+              "href": "clubs/index.html?club=Kasimpasa",
+              "abbr": "KAS"
+            },
+            {
+              "label": "Kayserispor",
+              "href": "clubs/index.html?club=Kayserispor",
+              "abbr": "KAY"
+            },
+            {
+              "label": "Kocaelispor",
+              "href": "clubs/index.html?club=Kocaelispor",
+              "abbr": "KOC"
+            },
+            {
+              "label": "Konyaspor",
+              "href": "clubs/index.html?club=Konyaspor",
+              "abbr": "KON"
+            },
+            {
+              "label": "Pendikspor",
+              "href": "clubs/index.html?club=Pendikspor",
+              "abbr": "PEN"
+            },
+            {
+              "label": "Rizespor",
+              "href": "clubs/index.html?club=Rizespor",
+              "abbr": "RIZ"
+            },
+            {
+              "label": "Samsunspor",
+              "href": "clubs/index.html?club=Samsunspor",
+              "abbr": "SAM"
+            },
+            {
+              "label": "Sivasspor",
+              "href": "clubs/index.html?club=Sivasspor",
+              "abbr": "SIV"
+            },
+            {
+              "label": "Trabzonspor",
+              "href": "clubs/index.html?club=Trabzonspor",
+              "abbr": "TRA"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "label": "Open the full club table",
+        "href": "clubs/index.html"
+      }
+    },
+    {
+      "id": "leagues",
+      "label": "Leagues",
+      "summary": "Browse all 17 leagues and club competitions in the public database.",
+      "sidebar": [
+        {
+          "label": "All Leagues",
+          "href": "leagues/index.html"
+        },
+        {
+          "label": "All Clubs",
+          "href": "clubs/index.html"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Belgium",
+          "items": [
+            {
+              "label": "Jupiler League",
+              "href": "leagues/index.html?league=Jupiler%20League",
+              "abbr": "JUP"
+            }
+          ]
+        },
+        {
+          "title": "England",
+          "items": [
+            {
+              "label": "Championship",
+              "href": "leagues/index.html?league=Championship",
+              "abbr": "CHA"
+            },
+            {
+              "label": "League One",
+              "href": "leagues/index.html?league=League%20One",
+              "abbr": "LEA"
+            },
+            {
+              "label": "League Two",
+              "href": "leagues/index.html?league=League%20Two",
+              "abbr": "LEA"
+            },
+            {
+              "label": "Premier League",
+              "href": "leagues/index.html?league=Premier%20League",
+              "abbr": "PRE"
+            }
+          ]
+        },
+        {
+          "title": "France",
+          "items": [
+            {
+              "label": "Ligue 1",
+              "href": "leagues/index.html?league=Ligue%201",
+              "abbr": "LIG"
+            },
+            {
+              "label": "Ligue 2",
+              "href": "leagues/index.html?league=Ligue%202",
+              "abbr": "LIG"
+            }
+          ]
+        },
+        {
+          "title": "Germany",
+          "items": [
+            {
+              "label": "2. Bundesliga",
+              "href": "leagues/index.html?league=2.%20Bundesliga",
+              "abbr": "2. "
+            },
+            {
+              "label": "Bundesliga",
+              "href": "leagues/index.html?league=Bundesliga",
+              "abbr": "BUN"
+            }
+          ]
+        },
+        {
+          "title": "Italy",
+          "items": [
+            {
+              "label": "Serie A",
+              "href": "leagues/index.html?league=Serie%20A",
+              "abbr": "SER"
+            },
+            {
+              "label": "Serie B",
+              "href": "leagues/index.html?league=Serie%20B",
+              "abbr": "SER"
+            }
+          ]
+        },
+        {
+          "title": "Netherlands",
+          "items": [
+            {
+              "label": "Eredivisie",
+              "href": "leagues/index.html?league=Eredivisie",
+              "abbr": "ERE"
+            }
+          ]
+        },
+        {
+          "title": "Portugal",
+          "items": [
+            {
+              "label": "Primeira Liga",
+              "href": "leagues/index.html?league=Primeira%20Liga",
+              "abbr": "PRI"
+            }
+          ]
+        },
+        {
+          "title": "Scotland",
+          "items": [
+            {
+              "label": "Premiership",
+              "href": "leagues/index.html?league=Premiership",
+              "abbr": "PRE"
+            }
+          ]
+        },
+        {
+          "title": "Spain",
+          "items": [
+            {
+              "label": "La Liga",
+              "href": "leagues/index.html?league=La%20Liga",
+              "abbr": "LA "
+            },
+            {
+              "label": "Segunda Division",
+              "href": "leagues/index.html?league=Segunda%20Division",
+              "abbr": "SEG"
+            }
+          ]
+        },
+        {
+          "title": "Turkey",
+          "items": [
+            {
+              "label": "Super Lig",
+              "href": "leagues/index.html?league=Super%20Lig",
+              "abbr": "SUP"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "label": "Open the full league table",
+        "href": "leagues/index.html"
+      }
+    },
+    {
+      "id": "transfers",
+      "label": "Transfers",
+      "summary": "Transfers, loans, free agents, and premium movement impact.",
+      "sidebar": [
+        {
+          "label": "Transfers",
+          "href": "transfers/index.html"
+        },
+        {
+          "label": "Market Rankings",
+          "href": "rankings/market.html"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Movement",
+          "items": [
+            {
+              "label": "Transfers",
+              "href": "transfers/index.html"
+            },
+            {
+              "label": "Market Rankings",
+              "href": "rankings/market.html"
+            },
+            {
+              "label": "Watchlist",
+              "href": "watchlist/index.html"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "label": "Open transfer board",
+        "href": "transfers/index.html"
+      }
+    },
+    {
+      "id": "watchlist",
+      "label": "Watchlist",
+      "summary": "Development watchlist and tracked football assets.",
+      "sidebar": [
+        {
+          "label": "Watchlist",
+          "href": "watchlist/index.html"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Watch Boards",
+          "items": [
+            {
+              "label": "Watchlist",
+              "href": "watchlist/index.html"
+            },
+            {
+              "label": "Players",
+              "href": "players/index.html"
+            },
+            {
+              "label": "Clubs",
+              "href": "clubs/index.html"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "label": "Open watchlist",
+        "href": "watchlist/index.html"
+      }
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "summary": "What ARES measures and what stays premium.",
+      "sidebar": [
+        {
+          "label": "Methodology",
+          "href": "methodology.html"
+        },
+        {
+          "label": "About",
+          "href": "about.html"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Model Notes",
+          "items": [
+            {
+              "label": "ARES Score",
+              "href": "methodology.html"
+            },
+            {
+              "label": "About",
+              "href": "about.html"
+            },
+            {
+              "label": "Switch to Gridiron",
+              "href": "https://gridiron.aresmarket.com"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "label": "Switch to ARES Gridiron Market",
+        "href": "https://gridiron.aresmarket.com"
+      }
+    }
+  ]
+}

@@ -10,11 +10,22 @@
         tables.makeTableSortable(options.tableId);
         if (options.searchId) {
           tables.makeTableSearchable(options.searchId, options.tableId);
+          applyQueryFilter(options.searchId);
         }
       })
       .catch(function () {
-        data.showLoadError(options.errorId || options.bodyId, "Placeholder data could not be loaded.");
+        data.showLoadError(options.errorId || options.bodyId, "Data could not be loaded.");
       });
+  }
+
+  function applyQueryFilter(inputId) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("q") || params.get("club") || params.get("league") || params.get("country") || "";
+    if (!query) return;
+    input.value = query;
+    input.dispatchEvent(new Event("input", { bubbles: true }));
   }
 
   function initSearch(inputId, resultsId, dataPath) {

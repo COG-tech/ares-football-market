@@ -38,5 +38,6 @@
   <script>
     AresSoccer.initTable({dataPath:"../data/clubs.json",tableId:"clubs-table",bodyId:"clubs-body",searchId:"clubs-search",columns:[{key:"club_name",render:"clubLink",pathPrefix:"../"},{key:"league",render:"leagueLink",pathPrefix:"../"},{key:"country"},{key:"squad_size"},{key:"average_ares_score",render:"score"},{key:"average_market_score",render:"market"},{key:"top_ares_player",render:function(value){return AresTables.renderLink(value,"../players/player-template.html");}},{key:"club_id",render:function(){return '<a href="club-template.html">Open</a>';}}]});
   </script>
+  <script src="../assets/js/ares-mega-nav.js?v=20260521-teamnav1"></script>
 </body>
 </html>
