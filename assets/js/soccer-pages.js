@@ -1,12 +1,40 @@
 (function (window) {
   "use strict";
 
+  function prepareRows(rows, options) {
+    let prepared = Array.isArray(rows) ? rows.slice() : [];
+    if (options.filterKey && options.filterValues) {
+      prepared = prepared.filter(function (row) { return options.filterValues.includes(row[options.filterKey]); });
+    } else if (options.filterKey && options.filterValue) {
+      prepared = prepared.filter(function (row) { return row[options.filterKey] === options.filterValue; });
+    }
+    if (options.maxAge !== undefined) {
+      prepared = prepared.filter(function (row) { return Number(row.age) <= Number(options.maxAge); });
+    }
+    if (options.minAge !== undefined) {
+      prepared = prepared.filter(function (row) { return Number(row.age) >= Number(options.minAge); });
+    }
+    if (options.sortKey) {
+      const factor = options.sortDirection === "asc" ? 1 : -1;
+      prepared.sort(function (left, right) {
+        const leftValue = left[options.sortKey];
+        const rightValue = right[options.sortKey];
+        const leftNumber = Number(leftValue);
+        const rightNumber = Number(rightValue);
+        if (Number.isFinite(leftNumber) && Number.isFinite(rightNumber)) return (leftNumber - rightNumber) * factor;
+        return String(leftValue || "").localeCompare(String(rightValue || "")) * factor;
+      });
+    }
+    if (options.limit) prepared = prepared.slice(0, Number(options.limit));
+    return prepared;
+  }
+
   function initTable(options) {
     const data = window.AresData;
     const tables = window.AresTables;
     data.loadJson(options.dataPath)
       .then(function (rows) {
-        tables.renderTable(options.bodyId, rows, options.columns);
+        tables.renderTable(options.bodyId, prepareRows(rows, options), options.columns);
         tables.makeTableSortable(options.tableId);
         if (options.searchId) {
           tables.makeTableSearchable(options.searchId, options.tableId);
@@ -63,14 +91,19 @@
     return String(value || "AR").split(/\s+/).filter(Boolean).slice(0, 3).map(function (part) { return part.charAt(0); }).join("").toUpperCase() || "AR";
   }
 
+  function imageIsSafe(record) {
+    const status = String(record.photo_license_status || "").toLowerCase();
+    return Boolean(record.photo_url) && ["provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider"].includes(status);
+  }
+
   function fillPlayerImage(record) {
     const container = document.getElementById("player-photo");
     if (!container) return;
     const label = [record.player_name, record.position, record.club].filter(Boolean).join(", ");
-    if (record.photo_url) {
-      container.innerHTML = '<img src="' + window.AresData.safeText(record.photo_url) + '" alt="' + window.AresData.safeText(label) + '" loading="lazy">';
+    if (imageIsSafe(record)) {
+      container.innerHTML = '<img src="' + window.AresData.safeText(record.photo_url) + '" alt="' + window.AresData.safeText(label) + '" loading="lazy" onerror="this.remove()">';
     } else {
-      container.textContent = initials(record.player_name);
+      container.innerHTML = '<span>' + window.AresData.safeText(record.initials || initials(record.player_name)) + '</span><small>' + window.AresData.safeText(record.position || "") + '</small>';
       container.setAttribute("aria-label", label);
     }
     fillText("photo-source", record.photo_source || "ARES fallback");

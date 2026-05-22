@@ -44,18 +44,24 @@
     return href;
   }
 
+  function imageIsSafe(row) {
+    const status = String(row.photo_license_status || "").toLowerCase();
+    return Boolean(row.photo_url) && ["provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider"].includes(status);
+  }
+
   function renderPlayerAvatar(row) {
     const label = row.player_name || row.name || "ARES player";
     const alt = data.safeText([label, row.position, row.club].filter(Boolean).join(", "));
     // Image safety rule: only render provider-supplied or licensed image URLs already present in data.
     // Do not scrape Transfermarkt, Google Images, club sites, agency previews, or social media.
-    if (row.photo_url) return '<span class="ares-player-photo"><img src="' + data.safeText(row.photo_url) + '" alt="' + alt + '" loading="lazy"></span>';
-    return '<span class="ares-player-avatar-stack"><span class="ares-player-photo" aria-label="' + alt + '">' + data.safeText(initials(label)) + '</span><span class="ares-position-mini">' + data.safeText(row.position || "FB") + "</span></span>";
+    if (imageIsSafe(row)) return '<span class="ares-player-photo"><img src="' + data.safeText(row.photo_url) + '" alt="' + alt + '" loading="lazy" onerror="this.remove()"></span>';
+    return '<span class="ares-player-avatar-stack" title="' + alt + '"><span class="ares-player-photo" aria-label="' + alt + '">' + data.safeText(row.initials || initials(label)) + '</span><span class="ares-position-mini">' + data.safeText(row.position || "FB") + '</span><span class="ares-avatar-club">' + data.safeText(row.club || row.region || "ARES") + "</span></span>";
   }
 
   function renderPlayerIdentity(label, row, column) {
     const href = prefixedHref(row.player_url || row.url || column.fallbackUrl || "players/player-template.html", column.pathPrefix);
-    return '<a class="ares-player-identity" href="' + data.safeText(href) + '">' + renderPlayerAvatar(row) + '<span>' + data.safeText(label) + "</span></a>";
+    const avatar = column.showAvatar === false ? "" : renderPlayerAvatar(row);
+    return '<a class="ares-player-identity" href="' + data.safeText(href) + '">' + avatar + '<span>' + data.safeText(label) + "</span></a>";
   }
 
   function renderLink(label, url, fallbackUrl, prefix) {

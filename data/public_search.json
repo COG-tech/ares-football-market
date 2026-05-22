@@ -1,0 +1,743 @@
+[
+  {
+    "type": "Player",
+    "player_name": "Ari Solenne",
+    "position": "AM",
+    "club": "Pacific Harbor FC",
+    "league": "Major League Soccer",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Franchise Asset Elite Creator starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Niko Arvellan",
+    "position": "RW",
+    "club": "Pacific Harbor FC",
+    "league": "Major League Soccer",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Blue-Chip Asset High U22 starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Matei Corvan",
+    "position": "DM",
+    "club": "Pacific Harbor FC",
+    "league": "Major League Soccer",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Core Starter Elite Ball-winning starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Jalen Roca",
+    "position": "CB",
+    "club": "Pacific Harbor FC",
+    "league": "Major League Soccer",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Rising Asset High Starting center back Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Elian Moreau",
+    "position": "ST",
+    "club": "Pacific Harbor FC",
+    "league": "Major League Soccer",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Rising Asset Starter Rotation striker Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Silas Keane",
+    "position": "GK",
+    "club": "Pacific Harbor FC",
+    "league": "Major League Soccer",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Core Starter Starter Starting goalkeeper Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Tavo Lirente",
+    "position": "CM",
+    "club": "Monterra Azul",
+    "league": "Liga MX",
+    "country": "Mexico",
+    "region": "North America",
+    "keywords": "Blue-Chip Asset Elite Box-to-box starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Rui Calder",
+    "position": "LW",
+    "club": "Monterra Azul",
+    "league": "Liga MX",
+    "country": "Mexico",
+    "region": "North America",
+    "keywords": "Blue-Chip Asset High U23 wide starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Mica Darrow",
+    "position": "RB",
+    "club": "Cascadia Union",
+    "league": "Major League Soccer",
+    "country": "Canada",
+    "region": "North America",
+    "keywords": "Rising Asset Starter Attacking fullback Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Noa Kestral",
+    "position": "CM",
+    "club": "Valley Forge FC",
+    "league": "MLS Next Pro",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Watchlist Watchlist Development starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Ren Iwasato",
+    "position": "AM",
+    "club": "Tokyo Bay Verdes",
+    "league": "J1 League",
+    "country": "Japan",
+    "region": "Asia",
+    "keywords": "Blue-Chip Asset Elite Creator starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Kaito Meren",
+    "position": "ST",
+    "club": "Osaka Minato",
+    "league": "J2 League",
+    "country": "Japan",
+    "region": "Asia",
+    "keywords": "Rising Asset High Starting forward Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Joon Hara",
+    "position": "CB",
+    "club": "Seoul Han River",
+    "league": "K League 1",
+    "country": "South Korea",
+    "region": "Asia",
+    "keywords": "Core Starter High Defensive leader Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Minseo Vale",
+    "position": "RW",
+    "club": "Busan Tides",
+    "league": "K League 2",
+    "country": "South Korea",
+    "region": "Asia",
+    "keywords": "Rising Asset Starter Wide starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Samir Qadir",
+    "position": "ST",
+    "club": "Riyadh Horizon",
+    "league": "Saudi Pro League",
+    "country": "Saudi Arabia",
+    "region": "Asia",
+    "keywords": "Core Starter Elite Starting striker Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Leandro Saye",
+    "position": "DM",
+    "club": "Doha Meridian",
+    "league": "Qatar Stars League",
+    "country": "Qatar",
+    "region": "Asia",
+    "keywords": "Rising Asset High Deep midfielder Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Yun Fei Valeo",
+    "position": "LW",
+    "club": "Shanghai Docklands",
+    "league": "Chinese Super League",
+    "country": "China",
+    "region": "Asia",
+    "keywords": "Rising Asset Starter Wide starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Arman Navid",
+    "position": "CM",
+    "club": "Tehran Atlas",
+    "league": "Persian Gulf Pro League",
+    "country": "Iran",
+    "region": "Asia",
+    "keywords": "Core Starter High Tempo midfielder Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Luca Marrin",
+    "position": "AM",
+    "club": "Melbourne Southern",
+    "league": "A-League",
+    "country": "Australia",
+    "region": "Oceania",
+    "keywords": "Rising Asset Watchlist U23 creator Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Dev Rayan",
+    "position": "ST",
+    "club": "Goa Coast FC",
+    "league": "Indian Super League",
+    "country": "India",
+    "region": "Asia",
+    "keywords": "Core Starter Starter Starting forward Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Pran Veda",
+    "position": "CM",
+    "club": "Bengal Metro",
+    "league": "Indian Super League",
+    "country": "India",
+    "region": "Asia",
+    "keywords": "Rising Asset Watchlist U23 midfielder Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Chai Vannar",
+    "position": "RB",
+    "club": "Bangkok Lanterns",
+    "league": "Thai League 1",
+    "country": "Thailand",
+    "region": "Asia",
+    "keywords": "Core Starter Starter Attacking fullback Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Minh Caro",
+    "position": "AM",
+    "club": "Hanoi Capital",
+    "league": "V.League 1",
+    "country": "Vietnam",
+    "region": "Asia",
+    "keywords": "Rising Asset High Creator starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Rafi Nural",
+    "position": "CB",
+    "club": "Jakarta Crown",
+    "league": "Indonesia Liga 1",
+    "country": "Indonesia",
+    "region": "Asia",
+    "keywords": "Rising Asset Starter Starting center back Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Elias Bryn",
+    "position": "LW",
+    "club": "Cape Meridian",
+    "league": "South African Premier Division",
+    "country": "South Africa",
+    "region": "Africa",
+    "keywords": "Core Starter High Wide starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Tiago Vesper",
+    "position": "ST",
+    "club": "Rio Norte",
+    "league": "Brazil Serie A",
+    "country": "Brazil",
+    "region": "South America",
+    "keywords": "Blue-Chip Asset High Rotating forward Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Santi Reval",
+    "position": "CM",
+    "club": "Buenos Sur",
+    "league": "Argentine Primera",
+    "country": "Argentina",
+    "region": "South America",
+    "keywords": "Core Starter High Senior starter Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Player",
+    "player_name": "Milo Ostheim",
+    "position": "GK",
+    "club": "Rhine Borough",
+    "league": "German Bundesliga",
+    "country": "Germany",
+    "region": "Europe",
+    "keywords": "Core Starter High Starting goalkeeper Public Beta Demo",
+    "url": "players/player-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Pacific Harbor FC",
+    "league": "Major League Soccer",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Niko Arvellan",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Monterra Azul",
+    "league": "Liga MX",
+    "country": "Mexico",
+    "region": "North America",
+    "keywords": "Rui Calder",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Tokyo Bay Verdes",
+    "league": "J1 League",
+    "country": "Japan",
+    "region": "Asia",
+    "keywords": "Ren Iwasato",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Seoul Han River",
+    "league": "K League 1",
+    "country": "South Korea",
+    "region": "Asia",
+    "keywords": "Joon Hara",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Riyadh Horizon",
+    "league": "Saudi Pro League",
+    "country": "Saudi Arabia",
+    "region": "Asia",
+    "keywords": "Samir Qadir",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Shanghai Docklands",
+    "league": "Chinese Super League",
+    "country": "China",
+    "region": "Asia",
+    "keywords": "Yun Fei Valeo",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Melbourne Southern",
+    "league": "A-League",
+    "country": "Australia",
+    "region": "Oceania",
+    "keywords": "Luca Marrin",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Goa Coast FC",
+    "league": "Indian Super League",
+    "country": "India",
+    "region": "Asia",
+    "keywords": "Dev Rayan",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Bangkok Lanterns",
+    "league": "Thai League 1",
+    "country": "Thailand",
+    "region": "Asia",
+    "keywords": "Chai Vannar",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Rio Norte",
+    "league": "Brazil Serie A",
+    "country": "Brazil",
+    "region": "South America",
+    "keywords": "Tiago Vesper",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Cape Meridian",
+    "league": "South African Premier Division",
+    "country": "South Africa",
+    "region": "Africa",
+    "keywords": "Elias Bryn",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "Club",
+    "club_name": "Rhine Borough",
+    "league": "German Bundesliga",
+    "country": "Germany",
+    "region": "Europe",
+    "keywords": "Milo Ostheim",
+    "url": "clubs/club-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Major League Soccer",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Pacific Harbor FC Ari Solenne Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "MLS Next Pro",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Public Beta Club Noa Kestral Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "USL Championship",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "USL League One",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "USL League Two",
+    "country": "USA",
+    "region": "North America",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Liga MX",
+    "country": "Mexico",
+    "region": "North America",
+    "keywords": "Monterra Azul Tavo Lirente Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Liga de Expansión MX",
+    "country": "Mexico",
+    "region": "North America",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Canadian Premier League",
+    "country": "Canada",
+    "region": "North America",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "CONCACAF Champions Cup",
+    "country": "CONCACAF",
+    "region": "North America",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "J1 League",
+    "country": "Japan",
+    "region": "Asia",
+    "keywords": "Tokyo Bay Verdes Ren Iwasato Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "J2 League",
+    "country": "Japan",
+    "region": "Asia",
+    "keywords": "Public Beta Club Kaito Meren Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "J3 League",
+    "country": "Japan",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "K League 1",
+    "country": "South Korea",
+    "region": "Asia",
+    "keywords": "Seoul Han River Joon Hara Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "K League 2",
+    "country": "South Korea",
+    "region": "Asia",
+    "keywords": "Public Beta Club Minseo Vale Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Saudi Pro League",
+    "country": "Saudi Arabia",
+    "region": "Asia",
+    "keywords": "Riyadh Horizon Samir Qadir Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Chinese Super League",
+    "country": "China",
+    "region": "Asia",
+    "keywords": "Shanghai Docklands Yun Fei Valeo Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "A-League",
+    "country": "Australia",
+    "region": "Oceania",
+    "keywords": "Melbourne Southern Luca Marrin Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Indian Super League",
+    "country": "India",
+    "region": "Asia",
+    "keywords": "Goa Coast FC Dev Rayan Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "UAE Pro League",
+    "country": "UAE",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Qatar Stars League",
+    "country": "Qatar",
+    "region": "Asia",
+    "keywords": "Public Beta Club Leandro Saye Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Persian Gulf Pro League",
+    "country": "Iran",
+    "region": "Asia",
+    "keywords": "Public Beta Club Arman Navid Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Uzbekistan Super League",
+    "country": "Uzbekistan",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Thai League 1",
+    "country": "Thailand",
+    "region": "Asia",
+    "keywords": "Bangkok Lanterns Chai Vannar Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Thai League 2",
+    "country": "Thailand",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Malaysia Super League",
+    "country": "Malaysia",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "V.League 1",
+    "country": "Vietnam",
+    "region": "Asia",
+    "keywords": "Public Beta Club Minh Caro Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Indonesia Liga 1",
+    "country": "Indonesia",
+    "region": "Asia",
+    "keywords": "Public Beta Club Rafi Nural Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Singapore Premier League",
+    "country": "Singapore",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Hong Kong Premier League",
+    "country": "Hong Kong",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Taiwan Football Premier League",
+    "country": "Taiwan",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "AFC Champions League Elite",
+    "country": "AFC",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "AFC Champions League Two",
+    "country": "AFC",
+    "region": "Asia",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Brazil Serie A",
+    "country": "Brazil",
+    "region": "South America",
+    "keywords": "Rio Norte Tiago Vesper Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Argentine Primera",
+    "country": "Argentina",
+    "region": "South America",
+    "keywords": "Public Beta Club Santi Reval Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "South African Premier Division",
+    "country": "South Africa",
+    "region": "Africa",
+    "keywords": "Cape Meridian Elias Bryn Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Egypt Premier League",
+    "country": "Egypt",
+    "region": "Africa",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "German Bundesliga",
+    "country": "Germany",
+    "region": "Europe",
+    "keywords": "Rhine Borough Milo Ostheim Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "League",
+    "league": "Atlantic Premier",
+    "country": "England",
+    "region": "Europe",
+    "keywords": "Public Beta Club Public Beta Player Public Beta Demo",
+    "url": "leagues/league-template.html"
+  },
+  {
+    "type": "Board",
+    "league": "Asia Market Board",
+    "region": "Asia",
+    "keywords": "J1 K League Saudi AFC ASEAN",
+    "url": "leagues/asia.html"
+  },
+  {
+    "type": "Board",
+    "league": "MLS Market Board",
+    "region": "North America",
+    "keywords": "Major League Soccer U22 MLS Next Pro",
+    "url": "leagues/mls.html"
+  },
+  {
+    "type": "Board",
+    "league": "North America Market Board",
+    "region": "North America",
+    "keywords": "MLS Liga MX USL CONCACAF",
+    "url": "leagues/north-america.html"
+  }
+]

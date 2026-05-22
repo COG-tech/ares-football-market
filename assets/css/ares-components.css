@@ -331,3 +331,72 @@ input.ares-search:focus {
 .ares-mini-table{width:100%;border-collapse:collapse}.ares-mini-table th,.ares-mini-table td{padding:.65rem;border-bottom:1px solid rgba(201,207,216,.72);text-align:left}.ares-mini-table th{color:var(--ares-muted);font-size:.76rem;text-transform:uppercase}
 @media(max-width:1100px){.ares-status-terminal{grid-template-columns:repeat(2,minmax(0,1fr))}.ares-board-feature-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.ares-status-terminal{grid-template-columns:1fr}}
+
+
+.ares-beta-note {
+  margin: 0.85rem 0 0;
+  color: var(--ares-muted);
+  font-size: 0.875rem;
+}
+
+.ares-beta-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.45rem;
+  padding: 0.18rem 0.5rem;
+  color: var(--ares-navy);
+  background: rgba(247, 201, 72, 0.24);
+  border: 1px solid rgba(247, 201, 72, 0.72);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-title-row h2 {
+  margin: 0;
+}
+
+.ares-hero-terminal {
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.ares-avatar-club {
+  max-width: 5.5rem;
+  color: var(--ares-muted);
+  font-size: 0.62rem;
+  font-weight: 800;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ares-player-identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ares-profile-photo {
+  display: grid;
+  gap: 0.15rem;
+  align-content: center;
+  justify-items: center;
+}
+
+.ares-profile-photo small {
+  color: var(--ares-gold);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
