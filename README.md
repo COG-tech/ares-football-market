@@ -1,6 +1,6 @@
 # ARES Football Market
 
-Professional demo build for the global football asset board.
+Professional Demo Mode market terminal build for the global football asset board.
 
 The site now uses demo-mode language instead of public old sample language, keeps the scoring framework visible, and exposes the product structure for player search, ARES rankings, market rankings, clubs, leagues, transfers, and watchlists. Live player, transfer, contract, and provider image feeds are not connected yet.
 
@@ -15,6 +15,7 @@ The site now uses demo-mode language instead of public old sample language, keep
 - Open match rows: connected where local public CSV exports exist.
 - Open club rows: connected from the local match dataset.
 - Live player data: not connected.
+- Asia, MLS, North America, AFC, and CONCACAF sections: visible as first-class market boards.
 - Live transfer data: not connected.
 - ARES model output: formula defined, not live.
 - Market model output: formula defined, not live.

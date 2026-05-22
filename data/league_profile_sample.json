@@ -29,11 +29,13 @@
   "ares_enabled": false,
   "market_enabled": false,
   "watchlist_only": true,
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-22",
   "demo_mode": true,
   "league_strength_rank": "Setup Mode",
   "top_club_by_market": "Premium",
   "top_u23_asset": "Premium",
   "biggest_riser": "Premium",
-  "biggest_faller": "Premium"
+  "biggest_faller": "Premium",
+  "top_club": "Premium",
+  "source": "API-Football"
 }

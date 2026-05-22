@@ -50,7 +50,7 @@
     // Image safety rule: only render provider-supplied or licensed image URLs already present in data.
     // Do not scrape Transfermarkt, Google Images, club sites, agency previews, or social media.
     if (row.photo_url) return '<span class="ares-player-photo"><img src="' + data.safeText(row.photo_url) + '" alt="' + alt + '" loading="lazy"></span>';
-    return '<span class="ares-player-photo" aria-label="' + alt + '">' + data.safeText(initials(label)) + "</span>";
+    return '<span class="ares-player-avatar-stack"><span class="ares-player-photo" aria-label="' + alt + '">' + data.safeText(initials(label)) + '</span><span class="ares-position-mini">' + data.safeText(row.position || "FB") + "</span></span>";
   }
 
   function renderPlayerIdentity(label, row, column) {
@@ -70,6 +70,7 @@
     if (column.render === "tier") return renderTierChip(value);
     if (column.render === "trend") return renderTrendChip(value);
     if (column.render === "confidence") return renderConfidenceChip(value);
+    if (column.render === "playerImage") return renderPlayerAvatar(row);
     if (column.render === "playerLink") return renderPlayerIdentity(value, row, column);
     if (column.render === "clubLink") return renderLink(value, row.club_url, column.fallbackUrl || "clubs/club-template.html", column.pathPrefix);
     if (column.render === "leagueLink") return renderLink(value, row.league_url, column.fallbackUrl || "leagues/league-template.html", column.pathPrefix);

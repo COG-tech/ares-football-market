@@ -43,5 +43,8 @@
   "league_tier_score": 86,
   "market_signal_score": 80,
   "movement_value_score": 77,
-  "source": "Demo Mode"
+  "source": "Demo Mode",
+  "foot": "Pending",
+  "last_updated": "2026-05-22",
+  "data_confidence": "Medium"
 }

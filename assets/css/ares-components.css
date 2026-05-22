@@ -320,3 +320,14 @@ input.ares-search:focus {
 .ares-player-photo img,.ares-profile-photo img{width:100%;height:100%;object-fit:cover}.ares-profile-meta{display:grid;gap:.35rem;margin-top:.9rem;color:var(--ares-muted);font-size:.88rem}
 @media(max-width:900px){.ares-status-grid,.ares-market-grid,.ares-module-grid{grid-template-columns:1fr}}
 
+.ares-status-terminal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.75rem}
+.ares-board-feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.ares-board-feature{display:grid;gap:.45rem;min-height:8rem;padding:1rem;color:var(--ares-text);background:#fff;border:1px solid var(--ares-border);border-radius:8px;text-decoration:none;box-shadow:var(--ares-shadow)}
+.ares-board-feature strong{font-size:1.1rem;line-height:1.2}.ares-board-feature span{color:var(--ares-muted);font-size:.88rem;line-height:1.45}
+.ares-player-avatar-stack{display:inline-grid;justify-items:center;gap:.2rem}
+.ares-position-mini{display:inline-flex;align-items:center;justify-content:center;min-width:1.8rem;min-height:1.15rem;padding:.1rem .28rem;color:var(--ares-navy);background:rgba(247,201,72,.3);border:1px solid rgba(247,201,72,.7);border-radius:999px;font-size:.62rem;font-weight:900;line-height:1}
+.ares-player-photo,.ares-profile-photo{color:var(--ares-gold);background:var(--ares-navy);border-color:rgba(247,201,72,.8)}
+.ares-profile-card{display:grid;gap:.75rem;justify-items:start}.ares-profile-club{color:var(--ares-muted);font-weight:800}.ares-source-note{color:var(--ares-muted);font-size:.82rem;line-height:1.4}
+.ares-mini-table{width:100%;border-collapse:collapse}.ares-mini-table th,.ares-mini-table td{padding:.65rem;border-bottom:1px solid rgba(201,207,216,.72);text-align:left}.ares-mini-table th{color:var(--ares-muted);font-size:.76rem;text-transform:uppercase}
+@media(max-width:1100px){.ares-status-terminal{grid-template-columns:repeat(2,minmax(0,1fr))}.ares-board-feature-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.ares-status-terminal{grid-template-columns:1fr}}

@@ -150,7 +150,7 @@
     "asset_url": "",
     "local_path": "",
     "license_source": "Add SportsDataIO, Sportradar Images, Getty/AP/Imagn, or owned asset here",
-    "license_status": "placeholder",
+    "license_status": "fallback",
     "expires_at": "",
     "credit": "",
     "public_allowed": false

@@ -21,7 +21,11 @@
     "photo_credit": "ARES branded fallback avatar",
     "photo_attribution_url": "",
     "photo_status": "fallback",
-    "image_confidence": "fallback"
+    "image_confidence": "fallback",
+    "from_league": "Demo League",
+    "to_league": "Demo League",
+    "source": "Demo Mode",
+    "last_updated": "2026-05-22"
   },
   {
     "date": "2026-05-14",
@@ -45,7 +49,11 @@
     "photo_credit": "ARES branded fallback avatar",
     "photo_attribution_url": "",
     "photo_status": "fallback",
-    "image_confidence": "fallback"
+    "image_confidence": "fallback",
+    "from_league": "Demo League",
+    "to_league": "Demo League",
+    "source": "Demo Mode",
+    "last_updated": "2026-05-22"
   },
   {
     "date": "2026-05-08",
@@ -69,6 +77,10 @@
     "photo_credit": "ARES branded fallback avatar",
     "photo_attribution_url": "",
     "photo_status": "fallback",
-    "image_confidence": "fallback"
+    "image_confidence": "fallback",
+    "from_league": "Demo League",
+    "to_league": "Demo League",
+    "source": "Demo Mode",
+    "last_updated": "2026-05-22"
   }
 ]
