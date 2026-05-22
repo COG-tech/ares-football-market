@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import html
 import json
+import re
 import shutil
+import unicodedata
 from pathlib import Path
 
 
@@ -60,6 +63,23 @@ def photo_fields() -> dict:
     }
 
 
+def safe_id(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^a-z0-9]+", "-", normalized.lower()).strip("-")
+
+
+def owned_photo_fields(asset_url: str) -> dict:
+    return {
+        "photo_url": asset_url,
+        "photo_source": "ARES owned generated public-beta image",
+        "photo_license_status": "ares_owned",
+        "photo_credit": "ARES public beta generated image",
+        "photo_attribution_url": "",
+        "photo_status": "available",
+        "image_confidence": "High",
+    }
+
+
 def player(
     rank: int,
     name: str,
@@ -81,10 +101,11 @@ def player(
     reason: str,
     confidence: str = "Medium",
 ) -> dict:
+    player_id = f"pbp-{rank:03d}"
     row = {
         "data_mode": "public_beta_demo",
         "rank": rank,
-        "player_id": f"pbp-{rank:03d}",
+        "player_id": player_id,
         "player_name": name,
         "initials": "".join(part[0] for part in name.split()[:3]).upper(),
         "age": age,
@@ -112,7 +133,7 @@ def player(
         "club_url": "clubs/club-template.html",
         "league_url": "leagues/league-template.html",
     }
-    row.update(photo_fields())
+    row.update(owned_photo_fields(f"assets/media/public-beta/players/{player_id}.svg"))
     return row
 
 
@@ -165,11 +186,15 @@ def club(
     trend: str,
     confidence: str = "Medium",
 ) -> dict:
+    club_id = f"pbc-{rank:03d}"
     return {
         "data_mode": "public_beta_demo",
         "rank": rank,
-        "club_id": f"pbc-{rank:03d}",
+        "club_id": club_id,
         "club_name": name,
+        "club_badge_url": f"assets/media/public-beta/clubs/{club_id}.svg",
+        "badge_source": "ARES owned generated public-beta badge",
+        "badge_license_status": "ares_owned",
         "country": country,
         "region": region,
         "league": league,
@@ -255,13 +280,17 @@ def league_row(index: int, name: str, country: str, region: str, tier: int) -> d
     club_match = next((c for c in clubs if c["league"] == name), None)
     player_match = next((p for p in players if p["league"] == name), None)
     base = 72 + (index % 8) + (2 if tier == 1 else 0)
+    league_id = f"pbl-{index:03d}"
     if name in {"Major League Soccer", "Liga MX", "J1 League", "K League 1", "Saudi Pro League"}:
         base += 3
     return {
         "data_mode": "public_beta_demo",
         "rank": index,
-        "league_id": f"pbl-{index:03d}",
+        "league_id": league_id,
         "league_name": name,
+        "league_badge_url": f"assets/media/public-beta/leagues/{league_id}.svg",
+        "badge_source": "ARES owned generated public-beta badge",
+        "badge_license_status": "ares_owned",
         "country": country,
         "region": region,
         "tier": tier,
@@ -281,6 +310,97 @@ def league_row(index: int, name: str, country: str, region: str, tier: int) -> d
 
 
 leagues = [league_row(i + 1, *row) for i, row in enumerate(required_leagues)]
+
+
+PALETTES = [
+    ("#0B1F3A", "#F7C948", "#2D6A4F"),
+    ("#102A43", "#38BDF8", "#F7C948"),
+    ("#172554", "#F97316", "#FFFFFF"),
+    ("#0F172A", "#A7F3D0", "#F7C948"),
+    ("#111827", "#E11D48", "#F8FAFC"),
+    ("#1F2937", "#22C55E", "#F7C948"),
+    ("#312E81", "#FACC15", "#FFFFFF"),
+    ("#064E3B", "#60A5FA", "#F7C948"),
+]
+
+
+def palette(index: int) -> tuple[str, str, str]:
+    return PALETTES[(index - 1) % len(PALETTES)]
+
+
+def esc(value: str) -> str:
+    return html.escape(str(value), quote=True)
+
+
+def write_svg(relative: str, svg: str) -> None:
+    write_text(relative, svg.strip() + "\n")
+
+
+def player_svg(row: dict) -> str:
+    base, accent, third = palette(row["rank"])
+    name = esc(row["player_name"])
+    initials = esc(row["initials"])
+    position = esc(row["position"])
+    club = esc(row["club"])
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="{name}, {position}, {club}">
+  <metadata>ARES-owned generated public-beta player image. Fictional seeded data. No scraped image source.</metadata>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{base}"/><stop offset="1" stop-color="#020617"/></linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{accent}"/><stop offset="1" stop-color="{third}"/></linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="34" fill="url(#g)"/>
+  <circle cx="205" cy="44" r="64" fill="{accent}" opacity=".14"/>
+  <path d="M38 218c9-44 42-68 90-68s81 24 90 68" fill="{accent}" opacity=".22"/>
+  <circle cx="128" cy="101" r="47" fill="#F8FAFC" opacity=".95"/>
+  <path d="M74 82c13-35 39-52 77-43 20 5 34 18 42 39-31-15-65-17-119 4Z" fill="{accent}"/>
+  <path d="M82 146c13 18 28 27 46 27s33-9 46-27c-14 8-29 12-46 12s-32-4-46-12Z" fill="{base}" opacity=".2"/>
+  <rect x="26" y="26" width="64" height="28" rx="14" fill="rgba(255,255,255,.12)" stroke="{accent}" stroke-width="2"/>
+  <text x="58" y="46" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="900" fill="{accent}">{position}</text>
+  <text x="128" y="214" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="900" fill="{accent}">{initials}</text>
+  <text x="128" y="235" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800" fill="#E5E7EB">{club[:22]}</text>
+</svg>'''
+
+
+def club_svg(row: dict) -> str:
+    base, accent, third = palette(row["rank"])
+    label = esc(row["club_name"])
+    initials = esc("".join(part[0] for part in row["club_name"].split()[:3]).upper())
+    league = esc(row["league"])
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="{label} badge">
+  <metadata>ARES-owned generated public-beta club badge. Fictional seeded data. No protected club mark.</metadata>
+  <rect width="256" height="256" rx="34" fill="#F8FAFC"/>
+  <path d="M128 20 215 56v70c0 56-35 93-87 110-52-17-87-54-87-110V56l87-36Z" fill="{base}"/>
+  <path d="M128 38 196 66v58c0 42-25 72-68 88-43-16-68-46-68-88V66l68-28Z" fill="none" stroke="{accent}" stroke-width="9"/>
+  <path d="M70 116h116" stroke="{third}" stroke-width="8" opacity=".8"/>
+  <circle cx="128" cy="116" r="44" fill="{accent}"/>
+  <text x="128" y="130" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900" fill="{base}">{initials}</text>
+  <text x="128" y="184" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850" fill="#F8FAFC">{league[:24]}</text>
+</svg>'''
+
+
+def league_svg(row: dict) -> str:
+    base, accent, third = palette(row["rank"])
+    label = esc(row["league_name"])
+    region = esc(row["region"])
+    initials = esc("".join(part[0] for part in row["league_name"].replace("-", " ").split()[:3]).upper())
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="{label} league badge">
+  <metadata>ARES-owned generated public-beta league badge. Fictional seeded board art. No protected league mark.</metadata>
+  <rect width="256" height="256" rx="34" fill="{base}"/>
+  <circle cx="128" cy="124" r="84" fill="none" stroke="{accent}" stroke-width="12"/>
+  <path d="M49 124h158M128 40c25 24 38 52 38 84s-13 60-38 84M128 40c-25 24-38 52-38 84s13 60 38 84" stroke="{third}" stroke-width="7" opacity=".9" fill="none"/>
+  <circle cx="128" cy="124" r="38" fill="{accent}"/>
+  <text x="128" y="137" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900" fill="{base}">{initials}</text>
+  <text x="128" y="226" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850" fill="#E5E7EB">{region}</text>
+</svg>'''
+
+
+def generate_visual_assets() -> None:
+    for row in players:
+        write_svg(f"assets/media/public-beta/players/{row['player_id']}.svg", player_svg(row))
+    for row in clubs:
+        write_svg(f"assets/media/public-beta/clubs/{row['club_id']}.svg", club_svg(row))
+    for row in leagues:
+        write_svg(f"assets/media/public-beta/leagues/{row['league_id']}.svg", league_svg(row))
 
 
 def transfer_row(idx: int, player_ref: dict, from_club: str, to_club: str, from_league: str, to_league: str, transfer_type: str, ares_impact: float, market_impact: float, confidence: str = "Medium") -> dict:
@@ -307,7 +427,7 @@ def transfer_row(idx: int, player_ref: dict, from_club: str, to_club: str, from_
         "url": "players/player-template.html",
         "player_url": "players/player-template.html",
     }
-    row.update(photo_fields())
+    row.update({key: player_ref[key] for key in ["photo_url", "photo_source", "photo_license_status", "photo_credit", "photo_attribution_url", "photo_status", "image_confidence"]})
     return row
 
 
@@ -358,7 +478,7 @@ for idx, (category, pref, reason) in enumerate(watch_categories, 1):
         "url": "players/player-template.html",
         "player_url": "players/player-template.html",
     }
-    row.update(photo_fields())
+    row.update({key: pref[key] for key in ["photo_url", "photo_source", "photo_license_status", "photo_credit", "photo_attribution_url", "photo_status", "image_confidence"]})
     watchlist.append(row)
 
 
@@ -498,6 +618,7 @@ player_cols_index = [
 
 club_cols = [
     {"key": "rank"},
+    {"key": "club_name", "render": "clubBadge"},
     {"key": "club_name", "render": "clubLink", "pathPrefix": "../"},
     {"key": "country"},
     {"key": "league", "render": "leagueLink", "pathPrefix": "../"},
@@ -516,6 +637,7 @@ club_cols = [
 
 league_cols = [
     {"key": "rank"},
+    {"key": "league_name", "render": "leagueBadge"},
     {"key": "league_name", "render": "leagueLink", "pathPrefix": "../"},
     {"key": "country"},
     {"key": "region"},
@@ -613,6 +735,7 @@ def build_home() -> None:
             {"key": "source"},
         ], limit=5),
         init_table("data/public_leagues.json", "home-asia-table", "home-asia-body", None, [
+            {"key": "league_name", "render": "leagueBadge"},
             {"key": "league_name"},
             {"key": "country"},
             {"key": "avg_market", "render": "market"},
@@ -627,6 +750,7 @@ def build_home() -> None:
             {"key": "source"},
         ], filterKey="league", filterValue="Major League Soccer", sortKey="market_score", sortDirection="desc", limit=5),
         init_table("data/public_clubs.json", "home-clubs-table", "home-clubs-body", None, [
+            {"key": "club_name", "render": "clubBadge"},
             {"key": "club_name"},
             {"key": "league"},
             {"key": "avg_market", "render": "market"},
@@ -634,6 +758,7 @@ def build_home() -> None:
             {"key": "source"},
         ], sortKey="avg_market", sortDirection="desc", limit=5),
         init_table("data/public_leagues.json", "home-leagues-table", "home-leagues-body", None, [
+            {"key": "league_name", "render": "leagueBadge"},
             {"key": "league_name"},
             {"key": "region"},
             {"key": "avg_ares", "render": "score"},
@@ -653,10 +778,10 @@ def build_home() -> None:
       <div class="ares-card"><div class="section-title-row"><h2 class="h4">Young Breakout Assets</h2>{beta_badge()}</div>{table_html("home-young-table","home-young-body","home-young-count",["Player","Age","Club","Market","Trend","Mode"])}</div>
       <div class="ares-card"><div class="section-title-row"><h2 class="h4">Latest Market Value Changes</h2>{beta_badge()}</div>{table_html("home-changes-table","home-changes-body","home-changes-count",["Player","Club","Change","Reason","Mode"])}</div>
       <div class="ares-card"><div class="section-title-row"><h2 class="h4">Latest Transfer Signals</h2>{beta_badge()}</div>{table_html("home-transfer-table","home-transfer-body","home-transfer-count",["Date","Player","Type","To","Market Impact","Mode"])}</div>
-      <div class="ares-card"><div class="section-title-row"><h2 class="h4">Asia Market Board</h2>{beta_badge()}</div>{table_html("home-asia-table","home-asia-body","home-asia-count",["League","Country","Avg Market","Top Player","Mode"])}</div>
+      <div class="ares-card"><div class="section-title-row"><h2 class="h4">Asia Market Board</h2>{beta_badge()}</div>{table_html("home-asia-table","home-asia-body","home-asia-count",["Badge","League","Country","Avg Market","Top Player","Mode"])}</div>
       <div class="ares-card"><div class="section-title-row"><h2 class="h4">MLS Market Board</h2>{beta_badge()}</div>{table_html("home-mls-table","home-mls-body","home-mls-count",["Player","Club","Market","Role","Mode"])}</div>
-      <div class="ares-card"><div class="section-title-row"><h2 class="h4">Club Portfolio Board</h2>{beta_badge()}</div>{table_html("home-clubs-table","home-clubs-body","home-clubs-count",["Club","League","Avg Market","Top Asset","Mode"])}</div>
-      <div class="ares-card wide"><div class="section-title-row"><h2 class="h4">League Strength Board</h2>{beta_badge()}</div>{table_html("home-leagues-table","home-leagues-body","home-leagues-count",["League","Region","Avg ARES","Players","Mode"])}</div>
+      <div class="ares-card"><div class="section-title-row"><h2 class="h4">Club Portfolio Board</h2>{beta_badge()}</div>{table_html("home-clubs-table","home-clubs-body","home-clubs-count",["Badge","Club","League","Avg Market","Top Asset","Mode"])}</div>
+      <div class="ares-card wide"><div class="section-title-row"><h2 class="h4">League Strength Board</h2>{beta_badge()}</div>{table_html("home-leagues-table","home-leagues-body","home-leagues-count",["Badge","League","Region","Avg ARES","Players","Mode"])}</div>
     </section>
     <section class="ares-section ares-card"><h2 class="h4">How ARES Works</h2><p>ARES Score measures on-field football quality. Market Score measures football asset value. Public Beta Demo rows are fictional records designed to show the product surface while approved live feeds remain disconnected.</p><a href="methodology.html">Learn the difference</a></section>
   </main><footer class="ares-footer">ARES Football Market is an independent analytical database. <a href="https://cog-tech.github.io/ares-gridiron-market/">Open ARES Gridiron Market</a>.</footer>''' + scripts(inline="<script>" + "".join(inline_parts) + "</script>")
@@ -716,9 +841,9 @@ def build_player_template() -> None:
 def build_clubs() -> None:
     inline = init_table("../data/public_clubs.json", "clubs-table", "clubs-body", "clubs-search", club_cols, sortKey="avg_market", sortDirection="desc")
     section_scripts = [
-        init_table("../data/public_clubs.json", "clubs-most-table", "clubs-most-body", None, [{"key":"club_name"},{"key":"league"},{"key":"avg_market","render":"market"},{"key":"top_asset"},{"key":"source"}], sortKey="avg_market", sortDirection="desc", limit=5),
-        init_table("../data/public_clubs.json", "clubs-young-table", "clubs-young-body", None, [{"key":"club_name"},{"key":"average_age"},{"key":"u23_value","render":"market"},{"key":"top_asset"},{"key":"source"}], sortKey="u23_value", sortDirection="desc", limit=5),
-        init_table("../data/public_clubs.json", "clubs-u23-table", "clubs-u23-body", None, [{"key":"club_name"},{"key":"region"},{"key":"u23_value","render":"market"},{"key":"top_asset"},{"key":"source"}], sortKey="u23_value", sortDirection="desc", limit=5),
+        init_table("../data/public_clubs.json", "clubs-most-table", "clubs-most-body", None, [{"key":"club_name","render":"clubBadge"},{"key":"club_name"},{"key":"league"},{"key":"avg_market","render":"market"},{"key":"top_asset"},{"key":"source"}], sortKey="avg_market", sortDirection="desc", limit=5),
+        init_table("../data/public_clubs.json", "clubs-young-table", "clubs-young-body", None, [{"key":"club_name","render":"clubBadge"},{"key":"club_name"},{"key":"average_age"},{"key":"u23_value","render":"market"},{"key":"top_asset"},{"key":"source"}], sortKey="u23_value", sortDirection="desc", limit=5),
+        init_table("../data/public_clubs.json", "clubs-u23-table", "clubs-u23-body", None, [{"key":"club_name","render":"clubBadge"},{"key":"club_name"},{"key":"region"},{"key":"u23_value","render":"market"},{"key":"top_asset"},{"key":"source"}], sortKey="u23_value", sortDirection="desc", limit=5),
         init_table("../data/public_clubs.json", "clubs-aging-table", "clubs-aging-body", None, [{"key":"club_name"},{"key":"average_age"},{"key":"weakest_unit"},{"key":"trend","render":"trend"},{"key":"source"}], sortKey="average_age", sortDirection="desc", limit=5),
         init_table("../data/public_clubs.json", "clubs-rising-table", "clubs-rising-body", None, [{"key":"club_name"},{"key":"region"},{"key":"avg_ares","render":"score"},{"key":"trend","render":"trend"},{"key":"source"}], filterKey="trend", filterValue="Rising", limit=5),
         init_table("../data/public_clubs.json", "clubs-falling-table", "clubs-falling-body", None, [{"key":"club_name"},{"key":"region"},{"key":"weakest_unit"},{"key":"trend","render":"trend"},{"key":"source"}], filterKey="trend", filterValue="Falling", limit=5),
@@ -727,7 +852,7 @@ def build_clubs() -> None:
         "Club Market Rankings | Squad Value, U23 Assets & Transfer Risk",
         "Compare public-beta clubs by squad quality, market value, age curve, U23 assets, transfer movement, and roster strength.",
         "../",
-    ) + nav("../") + f'''<main class="soccer-main"><div class="ares-page-title"><h1>Club Market Rankings</h1><p>Compare clubs by squad quality, market value, age curve, U23 assets, transfer movement, and roster strength.</p></div>{status_section("../")}<section class="ares-section ares-card">{filter_chips(["Region","Country","League","Tier","U23 Strength","High ARES","High Market","Rising Clubs","Falling Clubs"])}<input id="clubs-search" class="ares-search mb-3" type="search" placeholder="Search club, league, country, region, or trend...">{table_html("clubs-table","clubs-body","clubs-count",["Rank","Club","Country","League","Region","Squad Size","Average Age","Avg ARES","Avg Market","U23 Value","Top Asset","Weakest Unit","Trend","Confidence","Last Updated"])}</section><section class="ares-section table-grid"><div class="ares-card"><div class="section-title-row"><h2 class="h4">Most Valuable Clubs</h2>{beta_badge()}</div>{table_html("clubs-most-table","clubs-most-body","clubs-most-count",["Club","League","Avg Market","Top Asset","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">Youngest High-Value Squads</h2>{beta_badge()}</div>{table_html("clubs-young-table","clubs-young-body","clubs-young-count",["Club","Average Age","U23 Value","Top Asset","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">U23 Value Leaders</h2>{beta_badge()}</div>{table_html("clubs-u23-table","clubs-u23-body","clubs-u23-count",["Club","Region","U23 Value","Top Asset","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">Aging Risk Clubs</h2>{beta_badge()}</div>{table_html("clubs-aging-table","clubs-aging-body","clubs-aging-count",["Club","Average Age","Weakest Unit","Trend","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">Rising Clubs</h2>{beta_badge()}</div>{table_html("clubs-rising-table","clubs-rising-body","clubs-rising-count",["Club","Region","Avg ARES","Trend","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">Falling Clubs</h2>{beta_badge()}</div>{table_html("clubs-falling-table","clubs-falling-body","clubs-falling-count",["Club","Region","Weakest Unit","Trend","Mode"])}</div></section></main><footer class="ares-footer">Public Beta Demo club board.</footer>''' + scripts("../", "<script>" + inline + "".join(section_scripts) + "</script>")
+    ) + nav("../") + f'''<main class="soccer-main"><div class="ares-page-title"><h1>Club Market Rankings</h1><p>Compare clubs by squad quality, market value, age curve, U23 assets, transfer movement, and roster strength.</p></div>{status_section("../")}<section class="ares-section ares-card">{filter_chips(["Region","Country","League","Tier","U23 Strength","High ARES","High Market","Rising Clubs","Falling Clubs"])}<input id="clubs-search" class="ares-search mb-3" type="search" placeholder="Search club, league, country, region, or trend...">{table_html("clubs-table","clubs-body","clubs-count",["Rank","Badge","Club","Country","League","Region","Squad Size","Average Age","Avg ARES","Avg Market","U23 Value","Top Asset","Weakest Unit","Trend","Confidence","Last Updated"])}</section><section class="ares-section table-grid"><div class="ares-card"><div class="section-title-row"><h2 class="h4">Most Valuable Clubs</h2>{beta_badge()}</div>{table_html("clubs-most-table","clubs-most-body","clubs-most-count",["Badge","Club","League","Avg Market","Top Asset","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">Youngest High-Value Squads</h2>{beta_badge()}</div>{table_html("clubs-young-table","clubs-young-body","clubs-young-count",["Badge","Club","Average Age","U23 Value","Top Asset","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">U23 Value Leaders</h2>{beta_badge()}</div>{table_html("clubs-u23-table","clubs-u23-body","clubs-u23-count",["Badge","Club","Region","U23 Value","Top Asset","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">Aging Risk Clubs</h2>{beta_badge()}</div>{table_html("clubs-aging-table","clubs-aging-body","clubs-aging-count",["Club","Average Age","Weakest Unit","Trend","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">Rising Clubs</h2>{beta_badge()}</div>{table_html("clubs-rising-table","clubs-rising-body","clubs-rising-count",["Club","Region","Avg ARES","Trend","Mode"])}</div><div class="ares-card"><div class="section-title-row"><h2 class="h4">Falling Clubs</h2>{beta_badge()}</div>{table_html("clubs-falling-table","clubs-falling-body","clubs-falling-count",["Club","Region","Weakest Unit","Trend","Mode"])}</div></section></main><footer class="ares-footer">Public Beta Demo club board.</footer>''' + scripts("../", "<script>" + inline + "".join(section_scripts) + "</script>")
     write_text("clubs/index.html", html)
 
 
@@ -749,7 +874,7 @@ def build_leagues() -> None:
         "Global Football League Rankings | Asia, MLS & Market Strength",
         "Compare football leagues by player quality, market value, U23 depth, transfer movement, league strength, and data confidence.",
         "../",
-    ) + nav("../") + f'''<main class="soccer-main"><div class="ares-page-title"><h1>Global Football League Rankings</h1><p>Compare football leagues by player quality, market value, U23 depth, transfer movement, league strength, and data confidence.</p></div>{status_section("../")}<section class="ares-section ares-card">{filter_chips(["Global","Europe","Asia","North America","South America","Africa","Oceania","MLS","AFC","CONCACAF"], "region")}<input id="leagues-search" class="ares-search mb-3" type="search" placeholder="Search league, country, region, tier, AFC, CONCACAF, or provider...">{table_html("leagues-table","leagues-body","leagues-count",["Rank","League","Country","Region","Tier","Clubs","Players Tracked","Avg ARES","Avg Market","U23 Share","Top Club","Top Player","Data Confidence","Last Updated","Source"])}</section></main><footer class="ares-footer">Public Beta Demo global league board.</footer>''' + scripts("../", "<script>" + inline + "</script>")
+    ) + nav("../") + f'''<main class="soccer-main"><div class="ares-page-title"><h1>Global Football League Rankings</h1><p>Compare football leagues by player quality, market value, U23 depth, transfer movement, league strength, and data confidence.</p></div>{status_section("../")}<section class="ares-section ares-card">{filter_chips(["Global","Europe","Asia","North America","South America","Africa","Oceania","MLS","AFC","CONCACAF"], "region")}<input id="leagues-search" class="ares-search mb-3" type="search" placeholder="Search league, country, region, tier, AFC, CONCACAF, or provider...">{table_html("leagues-table","leagues-body","leagues-count",["Rank","Badge","League","Country","Region","Tier","Clubs","Players Tracked","Avg ARES","Avg Market","U23 Share","Top Club","Top Player","Data Confidence","Last Updated","Source"])}</section></main><footer class="ares-footer">Public Beta Demo global league board.</footer>''' + scripts("../", "<script>" + inline + "</script>")
     write_text("leagues/index.html", html)
 
 
@@ -772,7 +897,7 @@ def regional_page(filename: str, title: str, description: str, sections: list[st
         {"key":"source"},
     ], sortKey="market_score", sortDirection="desc", limit=8, **player_opts)
     section_cards = "".join(f'<div class="ares-status-item"><strong>{s}</strong><span>Seeded board active</span></div>' for s in sections)
-    html = head(f"{title} | ARES Football Market", description, prefix) + nav(prefix) + f'''<main class="soccer-main"><div class="ares-page-title"><h1>{title}</h1><p>{description}</p></div><section class="ares-section ares-card"><div class="ares-status-grid">{section_cards}</div><p>{beta_badge()}</p></section><section class="ares-section ares-card"><h2 class="h4">Seeded Player Board</h2>{table_html("regional-player-table","regional-player-body","regional-player-count",["Image","Player","Club","League","Market","ARES","Mode"])}</section><section class="ares-section ares-card"><h2 class="h4">Seeded League Board</h2><input id="regional-league-search" class="ares-search mb-3" type="search" placeholder="Search league, country, region, or provider...">{table_html("regional-league-table","regional-league-body","regional-league-count",["Rank","League","Country","Region","Tier","Clubs","Players Tracked","Avg ARES","Avg Market","U23 Share","Top Club","Top Player","Data Confidence","Last Updated","Source"])}</section></main><footer class="ares-footer">{title} Public Beta Demo.</footer>''' + scripts(prefix, "<script>" + player_init + league_init + "</script>")
+    html = head(f"{title} | ARES Football Market", description, prefix) + nav(prefix) + f'''<main class="soccer-main"><div class="ares-page-title"><h1>{title}</h1><p>{description}</p></div><section class="ares-section ares-card"><div class="ares-status-grid">{section_cards}</div><p>{beta_badge()}</p></section><section class="ares-section ares-card"><h2 class="h4">Seeded Player Board</h2>{table_html("regional-player-table","regional-player-body","regional-player-count",["Image","Player","Club","League","Market","ARES","Mode"])}</section><section class="ares-section ares-card"><h2 class="h4">Seeded League Board</h2><input id="regional-league-search" class="ares-search mb-3" type="search" placeholder="Search league, country, region, or provider...">{table_html("regional-league-table","regional-league-body","regional-league-count",["Rank","Badge","League","Country","Region","Tier","Clubs","Players Tracked","Avg ARES","Avg Market","U23 Share","Top Club","Top Player","Data Confidence","Last Updated","Source"])}</section></main><footer class="ares-footer">{title} Public Beta Demo.</footer>''' + scripts(prefix, "<script>" + player_init + league_init + "</script>")
     write_text(filename, html)
 
 
@@ -1097,6 +1222,7 @@ def build_supporting_json() -> None:
 
 
 def main() -> None:
+    generate_visual_assets()
     build_supporting_json()
     update_assets()
     build_home()

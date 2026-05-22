@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Taiwan Football Premier League league badge">
+  <metadata>ARES-owned generated public-beta league badge. Fictional seeded board art. No protected league mark.</metadata>
+  <rect width="256" height="256" rx="34" fill="#1F2937"/>
+  <circle cx="128" cy="124" r="84" fill="none" stroke="#22C55E" stroke-width="12"/>
+  <path d="M49 124h158M128 40c25 24 38 52 38 84s-13 60-38 84M128 40c-25 24-38 52-38 84s13 60 38 84" stroke="#F7C948" stroke-width="7" opacity=".9" fill="none"/>
+  <circle cx="128" cy="124" r="38" fill="#22C55E"/>
+  <text x="128" y="137" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900" fill="#1F2937">TFP</text>
+  <text x="128" y="226" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850" fill="#E5E7EB">Asia</text>
+</svg>

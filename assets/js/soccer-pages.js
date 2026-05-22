@@ -93,7 +93,16 @@
 
   function imageIsSafe(record) {
     const status = String(record.photo_license_status || "").toLowerCase();
-    return Boolean(record.photo_url) && ["provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider"].includes(status);
+    return Boolean(record.photo_url) && ["ares_owned", "provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider"].includes(status);
+  }
+
+  function assetHref(url) {
+    const href = String(url || "");
+    if (!href || href.match(/^(https?:)?\/\//) || href.startsWith("/") || href.startsWith("../")) return href;
+    const theme = document.querySelector('link[href*="assets/css/ares-theme"]');
+    const themeHref = theme ? theme.getAttribute("href") || "" : "";
+    const prefix = themeHref.includes("../assets/") ? "../" : "";
+    return href.startsWith("assets/") ? prefix + href : href;
   }
 
   function fillPlayerImage(record) {
@@ -101,7 +110,7 @@
     if (!container) return;
     const label = [record.player_name, record.position, record.club].filter(Boolean).join(", ");
     if (imageIsSafe(record)) {
-      container.innerHTML = '<img src="' + window.AresData.safeText(record.photo_url) + '" alt="' + window.AresData.safeText(label) + '" loading="lazy" onerror="this.remove()">';
+      container.innerHTML = '<img src="' + window.AresData.safeText(assetHref(record.photo_url)) + '" alt="' + window.AresData.safeText(label) + '" loading="lazy" onerror="this.remove()">';
     } else {
       container.innerHTML = '<span>' + window.AresData.safeText(record.initials || initials(record.player_name)) + '</span><small>' + window.AresData.safeText(record.position || "") + '</small>';
       container.setAttribute("aria-label", label);

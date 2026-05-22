@@ -44,9 +44,18 @@
     return href;
   }
 
+  function assetHref(url) {
+    const href = String(url || "");
+    if (!href || href.match(/^(https?:)?\/\//) || href.startsWith("/") || href.startsWith("../")) return href;
+    const theme = document.querySelector('link[href*="assets/css/ares-theme"]');
+    const themeHref = theme ? theme.getAttribute("href") || "" : "";
+    const prefix = themeHref.includes("../assets/") ? "../" : "";
+    return href.startsWith("assets/") ? prefix + href : href;
+  }
+
   function imageIsSafe(row) {
     const status = String(row.photo_license_status || "").toLowerCase();
-    return Boolean(row.photo_url) && ["provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider"].includes(status);
+    return Boolean(row.photo_url) && ["ares_owned", "provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider"].includes(status);
   }
 
   function renderPlayerAvatar(row) {
@@ -54,8 +63,17 @@
     const alt = data.safeText([label, row.position, row.club].filter(Boolean).join(", "));
     // Image safety rule: only render provider-supplied or licensed image URLs already present in data.
     // Do not scrape Transfermarkt, Google Images, club sites, agency previews, or social media.
-    if (imageIsSafe(row)) return '<span class="ares-player-photo"><img src="' + data.safeText(row.photo_url) + '" alt="' + alt + '" loading="lazy" onerror="this.remove()"></span>';
+    if (imageIsSafe(row)) return '<span class="ares-player-photo"><img src="' + data.safeText(assetHref(row.photo_url)) + '" alt="' + alt + '" loading="lazy" onerror="this.remove()"></span>';
     return '<span class="ares-player-avatar-stack" title="' + alt + '"><span class="ares-player-photo" aria-label="' + alt + '">' + data.safeText(row.initials || initials(label)) + '</span><span class="ares-position-mini">' + data.safeText(row.position || "FB") + '</span><span class="ares-avatar-club">' + data.safeText(row.club || row.region || "ARES") + "</span></span>";
+  }
+
+  function renderBadge(row, type) {
+    const url = type === "league" ? row.league_badge_url : row.club_badge_url;
+    const label = type === "league" ? row.league_name : row.club_name;
+    const fallback = initials(label || "ARES");
+    const alt = data.safeText((label || "ARES") + " badge");
+    if (url) return '<span class="ares-media-badge"><img src="' + data.safeText(assetHref(url)) + '" alt="' + alt + '" loading="lazy" onerror="this.remove()"></span>';
+    return '<span class="ares-media-badge" aria-label="' + alt + '">' + data.safeText(fallback) + "</span>";
   }
 
   function renderPlayerIdentity(label, row, column) {
@@ -77,6 +95,8 @@
     if (column.render === "trend") return renderTrendChip(value);
     if (column.render === "confidence") return renderConfidenceChip(value);
     if (column.render === "playerImage") return renderPlayerAvatar(row);
+    if (column.render === "clubBadge") return renderBadge(row, "club");
+    if (column.render === "leagueBadge") return renderBadge(row, "league");
     if (column.render === "playerLink") return renderPlayerIdentity(value, row, column);
     if (column.render === "clubLink") return renderLink(value, row.club_url, column.fallbackUrl || "clubs/club-template.html", column.pathPrefix);
     if (column.render === "leagueLink") return renderLink(value, row.league_url, column.fallbackUrl || "leagues/league-template.html", column.pathPrefix);
