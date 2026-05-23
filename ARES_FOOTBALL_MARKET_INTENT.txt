@@ -1,0 +1,191 @@
+ARES FOOTBALL MARKET - PRODUCT INTENT
+
+What I was trying to build
+--------------------------
+I was trying to build ARES Football Market into a real football market intelligence product.
+
+The goal was to make it feel like a football version of Transfermarkt plus PFF:
+
+- Transfermarkt-style market boards for players, clubs, leagues, transfers, contract signals, youth assets, risers, fallers, and value movement.
+- PFF-style performance scoring with ARES Scores, position-specific components, confidence labels, and clear methodology.
+- Global-first football coverage, not only Europe. Asia, MLS, North America, Liga MX, AFC competitions, Japan, Korea, Saudi Arabia, China, India, Australia, and Southeast Asia should be visible early.
+
+The product idea
+----------------
+ARES should answer two different questions:
+
+1. How good is the player on the field?
+   This is the ARES Score.
+
+2. How valuable is the player as a football asset?
+   This is the Market Score.
+
+ARES Score is about performance quality.
+Market Score is about asset value.
+
+Market Score should consider:
+
+- ARES quality
+- age curve
+- position scarcity
+- league strength
+- role security
+- contract signal
+- transfer movement
+- durability
+- data confidence
+
+The public product
+------------------
+The free/public site should not look empty.
+
+It should show enough useful football market structure to make people trust the product before asking them to pay.
+
+Public pages should include:
+
+- homepage market terminal
+- player search
+- ARES player rankings
+- market value rankings
+- club portfolio boards
+- league strength boards
+- Asia market board
+- MLS market board
+- North America market board
+- transfer movement board
+- watchlist
+- methodology
+
+Every public board should show seeded or real rows, not empty headers.
+
+The premium product
+-------------------
+The deeper ARES intelligence should be locked for premium users.
+
+Premium should include:
+
+- full ARES component grades
+- full Market Score breakdown
+- position ranks
+- age curve
+- transfer value signal
+- team fit
+- risk score
+- movement history
+- comparable players
+- club strategy boards
+- deeper roster analysis
+
+The premium layer should be visible enough that users understand what is locked, but the public layer should still prove value.
+
+Important public beta rule
+--------------------------
+Until approved live data feeds are connected, the site should use clearly marked seeded public-beta demo data.
+
+Every seeded row should be marked:
+
+data_mode: public_beta_demo
+
+The site should say Public Beta Demo in small trust labels, not use words like placeholder or loading.
+
+What should not happen
+----------------------
+The site should not show:
+
+- Loading cards
+- Pending cards
+- fake rows without labels
+- placeholder warnings
+- empty table headers
+- "rows load from file" public copy
+- gridiron terms on soccer pages, such as Snap Counts, Depth Chart, or Trade Value
+
+Correct soccer wording:
+
+- Minutes / Role
+- Position Usage
+- Transfer Value Signal
+
+Image strategy
+--------------
+I wanted player images, club visuals, and league visuals, but they need to be legally safe.
+
+Do not scrape or copy images from:
+
+- Google Images
+- Transfermarkt
+- ESPN
+- club websites
+- MLS pages
+- Getty
+- Reuters
+- AP
+- random social media
+
+Safe image options:
+
+- ARES-owned generated player images, club badges, and league badges
+- provider-supplied photos only if the provider terms allow public display
+- Wikimedia Commons only when the specific file license allows reuse and attribution is stored
+- uploaded assets that ARES owns or has permission to use
+
+Current safe beta solution:
+
+- ARES-owned generated player images
+- ARES-owned generated club badges
+- ARES-owned generated league badges
+
+Why this matters
+----------------
+The product cannot look like a dead demo.
+
+It needs to feel like a working football market terminal, even before real feeds are connected.
+
+The user should immediately see:
+
+- top ARES players
+- top market assets
+- young breakout assets
+- latest market changes
+- latest transfer signals
+- club portfolio rankings
+- league strength rankings
+- Asia market boards
+- MLS market boards
+- North America market boards
+
+Trust language
+--------------
+The site should be honest:
+
+- Public Beta Demo means the current rows are seeded fictional records.
+- Live football data is not connected yet.
+- ARES Score is not a transfer fee.
+- Market Score is not the same as market price.
+- ARES does not claim to replace scouting.
+- ARES does not use restricted commercial scraping.
+
+What still needs to be connected later
+--------------------------------------
+To become a real database instead of a seeded public beta, ARES still needs approved data sources for:
+
+- real player identity
+- real club identity
+- real league identity
+- real minutes and match stats
+- real transfer movement
+- real contract signals
+- real injuries and availability
+- licensed or provider-approved player photos
+- licensed or approved club and league logos if real marks are used
+
+Short version
+-------------
+I was trying to build:
+
+ARES Football Market: a global football asset terminal that combines PFF-style performance grading with Transfermarkt-style market intelligence.
+
+The public site should show credible public-beta boards immediately.
+The premium product should lock the deeper ARES intelligence.
+The data and images must be legally safe.
+The product should feel alive, global, and trustworthy.

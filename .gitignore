@@ -1,0 +1,3 @@
+tools/commons_downloader/runs/
+tools/commons_downloader/**/__pycache__/
+tools/commons_downloader/**/*.pyc

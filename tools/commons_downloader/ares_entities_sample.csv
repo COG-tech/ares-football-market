@@ -1,0 +1,5 @@
+entity_id,entity_name,sport,league,team,commons_title,wikidata_qid
+soc_001,Lionel Messi,soccer,MLS,Inter Miami,,Q615
+soc_002,Son Heung-min,soccer,Premier League,Tottenham Hotspur,,Q459123
+grid_001,Patrick Mahomes,gridiron,NFL,Kansas City Chiefs,,Q16237170
+grid_002,Tom Brady,gridiron,NFL,Tampa Bay Buccaneers,,Q313388
