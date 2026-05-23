@@ -124,9 +124,44 @@
   function initProfile(dataPath, mapping) {
     window.AresData.loadJson(dataPath).then(function (record) {
       Object.keys(mapping).forEach(function (id) { fillText(id, record[mapping[id]]); });
+      const heading = document.querySelector("h1");
+      if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
       fillPlayerImage(record);
     });
   }
 
-  window.AresSoccer = { initTable, initSearch, initProfile };
+  function showProfileMessage(message) {
+    const panel = document.getElementById("profile-message");
+    if (panel) {
+      panel.hidden = false;
+      panel.innerHTML = '<p>' + window.AresData.safeText(message) + ' <a href="index.html">Return to Player Search.</a></p>';
+    }
+  }
+
+  function initProfileById(dataPath, mapping) {
+    const params = new URLSearchParams(window.location.search);
+    const requested = (params.get("id") || params.get("player_id") || params.get("slug") || "").trim().toLowerCase();
+    if (!requested) {
+      showProfileMessage("Player not found.");
+      return;
+    }
+    window.AresData.loadJson(dataPath).then(function (rows) {
+      const list = Array.isArray(rows) ? rows : rows.players || [];
+      const record = list.find(function (item) {
+        return String(item.player_id || "").toLowerCase() === requested || String(item.slug || "").toLowerCase() === requested;
+      });
+      if (!record) {
+        showProfileMessage("Player not found.");
+        return;
+      }
+      Object.keys(mapping).forEach(function (id) { fillText(id, record[mapping[id]]); });
+      const heading = document.querySelector("h1");
+      if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
+      fillPlayerImage(record);
+    }).catch(function () {
+      showProfileMessage("Player not found.");
+    });
+  }
+
+  window.AresSoccer = { initTable, initSearch, initProfile, initProfileById };
 }(window));

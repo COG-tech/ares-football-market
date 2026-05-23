@@ -84,7 +84,7 @@
   }
 
   function renderPlayerIdentity(label, row, column) {
-    const href = prefixedHref(row.player_url || row.url || column.fallbackUrl || "players/player-template.html", column.pathPrefix);
+    const href = prefixedHref(row.player_url || row.url || column.fallbackUrl || "players/profile.html", column.pathPrefix);
     const avatar = column.showAvatar === false ? "" : renderPlayerAvatar(row);
     return '<a class="ares-player-identity" href="' + data.safeText(href) + '">' + avatar + '<span>' + data.safeText(label) + "</span></a>";
   }

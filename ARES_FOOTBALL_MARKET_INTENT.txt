@@ -97,7 +97,7 @@ The site should not show:
 - fake rows without labels
 - placeholder warnings
 - empty table headers
-- "rows load from file" public copy
+- backend-loading public copy
 - gridiron terms on soccer pages, such as Snap Counts, Depth Chart, or Trade Value
 
 Correct soccer wording:

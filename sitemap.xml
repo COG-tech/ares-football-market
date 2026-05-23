@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://cog-tech.github.io/ares-football-market/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://cog-tech.github.io/ares-football-market/players/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cog-tech.github.io/ares-football-market/players/profile.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cog-tech.github.io/ares-football-market/rankings/ares.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://cog-tech.github.io/ares-football-market/rankings/market.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://cog-tech.github.io/ares-football-market/clubs/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>

@@ -37,8 +37,8 @@
   "last_updated": "2026-05-23",
   "source": "Wikidata + Wikimedia Commons",
   "score_source": "ARES beta estimate",
-  "url": "players/player-template.html",
-  "player_url": "players/player-template.html",
+  "url": "players/profile.html?id=soc_q99485542",
+  "player_url": "players/profile.html?id=soc_q99485542",
   "club_url": "clubs/club-template.html",
   "league_url": "leagues/league-template.html",
   "photo_url": "assets/media/wikimedia/players/soc-q99485542__savinho__commons.jpg",
@@ -64,5 +64,6 @@
   "position_usage": "forward",
   "transfer_value_signal": "Falling -1.9",
   "role_security": "Medium",
-  "durability": "92% availability estimate"
+  "durability": "92% availability estimate",
+  "slug": "savinho"
 }

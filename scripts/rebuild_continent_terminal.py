@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import html
 import json
 import math
 import re
@@ -210,6 +211,8 @@ def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
     country = row.get("country") or LEAGUE_COUNTRY.get(league, "")
     continent, region, confederation = geo_for(country, league, row.get("region", ""))
     player_id = row.get("player_id") or f"pbp-{slug(name)}"
+    player_slug = row.get("slug") or slug(name)
+    player_profile_url = f"players/profile.html?id={player_id}"
     club = row.get("club") or "Public Beta Club"
     row.update(
         {
@@ -218,6 +221,7 @@ def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
             "display_name": name,
             "player_name": name,
             "player_id": player_id,
+            "slug": player_slug,
             "club": club,
             "club_id": row.get("club_id") or f"club-{slug(club)}",
             "league": league,
@@ -234,7 +238,8 @@ def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
             "source": row.get("source") or "ARES Public Beta Demo",
             "score_source": row.get("score_source") or "ARES beta estimate",
             "stats_mode": row.get("stats_mode") or "ARES beta estimate; not official match statistics",
-            "player_url": row.get("player_url") or "players/player-template.html",
+            "url": player_profile_url,
+            "player_url": player_profile_url,
             "club_url": row.get("club_url") or "clubs/club-template.html",
             "league_url": row.get("league_url") or "leagues/league-template.html",
         }
@@ -509,7 +514,9 @@ def build_transfers(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "reason": player["reason"],
             "source": "ARES Public Beta Demo",
             "last_updated": TODAY,
-            "player_url": "players/player-template.html",
+            "slug": player.get("slug", slug(player["player_name"])),
+            "player_url": player["player_url"],
+            "url": player["player_url"],
             "photo_url": player.get("photo_url", ""),
             "photo_source": player.get("photo_source", "ARES fallback avatar"),
             "photo_license_status": player.get("photo_license_status", "ares_owned"),
@@ -558,7 +565,9 @@ def build_watchlist(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "data_confidence": player.get("data_confidence", "Medium"),
             "last_updated": TODAY,
             "source": "ARES Public Beta Demo",
-            "player_url": "players/player-template.html",
+            "slug": player.get("slug", slug(player["player_name"])),
+            "player_url": player["player_url"],
+            "url": player["player_url"],
             "photo_url": player.get("photo_url", ""),
             "photo_source": player.get("photo_source", "ARES fallback avatar"),
             "photo_license_status": player.get("photo_license_status", "ares_owned"),
@@ -617,7 +626,8 @@ def build_search(players: list[dict[str, Any]], clubs: list[dict[str, Any]], lea
 def table(table_id: str, headers: list[str]) -> str:
     head = "".join(f"<th>{h}</th>" for h in headers)
     body_id = table_id.replace("-table", "-body")
-    return f'<div class="table-responsive"><table id="{table_id}" class="ares-table"><thead><tr>{head}</tr></thead><tbody id="{body_id}"><tr><td colspan="{len(headers)}"><span class="ares-beta-badge">{PUBLIC_LABEL}</span> Board rows initialize from the public beta dataset.</td></tr></tbody></table></div>'
+    empty = f'<tr><td colspan="{len(headers)}"><span class="ares-beta-badge">{PUBLIC_LABEL}</span> No matching public beta rows for this filter set. Clear filters to view the full board.</td></tr>'
+    return f'<div class="table-responsive"><table id="{table_id}" class="ares-table"><thead><tr>{head}</tr></thead><tbody id="{body_id}">{empty}</tbody></table></div>'
 
 
 def script_init(configs: list[dict[str, Any]]) -> str:
@@ -711,6 +721,172 @@ def build_navigation() -> dict[str, Any]:
 
 def script_paths(prefix: str, data: str, table_id: str, cols: list[dict[str, Any]], **opts: Any) -> dict[str, Any]:
     return {"dataPath": prefix + data, "tableId": table_id, "bodyId": table_id.replace("-table", "-body"), "columns": with_prefix(cols, prefix), **opts}
+
+
+def static_safe(value: Any) -> str:
+    return html.escape("" if value is None else str(value), quote=True)
+
+
+def static_initials(value: Any) -> str:
+    parts = [part for part in str(value or "AR").split() if part]
+    return ("".join(part[0] for part in parts[:3]) or "AR").upper()
+
+
+def static_prefixed_href(url: Any, prefix: str) -> str:
+    href = str(url or "#")
+    if prefix and href != "#" and not re.match(r"^(https?:)?//", href) and not href.startswith("../") and not href.startswith("/"):
+        return prefix + href
+    return href
+
+
+def static_asset_href(url: Any, prefix: str) -> str:
+    href = str(url or "")
+    if not href or re.match(r"^(https?:)?//", href) or href.startswith("/") or href.startswith("../"):
+        return href
+    return prefix + href if prefix and href.startswith("assets/") else href
+
+
+def static_image_is_safe(row: dict[str, Any]) -> bool:
+    status = str(row.get("photo_license_status", "")).lower()
+    allowed = {"ares_owned", "provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider"}
+    return bool(row.get("photo_url")) and status in allowed
+
+
+def static_mode_badge(value: Any) -> str:
+    raw = str(value or "").lower()
+    label = PUBLIC_LABEL if raw in {DATA_MODE, "wikimedia_open_photo_beta", ""} else str(value)
+    return f'<span class="ares-beta-badge">{static_safe(label)}</span>'
+
+
+def static_chip(value: Any, class_name: str) -> str:
+    return f'<span class="{class_name}">{static_safe(value)}</span>'
+
+
+def static_player_avatar(row: dict[str, Any], prefix: str) -> str:
+    label = ", ".join(str(row.get(key, "")) for key in ["player_name", "position", "club"] if row.get(key))
+    if static_image_is_safe(row):
+        src = static_asset_href(row.get("photo_url", ""), prefix)
+        return f'<span class="ares-player-photo"><img src="{static_safe(src)}" alt="{static_safe(label)}" loading="lazy" onerror="this.remove()"></span>'
+    initials = row.get("initials") or static_initials(row.get("player_name"))
+    return f'<span class="ares-player-avatar-stack" title="{static_safe(label)}"><span class="ares-player-photo" aria-label="{static_safe(label)}">{static_safe(initials)}</span><span class="ares-position-mini">{static_safe(row.get("position") or "FB")}</span><span class="ares-avatar-club">{static_safe(row.get("club") or row.get("region") or "ARES")}</span></span>'
+
+
+def static_link(label: Any, url: Any, fallback: str, prefix: str) -> str:
+    href = static_prefixed_href(url or fallback or "#", prefix)
+    return f'<a href="{static_safe(href)}">{static_safe(label)}</a>'
+
+
+def static_cell(row: dict[str, Any], column: dict[str, Any]) -> str:
+    value = row.get(column.get("key"))
+    render = column.get("render")
+    prefix = column.get("pathPrefix", "")
+    if render == "score":
+        return static_chip(f"{float(value):.1f}" if isinstance(value, (int, float)) else value, "ares-score-chip")
+    if render == "market":
+        return static_chip(f"{float(value):.1f}" if isinstance(value, (int, float)) else value, "ares-market-chip")
+    if render == "tier":
+        return static_chip(value, "ares-tier-chip")
+    if render == "trend":
+        trend = str(value or "Stable")
+        key = trend.lower()
+        class_name = "ares-trend-up" if key in {"up", "rising"} else "ares-trend-down" if key in {"down", "falling"} else "ares-trend-flat"
+        return static_chip(trend, class_name)
+    if render == "confidence":
+        confidence = str(value or "Medium")
+        key = confidence.lower()
+        class_name = "ares-confidence-high" if key == "high" else "ares-confidence-medium" if key == "medium" else "ares-confidence-low"
+        return static_chip(confidence, class_name)
+    if render == "mode":
+        return static_mode_badge(value)
+    if render == "playerImage":
+        return static_player_avatar(row, prefix)
+    if render == "playerLink":
+        avatar = "" if column.get("showAvatar") is False else static_player_avatar(row, prefix)
+        href = static_prefixed_href(row.get("player_url") or row.get("url") or column.get("fallbackUrl") or "players/profile.html", prefix)
+        return f'<a class="ares-player-identity" href="{static_safe(href)}">{avatar}<span>{static_safe(value)}</span></a>'
+    if render == "clubLink":
+        return static_link(value, row.get("club_url"), column.get("fallbackUrl", "clubs/club-template.html"), prefix)
+    if render == "leagueLink":
+        return static_link(value, row.get("league_url"), column.get("fallbackUrl", "leagues/league-template.html"), prefix)
+    if render == "link":
+        return static_link(column.get("label") or value or "Open", row.get(column.get("urlKey", "url")), column.get("fallbackUrl", "#"), prefix)
+    return static_safe(value)
+
+
+def static_prepare_rows(rows: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, Any]]:
+    prepared = list(rows)
+    if config.get("filterKey") and config.get("filterValues"):
+        values = set(config["filterValues"])
+        prepared = [row for row in prepared if row.get(config["filterKey"]) in values]
+    elif config.get("filterKey") and config.get("filterValue") is not None:
+        prepared = [row for row in prepared if row.get(config["filterKey"]) == config["filterValue"]]
+    if config.get("maxAge") is not None:
+        prepared = [row for row in prepared if float(row.get("age", 999) or 999) <= float(config["maxAge"])]
+    if config.get("minAge") is not None:
+        prepared = [row for row in prepared if float(row.get("age", 0) or 0) >= float(config["minAge"])]
+    if config.get("sortKey"):
+        key = config["sortKey"]
+        reverse = config.get("sortDirection") != "asc"
+        def sort_value(row: dict[str, Any]) -> tuple[int, Any]:
+            value = row.get(key, "")
+            try:
+                return (0, float(value))
+            except (TypeError, ValueError):
+                return (1, str(value).lower())
+        prepared.sort(key=sort_value, reverse=reverse)
+    if config.get("limit"):
+        prepared = prepared[: int(config["limit"])]
+    return prepared
+
+
+def static_render_rows(rows: list[dict[str, Any]], columns: list[dict[str, Any]]) -> str:
+    if not rows:
+        return f'<tr><td colspan="{max(1, len(columns))}"><span class="ares-beta-badge">{PUBLIC_LABEL}</span> No matching public beta rows for this filter set. Clear filters to view the full board.</td></tr>'
+    output = []
+    for row in rows:
+        cells = []
+        for column in columns:
+            label = static_safe(column.get("label") or column.get("key") or "")
+            cells.append(f'<td data-label="{label}">{static_cell(row, column)}</td>')
+        output.append("<tr>" + "".join(cells) + "</tr>")
+    return "".join(output)
+
+
+def extract_table_configs(text: str) -> list[dict[str, Any]]:
+    configs = []
+    for match in re.finditer(r"AresSoccer\.initTable\((\{.*?\})\);", text, re.S):
+        try:
+            configs.append(json.loads(match.group(1)))
+        except json.JSONDecodeError:
+            continue
+    return configs
+
+
+def prerender_generated_tables() -> None:
+    for html_path in ROOT.rglob("*.html"):
+        if any(part.startswith(".") for part in html_path.relative_to(ROOT).parts):
+            continue
+        text = html_path.read_text(encoding="utf-8")
+        configs = extract_table_configs(text)
+        if not configs:
+            continue
+        updated = text
+        for config in configs:
+            data_path = (html_path.parent / config["dataPath"]).resolve()
+            if not data_path.exists():
+                continue
+            rows = read_json(str(data_path.relative_to(ROOT)))
+            if isinstance(rows, dict):
+                rows = rows.get("rows") or rows.get("players") or []
+            if not isinstance(rows, list):
+                continue
+            prepared = static_prepare_rows(rows, config)
+            body_html = static_render_rows(prepared, config.get("columns", []))
+            body_id = re.escape(config["bodyId"])
+            pattern = re.compile(r'(<tbody id="' + body_id + r'">)(.*?)(</tbody>)', re.S)
+            updated = pattern.sub(lambda match: match.group(1) + body_html + match.group(3), updated, count=1)
+        if updated != text:
+            html_path.write_text(updated, encoding="utf-8")
 
 
 def build_pages(players: list[dict[str, Any]], clubs: list[dict[str, Any]], leagues: list[dict[str, Any]]) -> None:
@@ -849,8 +1025,12 @@ def build_legacy_region_pages() -> None:
 
 def build_templates() -> None:
     profile_body = """<section class="ares-section ares-card"><div class="ares-profile-card"><div id="player-photo" class="ares-profile-photo">AR</div><h2 id="player-name">Player Profile</h2><p><span id="position"></span> | <span id="club"></span> | <span id="league"></span> | <span id="country"></span></p><div class="ares-status-terminal"><div class="ares-status-item"><strong>Age</strong><span id="age"></span></div><div class="ares-status-item"><strong>Contract End</strong><span id="contract-end"></span></div><div class="ares-status-item"><strong>Role</strong><span id="role"></span></div><div class="ares-status-item"><strong>Confidence</strong><span id="confidence"></span></div><div class="ares-status-item"><strong>Last Updated</strong><span id="last-updated"></span></div></div></div></section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">ARES Score</h2><p id="ares-score"></p></div><div class="ares-card"><h2 class="h4">Market Score</h2><p id="market-score"></p></div><div class="ares-card"><h2 class="h4">Market Tier</h2><p id="market-tier"></p></div><div class="ares-card"><h2 class="h4">Age Curve</h2><p id="age-curve"></p></div><div class="ares-card"><h2 class="h4">Trend</h2><p id="trend"></p></div><div class="ares-card"><h2 class="h4">Reason</h2><p id="reason"></p></div></section><section class="ares-section ares-card"><h2 class="h4">Public Tabs</h2><p>Overview | Season Stats | Match Log | Minutes / Role | Availability | Position Usage | Comparable Players | Market Notes</p></section><section class="ares-section ares-card premium-lock"><h2 class="h4">Premium Tabs</h2><p>ARES Components | Market Breakdown | Age Curve | Transfer Value Signal | Team Fit | Risk Score | Movement History</p></section><section class="ares-section ares-card"><h2 class="h4">Image Source</h2><p>Source: <span id="photo-source"></span>. License: <span id="photo-license"></span>. Credit: <span id="photo-credit"></span>.</p></section>"""
-    profile_script = 'AresSoccer.initProfile("../data/player_profile_sample.json",{"player-name":"player_name","position":"position","club":"club","league":"league","country":"country","age":"age","contract-end":"contract_end","role":"role","confidence":"data_confidence","last-updated":"last_updated","ares-score":"ares_score","market-score":"market_score","market-tier":"market_tier","age-curve":"age_curve","trend":"trend","reason":"reason"});'
+    profile_body += """<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Continent</h2><p id="continent"></p></div><div class="ares-card"><h2 class="h4">Minutes / Role</h2><p id="minutes-role"></p></div><div class="ares-card"><h2 class="h4">Position Usage</h2><p id="position-usage"></p></div><div class="ares-card"><h2 class="h4">Transfer Value Signal</h2><p id="transfer-value-signal"></p></div><div class="ares-card"><h2 class="h4">Role Security</h2><p id="role-security"></p></div><div class="ares-card"><h2 class="h4">Durability</h2><p id="durability"></p></div></section><section id="profile-message" class="ares-section ares-card" hidden></section>"""
+    profile_mapping = {"player-name":"player_name","position":"position","club":"club","league":"league","country":"country","age":"age","contract-end":"contract_end","role":"role","confidence":"data_confidence","last-updated":"last_updated","ares-score":"ares_score","market-score":"market_score","market-tier":"market_tier","age-curve":"age_curve","trend":"trend","reason":"reason","continent":"continent","minutes-role":"minutes_role","position-usage":"position_usage","transfer-value-signal":"transfer_value_signal","role-security":"role_security","durability":"durability"}
+    profile_script = f'AresSoccer.initProfile("../data/player_profile_sample.json",{json.dumps(profile_mapping, ensure_ascii=False)});'
+    dynamic_profile_script = f'AresSoccer.initProfileById("../data/public_players.json",{json.dumps(profile_mapping, ensure_ascii=False)});'
     write_text("players/player-template.html", page("../", "Player ARES Profile | Market Score, Club, League & Transfer Signal", "ARES player profile with public beta player card, ARES Score, Market Score, role, confidence, image source, and locked premium components.", "players/player-template.html", "Player ARES Profile", "A football asset card showing identity, role, ARES quality, Market Score, confidence, and source context.", profile_body, profile_script))
+    write_text("players/profile.html", page("../", "Player ARES Profile | Market Score, Club, League & Transfer Signal", "ARES player profile with public beta player card, ARES Score, Market Score, role, confidence, image source, and locked premium components.", "players/profile.html", "Player ARES Profile", "A football asset card showing identity, role, ARES quality, Market Score, confidence, and source context.", profile_body, dynamic_profile_script))
 
     club_body = '<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Top 5 by ARES</h2>' + table("club-ares-table", ["Player", "Position", "ARES", "Role", "Mode"]) + '</div><div class="ares-card"><h2 class="h4">Top 5 by Market</h2>' + table("club-market-table", ["Player", "Age", "Market", "Tier", "Mode"]) + '</div><div class="ares-card"><h2 class="h4">Top U23 Assets</h2>' + table("club-u23-table", ["Player", "Age", "Market", "Reason", "Mode"]) + '</div><div class="ares-card"><h2 class="h4">Recent Transfers</h2>' + table("club-transfer-table", ["Date", "Player", "Type", "Impact", "Mode"]) + '</div></section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Weakest Position Groups</h2><p>Depth risk review, role security, and U23 coverage are tracked separately from asset value.</p></div><div class="ares-card"><h2 class="h4">Contract Risk</h2><p>Contract windows are treated as market signals, not salary or transfer-fee claims.</p></div><div class="ares-card"><h2 class="h4">Squad Depth</h2><p>ARES evaluates squad portfolios by age curve, role security, positional scarcity, and confidence.</p></div><div class="ares-card"><h2 class="h4">Source Notes</h2><p>Public beta rows use ARES estimates and safe images only.</p></div></section>'
     club_script = script_init([script_paths("../", "data/public_players.json", "club-ares-table", [{"key": "player_name", "label": "Player"}, {"key": "position", "label": "Position"}, {"key": "ares_score", "label": "ARES", "render": "score"}, {"key": "role", "label": "Role"}, {"key": "data_mode", "label": "Mode", "render": "mode"}], sortKey="ares_score", sortDirection="desc", limit=5), script_paths("../", "data/public_players.json", "club-market-table", [{"key": "player_name", "label": "Player"}, {"key": "age", "label": "Age"}, {"key": "market_score", "label": "Market", "render": "market"}, {"key": "market_tier", "label": "Tier", "render": "tier"}, {"key": "data_mode", "label": "Mode", "render": "mode"}], sortKey="market_score", sortDirection="desc", limit=5), script_paths("../", "data/public_players.json", "club-u23-table", [{"key": "player_name", "label": "Player"}, {"key": "age", "label": "Age"}, {"key": "market_score", "label": "Market", "render": "market"}, {"key": "reason", "label": "Reason"}, {"key": "data_mode", "label": "Mode", "render": "mode"}], maxAge=23, sortKey="market_score", sortDirection="desc", limit=5), script_paths("../", "data/public_transfers.json", "club-transfer-table", [{"key": "date", "label": "Date"}, {"key": "player_name", "label": "Player"}, {"key": "transfer_type", "label": "Type"}, {"key": "market_impact", "label": "Impact"}, {"key": "data_mode", "label": "Mode", "render": "mode"}], limit=5)])
@@ -871,7 +1051,7 @@ def build_methodology_and_credits() -> None:
 
 def build_seo_files() -> None:
     urls = [
-        ("", "daily", "1.0"), ("players/", "daily", "0.8"), ("rankings/ares.html", "daily", "0.8"),
+        ("", "daily", "1.0"), ("players/", "daily", "0.8"), ("players/profile.html", "weekly", "0.7"), ("rankings/ares.html", "daily", "0.8"),
         ("rankings/market.html", "daily", "0.8"), ("clubs/", "weekly", "0.7"), ("leagues/", "weekly", "0.8"),
         ("transfers/", "daily", "0.8"), ("watchlist/", "weekly", "0.7"), ("methodology.html", "monthly", "0.6"),
         ("image-credits.html", "monthly", "0.5"), ("continents/", "weekly", "0.9"), ("leagues/mls/", "weekly", "0.8"),
@@ -920,6 +1100,7 @@ def main() -> None:
     build_legacy_region_pages()
     build_templates()
     build_methodology_and_credits()
+    prerender_generated_tables()
     build_seo_files()
     print(f"players={len(players)} clubs={len(clubs)} leagues={len(leagues)} transfers={len(transfers)} watchlist={len(watchlist)}")
 
