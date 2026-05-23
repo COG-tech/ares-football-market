@@ -332,6 +332,62 @@ input.ares-search:focus {
 @media(max-width:1100px){.ares-status-terminal{grid-template-columns:repeat(2,minmax(0,1fr))}.ares-board-feature-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.ares-status-terminal{grid-template-columns:1fr}}
 
+@media (max-width: 760px) {
+  .table-responsive {
+    overflow: visible;
+  }
+
+  .ares-table {
+    display: block;
+  }
+
+  .ares-table thead {
+    display: none;
+  }
+
+  .ares-table tbody,
+  .ares-table tr,
+  .ares-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .ares-table tr {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: #fff;
+    border: 1px solid var(--ares-border);
+    border-radius: 8px;
+    box-shadow: var(--ares-shadow);
+  }
+
+  .ares-table td {
+    display: grid;
+    grid-template-columns: minmax(7rem, 0.45fr) minmax(0, 0.55fr);
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(201, 207, 216, 0.5);
+    text-align: left;
+  }
+
+  .ares-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .ares-table td::before {
+    content: attr(data-label);
+    color: var(--ares-muted);
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .ares-player-identity {
+    min-width: 0;
+  }
+}
+
 
 .ares-beta-note {
   margin: 0.85rem 0 0;

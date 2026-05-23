@@ -33,7 +33,9 @@
 
   function activeMenuId() {
     const path = window.location.pathname.toLowerCase();
+    if (path.includes("/continents/")) return "continents";
     if (path.includes("/clubs/")) return "clubs";
+    if (path.includes("/leagues/mls")) return "leagues";
     if (path.includes("/leagues/asia")) return "asia";
     if (path.includes("/leagues/mls")) return "mls";
     if (path.includes("/leagues/north-america")) return "north-america";
@@ -41,8 +43,7 @@
     if (path.includes("/transfers/")) return "transfers";
     if (path.includes("/watchlist/")) return "watchlist";
     if (path.includes("/players/")) return "players";
-    if (path.includes("/rankings/market")) return "market-rankings";
-    if (path.includes("/rankings/ares")) return "ares-rankings";
+    if (path.includes("/rankings/")) return "rankings";
     if (path.includes("methodology") || path.includes("about")) return "methodology";
     return "home";
   }

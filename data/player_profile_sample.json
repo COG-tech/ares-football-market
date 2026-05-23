@@ -1,5 +1,5 @@
 {
-  "data_mode": "wikimedia_open_photo_beta",
+  "data_mode": "public_beta_demo",
   "stats_mode": "ARES beta estimate; not official match statistics",
   "rank": 1,
   "player_id": "soc_q99485542",
@@ -12,7 +12,7 @@
   "club": "Manchester City F.C.",
   "league": "Premier League",
   "country": "England",
-  "region": "Europe",
+  "region": "Western Europe",
   "league_level": "top",
   "minutes": 1396,
   "appearances": 15,
@@ -53,5 +53,16 @@
   "license_short_name": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "attribution_text": "Image: \"Paris Saint-Germain - Manchester City FC, 22 January 2025 (74) (cropped)\" | Creator: Like tears in rain | Source: https://commons.wikimedia.org/wiki/File:Paris_Saint-Germain_-_Manchester_City_FC,_22_January_2025_(74)_(cropped).jpg | License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)",
-  "rights_checked": "2026-05-23"
+  "rights_checked": "2026-05-23",
+  "identity_mode": "wikimedia_open_photo_beta",
+  "display_name": "Savinho",
+  "club_id": "club-manchester-city-f-c",
+  "league_id": "league-premier-league",
+  "continent": "Europe",
+  "confederation": "UEFA",
+  "minutes_role": "1396 estimated minutes / Rotation / role player",
+  "position_usage": "forward",
+  "transfer_value_signal": "Falling -1.9",
+  "role_security": "Medium",
+  "durability": "92% availability estimate"
 }

@@ -34,6 +34,12 @@
     return '<span class="' + className + '">' + confidence + "</span>";
   }
 
+  function renderModeBadge(value) {
+    const raw = String(value || "").toLowerCase();
+    const label = raw === "public_beta_demo" || raw === "wikimedia_open_photo_beta" ? "Public Beta Demo" : value || "Public Beta Demo";
+    return '<span class="ares-beta-badge">' + data.safeText(label) + "</span>";
+  }
+
   function initials(value) {
     return String(value || "AR").split(/\s+/).filter(Boolean).slice(0, 3).map(function (part) { return part.charAt(0); }).join("").toUpperCase() || "AR";
   }
@@ -49,7 +55,8 @@
     if (!href || href.match(/^(https?:)?\/\//) || href.startsWith("/") || href.startsWith("../")) return href;
     const theme = document.querySelector('link[href*="assets/css/ares-theme"]');
     const themeHref = theme ? theme.getAttribute("href") || "" : "";
-    const prefix = themeHref.includes("../assets/") ? "../" : "";
+    const assetIndex = themeHref.indexOf("assets/");
+    const prefix = assetIndex > 0 ? themeHref.slice(0, assetIndex) : "";
     return href.startsWith("assets/") ? prefix + href : href;
   }
 
@@ -94,6 +101,7 @@
     if (column.render === "tier") return renderTierChip(value);
     if (column.render === "trend") return renderTrendChip(value);
     if (column.render === "confidence") return renderConfidenceChip(value);
+    if (column.render === "mode") return renderModeBadge(value);
     if (column.render === "playerImage") return renderPlayerAvatar(row);
     if (column.render === "clubBadge") return renderBadge(row, "club");
     if (column.render === "leagueBadge") return renderBadge(row, "league");
@@ -136,8 +144,16 @@
     const state = Object.assign(existingState, { rows: Array.isArray(rows) ? rows : [], columns: columns || existingState.columns || [] });
     tableStates[containerId] = state;
     const visibleRows = sortedRows(state.rows.filter(function (row) { return rowMatches(row, state.columns, state.query || ""); }), state);
+    if (!visibleRows.length) {
+      tbody.innerHTML = '<tr><td colspan="' + Math.max(1, state.columns.length) + '"><span class="ares-beta-badge">Public Beta Demo</span> No matching public beta rows for this filter set. Clear filters to view the full board.</td></tr>';
+      updateCount(tbody, 0);
+      return;
+    }
     tbody.innerHTML = visibleRows.map(function (row) {
-      return "<tr>" + state.columns.map(function (column) { return "<td>" + renderCell(row, column) + "</td>"; }).join("") + "</tr>";
+      return "<tr>" + state.columns.map(function (column) {
+        const label = data.safeText(column.label || column.key || "");
+        return '<td data-label="' + label + '">' + renderCell(row, column) + "</td>";
+      }).join("") + "</tr>";
     }).join("");
     updateCount(tbody, visibleRows.length);
   }

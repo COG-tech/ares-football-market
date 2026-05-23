@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cog-tech.github.io/ares-football-market/sitemap.xml

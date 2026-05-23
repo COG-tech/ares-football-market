@@ -50,6 +50,12 @@
     if (!container) {
       return;
     }
+    if (container.tagName && container.tagName.toLowerCase() === "tbody") {
+      const table = container.closest("table");
+      const columns = table ? Math.max(1, table.querySelectorAll("thead th").length) : 1;
+      container.innerHTML = '<tr><td colspan="' + columns + '"><span class="ares-beta-badge">Public Beta Demo</span> ' + safeText(message) + "</td></tr>";
+      return;
+    }
     container.innerHTML = '<div class="alert alert-warning mb-0">' + safeText(message) + "</div>";
   }
 

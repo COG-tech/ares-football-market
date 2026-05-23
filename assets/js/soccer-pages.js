@@ -43,14 +43,14 @@
           if (input && input.value.trim()) input.dispatchEvent(new Event("input", { bubbles: true }));
         }
       })
-      .catch(function () { data.showLoadError(options.errorId || options.bodyId, "Data could not be loaded."); });
+      .catch(function () { data.showLoadError(options.errorId || options.bodyId, "Public Beta Demo board is refreshing. Try the full board navigation or clear filters."); });
   }
 
   function applyQueryFilter(inputId) {
     const input = document.getElementById(inputId);
     if (!input) return;
     const params = new URLSearchParams(window.location.search);
-    const query = params.get("q") || params.get("club") || params.get("league") || params.get("country") || params.get("region") || params.get("position") || params.get("tier") || params.get("type") || "";
+    const query = params.get("q") || params.get("club") || params.get("league") || params.get("country") || params.get("continent") || params.get("region") || params.get("confederation") || params.get("position") || params.get("tier") || params.get("type") || "";
     if (!query || query === "Global") return;
     input.value = query;
     input.dispatchEvent(new Event("input", { bubbles: true }));
@@ -73,7 +73,7 @@
         }).slice(0, 8);
         results.innerHTML = matches.length ? matches.map(function (item) {
           const label = item.player_name || item.club_name || item.league || item.id || "Result";
-          const meta = [item.type, item.position, item.club, item.league, item.country, item.region].filter(Boolean).join(" | ");
+          const meta = [item.type, item.position, item.club, item.league, item.country, item.continent, item.region].filter(Boolean).join(" | ");
           const url = item.url || "#";
           return '<a href="' + window.AresData.safeText(url) + '"><strong>' + window.AresData.safeText(label) + '</strong><small>' + window.AresData.safeText(meta) + '</small></a>';
         }).join("") : "<div>No matching public rows found.</div>";
@@ -101,7 +101,8 @@
     if (!href || href.match(/^(https?:)?\/\//) || href.startsWith("/") || href.startsWith("../")) return href;
     const theme = document.querySelector('link[href*="assets/css/ares-theme"]');
     const themeHref = theme ? theme.getAttribute("href") || "" : "";
-    const prefix = themeHref.includes("../assets/") ? "../" : "";
+    const assetIndex = themeHref.indexOf("assets/");
+    const prefix = assetIndex > 0 ? themeHref.slice(0, assetIndex) : "";
     return href.startsWith("assets/") ? prefix + href : href;
   }
 
