@@ -8,7 +8,7 @@ Google Images, ESPN, club sites, MLS pages, Getty, Reuters, AP, or social
 media.
 
 Default scope:
-- 10 football markets
+- selected football markets
 - top division plus the level underneath
 - players with a Wikidata P18 image claim, because that gives an exact
   Commons file title for safer license verification downstream
@@ -41,7 +41,7 @@ class LeagueTarget:
     region: str
 
 
-DEFAULT_LEAGUES: List[LeagueTarget] = [
+TOP10_LEAGUES: List[LeagueTarget] = [
     LeagueTarget("England", "top", "Premier League", "Q9448", "England", "Europe"),
     LeagueTarget("England", "second", "EFL Championship", "Q19510", "England", "Europe"),
     LeagueTarget("Spain", "top", "La Liga", "Q324867", "Spain", "Europe"),
@@ -63,6 +63,35 @@ DEFAULT_LEAGUES: List[LeagueTarget] = [
     LeagueTarget("Mexico", "top", "Liga MX", "Q764690", "Mexico", "North America"),
     LeagueTarget("Mexico", "second", "Liga de Expansion MX", "Q92292023", "Mexico", "North America"),
 ]
+
+NEXT10_LEAGUES: List[LeagueTarget] = [
+    LeagueTarget("Argentina", "top", "Argentine Primera Division", "Q223170", "Argentina", "South America"),
+    LeagueTarget("Argentina", "second", "Primera Nacional", "Q934724", "Argentina", "South America"),
+    LeagueTarget("Turkey", "top", "Super Lig", "Q485568", "Turkey", "Europe / Asia"),
+    LeagueTarget("Turkey", "second", "TFF First League", "Q1141692", "Turkey", "Europe / Asia"),
+    LeagueTarget("Belgium", "top", "Belgian Pro League", "Q216022", "Belgium", "Europe"),
+    LeagueTarget("Belgium", "second", "Challenger Pro League", "Q23925620", "Belgium", "Europe"),
+    LeagueTarget("Scotland", "top", "Scottish Premiership", "Q14377162", "Scotland", "Europe"),
+    LeagueTarget("Scotland", "second", "Scottish Championship", "Q14468438", "Scotland", "Europe"),
+    LeagueTarget("Switzerland", "top", "Swiss Super League", "Q202699", "Switzerland", "Europe"),
+    LeagueTarget("Switzerland", "second", "Swiss Challenge League", "Q669073", "Switzerland", "Europe"),
+    LeagueTarget("Japan", "top", "J1 League", "Q276445", "Japan", "Asia"),
+    LeagueTarget("Japan", "second", "J2 League", "Q1140581", "Japan", "Asia"),
+    LeagueTarget("South Korea", "top", "K League 1", "Q2386334", "South Korea", "Asia"),
+    LeagueTarget("South Korea", "second", "K League 2", "Q5100359", "South Korea", "Asia"),
+    LeagueTarget("Saudi Arabia", "top", "Saudi Pro League", "Q255633", "Saudi Arabia", "Asia"),
+    LeagueTarget("Saudi Arabia", "second", "Saudi First Division League", "Q2656109", "Saudi Arabia", "Asia"),
+    LeagueTarget("Australia", "top", "A-League Men", "Q219586", "Australia / New Zealand", "Oceania"),
+    LeagueTarget("Australia", "second", "National Premier Leagues", "Q6975027", "Australia", "Oceania"),
+    LeagueTarget("India", "top", "Indian Super League", "Q16056350", "India", "Asia"),
+    LeagueTarget("India", "second", "I-League", "Q15938614", "India", "Asia"),
+]
+
+SCOPES = {
+    "top10": TOP10_LEAGUES,
+    "next10": NEXT10_LEAGUES,
+    "all20": TOP10_LEAGUES + NEXT10_LEAGUES,
+}
 
 
 def make_user_agent(contact: str) -> str:
@@ -193,7 +222,9 @@ def run(args: argparse.Namespace) -> None:
     all_rows: List[Dict[str, str]] = []
     summary_rows: List[Dict[str, Any]] = []
 
-    for league in DEFAULT_LEAGUES:
+    leagues = SCOPES[args.scope]
+
+    for league in leagues:
         try:
             rows = fetch_league_rows(session, league, limit, args.birth_after, args.sleep_seconds)
             all_rows.extend(rows)
@@ -229,7 +260,7 @@ def run(args: argparse.Namespace) -> None:
     pd.DataFrame(summary_rows).to_csv(summary_path, index=False, encoding="utf-8-sig")
 
     manifest_path = output_path.with_name("top10_two_level_league_manifest.csv")
-    write_league_manifest(manifest_path, DEFAULT_LEAGUES)
+    write_league_manifest(manifest_path, leagues)
 
     print("Done.")
     print(f"Entity CSV: {output_path}")
@@ -242,6 +273,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build ARES Commons entity CSV from Wikidata top league targets.")
     parser.add_argument("--output", default="ares_top10_two_levels_entities.csv", help="Output CSV for ares_commons_image_downloader.py.")
     parser.add_argument("--contact", required=True, help="Contact email or URL for Wikimedia/Wikidata User-Agent.")
+    parser.add_argument("--scope", choices=sorted(SCOPES), default="top10", help="League scope to export.")
     parser.add_argument("--players-per-league", type=int, default=100, help="Max players per league. Ignored with --no-limit.")
     parser.add_argument("--no-limit", action="store_true", help="Do not cap players per league. This can be slow and may timeout.")
     parser.add_argument("--birth-after", default="1983-01-01", help="Filter out older/historical players by date of birth.")

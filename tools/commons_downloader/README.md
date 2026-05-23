@@ -56,6 +56,7 @@ Build a Wikimedia-backed entity CSV first:
 python build_wikidata_top_league_entities.py ^
   --output runs/top10_two_levels/entities.csv ^
   --contact jesse777crown@gmail.com ^
+  --scope top10 ^
   --players-per-league 100
 ```
 
@@ -84,6 +85,39 @@ Liga Portugal / Liga Portugal 2
 Campeonato Brasileiro Serie A / Serie B
 Major League Soccer / USL Championship
 Liga MX / Liga de Expansion MX
+```
+
+## Next 10 Markets, Top Level + Second Level
+
+```bash
+python build_wikidata_top_league_entities.py ^
+  --output runs/next10_two_levels/entities.csv ^
+  --contact jesse777crown@gmail.com ^
+  --scope next10 ^
+  --no-limit
+
+python ares_commons_image_downloader.py ^
+  --input runs/next10_two_levels/entities.csv ^
+  --output runs/next10_two_levels/commons_output ^
+  --contact jesse777crown@gmail.com ^
+  --thumb-width 480 ^
+  --sleep-seconds 0.3 ^
+  --exact-only
+```
+
+Next scope:
+
+```text
+Argentine Primera Division / Primera Nacional
+Super Lig / TFF First League
+Belgian Pro League / Challenger Pro League
+Scottish Premiership / Scottish Championship
+Swiss Super League / Swiss Challenge League
+J1 League / J2 League
+K League 1 / K League 2
+Saudi Pro League / Saudi First Division League
+A-League Men / National Premier Leagues
+Indian Super League / I-League
 ```
 
 ## ARES Approval Rule
