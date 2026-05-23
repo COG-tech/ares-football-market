@@ -1,11 +1,11 @@
 {
-  "data_mode": "public_beta_demo",
-  "last_updated": "2026-05-22",
-  "players_tracked": 28,
+  "data_mode": "wikimedia_open_photo_beta",
+  "last_updated": "2026-05-23",
+  "players_tracked": 761,
   "clubs_tracked": 12,
   "leagues_tracked": 38,
-  "player_images": "Fallback avatars active",
-  "ares_model": "Formula ready",
-  "market_model": "Formula ready",
-  "source": "Public Beta Demo"
+  "player_images": "761 licensed Commons photos active",
+  "ares_model": "Beta estimate formula ready",
+  "market_model": "Beta estimate formula ready",
+  "source": "Wikidata + Wikimedia Commons + ARES beta estimates"
 }
