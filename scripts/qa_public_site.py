@@ -118,8 +118,11 @@ def main() -> int:
             fail(f"Missing static club roster page: clubs/{club_id}/index.html", failures)
             continue
         rows = count_rows(club_page.read_text(encoding="utf-8"))
+        club_html_text = club_page.read_text(encoding="utf-8")
         if rows < 2:
             fail(f"Static club roster page has too few rows: clubs/{club_id}/index.html", failures)
+        if "ares-kpi-grid" not in club_html_text or "ares-terminal-grid" not in club_html_text:
+            fail(f"Static club roster page is missing terminal KPI/graph layout: clubs/{club_id}/index.html", failures)
 
     credit_html = read("image-credits.html")
     if credits and count_rows(credit_html) < 10:

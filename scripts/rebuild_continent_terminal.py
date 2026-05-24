@@ -1191,7 +1191,13 @@ def build_static_club_pages(clubs: list[dict[str, Any]], players: list[dict[str,
     for club in clubs:
         prefix = "../../"
         club_players = [player for player in players if player.get("club_id") == club["club_id"] or player.get("club") == club["club_name"]]
-        body = f"""<section class="ares-section ares-card"><div class="ares-profile-card"><h2>{static_safe(club["club_name"])}</h2><p>{static_safe(club["league"])} | {static_safe(club["country"])} | {static_safe(club["continent"])}</p><div class="ares-status-terminal"><div class="ares-status-item"><strong>Squad Market</strong><span>{static_safe(club["squad_market_score"])}</span></div><div class="ares-status-item"><strong>Avg ARES</strong><span>{static_safe(club["avg_ares_score"])}</span></div><div class="ares-status-item"><strong>Average Age</strong><span>{static_safe(club["average_age"])}</span></div><div class="ares-status-item"><strong>Top Asset</strong><span>{static_safe(club["top_asset"])}</span></div><div class="ares-status-item"><strong>Transfer Risk</strong><span>{static_safe(club["transfer_risk"])}</span></div></div></div></section>"""
+        body = kpi_cards([
+            ("Squad Market Score", club["squad_market_score"], "Portfolio asset value"),
+            ("Squad ARES Score", club["avg_ares_score"], "Average player quality"),
+            ("Average Age", club["average_age"], "Roster age curve"),
+            ("Transfer Risk", club["transfer_risk"], "Contract and movement signal"),
+        ])
+        body += f"""<section class="ares-section ares-card"><div class="ares-profile-card"><h2>{static_safe(club["club_name"])}</h2><p>{static_safe(club["league"])} | {static_safe(club["country"])} | {static_safe(club["continent"])}</p><div class="ares-status-terminal"><div class="ares-status-item"><strong>Top Asset</strong><span>{static_safe(club["top_asset"])}</span></div><div class="ares-status-item"><strong>U23 Assets</strong><span>{static_safe(club["u23_asset_count"])}</span></div><div class="ares-status-item"><strong>Need Area</strong><span>{static_safe(club["need_area"])}</span></div><div class="ares-status-item"><strong>Confidence</strong><span>{static_safe(club["data_confidence"])}</span></div></div></div></section>"""
         body += '<section class="ares-section ares-terminal-grid">' + chart_card("Market Score vs Age", "Squad portfolio shape by age and market score.", "scatter") + chart_card("Position Strength", "GK, CB, FB, CM, W, CF portfolio balance.", "bars") + "</section>"
         body += '<section class="ares-section ares-card"><h2 class="h4">Current Player Roster</h2>' + table("club-roster-table", ["Player", "Age", "Position", "Minutes / Role", "ARES", "Market", "Tier", "Trend", "Confidence"]) + "</section>"
         body += '<section class="ares-section ares-card"><h2 class="h4">U23 Assets</h2>' + table("club-u23-table", ["Player", "Age", "Position", "Market", "Reason"]) + "</section>"
