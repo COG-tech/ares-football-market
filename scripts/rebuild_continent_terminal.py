@@ -201,6 +201,12 @@ TEAM_NAME_MARKERS = {
     "psv", "sevilla", "sheffield", "southampton", "sunderland", "tokyo", "torino", "torque",
     "udinese", "united", "villarreal", "watford",
 }
+SAFE_IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp")
+BAD_MEDIA_TOKENS = {
+    "logo", "badge", "crest", "emblem", "kit", "icon", "flag", "shirt", "jersey",
+    ".pdf", ".svg", ".gif", ".webm", "programme", "program", "newspaper",
+    "daily times", "catalogue", "botanische", "map-fr",
+}
 
 
 def read_json(path: str) -> Any:
@@ -294,6 +300,18 @@ def is_valid_player_name(row: dict[str, Any], blocked_names: set[str] | None = N
     if re.fullmatch(r"[A-Z]{1,3}", name):
         return False
     return True
+
+
+def is_valid_club_media(row: dict[str, Any]) -> bool:
+    image_url = str(row.get("image_url") or "")
+    source_url = str(row.get("source_url") or "")
+    joined = f"{image_url} {source_url}".lower()
+    clean_url = image_url.lower().split("?", 1)[0]
+    return (
+        bool(image_url)
+        and clean_url.endswith(SAFE_IMAGE_EXTENSIONS)
+        and not any(token in joined for token in BAD_MEDIA_TOKENS)
+    )
 
 
 def geo_for(country: str, league: str = "", previous_region: str = "") -> tuple[str, str, str]:
@@ -1470,9 +1488,9 @@ def main() -> None:
         if is_valid_player_name(row, blocked_names)
     ]
     club_honours = read_json_optional("data/club_honours.json", [])
-    club_media = read_json_optional("data/club_media_wikimedia.json", [])
+    club_media = [row for row in read_json_optional("data/club_media_wikimedia.json", []) if is_valid_club_media(row)]
     club_status = read_json_optional("data/club_source_status.json", [])
-    credits = read_json("data/image_credits_wikimedia.json")
+    credits = [item for item in read_json("data/image_credits_wikimedia.json") if item.get("asset_type") != "club_image"]
     credit_ids = {str(item.get("asset_id") or item.get("player_id") or "") for item in credits}
     for item in club_media:
         item["asset_id"] = item.get("asset_id") or f"club-media-{item.get('club_id', slug(item.get('club_name', 'club')))}"
@@ -1506,6 +1524,7 @@ def main() -> None:
     write_json("data/player_profile_sample.json", players[0])
     write_json("data/club_profile_sample.json", clubs[0])
     write_json("data/league_profile_sample.json", leagues[0])
+    write_json("data/club_media_wikimedia.json", club_media)
     write_json("data/image_credits_wikimedia.json", credits)
     write_json("data/asset_rights_registry.json", credits)
     write_json("data/public_beta_demo.json", {"players": players, "clubs": clubs, "leagues": leagues, "transfers": transfers, "watchlist": watchlist, "market_changes": market_changes, "club_rosters": club_rosters, "club_honours": club_honours, "club_media": club_media})

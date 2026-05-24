@@ -50,6 +50,16 @@ TEAM_NAME_MARKERS = {
     "psv", "sevilla", "sheffield", "southampton", "sunderland", "tokyo",
     "torino", "torque", "udinese", "united", "villarreal", "watford",
 }
+SAFE_IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp")
+BAD_MEDIA_TOKENS = {
+    "logo", "badge", "crest", "emblem", "kit", "icon", "flag", "shirt", "jersey",
+    ".pdf", ".svg", ".gif", ".webm", "programme", "program", "newspaper",
+    "daily times", "catalogue", "botanische", "map-fr",
+}
+PREFERRED_MEDIA_TOKENS = {
+    "stadium", "stade", "stadion", "arena", "ground", "park", "training",
+    "complex", "centre", "center", "pitch", "stand", "grandstand", "tribune",
+}
 
 COUNTRY_GEO = {
     "England": ("Europe", "Western Europe", "UEFA"),
@@ -358,9 +368,23 @@ def roster_from_html(html: str, club: dict[str, Any], source_url: str, blocked_n
     return best_rows, best_reason
 
 
+def media_text(*values: str) -> str:
+    return " ".join(str(value or "").lower() for value in values)
+
+
 def bad_file_title(title: str) -> bool:
-    low = title.lower()
-    return any(token in low for token in ["logo", "badge", "crest", "emblem", "kit", "icon", "flag", "shirt", "jersey"])
+    low = media_text(title)
+    return any(token in low for token in BAD_MEDIA_TOKENS)
+
+
+def safe_media_url(url: str) -> bool:
+    low = media_text(url).split("?", 1)[0]
+    return low.endswith(SAFE_IMAGE_EXTENSIONS) and not any(token in low for token in BAD_MEDIA_TOKENS)
+
+
+def media_title_score(title: str) -> int:
+    low = media_text(title)
+    return sum(1 for token in PREFERRED_MEDIA_TOKENS if token in low)
 
 
 def media_record_from_file(title: str, club: dict[str, Any], source_url: str) -> dict[str, Any] | None:
@@ -376,14 +400,17 @@ def media_record_from_file(title: str, club: dict[str, Any], source_url: str) ->
         if not license_name or re.search(r"fair use|non-free|trademark|copyrighted", f"{license_name} {usage_terms}", re.I):
             return None
         creator = clean_text(BeautifulSoup(meta.get("Artist", {}).get("value", ""), "lxml").get_text(" ")) or "Wikimedia Commons contributor"
+        image_url = info.get("url", "")
         desc_url = info.get("descriptionurl") or source_url
+        if not safe_media_url(image_url) or bad_file_title(f"{title} {desc_url}"):
+            return None
         return {
             "asset_id": f"club-media-{club['club_id']}",
             "club_id": club["club_id"],
             "club_name": club["club_name"],
             "display_name": club["club_name"],
             "player_name": club["club_name"],
-            "image_url": info.get("url", ""),
+            "image_url": image_url,
             "creator": creator,
             "license": license_name or usage_terms,
             "source_url": desc_url,
@@ -411,7 +438,13 @@ def media_record_from_titles(titles: list[str], club: dict[str, Any], source_url
     except Exception:
         return None
     pages = data.get("query", {}).get("pages", {})
-    ordered_pages = sorted(pages.values(), key=lambda page: filtered.index(page.get("title", filtered[0])) if page.get("title") in filtered else 999)
+    ordered_pages = sorted(
+        pages.values(),
+        key=lambda page: (
+            -media_title_score(page.get("title", "")),
+            filtered.index(page.get("title", filtered[0])) if page.get("title") in filtered else 999,
+        ),
+    )
     for page in ordered_pages:
         title = page.get("title", "")
         if bad_file_title(title):
@@ -423,14 +456,17 @@ def media_record_from_titles(titles: list[str], club: dict[str, Any], source_url
         if not license_name or re.search(r"fair use|non-free|trademark|copyrighted", f"{license_name} {usage_terms}", re.I):
             continue
         creator = clean_text(BeautifulSoup(meta.get("Artist", {}).get("value", ""), "lxml").get_text(" ")) or "Wikimedia Commons contributor"
+        image_url = info.get("url", "")
         desc_url = info.get("descriptionurl") or source_url
+        if not safe_media_url(image_url) or bad_file_title(f"{title} {desc_url}"):
+            continue
         return {
             "asset_id": f"club-media-{club['club_id']}",
             "club_id": club["club_id"],
             "club_name": club["club_name"],
             "display_name": club["club_name"],
             "player_name": club["club_name"],
-            "image_url": info.get("url", ""),
+            "image_url": image_url,
             "creator": creator,
             "license": license_name or usage_terms,
             "source_url": desc_url,
@@ -460,7 +496,9 @@ def first_safe_club_media(html: str, club: dict[str, Any], source_url: str) -> d
         title = "File:" + unquote(href.split("/wiki/File:", 1)[1]).replace("_", " ")
         if not bad_file_title(title):
             files.append(title)
-    record = media_record_from_titles(files[:10], club, source_url)
+    files = sorted(files, key=lambda title: -media_title_score(title))
+    preferred_files = [title for title in files if media_title_score(title) > 0]
+    record = media_record_from_titles(preferred_files[:10], club, source_url)
     if record:
         return record
     for query in [f'{club["club_name"]} stadium', f'{club["club_name"]} football ground']:

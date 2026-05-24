@@ -64,6 +64,12 @@ TEAM_NAME_MARKERS = {
     "psv", "sevilla", "sheffield", "southampton", "sunderland", "tokyo",
     "torino", "torque", "udinese", "united", "villarreal", "watford",
 }
+SAFE_IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp")
+BAD_MEDIA_TOKENS = {
+    "logo", "badge", "crest", "emblem", "kit", "icon", "flag", "shirt", "jersey",
+    ".pdf", ".svg", ".gif", ".webm", "programme", "program", "newspaper",
+    "daily times", "catalogue", "botanische", "map-fr",
+}
 
 
 def read(path: str) -> str:
@@ -160,6 +166,13 @@ def main() -> int:
         missing = [field for field in required_media_fields if not item.get(field)]
         if missing:
             fail(f"Club media row is missing rights fields for {item.get('club_id')}: {missing}", failures)
+            break
+        image_url = str(item.get("image_url") or "")
+        source_url = str(item.get("source_url") or "")
+        joined = f"{image_url} {source_url}".lower()
+        clean_url = image_url.lower().split("?", 1)[0]
+        if not clean_url.endswith(SAFE_IMAGE_EXTENSIONS) or any(token in joined for token in BAD_MEDIA_TOKENS):
+            fail(f"Club media row is not a safe raster non-logo image for {item.get('club_id')}: {image_url}", failures)
             break
     required_honour_fields = ["club_id", "club_name", "competition", "honour_type", "count", "years", "level", "source_url", "checked_date"]
     for item in club_honours:
