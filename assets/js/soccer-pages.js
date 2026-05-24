@@ -127,6 +127,7 @@
       const heading = document.querySelector("h1");
       if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
       fillPlayerImage(record);
+      renderPlayerProfileTables(record);
     });
   }
 
@@ -158,10 +159,83 @@
       const heading = document.querySelector("h1");
       if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
       fillPlayerImage(record);
+      renderPlayerProfileTables(record);
     }).catch(function () {
       showProfileMessage("Player not found.");
     });
   }
 
-  window.AresSoccer = { initTable, initSearch, initProfile, initProfileById };
+  function renderPlayerProfileTables(record) {
+    if (!window.AresTables || !record) return;
+    const season = [record];
+    window.AresTables.renderTable("player-season-body", season, [
+      { key: "league", label: "League" },
+      { key: "club", label: "Club" },
+      { key: "minutes_role", label: "Minutes / Role" },
+      { key: "ares_score", label: "ARES", render: "score" },
+      { key: "market_score", label: "Market", render: "market" },
+      { key: "data_confidence", label: "Confidence", render: "confidence" }
+    ]);
+    window.AresTables.renderTable("player-role-body", season, [
+      { key: "position", label: "Position" },
+      { key: "position_usage", label: "Position Usage" },
+      { key: "role_security", label: "Role Security" },
+      { key: "durability", label: "Durability" },
+      { key: "trend", label: "Trend", render: "trend" }
+    ]);
+    window.AresTables.renderTable("player-market-body", season, [
+      { key: "market_tier", label: "Market Tier", render: "tier" },
+      { key: "transfer_value_signal", label: "Transfer Signal" },
+      { key: "contract_end", label: "Contract End" },
+      { key: "reason", label: "Market Note" }
+    ]);
+  }
+
+  function initClubProfileById(clubsPath, playersPath, mapping) {
+    const params = new URLSearchParams(window.location.search);
+    const requested = (params.get("id") || params.get("club_id") || params.get("slug") || "").trim().toLowerCase();
+    if (!requested) {
+      showProfileMessage("Club not found.");
+      return;
+    }
+    Promise.all([window.AresData.loadJson(clubsPath), window.AresData.loadJson(playersPath)]).then(function (payload) {
+      const clubs = Array.isArray(payload[0]) ? payload[0] : payload[0].clubs || [];
+      const players = Array.isArray(payload[1]) ? payload[1] : payload[1].players || [];
+      const club = clubs.find(function (item) {
+        return String(item.club_id || "").toLowerCase() === requested || String(item.club_name || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") === requested;
+      });
+      if (!club) {
+        showProfileMessage("Club not found.");
+        return;
+      }
+      Object.keys(mapping).forEach(function (id) { fillText(id, club[mapping[id]]); });
+      const heading = document.querySelector("h1");
+      if (heading && club.club_name) heading.textContent = club.club_name + " Portfolio";
+      const roster = players.filter(function (player) {
+        return player.club_id === club.club_id || player.club === club.club_name;
+      }).sort(function (left, right) { return Number(right.market_score || 0) - Number(left.market_score || 0); });
+      window.AresTables.renderTable("club-roster-body", roster, [
+        { key: "player_name", label: "Player", render: "playerLink", pathPrefix: "../", showAvatar: true },
+        { key: "age", label: "Age" },
+        { key: "position", label: "Position" },
+        { key: "minutes_role", label: "Minutes / Role" },
+        { key: "ares_score", label: "ARES", render: "score" },
+        { key: "market_score", label: "Market", render: "market" },
+        { key: "market_tier", label: "Tier", render: "tier" },
+        { key: "trend", label: "Trend", render: "trend" },
+        { key: "data_confidence", label: "Confidence", render: "confidence" }
+      ]);
+      window.AresTables.renderTable("club-u23-body", roster.filter(function (player) { return Number(player.age) <= 23; }), [
+        { key: "player_name", label: "Player", render: "playerLink", pathPrefix: "../", showAvatar: true },
+        { key: "age", label: "Age" },
+        { key: "position", label: "Position" },
+        { key: "market_score", label: "Market", render: "market" },
+        { key: "reason", label: "Reason" }
+      ]);
+    }).catch(function () {
+      showProfileMessage("Club not found.");
+    });
+  }
+
+  window.AresSoccer = { initTable, initSearch, initProfile, initProfileById, initClubProfileById };
 }(window));
