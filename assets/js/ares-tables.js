@@ -149,7 +149,7 @@
     tableStates[containerId] = state;
     const visibleRows = sortedRows(state.rows.filter(function (row) { return rowMatches(row, state.columns, state.query || ""); }), state);
     if (!visibleRows.length) {
-      tbody.innerHTML = '<tr><td colspan="' + Math.max(1, state.columns.length) + '">No matching rows for this filter set. Clear filters to view the full board.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="' + Math.max(1, state.columns.length) + '">Clear filters to view all rows.</td></tr>';
       updateCount(tbody, 0);
       return;
     }

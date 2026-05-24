@@ -54,6 +54,13 @@ def load_json(path: str):
     return json.loads((ROOT / path).read_text(encoding="utf-8"))
 
 
+def load_json_optional(path: str, default):
+    file_path = ROOT / path
+    if not file_path.exists():
+        return default
+    return json.loads(file_path.read_text(encoding="utf-8"))
+
+
 def count_rows(html: str) -> int:
     return len(re.findall(r"<tr\b", html))
 
@@ -81,12 +88,29 @@ def main() -> int:
             fail(f"Missing terminal graph layout in {page}", failures)
         if page != "image-credits.html" and "ares-kpi-grid" not in html:
             fail(f"Missing KPI card layout in {page}", failures)
+        if page != "image-credits.html" and ("X-axis:" not in html or "Y-axis:" not in html or "How to read:" not in html):
+            fail(f"Missing labelled graph axes/explanation in {page}", failures)
         if re.search(r'href="(?:\.\./|\.\./\.\./)?clubs/club-[^"]+/"', html):
             fail(f"Page has relative club links instead of site-root club links: {page}", failures)
 
     players = load_json("data/public_players.json")
     clubs = load_json("data/public_clubs.json")
     credits = load_json("data/image_credits_wikimedia.json")
+    club_rosters = load_json_optional("data/club_rosters_wikipedia.json", [])
+    club_honours = load_json_optional("data/club_honours.json", [])
+    club_status = load_json_optional("data/club_source_status.json", [])
+
+    if len(club_status) < len(clubs):
+        fail(f"Club source status does not cover every club: status={len(club_status)} clubs={len(clubs)}", failures)
+    club_ids = {str(club.get("club_id")) for club in clubs}
+    status_ids = {str(item.get("club_id")) for item in club_status}
+    missing_status = sorted(club_ids - status_ids)
+    if missing_status:
+        fail(f"Club source status is missing final club IDs: {missing_status[:8]}", failures)
+    if len(club_rosters) < len(clubs) * 5:
+        fail(f"Wikipedia roster layer is too small: roster_rows={len(club_rosters)} clubs={len(clubs)}", failures)
+    if len(club_honours) < 50:
+        fail(f"Club honours layer is too small: honours={len(club_honours)}", failures)
 
     player_html = read("players/index.html")
     player_link_ids = re.findall(r"(?:/ares-football-market/)?players/profile\.html\?id=([^\"&<]+)", player_html)
@@ -102,6 +126,16 @@ def main() -> int:
         fail("Player profile template contains hard-coded self profile links.", failures)
     if "player-roster-link" not in profile_html:
         fail("Player profile is missing View club roster CTA.", failures)
+    profile_views = set(re.findall(r'data-profile-view="([^"]+)"', profile_html))
+    expected_views = {"overview", "stats", "market", "transfers", "rumours", "national-team", "news", "achievements", "career"}
+    if profile_views != expected_views:
+        fail(f"Player profile tab set is wrong: {sorted(profile_views)}", failures)
+    soccer_js = read("assets/js/soccer-pages.js")
+    for title in ["Overview", "Stats Center", "Market Value Intelligence", "Transfer Intelligence", "Rumour Intelligence", "National Team Profile", "Player News Terminal", "Achievements", "Career Intelligence"]:
+        if title not in soccer_js:
+            fail(f"Player tab renderer is missing title: {title}", failures)
+    if "X-axis:" not in soccer_js or "Y-axis:" not in soccer_js or "How to read:" not in soccer_js:
+        fail("Player tab graphs are missing explicit axis labels or explanations.", failures)
 
     club_html = read("clubs/index.html")
     club_links = re.findall(r"/ares-football-market/clubs/(club-[^/\"<]+)/", club_html)
@@ -123,6 +157,11 @@ def main() -> int:
             fail(f"Static club roster page has too few rows: clubs/{club_id}/index.html", failures)
         if "ares-kpi-grid" not in club_html_text or "ares-terminal-grid" not in club_html_text:
             fail(f"Static club roster page is missing terminal KPI/graph layout: clubs/{club_id}/index.html", failures)
+        for required in ["Current Player Roster", "Club Honours And Trophies", "Transfer Needs", "Roster source:"]:
+            if required not in club_html_text:
+                fail(f"Static club roster page is missing {required}: clubs/{club_id}/index.html", failures)
+        if "X-axis:" not in club_html_text or "Y-axis:" not in club_html_text:
+            fail(f"Static club roster page is missing chart axes: clubs/{club_id}/index.html", failures)
 
     credit_html = read("image-credits.html")
     if credits and count_rows(credit_html) < 10:

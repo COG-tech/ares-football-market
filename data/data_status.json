@@ -1,11 +1,11 @@
 {
   "data_mode": "public_beta_demo",
-  "last_updated": "2026-05-23",
-  "players_tracked": 800,
-  "clubs_tracked": 248,
-  "leagues_tracked": 64,
+  "last_updated": "2026-05-24",
+  "players_tracked": 4322,
+  "clubs_tracked": 247,
+  "leagues_tracked": 62,
   "continents_covered": 6,
-  "player_images": "761 licensed Commons image rights records",
+  "player_images": "990 licensed Commons image rights records",
   "ares_model": "Beta estimate formula ready",
   "market_model": "Beta estimate formula ready",
   "source": "Wikidata + Wikimedia Commons + ARES public beta estimates"

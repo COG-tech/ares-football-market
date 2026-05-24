@@ -15,7 +15,7 @@
     "trend": "Rising",
     "reason": "Upside FW profile with Premier League context, 2583 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -33,7 +33,7 @@
     "trend": "Rising",
     "reason": "Prime FW profile with La Liga context, 2674 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -51,7 +51,7 @@
     "trend": "Rising",
     "reason": "Prime DF profile with Premier League context, 2103 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -69,7 +69,7 @@
     "trend": "Falling",
     "reason": "Prime MF profile with Eredivisie context, 2139 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -87,7 +87,7 @@
     "trend": "Falling",
     "reason": "Prime W profile with Premier League context, 2047 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -105,7 +105,7 @@
     "trend": "Falling",
     "reason": "Veteran FW profile with La Liga context, 2912 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -123,7 +123,7 @@
     "trend": "Rising",
     "reason": "Late Prime MF profile with J1 League context, 1859 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -141,7 +141,7 @@
     "trend": "Rising",
     "reason": "Veteran W profile with Saudi Pro League context, 1346 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -159,7 +159,7 @@
     "trend": "Rising",
     "reason": "Veteran MF profile with Saudi Pro League context, 750 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -177,7 +177,7 @@
     "trend": "Falling",
     "reason": "Aging Risk DF profile with Indian Super League context, 1422 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -195,7 +195,7 @@
     "trend": "Falling",
     "reason": "Aging Risk DF profile with Saudi Pro League context, 1768 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -213,16 +213,16 @@
     "trend": "Falling",
     "reason": "Late Prime MF profile with Saudi Pro League context, 815 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
     "change_id": "mc-013",
     "player_id": "pbp-africa-15",
     "player_name": "Idris El Fassi 3",
-    "club": "Rabat Union",
-    "club_url": "/ares-football-market/clubs/club-rabat-union/",
-    "league": "Morocco Botola",
+    "club": "Raja CA",
+    "club_url": "/ares-football-market/clubs/club-raja-ca/",
+    "league": "Botola",
     "country": "Morocco",
     "continent": "Africa",
     "region": "North Africa",
@@ -231,16 +231,16 @@
     "trend": "Rising",
     "reason": "Africa public-beta asset row showing ARES continent market structure.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
     "change_id": "mc-014",
     "player_id": "pbp-africa-20",
     "player_name": "Idris El Fassi 4",
-    "club": "Rabat Union",
-    "club_url": "/ares-football-market/clubs/club-rabat-union/",
-    "league": "Morocco Botola",
+    "club": "Raja CA",
+    "club_url": "/ares-football-market/clubs/club-raja-ca/",
+    "league": "Botola",
     "country": "Morocco",
     "continent": "Africa",
     "region": "North Africa",
@@ -249,16 +249,16 @@
     "trend": "Rising",
     "reason": "Africa public-beta asset row showing ARES continent market structure.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
     "change_id": "mc-015",
     "player_id": "pbp-africa-05",
     "player_name": "Idris El Fassi",
-    "club": "Rabat Union",
-    "club_url": "/ares-football-market/clubs/club-rabat-union/",
-    "league": "Morocco Botola",
+    "club": "Raja CA",
+    "club_url": "/ares-football-market/clubs/club-raja-ca/",
+    "league": "Botola",
     "country": "Morocco",
     "continent": "Africa",
     "region": "North Africa",
@@ -267,16 +267,16 @@
     "trend": "Rising",
     "reason": "Africa public-beta asset row showing ARES continent market structure.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
     "change_id": "mc-016",
     "player_id": "pbp-africa-10",
     "player_name": "Idris El Fassi 2",
-    "club": "Rabat Union",
-    "club_url": "/ares-football-market/clubs/club-rabat-union/",
-    "league": "Morocco Botola",
+    "club": "Raja CA",
+    "club_url": "/ares-football-market/clubs/club-raja-ca/",
+    "league": "Botola",
     "country": "Morocco",
     "continent": "Africa",
     "region": "North Africa",
@@ -285,43 +285,43 @@
     "trend": "Rising",
     "reason": "Africa public-beta asset row showing ARES continent market structure.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
     "change_id": "mc-017",
     "player_id": "pbp-africa-09",
     "player_name": "Nuru Okeke 2",
-    "club": "Lagos Mainland",
-    "club_url": "/ares-football-market/clubs/club-lagos-mainland/",
-    "league": "Nigeria Premier League",
-    "country": "Nigeria",
+    "club": "Wydad AC",
+    "club_url": "/ares-football-market/clubs/club-wydad-ac/",
+    "league": "Botola",
+    "country": "Morocco",
     "continent": "Africa",
-    "region": "West Africa",
+    "region": "North Africa",
     "confederation": "CAF",
     "change": "+3.8",
     "trend": "Rising",
     "reason": "Africa public-beta asset row showing ARES continent market structure.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
     "change_id": "mc-018",
     "player_id": "pbp-africa-14",
     "player_name": "Nuru Okeke 3",
-    "club": "Lagos Mainland",
-    "club_url": "/ares-football-market/clubs/club-lagos-mainland/",
-    "league": "Nigeria Premier League",
-    "country": "Nigeria",
+    "club": "Wydad AC",
+    "club_url": "/ares-football-market/clubs/club-wydad-ac/",
+    "league": "Botola",
+    "country": "Morocco",
     "continent": "Africa",
-    "region": "West Africa",
+    "region": "North Africa",
     "confederation": "CAF",
     "change": "+3.8",
     "trend": "Rising",
     "reason": "Africa public-beta asset row showing ARES continent market structure.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -339,7 +339,7 @@
     "trend": "Rising",
     "reason": "Late Prime MF profile with Liga MX context, 2796 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -357,7 +357,7 @@
     "trend": "Rising",
     "reason": "Aging Risk GK profile with Major League Soccer context, 1092 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -375,7 +375,7 @@
     "trend": "Rising",
     "reason": "Aging Risk GK profile with Major League Soccer context, 838 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -393,7 +393,7 @@
     "trend": "Falling",
     "reason": "Veteran FW profile with Liga MX context, 1656 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -411,7 +411,7 @@
     "trend": "Falling",
     "reason": "Aging Risk FW profile with Major League Soccer context, 2717 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -429,7 +429,7 @@
     "trend": "Falling",
     "reason": "Aging Risk FW profile with Liga MX context, 2218 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -447,7 +447,7 @@
     "trend": "Rising",
     "reason": "Late Prime MF profile with Argentine Primera Division context, 799 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -465,7 +465,7 @@
     "trend": "Rising",
     "reason": "Late Prime FW profile with Campeonato Brasileiro Serie A context, 2292 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -483,7 +483,7 @@
     "trend": "Rising",
     "reason": "Late Prime MF profile with Campeonato Brasileiro Serie A context, 1940 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -501,7 +501,7 @@
     "trend": "Falling",
     "reason": "Veteran W profile with Campeonato Brasileiro Serie A context, 2320 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -519,7 +519,7 @@
     "trend": "Falling",
     "reason": "Late Prime MF profile with Campeonato Brasileiro Serie A context, 1995 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
@@ -537,15 +537,15 @@
     "trend": "Falling",
     "reason": "Aging Risk DF profile with Campeonato Brasileiro Serie A context, 1065 beta-estimated minutes, and licensed Commons photo coverage.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
     "change_id": "mc-031",
-    "player_id": "pbp-oceania-15",
-    "player_name": "Ari Vatu 3",
-    "club": "Sydney Southern",
-    "club_url": "/ares-football-market/clubs/club-sydney-southern/",
+    "player_id": "pbp-oceania-05",
+    "player_name": "Ari Vatu",
+    "club": "Sydney FC",
+    "club_url": "/ares-football-market/clubs/club-sydney-fc/",
     "league": "A-League",
     "country": "Australia",
     "continent": "Oceania",
@@ -555,96 +555,96 @@
     "trend": "Rising",
     "reason": "Oceania public-beta asset row showing ARES continent market structure.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
     "change_id": "mc-032",
-    "player_id": "pbp-oceania-05",
-    "player_name": "Ari Vatu",
-    "club": "Sydney Southern",
-    "club_url": "/ares-football-market/clubs/club-sydney-southern/",
+    "player_id": "pbp-oceania-04",
+    "player_name": "Mason Wylie",
+    "club": "Auckland FC",
+    "club_url": "/ares-football-market/clubs/club-auckland-fc/",
     "league": "A-League",
-    "country": "Australia",
+    "country": "New Zealand",
     "continent": "Oceania",
     "region": "Oceania",
-    "confederation": "AFC",
-    "change": "+4.8",
+    "confederation": "OFC",
+    "change": "+3.8",
     "trend": "Rising",
     "reason": "Oceania public-beta asset row showing ARES continent market structure.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   },
   {
     "data_mode": "public_beta_demo",
     "change_id": "mc-033",
-    "player_id": "pbp-oceania-10",
-    "player_name": "Ari Vatu 2",
-    "club": "Sydney Southern",
-    "club_url": "/ares-football-market/clubs/club-sydney-southern/",
+    "player_id": "soc_q168740",
+    "player_name": "Juan Mata",
+    "club": "Melbourne Victory FC",
+    "club_url": "/ares-football-market/clubs/club-melbourne-victory-fc/",
+    "league": "A-League Men",
+    "country": "Australia / New Zealand",
+    "continent": "Oceania",
+    "region": "Oceania",
+    "confederation": "AFC",
+    "change": "+3.3",
+    "trend": "Rising",
+    "reason": "Aging Risk FW profile with A-League Men context, 2887 beta-estimated minutes, and licensed Commons photo coverage.",
+    "source": "ARES public beta movement estimate",
+    "last_updated": "2026-05-24"
+  },
+  {
+    "data_mode": "public_beta_demo",
+    "change_id": "mc-034",
+    "player_id": "pbp-oceania-08",
+    "player_name": "Luka Tevita 2",
+    "club": "Wellington Phoenix FC",
+    "club_url": "/ares-football-market/clubs/club-wellington-phoenix-fc/",
+    "league": "A-League",
+    "country": "New Zealand",
+    "continent": "Oceania",
+    "region": "Oceania",
+    "confederation": "OFC",
+    "change": "+2.8",
+    "trend": "Rising",
+    "reason": "Oceania public-beta asset row showing ARES continent market structure.",
+    "source": "ARES public beta movement estimate",
+    "last_updated": "2026-05-24"
+  },
+  {
+    "data_mode": "public_beta_demo",
+    "change_id": "mc-035",
+    "player_id": "pbp-oceania-03",
+    "player_name": "Luka Tevita",
+    "club": "Wellington Phoenix FC",
+    "club_url": "/ares-football-market/clubs/club-wellington-phoenix-fc/",
+    "league": "A-League",
+    "country": "New Zealand",
+    "continent": "Oceania",
+    "region": "Oceania",
+    "confederation": "OFC",
+    "change": "+2.8",
+    "trend": "Rising",
+    "reason": "Oceania public-beta asset row showing ARES continent market structure.",
+    "source": "ARES public beta movement estimate",
+    "last_updated": "2026-05-24"
+  },
+  {
+    "data_mode": "public_beta_demo",
+    "change_id": "mc-036",
+    "player_id": "pbp-oceania-07",
+    "player_name": "Noah Kerrin 2",
+    "club": "Melbourne Victory FC",
+    "club_url": "/ares-football-market/clubs/club-melbourne-victory-fc/",
     "league": "A-League",
     "country": "Australia",
     "continent": "Oceania",
     "region": "Oceania",
     "confederation": "AFC",
-    "change": "+4.8",
+    "change": "+1.8",
     "trend": "Rising",
     "reason": "Oceania public-beta asset row showing ARES continent market structure.",
     "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
-  },
-  {
-    "data_mode": "public_beta_demo",
-    "change_id": "mc-034",
-    "player_id": "pbp-oceania-09",
-    "player_name": "Mason Wylie 2",
-    "club": "Wellington North",
-    "club_url": "/ares-football-market/clubs/club-wellington-north/",
-    "league": "New Zealand National League",
-    "country": "New Zealand",
-    "continent": "Oceania",
-    "region": "Oceania",
-    "confederation": "OFC",
-    "change": "+3.8",
-    "trend": "Rising",
-    "reason": "Oceania public-beta asset row showing ARES continent market structure.",
-    "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
-  },
-  {
-    "data_mode": "public_beta_demo",
-    "change_id": "mc-035",
-    "player_id": "pbp-oceania-14",
-    "player_name": "Mason Wylie 3",
-    "club": "Wellington North",
-    "club_url": "/ares-football-market/clubs/club-wellington-north/",
-    "league": "New Zealand National League",
-    "country": "New Zealand",
-    "continent": "Oceania",
-    "region": "Oceania",
-    "confederation": "OFC",
-    "change": "+3.8",
-    "trend": "Rising",
-    "reason": "Oceania public-beta asset row showing ARES continent market structure.",
-    "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
-  },
-  {
-    "data_mode": "public_beta_demo",
-    "change_id": "mc-036",
-    "player_id": "pbp-oceania-04",
-    "player_name": "Mason Wylie",
-    "club": "Wellington North",
-    "club_url": "/ares-football-market/clubs/club-wellington-north/",
-    "league": "New Zealand National League",
-    "country": "New Zealand",
-    "continent": "Oceania",
-    "region": "Oceania",
-    "confederation": "OFC",
-    "change": "+3.8",
-    "trend": "Rising",
-    "reason": "Oceania public-beta asset row showing ARES continent market structure.",
-    "source": "ARES public beta movement estimate",
-    "last_updated": "2026-05-23"
+    "last_updated": "2026-05-24"
   }
 ]
