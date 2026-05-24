@@ -74,6 +74,8 @@ def main() -> int:
         rows = count_rows(html)
         if rows < 2:
             fail(f"Too few table rows in {page}: {rows}", failures)
+        if "/" in page and re.search(r'href="clubs/club-[^"]+/"', html):
+            fail(f"Nested page has root-level relative club links that will 404: {page}", failures)
 
     players = load_json("data/public_players.json")
     clubs = load_json("data/public_clubs.json")

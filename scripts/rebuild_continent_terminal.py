@@ -705,7 +705,7 @@ def with_prefix(cols: list[dict[str, Any]], prefix: str) -> list[dict[str, Any]]
     out = []
     for col in cols:
         new = dict(col)
-        if new.get("render") in {"playerLink", "clubLink", "leagueLink", "link"}:
+        if new.get("render") in {"playerLink", "clubLink", "leagueLink", "link"} or new.get("key") in {"club", "club_name", "from_club", "to_club"}:
             new["pathPrefix"] = prefix
         out.append(new)
     return out
