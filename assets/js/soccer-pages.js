@@ -106,6 +106,13 @@
     return href.startsWith("assets/") ? prefix + href : href;
   }
 
+  function siteHref(url) {
+    const href = String(url || "");
+    if (!href) return "#";
+    if (href.match(/^(https?:)?\/\//) || href.startsWith("/") || href.startsWith("../")) return href;
+    return "../" + href;
+  }
+
   function fillPlayerImage(record) {
     const container = document.getElementById("player-photo");
     if (!container) return;
@@ -124,11 +131,11 @@
   function fillPlayerLinks(record) {
     const club = document.getElementById("club");
     if (club && record.club_url) {
-      club.innerHTML = '<a class="ares-table-link" href="../' + window.AresData.safeText(record.club_url) + '">' + window.AresData.safeText(record.club || "") + "</a>";
+      club.innerHTML = '<a class="ares-table-link" href="' + window.AresData.safeText(siteHref(record.club_url)) + '">' + window.AresData.safeText(record.club || "") + "</a>";
     }
     const roster = document.getElementById("player-roster-link");
     if (roster && record.club_url) {
-      roster.href = "../" + record.club_url;
+      roster.href = siteHref(record.club_url);
       roster.hidden = false;
     }
   }

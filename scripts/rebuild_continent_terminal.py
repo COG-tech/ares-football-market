@@ -16,6 +16,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://cog-tech.github.io/ares-football-market/"
+SITE_ROOT = "/ares-football-market/"
 TODAY = "2026-05-23"
 DATA_MODE = "public_beta_demo"
 PUBLIC_LABEL = "Seeded Beta"
@@ -186,6 +187,10 @@ def slug(value: str) -> str:
     return clean or "ares"
 
 
+def site_url(path: str) -> str:
+    return SITE_ROOT + path.lstrip("/")
+
+
 def avg(values: list[float]) -> float:
     return round(sum(values) / len(values), 1) if values else 0.0
 
@@ -214,8 +219,8 @@ def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
     player_slug = row.get("slug") or slug(name)
     club = row.get("club") or "ARES Club"
     club_id = row.get("club_id") or f"club-{slug(club)}"
-    player_profile_url = f"players/profile.html?id={player_id}"
-    club_profile_url = f"clubs/{club_id}/"
+    player_profile_url = site_url(f"players/profile.html?id={player_id}")
+    club_profile_url = site_url(f"clubs/{club_id}/")
     row.update(
         {
             "data_mode": DATA_MODE,
@@ -243,7 +248,7 @@ def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
             "url": player_profile_url,
             "player_url": player_profile_url,
             "club_url": club_profile_url,
-            "league_url": row.get("league_url") or "leagues/league-template.html",
+            "league_url": row.get("league_url") or site_url("leagues/league-template.html"),
         }
     )
     return row
@@ -362,8 +367,8 @@ def build_clubs(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "confidence": "High" if len(members) >= 3 else "Medium",
                 "last_updated": TODAY,
                 "source": "ARES derived from public beta player layer",
-                "club_url": f"clubs/club-{slug(club)}/",
-                "league_url": "leagues/league-template.html",
+                "club_url": site_url(f"clubs/club-{slug(club)}/"),
+                "league_url": site_url("leagues/league-template.html"),
                 "club_badge_url": "",
             }
         )
@@ -409,7 +414,7 @@ def build_leagues(players: list[dict[str, Any]], clubs: list[dict[str, Any]]) ->
           "confidence": "High" if len(members) >= 8 else "Medium",
           "last_updated": TODAY,
           "source": "ARES public beta league model",
-          "league_url": "leagues/league-template.html",
+          "league_url": site_url("leagues/league-template.html"),
           "league_badge_url": "",
       }
     for league, country, tier in REQUIRED_LEAGUES:
@@ -440,7 +445,7 @@ def build_leagues(players: list[dict[str, Any]], clubs: list[dict[str, Any]]) ->
             "confidence": "Medium",
             "last_updated": TODAY,
             "source": "ARES seeded beta",
-            "league_url": "leagues/league-template.html",
+            "league_url": site_url("leagues/league-template.html"),
             "league_badge_url": "",
         }
     league_rows = list(rows.values())

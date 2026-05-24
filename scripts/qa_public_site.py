@@ -74,15 +74,15 @@ def main() -> int:
         rows = count_rows(html)
         if rows < 2:
             fail(f"Too few table rows in {page}: {rows}", failures)
-        if "/" in page and re.search(r'href="clubs/club-[^"]+/"', html):
-            fail(f"Nested page has root-level relative club links that will 404: {page}", failures)
+        if re.search(r'href="(?:\.\./|\.\./\.\./)?clubs/club-[^"]+/"', html):
+            fail(f"Page has relative club links instead of site-root club links: {page}", failures)
 
     players = load_json("data/public_players.json")
     clubs = load_json("data/public_clubs.json")
     credits = load_json("data/image_credits_wikimedia.json")
 
     player_html = read("players/index.html")
-    player_link_ids = re.findall(r"players/profile\.html\?id=([^\"&<]+)", player_html)
+    player_link_ids = re.findall(r"(?:/ares-football-market/)?players/profile\.html\?id=([^\"&<]+)", player_html)
     if len(set(player_link_ids)) < 10:
         fail("Player Search has fewer than 10 distinct profile links.", failures)
     valid_player_ids = {str(player.get("player_id")) for player in players}
@@ -91,13 +91,13 @@ def main() -> int:
         fail(f"Player links reference missing IDs: {missing_player_ids[:5]}", failures)
 
     profile_html = read("players/profile.html")
-    if "players/profile.html?id=" in profile_html:
+    if "/ares-football-market/players/profile.html?id=" in profile_html or "players/profile.html?id=" in profile_html:
         fail("Player profile template contains hard-coded self profile links.", failures)
     if "player-roster-link" not in profile_html:
         fail("Player profile is missing View club roster CTA.", failures)
 
     club_html = read("clubs/index.html")
-    club_links = re.findall(r"(?:\.\./)?clubs/(club-[^/\"<]+)/", club_html)
+    club_links = re.findall(r"/ares-football-market/clubs/(club-[^/\"<]+)/", club_html)
     if len(set(club_links)) < 10:
         fail("Clubs page has fewer than 10 distinct static roster links.", failures)
     valid_club_ids = {str(club.get("club_id")) for club in clubs}
