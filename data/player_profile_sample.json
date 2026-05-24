@@ -65,5 +65,6 @@
   "transfer_value_signal": "Falling -1.9",
   "role_security": "Medium",
   "durability": "92% availability estimate",
-  "slug": "savinho"
+  "slug": "savinho",
+  "foot": "Source review"
 }

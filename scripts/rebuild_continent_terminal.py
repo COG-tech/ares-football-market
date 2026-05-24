@@ -279,6 +279,7 @@ def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
             "durability": row.get("durability") or f"{row.get('availability_pct', 0)}% availability estimate",
             "reason": row.get("reason") or f"{name} is tracked through the ARES public football market model.",
             "contract_end": row.get("contract_end") or "Source review",
+            "foot": row.get("foot") or row.get("preferred_foot") or "Source review",
             "age_curve": row.get("age_curve") or ("Upside" if int(row.get("age", 99) or 99) <= 23 else "Prime"),
             "role": row.get("role") or "Current squad review",
             "data_confidence": row.get("data_confidence") or row.get("confidence") or "Medium",
@@ -947,6 +948,8 @@ def static_cell(row: dict[str, Any], column: dict[str, Any]) -> str:
         avatar = "" if column.get("showAvatar") is False else static_player_avatar(row, prefix)
         href = static_prefixed_href(row.get("player_url") or row.get("url") or column.get("fallbackUrl") or "players/profile.html", prefix)
         return f'<a class="ares-player-identity" href="{static_safe(href)}">{avatar}<span>{static_safe(value)}</span></a>'
+    if render == "profileLink":
+        return static_link(column.get("linkLabel") or "Open profile", row.get("player_url") or row.get("url"), column.get("fallbackUrl", "players/profile.html"), prefix)
     if render == "clubLink":
         return static_link(value, row.get("club_url"), column.get("fallbackUrl", "clubs/profile.html"), prefix)
     if render == "leagueLink":
@@ -1001,6 +1004,34 @@ def static_render_rows(rows: list[dict[str, Any]], columns: list[dict[str, Any]]
             cells.append(f'<td data-label="{label}">{static_cell(row, column)}</td>')
         output.append("<tr>" + "".join(cells) + "</tr>")
     return "".join(output)
+
+
+def honour_count(item: dict[str, Any]) -> int:
+    value = item.get("count")
+    try:
+        number = int(value)
+        return max(1, number)
+    except (TypeError, ValueError):
+        years = item.get("years") or []
+        return max(1, len(years)) if isinstance(years, list) else 1
+
+
+def honour_summary(items: list[dict[str, Any]]) -> dict[str, int]:
+    league_terms = ("league", "division", "premier", "liga", "bundesliga", "serie", "ligue", "eredivisie", "championship", "super lig", "j1", "k league")
+    cup_terms = ("cup", "copa", "pokal", "coupe", "beker", "shield", "supercup", "super cup")
+    continental_terms = ("champions league", "europa league", "conference league", "libertadores", "sudamericana", "afc", "caf", "concacaf", "uefa", "conmebol", "continental", "intercontinental")
+    summary = {"league": 0, "cups": 0, "continental": 0, "total": 0}
+    for item in items:
+        competition = str(item.get("competition", "")).lower()
+        count = honour_count(item)
+        summary["total"] += count
+        if any(term in competition for term in continental_terms):
+            summary["continental"] += count
+        elif any(term in competition for term in cup_terms):
+            summary["cups"] += count
+        elif any(term in competition for term in league_terms):
+            summary["league"] += count
+    return summary
 
 
 def extract_table_configs(text: str) -> list[dict[str, Any]]:
@@ -1217,8 +1248,8 @@ def build_legacy_region_pages() -> None:
 
 def build_templates() -> None:
     tab_bar = '<div class="ares-player-tabs"><a data-profile-view="overview" href="?view=overview">Overview</a><a data-profile-view="stats" href="?view=stats">Stats</a><a data-profile-view="market" href="?view=market">Market Value</a><a data-profile-view="transfers" href="?view=transfers">Transfers</a><a data-profile-view="rumours" href="?view=rumours">Rumours</a><a data-profile-view="national-team" href="?view=national-team">National Team</a><a data-profile-view="news" href="?view=news">News</a><a data-profile-view="achievements" href="?view=achievements">Achievements</a><a data-profile-view="career" href="?view=career">Career</a></div>'
-    profile_body = f"""<section class="ares-section ares-card"><div class="ares-profile-card ares-player-profile-header"><div id="player-photo" class="ares-profile-photo">AR</div><div><div class="ares-section-title"><div><h2 id="player-name">Player Profile</h2><p><span id="club"></span> | <span id="country"></span> | <span id="position"></span></p><p>Age <span id="age"></span> | <span id="role"></span> | Contract: <span id="contract-end"></span></p></div><span class="ares-small-badge">Seeded Beta</span></div><a id="player-roster-link" class="ares-roster-cta" href="#" hidden>View roster</a></div><div class="ares-status-terminal"><div class="ares-status-item"><strong>ARES Score</strong><span id="ares-score"></span></div><div class="ares-status-item"><strong>Market Score</strong><span id="market-score"></span></div><div class="ares-status-item"><strong>Signal</strong><span id="transfer-value-signal"></span></div><div class="ares-status-item"><strong>Conf</strong><span id="confidence"></span></div><div class="ares-status-item"><strong>Updated</strong><span id="last-updated"></span></div></div></div></section><section class="ares-section ares-card">{tab_bar}</section><section id="player-view-note" class="ares-section ares-card"><h2 class="h4">Overview</h2><p>Loading player intelligence view.</p></section><section class="ares-section ares-card"><h2 class="h4">Image Source</h2><p>Source: <span id="photo-source"></span>. License: <span id="photo-license"></span>. Credit: <span id="photo-credit"></span>.</p></section><section id="profile-message" class="ares-section ares-card" hidden></section>"""
-    profile_mapping = {"player-name":"player_name","position":"position","club":"club","league":"league","country":"country","age":"age","contract-end":"contract_end","role":"role","confidence":"data_confidence","last-updated":"last_updated","ares-score":"ares_score","kpi-ares-score":"ares_score","market-score":"market_score","kpi-market-score":"market_score","market-tier":"market_tier","age-curve":"age_curve","trend":"trend","reason":"reason","continent":"continent","minutes-role":"minutes_role","position-usage":"position_usage","transfer-value-signal":"transfer_value_signal","kpi-transfer-signal":"transfer_value_signal","role-security":"role_security","durability":"durability","kpi-confidence":"data_confidence"}
+    profile_body = f"""<section class="ares-section ares-card"><div class="ares-profile-card ares-player-profile-header"><div id="player-photo" class="ares-profile-photo">AR</div><div><div class="ares-section-title"><div><h2 id="player-name">Player Profile</h2><p><span id="club"></span> | <span id="country"></span> | <span id="position"></span></p><p>Age <span id="age"></span> | Foot: <span id="foot"></span> | Contract: <span id="contract-end"></span></p></div><span class="ares-small-badge">Seeded Beta</span></div><a id="player-roster-link" class="ares-roster-cta" href="#" hidden>View roster</a></div><div class="ares-status-terminal"><div class="ares-status-item"><strong>ARES Score</strong><span id="ares-score"></span></div><div class="ares-status-item"><strong>Market Score</strong><span id="market-score"></span></div><div class="ares-status-item"><strong>Signal</strong><span id="transfer-value-signal"></span></div><div class="ares-status-item"><strong>Conf</strong><span id="confidence"></span></div><div class="ares-status-item"><strong>Updated</strong><span id="last-updated"></span></div></div></div></section><section class="ares-section ares-card">{tab_bar}</section><section id="player-view-note" class="ares-section ares-card"><h2 class="h4">Overview</h2><p>Loading player intelligence view.</p></section><section class="ares-section ares-card"><h2 class="h4">Image Source</h2><p>Source: <span id="photo-source"></span>. License: <span id="photo-license"></span>. Credit: <span id="photo-credit"></span>.</p></section><section id="profile-message" class="ares-section ares-card" hidden></section>"""
+    profile_mapping = {"player-name":"player_name","position":"position","club":"club","league":"league","country":"country","age":"age","foot":"foot","contract-end":"contract_end","role":"role","confidence":"data_confidence","last-updated":"last_updated","ares-score":"ares_score","kpi-ares-score":"ares_score","market-score":"market_score","kpi-market-score":"market_score","market-tier":"market_tier","age-curve":"age_curve","trend":"trend","reason":"reason","continent":"continent","minutes-role":"minutes_role","position-usage":"position_usage","transfer-value-signal":"transfer_value_signal","kpi-transfer-signal":"transfer_value_signal","role-security":"role_security","durability":"durability","kpi-confidence":"data_confidence"}
     profile_script = f'AresSoccer.initProfile("../data/player_profile_sample.json",{json.dumps(profile_mapping, ensure_ascii=False)});'
     dynamic_profile_script = f'AresSoccer.initProfileById("../data/public_players.json",{json.dumps(profile_mapping, ensure_ascii=False)});'
     write_text("players/player-template.html", page("../", "Player ARES Profile | Market Score, Club, League & Transfer Signal", "ARES player profile with public beta player card, ARES Score, Market Score, role, confidence, image source, and locked premium components.", "players/player-template.html", "Player ARES Profile", "A football asset card showing identity, role, ARES quality, Market Score, confidence, and source context.", profile_body, profile_script))
@@ -1250,12 +1281,11 @@ def build_static_club_pages(
         {"key": "player_name", "label": "Player", "render": "playerLink", "showAvatar": True},
         {"key": "age", "label": "Age"},
         {"key": "position", "label": "Position"},
-        {"key": "minutes_role", "label": "Minutes / Role"},
         {"key": "ares_score", "label": "ARES", "render": "score"},
         {"key": "market_score", "label": "Market", "render": "market"},
         {"key": "market_tier", "label": "Tier", "render": "tier"},
         {"key": "trend", "label": "Trend", "render": "trend"},
-        {"key": "data_confidence", "label": "Confidence", "render": "confidence"},
+        {"key": "player_name", "label": "Profile", "render": "profileLink"},
     ]
     u23_cols = [
         {"key": "player_name", "label": "Player", "render": "playerLink", "showAvatar": True},
@@ -1272,6 +1302,7 @@ def build_static_club_pages(
         club_honours = honours_by_club.get(club_id, [])
         club_media = media_by_club.get(club_id, [])
         club_status = status_by_club.get(club_id, {})
+        honours = honour_summary(club_honours)
         roster_source_url = club_status.get("source_url") or next((player.get("club_roster_source_url") for player in club_players if player.get("club_roster_source_url")), "")
         roster_source = club_status.get("wikipedia_title") or "Wikipedia current squad table"
         media_row = club_media[0] if club_media else {}
@@ -1286,17 +1317,28 @@ def build_static_club_pages(
             ("Squad Market Score", club["squad_market_score"], "Portfolio asset value"),
             ("Squad ARES Score", club["avg_ares_score"], "Average player quality"),
             ("Average Age", club["average_age"], "Roster age curve"),
-            ("Transfer Risk", club["transfer_risk"], "Contract and movement signal"),
+            ("U23 Assets", club["u23_asset_count"], "Pipeline players in current squad"),
         ])
-        body += f"""<section class="ares-section ares-card"><div class="ares-club-hero">{media_html}<div class="ares-profile-card"><h2>{static_safe(club["club_name"])}</h2><p>{static_safe(club["league"])} | {static_safe(club["country"])} | {static_safe(club["continent"])}</p><div class="ares-status-terminal"><div class="ares-status-item"><strong>Top Asset</strong><span>{static_safe(club["top_asset"])}</span></div><div class="ares-status-item"><strong>U23 Assets</strong><span>{static_safe(club["u23_asset_count"])}</span></div><div class="ares-status-item"><strong>Honours Rows</strong><span>{static_safe(len(club_honours))}</span></div><div class="ares-status-item"><strong>Confidence</strong><span>{static_safe(club["data_confidence"])}</span></div></div><p class="ares-muted-note">Roster source: {('<a class="ares-table-link" href="' + static_safe(roster_source_url) + '">' + static_safe(roster_source) + '</a>') if roster_source_url else static_safe(roster_source)} | Checked {static_safe(club_status.get("checked_date", TODAY))}</p></div></div></section>"""
+        body += kpi_cards([
+            ("Domestic League Titles", honours["league"], "League honours parsed from Wikipedia"),
+            ("Domestic Cups", honours["cups"], "Cup and shield honours parsed from Wikipedia"),
+            ("Continental Honours", honours["continental"], "UEFA, CONMEBOL, AFC, CAF, or CONCACAF rows"),
+            ("Total Listed Honours", honours["total"], "Structured honour rows captured"),
+        ])
+        body += f"""<section class="ares-section ares-card"><div class="ares-club-hero">{media_html}<div class="ares-profile-card"><h2>{static_safe(club["club_name"])}</h2><p>{static_safe(club["country"])} | {static_safe(club["league"])} | {static_safe(club["continent"])} | {static_safe(club["confederation"])}</p><div class="ares-status-terminal"><div class="ares-status-item"><strong>Top Asset</strong><span>{static_safe(club["top_asset"])}</span></div><div class="ares-status-item"><strong>Transfer Risk</strong><span>{static_safe(club["transfer_risk"])}</span></div><div class="ares-status-item"><strong>Honours Rows</strong><span>{static_safe(len(club_honours))}</span></div><div class="ares-status-item"><strong>Confidence</strong><span>{static_safe(club["data_confidence"])}</span></div></div><p class="ares-muted-note">Roster source: {('<a class="ares-table-link" href="' + static_safe(roster_source_url) + '">' + static_safe(roster_source) + '</a>') if roster_source_url else static_safe(roster_source)} | Checked {static_safe(club_status.get("checked_date", TODAY))}</p></div></div></section>"""
         body += '<section class="ares-section ares-terminal-grid">' + chart_card("Market Score vs Age", "Squad portfolio shape by age and market score.", "scatter") + chart_card("Position Strength", "GK, CB, FB, CM, W, CF portfolio balance.", "bars") + "</section>"
-        body += '<section class="ares-section ares-card"><h2 class="h4">Current Player Roster</h2>' + table("club-roster-table", ["Player", "Age", "Position", "Minutes / Role", "ARES", "Market", "Tier", "Trend", "Confidence"]) + "</section>"
+        body += '<section class="ares-section ares-terminal-grid">' + chart_card("Squad Age Curve", "Age distribution across current senior, prime, and veteran player groups.", "line", "Player age band", "Roster count", "Use this chart to spot youth pipeline, prime core, and veteran risk.") + chart_card("U23 Pipeline", "Young player supply by market score, role security, and squad confidence.", "bars", "U23 roster group", "Pipeline strength", "Higher bars indicate stronger young-player depth inside the current squad.") + "</section>"
+        body += '<section class="ares-section ares-card"><h2 class="h4">Current Player Roster</h2>' + table("club-roster-table", ["Player", "Age", "Position", "ARES Score", "Market Score", "Tier", "Trend", "Profile"]) + "</section>"
         if club_u23_players:
             body += '<section class="ares-section ares-card"><h2 class="h4">U23 Assets</h2>' + table("club-u23-table", ["Player", "Age", "Position", "Market", "Reason"]) + "</section>"
         else:
             body += '<section class="ares-section ares-card"><h2 class="h4">U23 Assets</h2><p class="ares-muted-note">No sourced U23 roster entries were present for this club in the latest Wikipedia squad check. Use the full current roster above for the active squad view.</p></section>'
-        body += '<section class="ares-section ares-card"><h2 class="h4">Club Honours And Trophies</h2>' + static_table(["Competition", "Type", "Count", "Years", "Source"], [[item.get("competition", ""), item.get("honour_type", ""), item.get("count", ""), ", ".join(item.get("years", [])[:8]), item.get("source_url", "")] for item in club_honours[:18]]) + "</section>"
+        if club_honours:
+            body += '<section class="ares-section ares-card"><h2 class="h4">Club Honours And Trophies</h2>' + static_table(["Competition", "Type", "Count", "Years", "Source"], [[item.get("competition", ""), item.get("honour_type", ""), item.get("count", ""), ", ".join(item.get("years", [])[:8]), item.get("source_url", "")] for item in club_honours[:18]]) + "</section>"
+        else:
+            body += '<section class="ares-section ares-card"><h2 class="h4">Club Honours And Trophies</h2><p class="ares-muted-note">Honours data pending source review for this club. ARES will show trophy rows only after the Wikipedia honours section can be normalized cleanly.</p></section>'
         body += '<section class="ares-section ares-card"><h2 class="h4">Transfer Needs</h2>' + static_table(["Need", "Position", "Reason", "Priority", "Suggested Profile"], [[club.get("need_area", "Depth review"), club.get("weakest_unit", "Depth risk review"), "Squad portfolio balance uses ARES score, market score, age curve, and roster coverage.", "Medium", "Current roster players sorted by Market Score"]]) + "</section>"
+        body += '<section class="ares-section ares-card"><h2 class="h4">Source And Rights Note</h2><p>Seeded beta data. Live feeds are not connected. Current roster and honours rows are sourced from Wikipedia where structured enough. Club images use safe non-logo Wikimedia Commons media only when a creator, license, source URL, checked date, and rights status are stored in the image registry; otherwise ARES shows a fallback visual.</p></section>'
         club_scripts = [
             script_paths(prefix, "data/public_players.json", "club-roster-table", roster_cols, filterKey="club_id", filterValue=club_id, sortKey="market_score", sortDirection="desc"),
         ]

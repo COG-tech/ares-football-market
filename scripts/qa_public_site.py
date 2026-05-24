@@ -19,7 +19,6 @@ FORBIDDEN_HTML = [
     "rows load from file",
     "local dataset",
     "placeholder",
-    "pending",
     "Loading open",
     "Public Beta Demo",
 ]
@@ -98,6 +97,7 @@ def main() -> int:
     credits = load_json("data/image_credits_wikimedia.json")
     club_rosters = load_json_optional("data/club_rosters_wikipedia.json", [])
     club_honours = load_json_optional("data/club_honours.json", [])
+    club_media = load_json_optional("data/club_media_wikimedia.json", [])
     club_status = load_json_optional("data/club_source_status.json", [])
 
     if len(club_status) < len(clubs):
@@ -111,6 +111,28 @@ def main() -> int:
         fail(f"Wikipedia roster layer is too small: roster_rows={len(club_rosters)} clubs={len(clubs)}", failures)
     if len(club_honours) < 50:
         fail(f"Club honours layer is too small: honours={len(club_honours)}", failures)
+    club_credit_rows = [item for item in credits if item.get("asset_type") == "club_image"]
+    if club_media and len(club_credit_rows) < len(club_media):
+        fail(f"Image credits do not include every club media row: club_media={len(club_media)} credit_rows={len(club_credit_rows)}", failures)
+    required_media_fields = ["asset_id", "club_id", "club_name", "image_url", "creator", "license", "source_url", "attribution_text", "checked_date", "human_review_status"]
+    for item in club_media:
+        missing = [field for field in required_media_fields if not item.get(field)]
+        if missing:
+            fail(f"Club media row is missing rights fields for {item.get('club_id')}: {missing}", failures)
+            break
+    required_honour_fields = ["club_id", "club_name", "competition", "honour_type", "count", "years", "level", "source_url", "checked_date"]
+    for item in club_honours:
+        missing = [field for field in required_honour_fields if item.get(field) in (None, "")]
+        if missing:
+            fail(f"Club honour row is missing normalized fields for {item.get('club_id')}: {missing}", failures)
+            break
+    roster_counts = {}
+    for player in players:
+        club_id = str(player.get("club_id") or "")
+        roster_counts[club_id] = roster_counts.get(club_id, 0) + 1
+    empty_roster_clubs = [club.get("club_id") for club in clubs if roster_counts.get(str(club.get("club_id")), 0) == 0]
+    if empty_roster_clubs:
+        fail(f"Club pages would have empty rosters: {empty_roster_clubs[:8]}", failures)
 
     player_html = read("players/index.html")
     player_link_ids = re.findall(r"(?:/ares-football-market/)?players/profile\.html\?id=([^\"&<]+)", player_html)
@@ -130,12 +152,21 @@ def main() -> int:
     expected_views = {"overview", "stats", "market", "transfers", "rumours", "national-team", "news", "achievements", "career"}
     if profile_views != expected_views:
         fail(f"Player profile tab set is wrong: {sorted(profile_views)}", failures)
+    for label in ["Overview", "Stats", "Market Value", "Transfers", "Rumours", "National Team", "News", "Achievements", "Career"]:
+        if f">{label}<" not in profile_html:
+            fail(f"Player profile tab label is missing: {label}", failures)
+    if "Foot:" not in profile_html:
+        fail("Shared player header is missing foot field.")
     soccer_js = read("assets/js/soccer-pages.js")
     for title in ["Overview", "Stats Center", "Market Value Intelligence", "Transfer Intelligence", "Rumour Intelligence", "National Team Profile", "Player News Terminal", "Achievements", "Career Intelligence"]:
         if title not in soccer_js:
             fail(f"Player tab renderer is missing title: {title}", failures)
     if "X-axis:" not in soccer_js or "Y-axis:" not in soccer_js or "How to read:" not in soccer_js:
         fail("Player tab graphs are missing explicit axis labels or explanations.", failures)
+    css = read("assets/css/ares-components.css")
+    for required_css in [".ares-player-tabs a.is-active", "rgba(247, 201, 72", ".ares-player-tabs a:hover"]:
+        if required_css not in css:
+            fail(f"Player tab active/hover styling is missing: {required_css}", failures)
 
     club_html = read("clubs/index.html")
     club_links = re.findall(r"/ares-football-market/clubs/(club-[^/\"<]+)/", club_html)
@@ -146,7 +177,7 @@ def main() -> int:
     if missing_club_ids:
         fail(f"Club links reference missing club pages: {missing_club_ids[:5]}", failures)
 
-    for club_id in list(valid_club_ids)[:10]:
+    for club_id in sorted(valid_club_ids):
         club_page = ROOT / "clubs" / club_id / "index.html"
         if not club_page.exists():
             fail(f"Missing static club roster page: clubs/{club_id}/index.html", failures)
@@ -157,11 +188,17 @@ def main() -> int:
             fail(f"Static club roster page has too few rows: clubs/{club_id}/index.html", failures)
         if "ares-kpi-grid" not in club_html_text or "ares-terminal-grid" not in club_html_text:
             fail(f"Static club roster page is missing terminal KPI/graph layout: clubs/{club_id}/index.html", failures)
-        for required in ["Current Player Roster", "Club Honours And Trophies", "Transfer Needs", "Roster source:"]:
+        for required in ["Current Player Roster", "Club Honours And Trophies", "Transfer Needs", "Roster source:", "Domestic League Titles", "Domestic Cups", "Continental Honours", "Total Listed Honours", "Squad Age Curve", "U23 Pipeline", "Source And Rights Note", "Profile"]:
             if required not in club_html_text:
                 fail(f"Static club roster page is missing {required}: clubs/{club_id}/index.html", failures)
-        if "X-axis:" not in club_html_text or "Y-axis:" not in club_html_text:
+        if club_html_text.count("ares-graph-card") < 4:
+            fail(f"Static club roster page has fewer than four graph cards: clubs/{club_id}/index.html", failures)
+        if "X-axis:" not in club_html_text or "Y-axis:" not in club_html_text or "How to read:" not in club_html_text:
             fail(f"Static club roster page is missing chart axes: clubs/{club_id}/index.html", failures)
+        if "Club Honours And Trophies" in club_html_text and "Honours data pending source review" not in club_html_text and "Team honour" not in club_html_text:
+            fail(f"Static club roster page has no honours rows or pending note: clubs/{club_id}/index.html", failures)
+        if '<figure class="ares-club-media">' in club_html_text and club_id not in {str(item.get("club_id")) for item in club_media}:
+            fail(f"Static club roster page shows club media without registry row: clubs/{club_id}/index.html", failures)
 
     credit_html = read("image-credits.html")
     if credits and count_rows(credit_html) < 10:

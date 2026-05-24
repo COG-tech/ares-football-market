@@ -105,6 +105,7 @@
     if (column.render === "clubBadge") return renderBadge(row, "club");
     if (column.render === "leagueBadge") return renderBadge(row, "league");
     if (column.render === "playerLink") return renderPlayerIdentity(value, row, column);
+    if (column.render === "profileLink") return renderLink(column.linkLabel || "Open profile", row.player_url || row.url, column.fallbackUrl || "players/profile.html", column.pathPrefix);
     if (column.render === "clubLink") return renderLink(value, row.club_url, column.fallbackUrl || "clubs/profile.html", column.pathPrefix);
     if (column.render === "leagueLink") return renderLink(value, row.league_url, column.fallbackUrl || "leagues/league-template.html", column.pathPrefix);
     if (column.render === "link") return renderLink(column.label || value || "Open", row[column.urlKey || "url"], column.fallbackUrl, column.pathPrefix);
