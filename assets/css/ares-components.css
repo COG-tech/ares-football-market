@@ -183,6 +183,50 @@ input.ares-search:focus {
   text-decoration: underline;
 }
 
+.ares-table-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.35rem;
+  padding: 0.22rem 0.48rem;
+  margin: -0.22rem -0.48rem;
+  color: var(--ares-navy);
+  border-radius: 6px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
+.ares-table-link:hover,
+.ares-table-link:focus {
+  color: #6A4A00;
+  background: rgba(247, 201, 72, 0.18);
+  outline: none;
+  text-decoration: none;
+}
+
+.ares-roster-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.35rem;
+  padding: 0.45rem 0.75rem;
+  color: var(--ares-navy);
+  background: rgba(247, 201, 72, 0.2);
+  border: 1px solid rgba(247, 201, 72, 0.7);
+  border-radius: 8px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.ares-roster-cta:hover,
+.ares-roster-cta:focus {
+  color: #6A4A00;
+  background: rgba(247, 201, 72, 0.32);
+  text-decoration: none;
+}
+
 .ares-table .ares-text-left {
   text-align: left;
 }

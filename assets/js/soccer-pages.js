@@ -121,12 +121,25 @@
     fillText("photo-credit", record.photo_credit || "ARES branded fallback avatar");
   }
 
+  function fillPlayerLinks(record) {
+    const club = document.getElementById("club");
+    if (club && record.club_url) {
+      club.innerHTML = '<a class="ares-table-link" href="../' + window.AresData.safeText(record.club_url) + '">' + window.AresData.safeText(record.club || "") + "</a>";
+    }
+    const roster = document.getElementById("player-roster-link");
+    if (roster && record.club_url) {
+      roster.href = "../" + record.club_url;
+      roster.hidden = false;
+    }
+  }
+
   function initProfile(dataPath, mapping) {
     window.AresData.loadJson(dataPath).then(function (record) {
       Object.keys(mapping).forEach(function (id) { fillText(id, record[mapping[id]]); });
       const heading = document.querySelector("h1");
       if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
       fillPlayerImage(record);
+      fillPlayerLinks(record);
       renderPlayerProfileTables(record);
     });
   }
@@ -159,6 +172,7 @@
       const heading = document.querySelector("h1");
       if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
       fillPlayerImage(record);
+      fillPlayerLinks(record);
       renderPlayerProfileTables(record);
     }).catch(function () {
       showProfileMessage("Player not found.");

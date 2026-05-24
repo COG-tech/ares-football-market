@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Rebuild ARES Football Market as a continent-led public beta terminal."""
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://cog-tech.github.io/ares-football-market/"
 TODAY = "2026-05-23"
 DATA_MODE = "public_beta_demo"
-PUBLIC_LABEL = "Public Beta Demo"
+PUBLIC_LABEL = "Seeded Beta"
 
 CONTINENTS = ["Europe", "Asia", "Africa", "North America", "South America", "Oceania"]
 CONFED_BY_CONTINENT = {
@@ -104,7 +104,7 @@ LEAGUE_COUNTRY = {
     "USL League Two": "USA",
     "Liga MX": "Mexico",
     "Liga de Expansion MX": "Mexico",
-    "Liga de Expansión MX": "Mexico",
+    "Liga de ExpansiÃ³n MX": "Mexico",
     "Canadian Premier League": "Canada",
     "Campeonato Brasileiro Serie A": "Brazil",
     "Brazil Serie A": "Brazil",
@@ -206,13 +206,13 @@ def public_mode(row: dict[str, Any]) -> str:
 
 
 def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
-    name = row.get("display_name") or row.get("player_name") or row.get("name") or "Public Beta Player"
+    name = row.get("display_name") or row.get("player_name") or row.get("name") or "ARES Player"
     league = row.get("league", "")
     country = row.get("country") or LEAGUE_COUNTRY.get(league, "")
     continent, region, confederation = geo_for(country, league, row.get("region", ""))
     player_id = row.get("player_id") or f"pbp-{slug(name)}"
     player_slug = row.get("slug") or slug(name)
-    club = row.get("club") or "Public Beta Club"
+    club = row.get("club") or "ARES Club"
     club_id = row.get("club_id") or f"club-{slug(club)}"
     player_profile_url = f"players/profile.html?id={player_id}"
     club_profile_url = f"clubs/{club_id}/"
@@ -237,7 +237,7 @@ def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
             "transfer_value_signal": row.get("transfer_value_signal") or f"{row.get('trend', 'Stable')} {row.get('trend_value', 0)}",
             "role_security": row.get("role_security") or ("High" if int(row.get("minutes", 0) or 0) >= 1900 else "Medium"),
             "durability": row.get("durability") or f"{row.get('availability_pct', 0)}% availability estimate",
-            "source": row.get("source") or "ARES Public Beta Demo",
+            "source": row.get("source") or "ARES seeded beta",
             "score_source": row.get("score_source") or "ARES beta estimate",
             "stats_mode": row.get("stats_mode") or "ARES beta estimate; not official match statistics",
             "url": player_profile_url,
@@ -303,7 +303,7 @@ def add_synthetic_players(players: list[dict[str, Any]]) -> list[dict[str, Any]]
                         "data_confidence": "Medium",
                         "confidence": "Medium",
                         "last_updated": TODAY,
-                        "source": "ARES Public Beta Demo",
+                        "source": "ARES seeded beta",
                         "photo_url": "",
                         "photo_source": "ARES fallback avatar",
                         "photo_license_status": "ares_owned",
@@ -434,12 +434,12 @@ def build_leagues(players: list[dict[str, Any]], clubs: list[dict[str, Any]]) ->
             "u23_share": f"{24 + len(rows) % 12}%",
             "u23_pipeline": "Staged",
             "export_signal": "Public beta watch",
-            "top_club": "Public Beta Club",
-            "top_player": "Public Beta Prospect",
+            "top_club": "ARES Club",
+            "top_player": "ARES Prospect",
             "data_confidence": "Medium",
             "confidence": "Medium",
             "last_updated": TODAY,
-            "source": "ARES Public Beta Demo",
+            "source": "ARES seeded beta",
             "league_url": "leagues/league-template.html",
             "league_badge_url": "",
         }
@@ -467,6 +467,7 @@ def build_market_changes(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "player_id": player["player_id"],
             "player_name": player["player_name"],
             "club": player["club"],
+            "club_url": player.get("club_url", ""),
             "league": player["league"],
             "country": player["country"],
             "continent": player["continent"],
@@ -500,7 +501,9 @@ def build_transfers(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "age": player["age"],
             "position": player["position"],
             "from_club": player["club"],
+            "from_club_url": player.get("club_url", ""),
             "to_club": "Market fit review",
+            "to_club_url": "",
             "from_league": player["league"],
             "to_league": player["league"],
             "country": player["country"],
@@ -514,7 +517,7 @@ def build_transfers(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "confidence": player.get("data_confidence", "Medium"),
             "data_confidence": player.get("data_confidence", "Medium"),
             "reason": player["reason"],
-            "source": "ARES Public Beta Demo",
+            "source": "ARES seeded beta",
             "last_updated": TODAY,
             "slug": player.get("slug", slug(player["player_name"])),
             "player_url": player["player_url"],
@@ -551,6 +554,7 @@ def build_watchlist(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "position": player["position"],
             "level": category,
             "club": player["club"],
+            "club_url": player.get("club_url", ""),
             "league": player["league"],
             "country": player["country"],
             "continent": player["continent"],
@@ -566,7 +570,7 @@ def build_watchlist(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "confidence": player.get("data_confidence", "Medium"),
             "data_confidence": player.get("data_confidence", "Medium"),
             "last_updated": TODAY,
-            "source": "ARES Public Beta Demo",
+            "source": "ARES seeded beta",
             "slug": player.get("slug", slug(player["player_name"])),
             "player_url": player["player_url"],
             "url": player["player_url"],
@@ -757,9 +761,7 @@ def static_image_is_safe(row: dict[str, Any]) -> bool:
 
 
 def static_mode_badge(value: Any) -> str:
-    raw = str(value or "").lower()
-    label = PUBLIC_LABEL if raw in {DATA_MODE, "wikimedia_open_photo_beta", ""} else str(value)
-    return f'<span class="ares-beta-badge">{static_safe(label)}</span>'
+    return ""
 
 
 def static_chip(value: Any, class_name: str) -> str:
@@ -777,7 +779,7 @@ def static_player_avatar(row: dict[str, Any], prefix: str) -> str:
 
 def static_link(label: Any, url: Any, fallback: str, prefix: str) -> str:
     href = static_prefixed_href(url or fallback or "#", prefix)
-    return f'<a href="{static_safe(href)}">{static_safe(label)}</a>'
+    return f'<a class="ares-table-link" href="{static_safe(href)}">{static_safe(label)}</a>'
 
 
 def static_cell(row: dict[str, Any], column: dict[str, Any]) -> str:
@@ -814,6 +816,14 @@ def static_cell(row: dict[str, Any], column: dict[str, Any]) -> str:
         return static_link(value, row.get("league_url"), column.get("fallbackUrl", "leagues/league-template.html"), prefix)
     if render == "link":
         return static_link(column.get("label") or value or "Open", row.get(column.get("urlKey", "url")), column.get("fallbackUrl", "#"), prefix)
+    if column.get("key") == "club" and row.get("club_url"):
+        return static_link(value, row.get("club_url"), "#", prefix)
+    if column.get("key") == "club_name" and row.get("club_url"):
+        return static_link(value, row.get("club_url"), "#", prefix)
+    if column.get("key") == "from_club" and row.get("from_club_url"):
+        return static_link(value, row.get("from_club_url"), "#", prefix)
+    if column.get("key") == "to_club" and row.get("to_club_url"):
+        return static_link(value, row.get("to_club_url"), "#", prefix)
     return static_safe(value)
 
 
@@ -916,7 +926,7 @@ def build_pages(players: list[dict[str, Any]], clubs: list[dict[str, Any]], leag
     top_by_continent = {c: max([p for p in players if p["continent"] == c], key=lambda item: item["market_score"]) for c in CONTINENTS}
 
     continent_cards = "".join(
-        f'<a class="ares-board-feature" href="continents/{slug(c)}/"><strong>{c}</strong><span>{continent_counts[c]} players | {club_counts[c]} clubs | {league_counts[c]} leagues</span><span>Top asset: {top_by_continent[c]["player_name"]}</span><span class="ares-beta-badge">{PUBLIC_LABEL}</span></a>'
+        f'<a class="ares-board-feature" href="continents/{slug(c)}/"><strong>{c}</strong><span>{continent_counts[c]} players | {club_counts[c]} clubs | {league_counts[c]} leagues</span><span>Top asset: {top_by_continent[c]["player_name"]}</span></a>'
         for c in CONTINENTS
     )
     homepage_tables = [
@@ -929,7 +939,7 @@ def build_pages(players: list[dict[str, Any]], clubs: list[dict[str, Any]], leag
         ("home-clubs-table", "Club Portfolio Board", ["Club", "League", "Continent", "Squad Market", "Top Asset", "Mode"]),
         ("home-leagues-table", "League Strength Board", ["League", "Continent", "Strength", "Depth", "Top Player", "Mode"]),
     ]
-    board_html = "".join(f'<div class="ares-card"><div class="section-title-row"><h2 class="h4">{title}</h2><span class="ares-beta-badge">{PUBLIC_LABEL}</span></div>{table(tid, headers)}</div>' for tid, title, headers in homepage_tables)
+    board_html = "".join(f'<div class="ares-card"><div class="section-title-row"><h2 class="h4">{title}</h2></div>{table(tid, headers)}</div>' for tid, title, headers in homepage_tables)
     market_cols = [{"key": "player_name", "label": "Player", "render": "playerLink"}, {"key": "club", "label": "Club"}, {"key": "continent", "label": "Continent"}, {"key": "market_score", "label": "Market", "render": "market"}, {"key": "market_tier", "label": "Tier", "render": "tier"}, {"key": "data_mode", "label": "Mode", "render": "mode"}]
     home_scripts = [
         script_paths("", "data/public_players.json", "home-ares-table", [{"key": "player_name", "label": "Image", "render": "playerImage"}, {"key": "player_name", "label": "Player", "render": "playerLink", "showAvatar": False}, {"key": "club", "label": "Club"}, {"key": "continent", "label": "Continent"}, {"key": "ares_score", "label": "ARES", "render": "score"}, {"key": "ares_tier", "label": "Tier", "render": "tier"}, {"key": "data_mode", "label": "Mode", "render": "mode"}], sortKey="ares_score", sortDirection="desc", limit=6),
@@ -944,8 +954,8 @@ def build_pages(players: list[dict[str, Any]], clubs: list[dict[str, Any]], leag
         script_paths("", "data/public_clubs.json", "home-clubs-table", [{"key": "club_name", "label": "Club", "render": "clubLink"}, {"key": "league", "label": "League"}, {"key": "continent", "label": "Continent"}, {"key": "squad_market_score", "label": "Squad Market", "render": "market"}, {"key": "top_asset", "label": "Top Asset"}, {"key": "data_mode", "label": "Mode", "render": "mode"}], sortKey="squad_market_score", sortDirection="desc", limit=8),
         script_paths("", "data/public_leagues.json", "home-leagues-table", [{"key": "league_name", "label": "League", "render": "leagueLink"}, {"key": "continent", "label": "Continent"}, {"key": "league_strength", "label": "Strength", "render": "score"}, {"key": "market_depth", "label": "Depth", "render": "market"}, {"key": "top_player", "label": "Top Player"}, {"key": "data_mode", "label": "Mode", "render": "mode"}], sortKey="league_strength", sortDirection="desc", limit=8),
     ])
-    hero = f"""<section class="ares-hero hero-grid"><div><h2 class="h3">Global football's player asset terminal.</h2><p>ARES separates on-field quality from market value across players, clubs, leagues, continents, and transfer movement.</p><div class="hero-actions"><a href="rankings/ares.html">View ARES Rankings</a><a href="rankings/market.html">View Market Rankings</a><a href="continents/">Explore Continent Boards</a></div><div class="search-panel"><div class="ares-search"><input id="soccer-search" type="search" placeholder="Search players, clubs, leagues, positions, countries, regions, or continents"></div><div id="soccer-search-results" class="search-results"></div></div></div><div class="ares-card"><h2 class="h4">Public Beta Terminal</h2><p>Real-player identities and licensed Wikimedia Commons photos are active where rights records exist. Scores and stat fields are ARES beta estimates, not official match statistics.</p><span class="ares-beta-badge">{PUBLIC_LABEL}</span></div></section>"""
-    trust = f"""<section class="ares-section ares-card"><div class="ares-status-terminal"><div class="ares-status-item"><strong>Players tracked</strong><span>{len(players)}</span></div><div class="ares-status-item"><strong>Clubs tracked</strong><span>{len(clubs)}</span></div><div class="ares-status-item"><strong>Leagues tracked</strong><span>{len(leagues)}</span></div><div class="ares-status-item"><strong>Continents covered</strong><span>6</span></div><div class="ares-status-item"><strong>Data mode</strong><span>{PUBLIC_LABEL}</span></div><div class="ares-status-item"><strong>Last updated</strong><span>{TODAY}</span></div></div></section>"""
+    hero = """<section class="ares-hero hero-grid"><div><h2 class="h3">Global football's player asset terminal.</h2><p>ARES separates on-field quality from market value across players, clubs, leagues, continents, and transfer movement.</p><div class="hero-actions"><a href="rankings/ares.html">View ARES Rankings</a><a href="rankings/market.html">View Market Rankings</a><a href="continents/">Explore Continent Boards</a></div><div class="search-panel"><div class="ares-search"><input id="soccer-search" type="search" aria-label="Search players, clubs, leagues, positions, countries, regions, or continents"></div><div id="soccer-search-results" class="search-results"></div></div></div><div class="ares-card"><h2 class="h4">Public Beta Terminal</h2><p>Seeded beta data. Live feeds are not connected. Player photos render only when a rights record exists; otherwise ARES uses branded fallback avatars.</p></div></section>"""
+    trust = f"""<section class="ares-section ares-card"><div class="ares-status-terminal"><div class="ares-status-item"><strong>Players tracked</strong><span>{len(players)}</span></div><div class="ares-status-item"><strong>Clubs tracked</strong><span>{len(clubs)}</span></div><div class="ares-status-item"><strong>Leagues tracked</strong><span>{len(leagues)}</span></div><div class="ares-status-item"><strong>Continents covered</strong><span>6</span></div><div class="ares-status-item"><strong>Data status</strong><span>Seeded beta data</span></div><div class="ares-status-item"><strong>Last updated</strong><span>{TODAY}</span></div></div></section>"""
     body = hero + trust + f'<section class="ares-section"><h2 class="h4">Global Market Map</h2><div class="continent-grid">{continent_cards}</div></section><section class="ares-section table-grid">{board_html}</section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">ARES Score</h2><p>On-field football quality across role, usage, efficiency, durability, opponent context, and trend.</p></div><div class="ares-card"><h2 class="h4">Market Score</h2><p>Football asset value across ARES quality, age curve, position scarcity, league strength, transfer signal, and confidence.</p></div></section><section class="ares-section table-grid"><div class="ares-card premium-lock"><h2 class="h4">Full ARES Components</h2><p>Position-specific component grades are visible but locked for premium.</p></div><div class="ares-card premium-lock"><h2 class="h4">Market Breakdown</h2><p>Age curve, role security, transfer fit, comparable players, and risk scoring.</p></div></section>'
     home_script = 'AresSoccer.initSearch("soccer-search","soccer-search-results","data/public_search.json");' + script_init(home_scripts)
     write_text("index.html", page("", "ARES Football Market | Global Player Value, ARES Scores & Transfer Intelligence", "Track global football players, clubs, leagues, ARES Scores, Market Scores, continent boards, transfer movement, and public beta football asset signals.", "", "ARES Football Market", "World to continent to league to club to player football market intelligence.", body, home_script))
@@ -955,7 +965,7 @@ def build_pages(players: list[dict[str, Any]], clubs: list[dict[str, Any]], leag
 
 def filter_bar(prefix: str) -> str:
     links = "".join(f'<a class="ares-filter-chip" href="?continent={slug(c).replace("-", "%20").title()}"><strong>{c}</strong><span>{CONFED_BY_CONTINENT[c]}</span></a>' for c in CONTINENTS)
-    return f'<section class="ares-section ares-card"><div class="ares-filter-bar">{links}</div><input id="board-search" class="ares-search mb-3" type="search" placeholder="Search player, club, league, country, continent, region, or confidence..."></section>'
+    return f'<section class="ares-section ares-card"><div class="ares-filter-bar">{links}</div><input id="board-search" class="ares-search mb-3" type="search" aria-label="Search player, club, league, country, continent, region, or confidence"></section>'
 
 
 def build_board_pages() -> None:
@@ -997,7 +1007,7 @@ def build_board_pages() -> None:
 
 
 def build_continent_pages() -> None:
-    index_cards = "".join(f'<a class="ares-board-feature" href="{slug(c)}/"><strong>{c}</strong><span>{CONFED_BY_CONTINENT[c]} market board</span><span class="ares-beta-badge">{PUBLIC_LABEL}</span></a>' for c in CONTINENTS)
+    index_cards = "".join(f'<a class="ares-board-feature" href="{slug(c)}/"><strong>{c}</strong><span>{CONFED_BY_CONTINENT[c]} market board</span></a>' for c in CONTINENTS)
     write_text("continents/index.html", page("../", "Football Market Boards by Continent | Europe, Asia, Africa, Americas & Oceania", "Explore ARES football market boards by continent, including player value, ARES Scores, club strength, league depth, and transfer signals.", "continents/", "Football Market Boards by Continent", "Move from world to continent to region to country to league to club to player.", f'<section class="ares-section continent-grid">{index_cards}</section>', ""))
     for continent in CONTINENTS:
         prefix = "../../"
@@ -1044,7 +1054,7 @@ def build_legacy_region_pages() -> None:
 
 
 def build_templates() -> None:
-    profile_body = """<section class="ares-section ares-card"><div class="ares-profile-card"><div id="player-photo" class="ares-profile-photo">AR</div><h2 id="player-name">Player Profile</h2><p><span id="position"></span> | <span id="club"></span> | <span id="league"></span> | <span id="country"></span></p><div class="ares-status-terminal"><div class="ares-status-item"><strong>Age</strong><span id="age"></span></div><div class="ares-status-item"><strong>Contract End</strong><span id="contract-end"></span></div><div class="ares-status-item"><strong>Role</strong><span id="role"></span></div><div class="ares-status-item"><strong>Confidence</strong><span id="confidence"></span></div><div class="ares-status-item"><strong>Last Updated</strong><span id="last-updated"></span></div></div></div></section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">ARES Score</h2><p id="ares-score"></p></div><div class="ares-card"><h2 class="h4">Market Score</h2><p id="market-score"></p></div><div class="ares-card"><h2 class="h4">Market Tier</h2><p id="market-tier"></p></div><div class="ares-card"><h2 class="h4">Age Curve</h2><p id="age-curve"></p></div><div class="ares-card"><h2 class="h4">Trend</h2><p id="trend"></p></div><div class="ares-card"><h2 class="h4">Reason</h2><p id="reason"></p></div></section><section class="ares-section ares-card"><h2 class="h4">Season Stats</h2>""" + table("player-season-table", ["League", "Club", "Minutes / Role", "ARES", "Market", "Confidence"]) + """</section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Minutes / Role</h2>""" + table("player-role-table", ["Position", "Position Usage", "Role Security", "Durability", "Trend"]) + """</div><div class="ares-card"><h2 class="h4">Market Notes</h2>""" + table("player-market-table", ["Tier", "Transfer Signal", "Contract End", "Market Note"]) + """</div></section><section class="ares-section ares-card premium-lock"><h2 class="h4">Premium Tabs</h2><p>ARES Components | Market Breakdown | Age Curve | Transfer Value Signal | Team Fit | Risk Score | Movement History</p></section><section class="ares-section ares-card"><h2 class="h4">Image Source</h2><p>Source: <span id="photo-source"></span>. License: <span id="photo-license"></span>. Credit: <span id="photo-credit"></span>.</p></section>"""
+    profile_body = """<section class="ares-section ares-card"><div class="ares-profile-card"><div id="player-photo" class="ares-profile-photo">AR</div><h2 id="player-name">Player Profile</h2><p><span id="position"></span> | <span id="club"></span> | <span id="league"></span> | <span id="country"></span></p><a id="player-roster-link" class="ares-roster-cta" href="#" hidden>View club roster</a><div class="ares-status-terminal"><div class="ares-status-item"><strong>Age</strong><span id="age"></span></div><div class="ares-status-item"><strong>Contract End</strong><span id="contract-end"></span></div><div class="ares-status-item"><strong>Role</strong><span id="role"></span></div><div class="ares-status-item"><strong>Confidence</strong><span id="confidence"></span></div><div class="ares-status-item"><strong>Last Updated</strong><span id="last-updated"></span></div></div></div></section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">ARES Score</h2><p id="ares-score"></p></div><div class="ares-card"><h2 class="h4">Market Score</h2><p id="market-score"></p></div><div class="ares-card"><h2 class="h4">Market Tier</h2><p id="market-tier"></p></div><div class="ares-card"><h2 class="h4">Age Curve</h2><p id="age-curve"></p></div><div class="ares-card"><h2 class="h4">Trend</h2><p id="trend"></p></div><div class="ares-card"><h2 class="h4">Reason</h2><p id="reason"></p></div></section><section class="ares-section ares-card"><h2 class="h4">Season Stats</h2>""" + table("player-season-table", ["League", "Club", "Minutes / Role", "ARES", "Market", "Confidence"]) + """</section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Minutes / Role</h2>""" + table("player-role-table", ["Position", "Position Usage", "Role Security", "Durability", "Trend"]) + """</div><div class="ares-card"><h2 class="h4">Market Notes</h2>""" + table("player-market-table", ["Tier", "Transfer Signal", "Contract End", "Market Note"]) + """</div></section><section class="ares-section ares-card premium-lock"><h2 class="h4">Premium Tabs</h2><p>ARES Components | Market Breakdown | Age Curve | Transfer Value Signal | Team Fit | Risk Score | Movement History</p></section><section class="ares-section ares-card"><h2 class="h4">Image Source</h2><p>Source: <span id="photo-source"></span>. License: <span id="photo-license"></span>. Credit: <span id="photo-credit"></span>.</p></section>"""
     profile_body += """<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Continent</h2><p id="continent"></p></div><div class="ares-card"><h2 class="h4">Minutes / Role</h2><p id="minutes-role"></p></div><div class="ares-card"><h2 class="h4">Position Usage</h2><p id="position-usage"></p></div><div class="ares-card"><h2 class="h4">Transfer Value Signal</h2><p id="transfer-value-signal"></p></div><div class="ares-card"><h2 class="h4">Role Security</h2><p id="role-security"></p></div><div class="ares-card"><h2 class="h4">Durability</h2><p id="durability"></p></div></section><section id="profile-message" class="ares-section ares-card" hidden></section>"""
     profile_mapping = {"player-name":"player_name","position":"position","club":"club","league":"league","country":"country","age":"age","contract-end":"contract_end","role":"role","confidence":"data_confidence","last-updated":"last_updated","ares-score":"ares_score","market-score":"market_score","market-tier":"market_tier","age-curve":"age_curve","trend":"trend","reason":"reason","continent":"continent","minutes-role":"minutes_role","position-usage":"position_usage","transfer-value-signal":"transfer_value_signal","role-security":"role_security","durability":"durability"}
     profile_script = f'AresSoccer.initProfile("../data/player_profile_sample.json",{json.dumps(profile_mapping, ensure_ascii=False)});'
@@ -1100,7 +1110,7 @@ def build_static_club_pages(clubs: list[dict[str, Any]], players: list[dict[str,
 def build_methodology_and_credits() -> None:
     methodology_body = f"""<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">What ARES Score Measures</h2><p>Performance, efficiency, role and usage, opponent adjustment, volume, durability, and trend.</p></div><div class="ares-card"><h2 class="h4">What Market Score Measures</h2><p>ARES quality, age and upside, position value, league tier, market signal, movement value, and durability.</p></div></section><section class="ares-section ares-card"><h2 class="h4">Example ARES Calculation</h2><p>Public beta midfielder: Performance 26.4 + Efficiency 17.2 + Role 12.0 + League context 11.3 + Volume 7.4 + Durability 4.2 + Trend 3.1 = 81.6 ARES Score.</p></section><section class="ares-section ares-card"><h2 class="h4">Example Market Calculation</h2><p>Market Score combines ARES quality, age curve, position scarcity, league strength, transfer signal, durability, and confidence. A young player can outscore an older star on asset value before becoming the better footballer.</p></section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">High ARES, Lower Market</h2><p>A 32-year-old elite midfielder can keep a high ARES Score while Market Score falls because age curve and contract optionality are weaker.</p></div><div class="ares-card"><h2 class="h4">Young High Market</h2><p>A 20-year-old winger with role expansion can have a high Market Score because upside, scarcity, and transfer signal are strong.</p></div></section><section class="ares-section ares-card"><h2 class="h4">What ARES Does Not Claim</h2><p>ARES Score is not a transfer fee. ARES Score is not a salary estimate. ARES Score is not a fantasy rank. ARES Score is not a scouting report by itself. Market Score is not the same as market price. Market Score is not a guaranteed sale value. Market Score is not a betting line. Market Score is not an official club valuation.</p></section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Source Policy</h2><p>Public beta rows use safe public records, ARES-owned demo rows, and beta estimates. Restricted feeds are not connected.</p></div><div class="ares-card"><h2 class="h4">Image Policy</h2><p>Photos render only when a provider-approved or licensed rights record exists. Otherwise ARES shows a branded fallback avatar.</p></div></section>"""
     write_text("methodology.html", page("", "ARES Methodology | ARES Score, Market Score, Confidence & League Adjustment", "Learn how ARES separates on-field quality from football asset value using ARES Score, Market Score, confidence labels, and league adjustment.", "methodology.html", "ARES Methodology", "ARES separates on-field football quality from football asset value and labels confidence before live feeds are connected.", methodology_body, ""))
-    body = '<section class="ares-section ares-card"><p>Every visible Wikimedia image must have a stored rights record. If no rights record exists, ARES uses its fallback avatar.</p><input id="credits-search" class="ares-search mb-3" type="search" placeholder="Search player, creator, license, or source...">' + table("credits-table", ["Player", "Creator", "License", "Source", "Checked", "Status", "Mode"]) + "</section>"
+    body = '<section class="ares-section ares-card"><p>Every visible Wikimedia image must have a stored rights record. If no rights record exists, ARES uses its fallback avatar.</p><input id="credits-search" class="ares-search mb-3" type="search" aria-label="Search player, creator, license, or source">' + table("credits-table", ["Player", "Creator", "License", "Source", "Checked", "Status", "Mode"]) + "</section>"
     scripts = script_init([script_paths("", "data/image_credits_wikimedia.json", "credits-table", [{"key": "player_name", "label": "Player"}, {"key": "creator", "label": "Creator"}, {"key": "license", "label": "License"}, {"key": "source_url", "label": "Source", "render": "link", "urlKey": "source_url", "label": "Commons file"}, {"key": "rights_checked", "label": "Checked"}, {"key": "human_review_status", "label": "Status"}, {"key": "data_mode", "label": "Mode", "render": "mode"}], searchId="credits-search")])
     write_text("image-credits.html", page("", "Image Credits | ARES Football Market Attribution Registry", "Review image attribution, license status, source links, checked dates, and asset-rights records for ARES Football Market.", "image-credits.html", "Image Credits", "Wikimedia Commons attribution registry for visible ARES Football Market player photos.", body, scripts))
 
@@ -1169,3 +1179,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
