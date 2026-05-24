@@ -30,6 +30,26 @@ COMMONS_API = "https://commons.wikimedia.org/w/api.php"
 TODAY = "2026-05-24"
 DATA_MODE = "public_beta_demo"
 HEADERS = {"User-Agent": "ARESFootballMarket/0.1 (public beta data build; contact: github.com/COG-tech)"}
+INVALID_PLAYER_NAMES = {
+    "captain", "vice-captain", "vice captain", "3rd captain", "third captain",
+    "head coach", "coach", "manager", "player", "players", "name", "squad",
+    "current squad", "goalkeepers", "defenders", "midfielders", "forwards",
+    "on loan", "loan", "country", "position", "no.", "number",
+}
+CLUB_NAME_STOPWORDS = {
+    "fc", "f", "c", "afc", "cf", "ac", "sc", "sv", "rc", "cd", "bc", "fk", "sk",
+    "if", "bk", "club", "football", "futbol", "calcio", "de", "da", "do", "the",
+    "association",
+}
+TEAM_NAME_MARKERS = {
+    "ajax", "arsenal", "atalanta", "barcelona", "bayern", "benfica", "bologna",
+    "borussia", "bournemouth", "braga", "brighton", "bristol", "burnley",
+    "cagliari", "cardiff", "chelsea", "city", "dortmund", "elche", "feyenoord",
+    "fulham", "groningen", "juventus", "leicester", "lens", "liverpool",
+    "madrid", "milan", "montevideo", "munich", "palermo", "pathum", "porto",
+    "psv", "sevilla", "sheffield", "southampton", "sunderland", "tokyo",
+    "torino", "torque", "udinese", "united", "villarreal", "watford",
+}
 
 COUNTRY_GEO = {
     "England": ("Europe", "Western Europe", "UEFA"),
@@ -92,6 +112,27 @@ def slug(value: str) -> str:
     return re.sub(r"[^a-zA-Z0-9]+", "-", ascii_value.lower()).strip("-") or "ares"
 
 
+def normalized_name(value: Any) -> str:
+    ascii_value = unicodedata.normalize("NFKD", str(value or "")).encode("ascii", "ignore").decode("ascii")
+    clean = re.sub(r"[^a-z0-9]+", " ", ascii_value.lower()).strip()
+    return " ".join(token for token in clean.split() if len(token) > 1 and token not in CLUB_NAME_STOPWORDS)
+
+
+def blocked_name_variants(*collections: list[dict[str, Any]]) -> set[str]:
+    blocked: set[str] = set()
+    for items in collections:
+        for item in items:
+            for key in ("club_name", "league_name"):
+                value = str(item.get(key, "")).strip()
+                if not value:
+                    continue
+                blocked.add(value.lower())
+                normalized = normalized_name(value)
+                if normalized:
+                    blocked.add(normalized)
+    return blocked
+
+
 def stable_unit(*parts: str) -> float:
     digest = hashlib.sha256("|".join(parts).encode("utf-8")).hexdigest()
     return int(digest[:10], 16) / float(16**10 - 1)
@@ -106,6 +147,31 @@ def clean_text(value: str) -> str:
     value = re.sub(r"\s+", " ", value.replace("\xa0", " ")).strip()
     value = re.sub(r"\s*\(.*?(loan|captain|vice-captain).*?\)", "", value, flags=re.I)
     return value.strip(" *")
+
+
+def is_valid_player_name(name: str, blocked_names: set[str] | None = None) -> bool:
+    text = clean_text(name)
+    low = text.lower()
+    normalized = normalized_name(text)
+    blocked_names = blocked_names or set()
+    if len(text) < 3:
+        return False
+    if low in INVALID_PLAYER_NAMES or normalized in INVALID_PLAYER_NAMES or low in blocked_names or normalized in blocked_names:
+        return False
+    if normalized.startswith("jong ") and normalized[5:] in blocked_names:
+        return False
+    if re.search(r"\d", text):
+        return False
+    if any(token in low for token in ["captain", "coach", "manager", "current squad", "on loan"]):
+        return False
+    words = normalized.split()
+    if len(words) <= 4 and any(word in TEAM_NAME_MARKERS for word in words):
+        return False
+    if "ii" in words:
+        return False
+    if re.fullmatch(r"[A-Z]{1,3}", text):
+        return False
+    return True
 
 
 def log_text(value: str) -> str:
@@ -210,7 +276,7 @@ def parse_age(value: str, fallback_key: str) -> int:
     return stable_int(18, 34, fallback_key, "age")
 
 
-def roster_from_html(html: str, club: dict[str, Any], source_url: str) -> tuple[list[dict[str, Any]], str]:
+def roster_from_html(html: str, club: dict[str, Any], source_url: str, blocked_names: set[str] | None = None) -> tuple[list[dict[str, Any]], str]:
     soup = BeautifulSoup(html, "lxml")
     best_rows: list[dict[str, Any]] = []
     best_reason = "no squad table found"
@@ -231,7 +297,7 @@ def roster_from_html(html: str, club: dict[str, Any], source_url: str) -> tuple[
             if not player_cell:
                 continue
             name = extract_player_name(player_cell)
-            if not name or len(name) < 3 or name.lower() in {"player", "name"}:
+            if not is_valid_player_name(name, blocked_names):
                 continue
             position = position_code(clean_text(pos_cell.get_text(" ")) if pos_cell else "")
             nation_cell = next((cell for key, cell in values.items() if "nation" in key or "nationality" in key), None)
@@ -452,9 +518,11 @@ def honours_from_html(html: str, club: dict[str, Any], source_url: str) -> list[
     return rows
 
 
-def merge_players(existing: list[dict[str, Any]], roster_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def merge_players(existing: list[dict[str, Any]], roster_rows: list[dict[str, Any]], blocked_names: set[str] | None = None) -> list[dict[str, Any]]:
     by_key: dict[tuple[str, str], dict[str, Any]] = {}
     for row in existing:
+        if not is_valid_player_name(str(row.get("player_name") or row.get("display_name") or ""), blocked_names):
+            continue
         by_key[(slug(row.get("player_name") or row.get("display_name", "")), row.get("club_id", ""))] = row
     for row in roster_rows:
         key = (slug(row["player_name"]), row["club_id"])
@@ -489,6 +557,10 @@ def main() -> int:
         ]
     if args.limit:
         clubs = clubs[:args.limit]
+    blocked_names = blocked_name_variants(
+        read_json_optional("data/public_clubs.json", []),
+        read_json_optional("data/public_leagues.json", []),
+    )
 
     all_rosters: list[dict[str, Any]] = []
     honours: list[dict[str, Any]] = []
@@ -513,14 +585,14 @@ def main() -> int:
             if not html:
                 reason = "no Wikipedia search result"
             else:
-                roster_rows, reason = roster_from_html(html, club, source_url)
+                roster_rows, reason = roster_from_html(html, club, source_url, blocked_names)
                 honour_rows = honours_from_html(html, club, source_url)
                 media_row = first_safe_club_media(html, club, source_url)
                 if not roster_rows:
                     alt_title = search_wikipedia_title(club)
                     if alt_title and alt_title != title:
                         alt_html, alt_source_url = parse_page(alt_title)
-                        alt_roster_rows, alt_reason = roster_from_html(alt_html, club, alt_source_url)
+                        alt_roster_rows, alt_reason = roster_from_html(alt_html, club, alt_source_url, blocked_names)
                         if len(alt_roster_rows) > len(roster_rows):
                             title = alt_title
                             source_url = alt_source_url
@@ -562,7 +634,7 @@ def main() -> int:
         media = existing_media + media
         statuses = existing_status + statuses
 
-    merged_players = merge_players(existing_players, all_rosters)
+    merged_players = merge_players(existing_players, all_rosters, blocked_names)
     write_json("data/public_players.json", merged_players)
     write_json("data/club_rosters_wikipedia.json", all_rosters)
     write_json("data/club_honours.json", honours)

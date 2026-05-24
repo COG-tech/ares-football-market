@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 
@@ -43,6 +44,26 @@ MAJOR_PAGES = [
     "continents/oceania/index.html",
     "image-credits.html",
 ]
+INVALID_PLAYER_NAMES = {
+    "captain", "vice-captain", "vice captain", "3rd captain", "third captain",
+    "head coach", "coach", "manager", "player", "players", "name", "squad",
+    "current squad", "goalkeepers", "defenders", "midfielders", "forwards",
+    "on loan", "loan", "country", "position", "no.", "number",
+}
+CLUB_NAME_STOPWORDS = {
+    "fc", "f", "c", "afc", "cf", "ac", "sc", "sv", "rc", "cd", "bc", "fk", "sk",
+    "if", "bk", "club", "football", "futbol", "calcio", "de", "da", "do", "the",
+    "association",
+}
+TEAM_NAME_MARKERS = {
+    "ajax", "arsenal", "atalanta", "barcelona", "bayern", "benfica", "bologna",
+    "borussia", "bournemouth", "braga", "brighton", "bristol", "burnley",
+    "cagliari", "cardiff", "chelsea", "city", "dortmund", "elche", "feyenoord",
+    "fulham", "groningen", "juventus", "leicester", "lens", "liverpool",
+    "madrid", "milan", "montevideo", "munich", "palermo", "pathum", "porto",
+    "psv", "sevilla", "sheffield", "southampton", "sunderland", "tokyo",
+    "torino", "torque", "udinese", "united", "villarreal", "watford",
+}
 
 
 def read(path: str) -> str:
@@ -66,6 +87,25 @@ def count_rows(html: str) -> int:
 
 def fail(message: str, failures: list[str]) -> None:
     failures.append(message)
+
+
+def normalized_name(value: str) -> str:
+    ascii_value = unicodedata.normalize("NFKD", str(value or "")).encode("ascii", "ignore").decode("ascii")
+    clean = re.sub(r"[^a-z0-9]+", " ", ascii_value.lower()).strip()
+    return " ".join(token for token in clean.split() if len(token) > 1 and token not in CLUB_NAME_STOPWORDS)
+
+
+def blocked_name_variants(clubs: list[dict], leagues: list[dict]) -> set[str]:
+    blocked: set[str] = set()
+    for item in list(clubs) + list(leagues):
+        for key in ("club_name", "league_name"):
+            value = str(item.get(key, "")).strip()
+            if value:
+                blocked.add(value.lower())
+                normalized = normalized_name(value)
+                if normalized:
+                    blocked.add(normalized)
+    return blocked
 
 
 def main() -> int:
@@ -94,6 +134,7 @@ def main() -> int:
 
     players = load_json("data/public_players.json")
     clubs = load_json("data/public_clubs.json")
+    leagues = load_json("data/public_leagues.json")
     credits = load_json("data/image_credits_wikimedia.json")
     club_rosters = load_json_optional("data/club_rosters_wikipedia.json", [])
     club_honours = load_json_optional("data/club_honours.json", [])
@@ -133,6 +174,28 @@ def main() -> int:
     empty_roster_clubs = [club.get("club_id") for club in clubs if roster_counts.get(str(club.get("club_id")), 0) == 0]
     if empty_roster_clubs:
         fail(f"Club pages would have empty rosters: {empty_roster_clubs[:8]}", failures)
+    blocked_names = blocked_name_variants(clubs, leagues)
+    bad_player_names = []
+    for player in players:
+        name = str(player.get("player_name") or player.get("display_name") or "").strip()
+        low = name.lower()
+        normalized = normalized_name(name)
+        words = normalized.split()
+        if (
+            len(name) < 3
+            or low in INVALID_PLAYER_NAMES
+            or normalized in INVALID_PLAYER_NAMES
+            or low in blocked_names
+            or normalized in blocked_names
+            or (normalized.startswith("jong ") and normalized[5:] in blocked_names)
+            or re.search(r"\d", name)
+            or any(token in low for token in ["captain", "coach", "manager", "current squad", "on loan"])
+            or (len(words) <= 4 and any(word in TEAM_NAME_MARKERS for word in words))
+            or "ii" in words
+        ):
+            bad_player_names.append((player.get("club"), name))
+    if bad_player_names:
+        fail(f"Malformed roster/player names remain: {bad_player_names[:10]}", failures)
 
     player_html = read("players/index.html")
     player_link_ids = re.findall(r"(?:/ares-football-market/)?players/profile\.html\?id=([^\"&<]+)", player_html)

@@ -181,6 +181,27 @@ EXCLUDED_NO_CURRENT_ROSTER_CLUBS = {
     "Achilles'29",
 }
 
+INVALID_PLAYER_NAMES = {
+    "captain", "vice-captain", "vice captain", "3rd captain", "third captain",
+    "head coach", "coach", "manager", "player", "players", "name", "squad",
+    "current squad", "goalkeepers", "defenders", "midfielders", "forwards",
+    "on loan", "loan", "country", "position", "no.", "number",
+}
+CLUB_NAME_STOPWORDS = {
+    "fc", "f", "c", "afc", "cf", "ac", "sc", "sv", "rc", "cd", "bc", "fk", "sk",
+    "if", "bk", "club", "football", "futbol", "calcio", "de", "da", "do", "the",
+    "association",
+}
+TEAM_NAME_MARKERS = {
+    "ajax", "arsenal", "atalanta", "barcelona", "bayern", "benfica", "bologna",
+    "borussia", "bournemouth", "braga", "brighton", "bristol", "burnley",
+    "cagliari", "cardiff", "chelsea", "city", "dortmund", "elche", "feyenoord",
+    "fulham", "groningen", "juventus", "leicester", "lens", "liverpool",
+    "madrid", "milan", "montevideo", "munich", "palermo", "pathum", "porto",
+    "psv", "sevilla", "sheffield", "southampton", "sunderland", "tokyo", "torino", "torque",
+    "udinese", "united", "villarreal", "watford",
+}
+
 
 def read_json(path: str) -> Any:
     return json.loads((ROOT / path).read_text(encoding="utf-8"))
@@ -214,6 +235,27 @@ def slug(value: str) -> str:
     return clean or "ares"
 
 
+def normalized_name(value: Any) -> str:
+    ascii_value = unicodedata.normalize("NFKD", str(value or "")).encode("ascii", "ignore").decode("ascii")
+    clean = re.sub(r"[^a-z0-9]+", " ", ascii_value.lower()).strip()
+    return " ".join(token for token in clean.split() if len(token) > 1 and token not in CLUB_NAME_STOPWORDS)
+
+
+def blocked_name_variants(*collections: list[dict[str, Any]]) -> set[str]:
+    blocked: set[str] = set()
+    for items in collections:
+        for item in items:
+            for key in ("club_name", "league_name"):
+                value = str(item.get(key, "")).strip()
+                if not value:
+                    continue
+                blocked.add(value.lower())
+                normalized = normalized_name(value)
+                if normalized:
+                    blocked.add(normalized)
+    return blocked
+
+
 def site_url(path: str) -> str:
     return SITE_ROOT + path.lstrip("/")
 
@@ -227,6 +269,31 @@ def safe_float(value: Any, default: float = 0.0) -> float:
         return float(value)
     except (TypeError, ValueError):
         return default
+
+
+def is_valid_player_name(row: dict[str, Any], blocked_names: set[str] | None = None) -> bool:
+    name = str(row.get("player_name") or row.get("display_name") or row.get("name") or "").strip()
+    low = name.lower()
+    normalized = normalized_name(name)
+    blocked_names = blocked_names or set()
+    if len(name) < 3:
+        return False
+    if low in INVALID_PLAYER_NAMES or normalized in INVALID_PLAYER_NAMES or low in blocked_names or normalized in blocked_names:
+        return False
+    if normalized.startswith("jong ") and normalized[5:] in blocked_names:
+        return False
+    if re.search(r"\d", name):
+        return False
+    if any(token in low for token in ["captain", "coach", "manager", "current squad", "on loan"]):
+        return False
+    words = normalized.split()
+    if len(words) <= 4 and any(word in TEAM_NAME_MARKERS for word in words):
+        return False
+    if "ii" in words:
+        return False
+    if re.fullmatch(r"[A-Z]{1,3}", name):
+        return False
+    return True
 
 
 def geo_for(country: str, league: str = "", previous_region: str = "") -> tuple[str, str, str]:
@@ -1381,10 +1448,15 @@ def build_seo_files() -> None:
 
 
 def main() -> None:
+    blocked_names = blocked_name_variants(
+        read_json_optional("data/public_clubs.json", []),
+        read_json_optional("data/public_leagues.json", []),
+    )
     source_players = [
         row for row in read_json("data/public_players.json")
         if row.get("club") not in LEGACY_SYNTHETIC_CLUBS
         and row.get("club") not in EXCLUDED_NO_CURRENT_ROSTER_CLUBS
+        and is_valid_player_name(row, blocked_names)
     ]
     players = [normalize_player(dict(row)) for row in source_players]
     players = add_synthetic_players(players)
@@ -1393,7 +1465,10 @@ def main() -> None:
     market_changes = build_market_changes(players)
     transfers = build_transfers(players)
     watchlist = build_watchlist(players)
-    club_rosters = read_json_optional("data/club_rosters_wikipedia.json", [])
+    club_rosters = [
+        row for row in read_json_optional("data/club_rosters_wikipedia.json", [])
+        if is_valid_player_name(row, blocked_names)
+    ]
     club_honours = read_json_optional("data/club_honours.json", [])
     club_media = read_json_optional("data/club_media_wikimedia.json", [])
     club_status = read_json_optional("data/club_source_status.json", [])
