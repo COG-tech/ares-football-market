@@ -226,6 +226,12 @@
   text-decoration: none;
 }
 
+.ares-player-tabs a.is-active {
+  color: #6A4A00;
+  background: rgba(247, 201, 72, 0.24);
+  border-color: rgba(247, 201, 72, 0.82);
+}
+
 .ares-card,
 .ares-stat-card {
   background: var(--ares-white);
@@ -411,8 +417,8 @@ input.ares-search:focus {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.35rem;
-  padding: 0.22rem 0.48rem;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.65rem;
   margin: -0.22rem -0.48rem;
   color: var(--ares-navy);
   border-radius: 6px;
@@ -421,6 +427,7 @@ input.ares-search:focus {
   text-decoration: none;
   position: relative;
   z-index: 2;
+  min-width: 4.25rem;
 }
 
 .ares-table-link:hover,

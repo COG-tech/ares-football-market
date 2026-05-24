@@ -44,6 +44,7 @@
 
   function prefixedHref(url, prefix) {
     let href = url || "#";
+    if (String(href).startsWith("clubs/club-")) return "/ares-football-market/" + String(href).replace(/^\/+/, "");
     if (prefix && href !== "#" && !href.match(/^(https?:)?\/\//) && !href.startsWith("../") && !href.startsWith("/")) href = prefix + href;
     return href;
   }

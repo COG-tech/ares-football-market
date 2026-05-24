@@ -23,7 +23,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=egypt-premier-league",
     "league_badge_url": "",
     "rank": 1
   },
@@ -51,7 +51,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ghana-premier-league",
     "league_badge_url": "",
     "rank": 2
   },
@@ -79,7 +79,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=south-african-premier-division",
     "league_badge_url": "",
     "rank": 3
   },
@@ -107,7 +107,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=morocco-botola",
     "league_badge_url": "",
     "rank": 4
   },
@@ -135,7 +135,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=nigeria-premier-league",
     "league_badge_url": "",
     "rank": 5
   },
@@ -163,7 +163,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=v-league-1",
     "league_badge_url": "",
     "rank": 6
   },
@@ -191,7 +191,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=malaysia-super-league",
     "league_badge_url": "",
     "rank": 7
   },
@@ -219,7 +219,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=thai-league-2",
     "league_badge_url": "",
     "rank": 8
   },
@@ -247,7 +247,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=thai-league-1",
     "league_badge_url": "",
     "rank": 9
   },
@@ -275,7 +275,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=uzbekistan-super-league",
     "league_badge_url": "",
     "rank": 10
   },
@@ -303,7 +303,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=persian-gulf-pro-league",
     "league_badge_url": "",
     "rank": 11
   },
@@ -331,7 +331,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=qatar-stars-league",
     "league_badge_url": "",
     "rank": 12
   },
@@ -359,7 +359,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=uae-pro-league",
     "league_badge_url": "",
     "rank": 13
   },
@@ -387,7 +387,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "league_badge_url": "",
     "rank": 14
   },
@@ -415,7 +415,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=chinese-super-league",
     "league_badge_url": "",
     "rank": 15
   },
@@ -443,7 +443,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=afc-champions-league-two",
     "league_badge_url": "",
     "rank": 16
   },
@@ -471,7 +471,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=k-league-2",
     "league_badge_url": "",
     "rank": 17
   },
@@ -499,7 +499,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=afc-champions-league-elite",
     "league_badge_url": "",
     "rank": 18
   },
@@ -527,7 +527,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=k-league-1",
     "league_badge_url": "",
     "rank": 19
   },
@@ -555,7 +555,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=j3-league",
     "league_badge_url": "",
     "rank": 20
   },
@@ -583,7 +583,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=taiwan-football-premier-league",
     "league_badge_url": "",
     "rank": 21
   },
@@ -611,7 +611,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=j1-league",
     "league_badge_url": "",
     "rank": 22
   },
@@ -639,7 +639,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=hong-kong-premier-league",
     "league_badge_url": "",
     "rank": 23
   },
@@ -667,7 +667,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=singapore-premier-league",
     "league_badge_url": "",
     "rank": 24
   },
@@ -695,7 +695,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=indonesia-liga-1",
     "league_badge_url": "",
     "rank": 25
   },
@@ -723,7 +723,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=j2-league",
     "league_badge_url": "",
     "rank": 26
   },
@@ -751,7 +751,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=indian-super-league",
     "league_badge_url": "",
     "rank": 27
   },
@@ -779,7 +779,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "league_badge_url": "",
     "rank": 28
   },
@@ -807,7 +807,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "league_badge_url": "",
     "rank": 29
   },
@@ -835,7 +835,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "league_badge_url": "",
     "rank": 30
   },
@@ -863,7 +863,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "league_badge_url": "",
     "rank": 31
   },
@@ -891,7 +891,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "league_badge_url": "",
     "rank": 32
   },
@@ -919,7 +919,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "league_badge_url": "",
     "rank": 33
   },
@@ -947,7 +947,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=swiss-super-league",
     "league_badge_url": "",
     "rank": 34
   },
@@ -975,7 +975,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "league_badge_url": "",
     "rank": 35
   },
@@ -1003,7 +1003,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal",
     "league_badge_url": "",
     "rank": 36
   },
@@ -1031,7 +1031,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=belgian-pro-league",
     "league_badge_url": "",
     "rank": 37
   },
@@ -1059,7 +1059,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=scottish-premiership",
     "league_badge_url": "",
     "rank": 38
   },
@@ -1087,7 +1087,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=challenger-pro-league",
     "league_badge_url": "",
     "rank": 39
   },
@@ -1115,7 +1115,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "league_badge_url": "",
     "rank": 40
   },
@@ -1143,7 +1143,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "league_badge_url": "",
     "rank": 41
   },
@@ -1171,7 +1171,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-b",
     "league_badge_url": "",
     "rank": 42
   },
@@ -1199,7 +1199,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=2-bundesliga",
     "league_badge_url": "",
     "rank": 43
   },
@@ -1227,7 +1227,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-2",
     "league_badge_url": "",
     "rank": 44
   },
@@ -1255,7 +1255,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal-2",
     "league_badge_url": "",
     "rank": 45
   },
@@ -1283,7 +1283,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=tff-first-league",
     "league_badge_url": "",
     "rank": 46
   },
@@ -1311,7 +1311,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "league_badge_url": "",
     "rank": 47
   },
@@ -1339,7 +1339,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=usl-league-one",
     "league_badge_url": "",
     "rank": 48
   },
@@ -1367,7 +1367,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=usl-championship",
     "league_badge_url": "",
     "rank": 49
   },
@@ -1395,7 +1395,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=mls-next-pro",
     "league_badge_url": "",
     "rank": 50
   },
@@ -1423,7 +1423,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=major-league-soccer",
     "league_badge_url": "",
     "rank": 51
   },
@@ -1451,7 +1451,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-mx",
     "league_badge_url": "",
     "rank": 52
   },
@@ -1479,7 +1479,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=concacaf-champions-cup",
     "league_badge_url": "",
     "rank": 53
   },
@@ -1507,7 +1507,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=canadian-premier-league",
     "league_badge_url": "",
     "rank": 54
   },
@@ -1535,7 +1535,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=usl-league-two",
     "league_badge_url": "",
     "rank": 55
   },
@@ -1563,7 +1563,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-de-expansion-mx",
     "league_badge_url": "",
     "rank": 56
   },
@@ -1591,7 +1591,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=a-league",
     "league_badge_url": "",
     "rank": 57
   },
@@ -1619,7 +1619,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=new-zealand-national-league",
     "league_badge_url": "",
     "rank": 58
   },
@@ -1647,7 +1647,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ofc-champions-league",
     "league_badge_url": "",
     "rank": 59
   },
@@ -1675,7 +1675,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=a-league-men",
     "league_badge_url": "",
     "rank": 60
   },
@@ -1703,7 +1703,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=argentine-primera",
     "league_badge_url": "",
     "rank": 61
   },
@@ -1731,7 +1731,7 @@
     "confidence": "Medium",
     "last_updated": "2026-05-23",
     "source": "ARES seeded beta",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=brazil-serie-a",
     "league_badge_url": "",
     "rank": 62
   },
@@ -1759,7 +1759,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "league_badge_url": "",
     "rank": 63
   },
@@ -1787,7 +1787,7 @@
     "confidence": "High",
     "last_updated": "2026-05-23",
     "source": "ARES public beta league model",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=argentine-primera-division",
     "league_badge_url": "",
     "rank": 64
   }

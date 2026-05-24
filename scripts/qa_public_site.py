@@ -31,6 +31,9 @@ MAJOR_PAGES = [
     "rankings/market.html",
     "clubs/index.html",
     "leagues/index.html",
+    "leagues/mls.html",
+    "leagues/mls/index.html",
+    "leagues/north-america.html",
     "transfers/index.html",
     "watchlist/index.html",
     "continents/europe/index.html",
@@ -74,6 +77,10 @@ def main() -> int:
         rows = count_rows(html)
         if rows < 2:
             fail(f"Too few table rows in {page}: {rows}", failures)
+        if page != "image-credits.html" and "ares-terminal-grid" not in html:
+            fail(f"Missing terminal graph layout in {page}", failures)
+        if page != "image-credits.html" and "ares-kpi-grid" not in html:
+            fail(f"Missing KPI card layout in {page}", failures)
         if re.search(r'href="(?:\.\./|\.\./\.\./)?clubs/club-[^"]+/"', html):
             fail(f"Page has relative club links instead of site-root club links: {page}", failures)
 

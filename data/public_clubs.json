@@ -29,7 +29,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-brentford-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 1
   },
@@ -63,7 +63,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-everton-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 2
   },
@@ -97,7 +97,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sv-werder-bremen/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 3
   },
@@ -131,7 +131,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-borussia-monchengladbach/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 4
   },
@@ -165,7 +165,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-nantes/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 5
   },
@@ -199,7 +199,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-manchester-city-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 6
   },
@@ -233,7 +233,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-levante-ud/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 7
   },
@@ -267,7 +267,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-ogc-nice/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 8
   },
@@ -301,7 +301,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-deportivo-alaves/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 9
   },
@@ -335,7 +335,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-rb-leipzig/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 10
   },
@@ -369,7 +369,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-chelsea-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 11
   },
@@ -403,7 +403,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-manchester-united-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 12
   },
@@ -437,7 +437,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-tottenham-hotspur-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 13
   },
@@ -471,7 +471,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-arsenal-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 14
   },
@@ -505,7 +505,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-real-sociedad/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 15
   },
@@ -539,7 +539,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-hamburger-sv/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 16
   },
@@ -573,7 +573,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-real-madrid-club-de-futbol/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 17
   },
@@ -607,7 +607,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-villarreal-cf/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 18
   },
@@ -641,7 +641,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-brighton-hove-albion-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 19
   },
@@ -675,7 +675,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-juventus-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 20
   },
@@ -709,7 +709,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-liverpool-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 21
   },
@@ -743,7 +743,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-aston-villa-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 22
   },
@@ -777,7 +777,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-stade-rennais-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 23
   },
@@ -811,7 +811,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-real-betis-balompie/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 24
   },
@@ -845,7 +845,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-como-1907/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 25
   },
@@ -879,7 +879,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-cagliari-calcio/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 26
   },
@@ -913,7 +913,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-us-lecce/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 27
   },
@@ -947,7 +947,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-crystal-palace-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 28
   },
@@ -981,7 +981,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-eyupspor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 29
   },
@@ -1015,7 +1015,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-west-ham-united-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 30
   },
@@ -1049,7 +1049,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-futbol-club-barcelona/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 31
   },
@@ -1083,7 +1083,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fulham-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 32
   },
@@ -1117,7 +1117,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-newcastle-united-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 33
   },
@@ -1151,7 +1151,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-eintracht-frankfurt/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 34
   },
@@ -1185,7 +1185,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-acf-fiorentina/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 35
   },
@@ -1219,7 +1219,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-ac-milan/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 36
   },
@@ -1253,7 +1253,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-nottingham-forest-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 37
   },
@@ -1287,7 +1287,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-valencia-cf/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 38
   },
@@ -1321,7 +1321,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-us-cremonese/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 39
   },
@@ -1355,7 +1355,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-athletic-club/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 40
   },
@@ -1389,7 +1389,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-atletico-madrid/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 41
   },
@@ -1423,7 +1423,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-real-oviedo/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 42
   },
@@ -1457,7 +1457,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-r-c-lens/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 43
   },
@@ -1491,7 +1491,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-leeds-united-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 44
   },
@@ -1525,7 +1525,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-as-roma/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 45
   },
@@ -1559,7 +1559,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-inter-milan/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 46
   },
@@ -1593,7 +1593,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sunderland-a-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 47
   },
@@ -1627,7 +1627,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-tsg-1899-hoffenheim/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 48
   },
@@ -1661,7 +1661,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-us-sassuolo-calcio/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 49
   },
@@ -1695,7 +1695,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-rc-celta-de-vigo/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 50
   },
@@ -1729,7 +1729,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-cairo-atlas/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=egypt-premier-league",
     "club_badge_url": "",
     "rank": 51
   },
@@ -1763,7 +1763,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-melbourne-southern/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=a-league",
     "club_badge_url": "",
     "rank": 52
   },
@@ -1797,7 +1797,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-rayo-vallecano/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 53
   },
@@ -1831,7 +1831,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-accra-harbor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ghana-premier-league",
     "club_badge_url": "",
     "rank": 54
   },
@@ -1865,7 +1865,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-auckland-harbour/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=new-zealand-national-league",
     "club_badge_url": "",
     "rank": 55
   },
@@ -1899,7 +1899,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-bayern-munich/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 56
   },
@@ -1933,7 +1933,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-udinese-calcio/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 57
   },
@@ -1967,7 +1967,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-ssc-napoli/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 58
   },
@@ -2001,7 +2001,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-bayer-04-leverkusen/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 59
   },
@@ -2035,7 +2035,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-rcd-mallorca/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 60
   },
@@ -2069,7 +2069,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-bologna-f-c-1909/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 61
   },
@@ -2103,7 +2103,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-atalanta-bc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 62
   },
@@ -2137,7 +2137,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sociedade-esportiva-palmeiras/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 63
   },
@@ -2171,7 +2171,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-paris-saint-germain-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 64
   },
@@ -2205,7 +2205,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-d-c-united/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=major-league-soccer",
     "club_badge_url": "",
     "rank": 65
   },
@@ -2239,7 +2239,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-tai-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 66
   },
@@ -2273,7 +2273,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-olympique-lyonnais/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 67
   },
@@ -2307,7 +2307,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-girona-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 68
   },
@@ -2341,7 +2341,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-genoa-cfc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 69
   },
@@ -2375,7 +2375,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sporting-cp/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal",
     "club_badge_url": "",
     "rank": 70
   },
@@ -2409,7 +2409,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-afc-bournemouth/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 71
   },
@@ -2443,7 +2443,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-genclerbirligi-s-k/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 72
   },
@@ -2477,7 +2477,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-galatasaray-s-k/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 73
   },
@@ -2511,7 +2511,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-borussia-dortmund/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 74
   },
@@ -2545,7 +2545,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-vfl-wolfsburg/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 75
   },
@@ -2579,7 +2579,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-burnley-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=premier-league",
     "club_badge_url": "",
     "rank": 76
   },
@@ -2613,7 +2613,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-torino-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 77
   },
@@ -2647,7 +2647,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-besiktas-j-k/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 78
   },
@@ -2681,7 +2681,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-vfb-stuttgart/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 79
   },
@@ -2715,7 +2715,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-s-c-braga/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal",
     "club_badge_url": "",
     "rank": 80
   },
@@ -2749,7 +2749,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-getafe-cf/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 81
   },
@@ -2783,7 +2783,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-shabab-football-club/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 82
   },
@@ -2817,7 +2817,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-as-monaco-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 83
   },
@@ -2851,7 +2851,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-cape-meridian/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=south-african-premier-division",
     "club_badge_url": "",
     "rank": 84
   },
@@ -2885,7 +2885,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-suva-coast/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ofc-champions-league",
     "club_badge_url": "",
     "rank": 85
   },
@@ -2919,7 +2919,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-paris-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 86
   },
@@ -2953,7 +2953,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-elche-cf/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 87
   },
@@ -2987,7 +2987,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-cr-vasco-da-gama/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 88
   },
@@ -3021,7 +3021,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-psv-eindhoven/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 89
   },
@@ -3055,7 +3055,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-olympique-de-marseille/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 90
   },
@@ -3089,7 +3089,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fortuna-sittard/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 91
   },
@@ -3123,7 +3123,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sevilla-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 92
   },
@@ -3157,7 +3157,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-club-atletico-osasuna/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=la-liga",
     "club_badge_url": "",
     "rank": 93
   },
@@ -3191,7 +3191,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-caykur-rizespor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 94
   },
@@ -3225,7 +3225,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-excelsior-rotterdam/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 95
   },
@@ -3259,7 +3259,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-rabat-union/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=morocco-botola",
     "club_badge_url": "",
     "rank": 96
   },
@@ -3293,7 +3293,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sydney-southern/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=a-league",
     "club_badge_url": "",
     "rank": 97
   },
@@ -3327,7 +3327,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-neom-club/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 98
   },
@@ -3361,7 +3361,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-kaa-gent/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=belgian-pro-league",
     "club_badge_url": "",
     "rank": 99
   },
@@ -3395,7 +3395,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sc-heerenveen/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 100
   },
@@ -3429,7 +3429,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-boca-juniors/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=argentine-primera-division",
     "club_badge_url": "",
     "rank": 101
   },
@@ -3463,7 +3463,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-1-fc-koln/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 102
   },
@@ -3497,7 +3497,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-ss-lazio/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 103
   },
@@ -3531,7 +3531,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-antalyaspor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 104
   },
@@ -3565,7 +3565,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-lagos-mainland/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=nigeria-premier-league",
     "club_badge_url": "",
     "rank": 105
   },
@@ -3599,7 +3599,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-wellington-north/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=new-zealand-national-league",
     "club_badge_url": "",
     "rank": 106
   },
@@ -3633,7 +3633,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-pisa-sc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-a",
     "club_badge_url": "",
     "rank": 107
   },
@@ -3667,7 +3667,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-ahli-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 108
   },
@@ -3701,7 +3701,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-oud-heverlee-leuven/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=belgian-pro-league",
     "club_badge_url": "",
     "rank": 109
   },
@@ -3735,7 +3735,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-bsc-young-boys/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=swiss-super-league",
     "club_badge_url": "",
     "rank": 110
   },
@@ -3769,7 +3769,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-feyenoord-rotterdam/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 111
   },
@@ -3803,7 +3803,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sc-freiburg/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 112
   },
@@ -3837,7 +3837,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-konyaspor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 113
   },
@@ -3871,7 +3871,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-thun/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=swiss-super-league",
     "club_badge_url": "",
     "rank": 114
   },
@@ -3905,7 +3905,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-a-c-reggiana-1919/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-b",
     "club_badge_url": "",
     "rank": 115
   },
@@ -3939,7 +3939,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-porto/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal",
     "club_badge_url": "",
     "rank": 116
   },
@@ -3973,7 +3973,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-s-l-benfica/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal",
     "club_badge_url": "",
     "rank": 117
   },
@@ -4007,7 +4007,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-royale-union-saint-gilloise/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=belgian-pro-league",
     "club_badge_url": "",
     "rank": 118
   },
@@ -4041,7 +4041,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fenerbahce-istanbul/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 119
   },
@@ -4075,7 +4075,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-ud-las-palmas/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 120
   },
@@ -4109,7 +4109,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-st-pauli/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=bundesliga",
     "club_badge_url": "",
     "rank": 121
   },
@@ -4143,7 +4143,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-istanbul-basaksehir-f-k/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 122
   },
@@ -4177,7 +4177,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-lille-osc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 123
   },
@@ -4211,7 +4211,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-twente/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 124
   },
@@ -4245,7 +4245,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-inter-miami-cf/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=major-league-soccer",
     "club_badge_url": "",
     "rank": 125
   },
@@ -4279,7 +4279,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-alanyaspor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 126
   },
@@ -4313,7 +4313,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-seoul/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=k-league-1",
     "club_badge_url": "",
     "rank": 127
   },
@@ -4347,7 +4347,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-gaziantep-f-k/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 128
   },
@@ -4381,7 +4381,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-qadsiah-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 129
   },
@@ -4415,7 +4415,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-hilal-sfc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 130
   },
@@ -4449,7 +4449,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-san-diego-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=major-league-soccer",
     "club_badge_url": "",
     "rank": 131
   },
@@ -4483,7 +4483,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-u-c-sampdoria/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-b",
     "club_badge_url": "",
     "rank": 132
   },
@@ -4517,7 +4517,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-c-f-estrela-da-amadora/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal",
     "club_badge_url": "",
     "rank": 133
   },
@@ -4551,7 +4551,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-tigres-uanl/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-mx",
     "club_badge_url": "",
     "rank": 134
   },
@@ -4585,7 +4585,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-ittihad-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 135
   },
@@ -4619,7 +4619,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-gamba-osaka/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=j1-league",
     "club_badge_url": "",
     "rank": 136
   },
@@ -4653,7 +4653,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-s-c-corinthians-paulista/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 137
   },
@@ -4687,7 +4687,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-rc-strasbourg-alsace/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 138
   },
@@ -4721,7 +4721,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-minnesota-united-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=major-league-soccer",
     "club_badge_url": "",
     "rank": 139
   },
@@ -4755,7 +4755,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-independiente-rivadavia/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=argentine-primera-division",
     "club_badge_url": "",
     "rank": 140
   },
@@ -4789,7 +4789,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-luzern/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=swiss-super-league",
     "club_badge_url": "",
     "rank": 141
   },
@@ -4823,7 +4823,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-west-bromwich-albion-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 142
   },
@@ -4857,7 +4857,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sparta-rotterdam/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 143
   },
@@ -4891,7 +4891,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-c-d-guadalajara/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-mx",
     "club_badge_url": "",
     "rank": 144
   },
@@ -4925,7 +4925,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-club-de-futbol-monterrey/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-mx",
     "club_badge_url": "",
     "rank": 145
   },
@@ -4959,7 +4959,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-real-sociedad-b/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 146
   },
@@ -4993,7 +4993,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sociedad-deportiva-huesca/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 147
   },
@@ -5027,7 +5027,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-utrecht/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 148
   },
@@ -5061,7 +5061,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-angers-sco/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-1",
     "club_badge_url": "",
     "rank": 149
   },
@@ -5095,7 +5095,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-esporte-clube-bahia/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 150
   },
@@ -5129,7 +5129,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sao-paulo-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 151
   },
@@ -5163,7 +5163,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-los-angeles-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=major-league-soccer",
     "club_badge_url": "",
     "rank": 152
   },
@@ -5197,7 +5197,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-afc-ajax/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 153
   },
@@ -5231,7 +5231,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-clube-atletico-mineiro/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 154
   },
@@ -5265,7 +5265,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-trabzonspor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 155
   },
@@ -5299,7 +5299,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-queens-park-rangers-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 156
   },
@@ -5333,7 +5333,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-gremio-fbpa/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 157
   },
@@ -5367,7 +5367,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-nassr/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 158
   },
@@ -5401,7 +5401,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-khaleej-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 159
   },
@@ -5435,7 +5435,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-basel/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=swiss-super-league",
     "club_badge_url": "",
     "rank": 160
   },
@@ -5469,7 +5469,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-go-ahead-eagles/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 161
   },
@@ -5503,7 +5503,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-jef-united-chiba/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=j1-league",
     "club_badge_url": "",
     "rank": 162
   },
@@ -5537,7 +5537,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-racing-de-santander/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 163
   },
@@ -5571,7 +5571,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-clube-de-regatas-do-flamengo/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 164
   },
@@ -5605,7 +5605,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-watford-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 165
   },
@@ -5639,7 +5639,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-raal-la-louviere/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=belgian-pro-league",
     "club_badge_url": "",
     "rank": 166
   },
@@ -5673,7 +5673,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sc-paderborn-07/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=2-bundesliga",
     "club_badge_url": "",
     "rank": 167
   },
@@ -5707,7 +5707,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-esporte-clube-juventude/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 168
   },
@@ -5741,7 +5741,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-celtic-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=scottish-premiership",
     "club_badge_url": "",
     "rank": 169
   },
@@ -5775,7 +5775,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-cf-pachuca/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-mx",
     "club_badge_url": "",
     "rank": 170
   },
@@ -5809,7 +5809,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-n-e-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 171
   },
@@ -5843,7 +5843,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-colorado-rapids/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=major-league-soccer",
     "club_badge_url": "",
     "rank": 172
   },
@@ -5877,7 +5877,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-kayserispor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=super-lig",
     "club_badge_url": "",
     "rank": 173
   },
@@ -5911,7 +5911,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fluminense-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 174
   },
@@ -5945,7 +5945,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-atlas-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-mx",
     "club_badge_url": "",
     "rank": 175
   },
@@ -5979,7 +5979,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-vancouver-whitecaps-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=major-league-soccer",
     "club_badge_url": "",
     "rank": 176
   },
@@ -6013,7 +6013,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sporting-de-gijon/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 177
   },
@@ -6047,7 +6047,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-venezia-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-b",
     "club_badge_url": "",
     "rank": 178
   },
@@ -6081,7 +6081,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-melbourne-victory-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=a-league-men",
     "club_badge_url": "",
     "rank": 179
   },
@@ -6115,7 +6115,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-stoke-city-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 180
   },
@@ -6149,7 +6149,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-middlesbrough-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 181
   },
@@ -6183,7 +6183,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-southampton-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 182
   },
@@ -6217,7 +6217,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-jeonbuk-hyundai-motors-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=k-league-1",
     "club_badge_url": "",
     "rank": 183
   },
@@ -6251,7 +6251,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-pumas-unam/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-mx",
     "club_badge_url": "",
     "rank": 184
   },
@@ -6285,7 +6285,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-club-atletico-river-plate/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=argentine-primera-division",
     "club_badge_url": "",
     "rank": 185
   },
@@ -6319,7 +6319,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-lommel-sk/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=challenger-pro-league",
     "club_badge_url": "",
     "rank": 186
   },
@@ -6353,7 +6353,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-a-s-nancy-lorraine/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-2",
     "club_badge_url": "",
     "rank": 187
   },
@@ -6387,7 +6387,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-racing-club-de-ferrol/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 188
   },
@@ -6421,7 +6421,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-groningen/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eredivisie",
     "club_badge_url": "",
     "rank": 189
   },
@@ -6455,7 +6455,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-machida-zelvia/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=j1-league",
     "club_badge_url": "",
     "rank": 190
   },
@@ -6489,7 +6489,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-charlton-athletic-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 191
   },
@@ -6523,7 +6523,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-hull-city-a-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 192
   },
@@ -6557,7 +6557,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-real-zaragoza/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 193
   },
@@ -6591,7 +6591,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-extremadura-ud/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 194
   },
@@ -6625,7 +6625,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-cadiz-club-de-futbol/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 195
   },
@@ -6659,7 +6659,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-granada-cf/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 196
   },
@@ -6693,7 +6693,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-botafogo-f-r/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 197
   },
@@ -6727,7 +6727,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-club-america/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-de-expansion-mx",
     "club_badge_url": "",
     "rank": 198
   },
@@ -6761,7 +6761,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-r-s-c-anderlecht/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=belgian-pro-league",
     "club_badge_url": "",
     "rank": 199
   },
@@ -6795,7 +6795,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-deportivo-toluca-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-mx",
     "club_badge_url": "",
     "rank": 200
   },
@@ -6829,7 +6829,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-s-c-internacional/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=campeonato-brasileiro-serie-a",
     "club_badge_url": "",
     "rank": 201
   },
@@ -6863,7 +6863,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-leicester-city-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 202
   },
@@ -6897,7 +6897,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-karlsruher-sc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=2-bundesliga",
     "club_badge_url": "",
     "rank": 203
   },
@@ -6931,7 +6931,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-dordrecht/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 204
   },
@@ -6965,7 +6965,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-g-d-estoril-praia/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal",
     "club_badge_url": "",
     "rank": 205
   },
@@ -6999,7 +6999,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-st-louis-city-sc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=major-league-soccer",
     "club_badge_url": "",
     "rank": 206
   },
@@ -7033,7 +7033,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-f-c-penafiel/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal",
     "club_badge_url": "",
     "rank": 207
   },
@@ -7067,7 +7067,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-club-atletico-rosario-central/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=argentine-primera-division",
     "club_badge_url": "",
     "rank": 208
   },
@@ -7101,7 +7101,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-f-c-sudtirol/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-b",
     "club_badge_url": "",
     "rank": 209
   },
@@ -7135,7 +7135,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-feiha-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 210
   },
@@ -7169,7 +7169,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-s-c-farense/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal-2",
     "club_badge_url": "",
     "rank": 211
   },
@@ -7203,7 +7203,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-club-brugge-k-v/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=belgian-pro-league",
     "club_badge_url": "",
     "rank": 212
   },
@@ -7237,7 +7237,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-jubilo-iwata/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=j1-league",
     "club_badge_url": "",
     "rank": 213
   },
@@ -7271,7 +7271,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-estudiantes-de-la-plata/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=argentine-primera-division",
     "club_badge_url": "",
     "rank": 214
   },
@@ -7305,7 +7305,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-vvv-venlo/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 215
   },
@@ -7339,7 +7339,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-benevento-calcio/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-b",
     "club_badge_url": "",
     "rank": 216
   },
@@ -7373,7 +7373,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-albacete-balompie/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 217
   },
@@ -7407,7 +7407,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sivasspor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=tff-first-league",
     "club_badge_url": "",
     "rank": 218
   },
@@ -7441,7 +7441,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-willem-ii/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 219
   },
@@ -7475,7 +7475,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-boluspor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=tff-first-league",
     "club_badge_url": "",
     "rank": 220
   },
@@ -7509,7 +7509,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-den-bosch/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 221
   },
@@ -7543,7 +7543,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-club-atletico-lanus/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=argentine-primera-division",
     "club_badge_url": "",
     "rank": 222
   },
@@ -7577,7 +7577,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-cd-leganes/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 223
   },
@@ -7611,7 +7611,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-ipswich-town-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=efl-championship",
     "club_badge_url": "",
     "rank": 224
   },
@@ -7645,7 +7645,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-schalke-04/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=2-bundesliga",
     "club_badge_url": "",
     "rank": 225
   },
@@ -7679,7 +7679,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-moreirense-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal",
     "club_badge_url": "",
     "rank": 226
   },
@@ -7713,7 +7713,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-al-wehda-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=saudi-pro-league",
     "club_badge_url": "",
     "rank": 227
   },
@@ -7747,7 +7747,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-adanaspor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=tff-first-league",
     "club_badge_url": "",
     "rank": 228
   },
@@ -7781,7 +7781,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-associacao-academica-de-coimbra-o-a-f/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal-2",
     "club_badge_url": "",
     "rank": 229
   },
@@ -7815,7 +7815,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sd-eibar/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 230
   },
@@ -7849,7 +7849,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-1-fc-magdeburg/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=2-bundesliga",
     "club_badge_url": "",
     "rank": 231
   },
@@ -7883,7 +7883,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-emmen/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 232
   },
@@ -7917,7 +7917,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-f-c-pacos-de-ferreira/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=liga-portugal-2",
     "club_badge_url": "",
     "rank": 233
   },
@@ -7951,7 +7951,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-hokkaido-consadole-sapporo/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=j2-league",
     "club_badge_url": "",
     "rank": 234
   },
@@ -7985,7 +7985,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-top-oss/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 235
   },
@@ -8019,7 +8019,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sc-cambuur/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 236
   },
@@ -8053,7 +8053,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-almere-city-fc/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 237
   },
@@ -8087,7 +8087,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-fc-goa/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=indian-super-league",
     "club_badge_url": "",
     "rank": 238
   },
@@ -8121,7 +8121,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-arminia-bielefeld/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=2-bundesliga",
     "club_badge_url": "",
     "rank": 239
   },
@@ -8155,7 +8155,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-palermo-f-c/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=serie-b",
     "club_badge_url": "",
     "rank": 240
   },
@@ -8189,7 +8189,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-rkc-waalwijk/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 241
   },
@@ -8223,7 +8223,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-achilles-29/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 242
   },
@@ -8257,7 +8257,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sbv-vitesse/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 243
   },
@@ -8291,7 +8291,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-grenoble-foot-38/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=ligue-2",
     "club_badge_url": "",
     "rank": 244
   },
@@ -8325,7 +8325,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-bodrum-fk/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=tff-first-league",
     "club_badge_url": "",
     "rank": 245
   },
@@ -8359,7 +8359,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-sakaryaspor/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=tff-first-league",
     "club_badge_url": "",
     "rank": 246
   },
@@ -8393,7 +8393,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-union-deportiva-almeria/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=laliga-2",
     "club_badge_url": "",
     "rank": 247
   },
@@ -8427,7 +8427,7 @@
     "last_updated": "2026-05-23",
     "source": "ARES derived from public beta player layer",
     "club_url": "/ares-football-market/clubs/club-ado-den-haag/",
-    "league_url": "/ares-football-market/leagues/league-template.html",
+    "league_url": "/ares-football-market/leagues/index.html?league=eerste-divisie",
     "club_badge_url": "",
     "rank": 248
   }

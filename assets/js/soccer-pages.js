@@ -109,8 +109,35 @@
   function siteHref(url) {
     const href = String(url || "");
     if (!href) return "#";
+    if (href.startsWith("clubs/club-")) return "/ares-football-market/" + href.replace(/^\/+/, "");
     if (href.match(/^(https?:)?\/\//) || href.startsWith("/") || href.startsWith("../")) return href;
     return "../" + href;
+  }
+
+  function applyProfileTabs(record) {
+    const params = new URLSearchParams(window.location.search);
+    const playerId = params.get("id") || params.get("player_id") || record.player_id || "";
+    const active = (params.get("view") || "overview").toLowerCase();
+    document.querySelectorAll("[data-profile-view]").forEach(function (tab) {
+      const view = String(tab.getAttribute("data-profile-view") || "overview").toLowerCase();
+      tab.href = "profile.html?id=" + encodeURIComponent(playerId) + "&view=" + encodeURIComponent(view);
+      tab.classList.toggle("is-active", view === active);
+    });
+    const note = document.getElementById("player-view-note");
+    if (!note) return;
+    const labels = {
+      "overview": "Overview",
+      "stats": "Stats Center",
+      "market": "Market Value Intelligence",
+      "transfers": "Transfer Intelligence",
+      "rumours": "Rumour Intelligence",
+      "national-team": "National Team Profile",
+      "news": "Player News Terminal",
+      "achievements": "Achievements",
+      "career": "Career Intelligence"
+    };
+    const label = labels[active] || labels.overview;
+    note.innerHTML = "<h2 class=\"h4\">" + data.safeText(label) + "</h2><p>" + data.safeText(record.player_name || "This player") + " | " + data.safeText(record.club || "") + " | " + data.safeText(record.position || "") + " | ARES " + data.safeText(record.ares_score || "") + " | Market " + data.safeText(record.market_score || "") + ". Seeded beta data. Live feeds are not connected.</p>";
   }
 
   function fillPlayerImage(record) {
@@ -148,6 +175,7 @@
       fillPlayerImage(record);
       fillPlayerLinks(record);
       renderPlayerProfileTables(record);
+      applyProfileTabs(record);
     });
   }
 
@@ -181,6 +209,7 @@
       fillPlayerImage(record);
       fillPlayerLinks(record);
       renderPlayerProfileTables(record);
+      applyProfileTabs(record);
     }).catch(function () {
       showProfileMessage("Player not found.");
     });
