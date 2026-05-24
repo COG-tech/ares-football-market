@@ -35,9 +35,7 @@
   }
 
   function renderModeBadge(value) {
-    const raw = String(value || "").toLowerCase();
-    const label = raw === "public_beta_demo" || raw === "wikimedia_open_photo_beta" ? "Public Beta Demo" : value || "Public Beta Demo";
-    return '<span class="ares-beta-badge">' + data.safeText(label) + "</span>";
+    return "";
   }
 
   function initials(value) {
@@ -141,11 +139,12 @@
     const tbody = document.getElementById(containerId);
     if (!tbody) return;
     const existingState = tableStates[containerId] || {};
-    const state = Object.assign(existingState, { rows: Array.isArray(rows) ? rows : [], columns: columns || existingState.columns || [] });
+    const visibleColumns = (columns || existingState.columns || []).filter(function (column) { return column.key !== "data_mode"; });
+    const state = Object.assign(existingState, { rows: Array.isArray(rows) ? rows : [], columns: visibleColumns });
     tableStates[containerId] = state;
     const visibleRows = sortedRows(state.rows.filter(function (row) { return rowMatches(row, state.columns, state.query || ""); }), state);
     if (!visibleRows.length) {
-      tbody.innerHTML = '<tr><td colspan="' + Math.max(1, state.columns.length) + '"><span class="ares-beta-badge">Public Beta Demo</span> No matching public beta rows for this filter set. Clear filters to view the full board.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="' + Math.max(1, state.columns.length) + '">No matching rows for this filter set. Clear filters to view the full board.</td></tr>';
       updateCount(tbody, 0);
       return;
     }

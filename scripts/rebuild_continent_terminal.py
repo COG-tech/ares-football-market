@@ -626,14 +626,16 @@ def build_search(players: list[dict[str, Any]], clubs: list[dict[str, Any]], lea
 def table(table_id: str, headers: list[str]) -> str:
     head = "".join(f"<th>{h}</th>" for h in headers)
     body_id = table_id.replace("-table", "-body")
-    empty = f'<tr><td colspan="{len(headers)}"><span class="ares-beta-badge">{PUBLIC_LABEL}</span> No matching public beta rows for this filter set. Clear filters to view the full board.</td></tr>'
+    empty = f'<tr><td colspan="{len(headers)}">No matching rows for this filter set. Clear filters to view the full board.</td></tr>'
     return f'<div class="table-responsive"><table id="{table_id}" class="ares-table"><thead><tr>{head}</tr></thead><tbody id="{body_id}">{empty}</tbody></table></div>'
 
 
 def script_init(configs: list[dict[str, Any]]) -> str:
     chunks = []
     for config in configs:
-        chunks.append(f"AresSoccer.initTable({json.dumps(config, ensure_ascii=False)});")
+        cleaned = dict(config)
+        cleaned["columns"] = [column for column in cleaned.get("columns", []) if column.get("key") != "data_mode"]
+        chunks.append(f"AresSoccer.initTable({json.dumps(cleaned, ensure_ascii=False)});")
     return "".join(chunks)
 
 
@@ -841,7 +843,7 @@ def static_prepare_rows(rows: list[dict[str, Any]], config: dict[str, Any]) -> l
 
 def static_render_rows(rows: list[dict[str, Any]], columns: list[dict[str, Any]]) -> str:
     if not rows:
-        return f'<tr><td colspan="{max(1, len(columns))}"><span class="ares-beta-badge">{PUBLIC_LABEL}</span> No matching public beta rows for this filter set. Clear filters to view the full board.</td></tr>'
+        return f'<tr><td colspan="{max(1, len(columns))}">No matching rows for this filter set. Clear filters to view the full board.</td></tr>'
     output = []
     for row in rows:
         cells = []
@@ -885,6 +887,22 @@ def prerender_generated_tables() -> None:
             body_id = re.escape(config["bodyId"])
             pattern = re.compile(r'(<tbody id="' + body_id + r'">)(.*?)(</tbody>)', re.S)
             updated = pattern.sub(lambda match: match.group(1) + body_html + match.group(3), updated, count=1)
+        if updated != text:
+            html_path.write_text(updated, encoding="utf-8")
+
+
+def strip_public_beta_badges_from_html() -> None:
+    for html_path in ROOT.rglob("*.html"):
+        if any(part.startswith(".") for part in html_path.relative_to(ROOT).parts):
+            continue
+        text = html_path.read_text(encoding="utf-8")
+        updated = text
+        updated = re.sub(r'<span class="ares-beta-badge">Public Beta Demo</span>', "", updated)
+        updated = re.sub(r'<th>Mode</th>', "", updated)
+        updated = re.sub(r'<td data-label="Mode">.*?</td>', "", updated, flags=re.S)
+        updated = re.sub(r'<div class="ares-status-item"><strong>Data mode</strong><span></span></div>', "", updated)
+        updated = re.sub(r'<div class="ares-status-item"><strong>Data mode</strong><span>Public Beta Demo</span></div>', "", updated)
+        updated = updated.replace("Public Beta Demo rows show the ARES market structure while approved live football data feeds are being connected.", "ARES rows show the market structure while approved live football data feeds are being connected.")
         if updated != text:
             html_path.write_text(updated, encoding="utf-8")
 
@@ -1101,6 +1119,7 @@ def main() -> None:
     build_templates()
     build_methodology_and_credits()
     prerender_generated_tables()
+    strip_public_beta_badges_from_html()
     build_seo_files()
     print(f"players={len(players)} clubs={len(clubs)} leagues={len(leagues)} transfers={len(transfers)} watchlist={len(watchlist)}")
 

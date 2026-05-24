@@ -43,7 +43,7 @@
           if (input && input.value.trim()) input.dispatchEvent(new Event("input", { bubbles: true }));
         }
       })
-      .catch(function () { data.showLoadError(options.errorId || options.bodyId, "Public Beta Demo board is refreshing. Try the full board navigation or clear filters."); });
+      .catch(function () { data.showLoadError(options.errorId || options.bodyId, "Board data is refreshing. Try the full board navigation or clear filters."); });
   }
 
   function applyQueryFilter(inputId) {
