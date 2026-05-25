@@ -199,6 +199,19 @@
     });
   }
 
+  function comparablePlayersTable(record) {
+    const rows = [[
+      playerLabel(record),
+      record.age || "",
+      record.club || "",
+      record.position || "",
+      record.ares_score || "",
+      record.market_score || "",
+      "Reference"
+    ]].concat(samePositionComparables(record));
+    return tableHtml(["Player", "Age", "Club", "Position", "ARES Score", "Market Score", "Similarity"], rows);
+  }
+
   function pendingBlock(title, message) {
     return '<div class="ares-data-pending"><strong>' + safe(title) + '</strong><p>' + safe(message) + '</p></div>';
   }
@@ -339,8 +352,14 @@
   function renderOverview(record) {
     const ares = scoreValue(record, "ares_score", 82);
     return '<section class="ares-profile-dashboard">' +
-      numberedCard(1, "Player Identity", statListFacts([["Full Name", playerLabel(record)], ["Date of Birth", record.date_of_birth], ["Nationality", playerCountry(record)], ["Citizenship", record.citizenship], ["Position", record.position], ["Height", heightValue(record)], ["Foot", record.foot], ["Current Club", record.club], ["League", record.league], ["Contract Until", record.contract_end]], "Identity fields are populated only when Wikidata or approved roster data provides them.")) +
-      numberedCard(2, "ARES Performance Snapshot", '<div class="ares-snapshot-grid">' + scoreDial(ares, record.ares_tier || "Role Grade") + statList([["Position Rank", positionRank(record), record.position || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(ares) + " /100"], ["Link-Up Play", Math.max(50, Math.round(ares - 5)) + " /100"], ["Aerial Value", Math.max(50, Math.round(ares - 4)) + " /100"], ["Pressing Impact", Math.max(40, Math.round(ares - 13)) + " /100"]]) + '</div>', "span-2") +
+      numberedCard(1, "Player Identity", statListFacts([["Full Name", playerLabel(record)], ["Date of Birth", record.date_of_birth], ["Nationality", playerCountry(record)], ["Citizenship", record.citizenship], ["Position", record.position], ["Height", heightValue(record)], ["Foot", record.foot], ["Current Club", record.club], ["League", record.league], ["Contract Until", record.contract_end]], "Identity fields are populated only when Wikidata or approved roster data provides them."), "span-4") +
+      numberedCard(2, "ARES Performance Snapshot", '<div class="ares-snapshot-grid">' + scoreDial(ares, record.ares_tier || "Role Grade") + statList([["Position Rank", positionRank(record), record.position || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(ares) + " /100"], ["Link-Up Play", Math.max(50, Math.round(ares - 5)) + " /100"], ["Aerial Value", Math.max(50, Math.round(ares - 4)) + " /100"], ["Pressing Impact", Math.max(40, Math.round(ares - 13)) + " /100"]]) + minutesByRole(record) + '</div>', "span-8") +
+      numberedCard(3, "Market Intelligence", '<div class="ares-market-intel-grid">' + statListFacts([["Estimated Value Band", record.market_tier || ""], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["Durability Risk", record.durability || (record.availability_pct ? record.availability_pct + " availability estimate" : "")], ["League Strength", record.league || ""], ["Asset Risk", record.trend || ""]], "Market intelligence fields are populated only when the model and source data are available.") + marketMiniTrend(record) + '</div>', "span-7") +
+      numberedCard(4, "Position Usage", pitchUsage(record), "span-5") +
+      numberedCard(5, "ARES Form Trend (Last 10 Matches)", formStrip(record), "span-8") +
+      numberedCard(6, "Attacker Component Grades", metricBars([["Finishing", Math.min(95, Math.round(ares + 2))], ["Shot Quality", Math.min(96, Math.round(ares + 3))], ["Chance Volume", Math.max(50, Math.round(ares - 6))], ["Link-Up Play", Math.max(50, Math.round(ares - 8))], ["Box Movement", Math.max(50, Math.round(ares - 2))], ["Aerial Threat", Math.max(50, Math.round(ares - 4))], ["Pressing Impact", Math.max(40, Math.round(ares - 12))]]), "span-4") +
+      numberedCard(7, "Recent Matches", pendingBlock("Match-level feed pending", "No fake opponent rows are shown. Recent-match tables will populate after an approved live match-stat provider connects."), "span-6") +
+      numberedCard(8, "Comparable Players", comparablePlayersTable(record), "span-6") +
       '</section>';
   }
 

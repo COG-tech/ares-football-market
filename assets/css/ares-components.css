@@ -1485,8 +1485,8 @@ input.ares-search:focus {
 
 .ares-profile-dashboard {
   display: grid;
-  grid-template-columns: minmax(17rem, 0.82fr) minmax(17rem, 0.9fr) minmax(17rem, 0.9fr) minmax(17rem, 1fr);
-  gap: 0.9rem;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.8rem;
   margin-top: 0.85rem;
 }
 
@@ -1498,6 +1498,30 @@ input.ares-search:focus {
   border: 1px solid var(--ares-border);
   border-radius: 8px;
   box-shadow: 0 4px 14px rgba(23, 32, 51, 0.06);
+}
+
+.ares-numbered-card.span-4 {
+  grid-column: span 4;
+}
+
+.ares-numbered-card.span-5 {
+  grid-column: span 5;
+}
+
+.ares-numbered-card.span-6 {
+  grid-column: span 6;
+}
+
+.ares-numbered-card.span-7 {
+  grid-column: span 7;
+}
+
+.ares-numbered-card.span-8 {
+  grid-column: span 8;
+}
+
+.ares-numbered-card.span-12 {
+  grid-column: span 12;
 }
 
 .ares-numbered-card.span-2 {
@@ -1539,7 +1563,7 @@ input.ares-search:focus {
 }
 
 .ares-numbered-card > :not(h2) {
-  margin: 1rem;
+  margin: 0.9rem;
 }
 
 .ares-profile-stat-list {
@@ -2003,9 +2027,10 @@ body.ares-profile-view-stats .ares-table-link {
   .ares-profile-topbar{grid-template-columns:auto minmax(0,1fr) auto auto}.ares-profile-search{display:none}
   .ares-profile-hero{grid-template-columns:minmax(12rem,15rem) minmax(0,1fr)}.ares-profile-hero .ares-player-score-deck,.ares-profile-hero .ares-player-actions{grid-column:1/-1;margin-top:0;justify-content:flex-start}
   .ares-profile-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ares-numbered-card.span-2,.ares-numbered-card.span-4,.ares-numbered-card.span-5,.ares-numbered-card.span-6,.ares-numbered-card.span-7,.ares-numbered-card.span-8,.ares-numbered-card.span-12{grid-column:auto}
 }
 
 @media(max-width:760px){
   .ares-profile-topbar{position:static;grid-template-columns:1fr auto auto;gap:.55rem}.ares-profile-tab-nav{grid-column:1/-1;order:3;min-height:2.8rem}.ares-profile-tab-nav a{min-height:2.8rem}
-  .ares-profile-hero,.ares-profile-dashboard,.ares-snapshot-grid,.ares-market-intel-grid,.ares-contract-strip,.ares-profile-hero .ares-player-facts,.ares-profile-hero .ares-player-score-deck{grid-template-columns:1fr}.ares-numbered-card.span-2{grid-column:auto}.ares-profile-footer{display:grid}.ares-profile-beta-badge{position:static;display:inline-flex;margin-left:auto}
+  .ares-profile-hero,.ares-profile-dashboard,.ares-snapshot-grid,.ares-market-intel-grid,.ares-contract-strip,.ares-profile-hero .ares-player-facts,.ares-profile-hero .ares-player-score-deck{grid-template-columns:1fr}.ares-numbered-card.span-2,.ares-numbered-card.span-4,.ares-numbered-card.span-5,.ares-numbered-card.span-6,.ares-numbered-card.span-7,.ares-numbered-card.span-8,.ares-numbered-card.span-12{grid-column:auto}.ares-profile-footer{display:grid}.ares-profile-beta-badge{position:static;display:inline-flex;margin-left:auto}
 }
