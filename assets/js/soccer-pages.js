@@ -199,6 +199,19 @@
     });
   }
 
+  function comparablePlayersTable(record) {
+    const rows = [[
+      playerLabel(record),
+      record.age || "",
+      record.club || "",
+      record.position || "",
+      record.ares_score || "",
+      record.market_score || "",
+      "Reference"
+    ]].concat(samePositionComparables(record));
+    return tableHtml(["Player", "Age", "Club", "Position", "ARES Score", "Market Score", "Similarity"], rows);
+  }
+
   function pendingBlock(title, message) {
     return '<div class="ares-data-pending"><strong>' + safe(title) + '</strong><p>' + safe(message) + '</p></div>';
   }
@@ -336,31 +349,17 @@
     return record.player_name || record.display_name || "This player";
   }
 
-  function syntheticRows(record) {
-    const ares = scoreValue(record, "ares_score", 82);
-    const market = scoreValue(record, "market_score", 80);
-    const comparables = samePositionComparables(record);
-    return {
-      recentMatches: [],
-      comparable: [
-        [playerLabel(record), record.age || "", record.club || "", record.position || "", ares, market, "Reference"],
-      ].concat(comparables)
-    };
-  }
-
   function renderOverview(record) {
-    const rows = syntheticRows(record);
     const ares = scoreValue(record, "ares_score", 82);
-    const market = scoreValue(record, "market_score", 80);
     return '<section class="ares-profile-dashboard">' +
-      numberedCard(1, "Player Identity", statListFacts([["Full Name", playerLabel(record)], ["Date of Birth", record.date_of_birth], ["Nationality", playerCountry(record)], ["Citizenship", record.citizenship], ["Position", record.position], ["Height", heightValue(record)], ["Foot", record.foot], ["Current Club", record.club], ["League", record.league], ["Contract Until", record.contract_end]], "Identity fields are populated only when Wikidata or approved roster data provides them.")) +
-      numberedCard(2, "ARES Performance Snapshot", '<div class="ares-snapshot-grid">' + scoreDial(ares, record.ares_tier || "Role Grade") + statList([["Position Rank", positionRank(record), record.position || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(ares) + " /100"], ["Link-Up Play", Math.max(50, Math.round(ares - 5)) + " /100"], ["Aerial Value", Math.max(50, Math.round(ares - 4)) + " /100"], ["Pressing Impact", Math.max(40, Math.round(ares - 13)) + " /100"]]) + '<div><h3 class="ares-mini-heading">Minutes By Role</h3>' + minutesByRole(record) + '</div></div><a class="ares-inline-cta" href="profile.html?id=' + safe(record.player_id || "") + '&view=stats">View Detailed Performance -&gt;</a>', "span-2") +
-      numberedCard(3, "Market Intelligence", '<div class="ares-market-intel-grid">' + statList([["Estimated Value Band", record.market_tier || "ARES market tier"], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["Durability Risk", record.durability || ""], ["League Strength", record.league || ""], ["Asset Risk", transferSignal(record)]]) + marketMiniTrend(record) + '</div>', "span-2") +
-      numberedCard(4, "Position Usage", pitchUsage(record)) +
-      numberedCard(5, "ARES Form Trend (Last 10 Matches)", formStrip(record), "span-2") +
-      numberedCard(6, "Attacker Component Grades", metricBars([["Finishing", Math.round(ares)], ["Shot Quality", Math.round(market)], ["Chance Volume", Math.max(50, Math.round(ares - 6))], ["Link-Up Play", Math.max(50, Math.round(ares - 7))], ["Box Movement", Math.max(50, Math.round(market - 4))], ["Aerial Threat", Math.max(50, Math.round(ares - 4))], ["Pressing Impact", Math.max(40, Math.round(ares - 13))]])) +
-      numberedCard(7, "Recent Matches", pendingBlock("Match-level feed pending", "No fake opponent rows are shown. Recent-match tables will populate after an approved live match-stat provider connects."), "span-2") +
-      numberedCard(8, "Comparable Players", tableHtml(["Player", "Age", "Club", "Position", "ARES Score", "Market Score", "Similarity"], rows.comparable), "span-2") +
+      numberedCard(1, "Player Identity", statListFacts([["Full Name", playerLabel(record)], ["Date of Birth", record.date_of_birth], ["Nationality", playerCountry(record)], ["Citizenship", record.citizenship], ["Position", record.position], ["Height", heightValue(record)], ["Foot", record.foot], ["Current Club", record.club], ["League", record.league], ["Contract Until", record.contract_end]], "Identity fields are populated only when Wikidata or approved roster data provides them."), "span-4") +
+      numberedCard(2, "ARES Performance Snapshot", '<div class="ares-snapshot-grid">' + scoreDial(ares, record.ares_tier || "Role Grade") + statList([["Position Rank", positionRank(record), record.position || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(ares) + " /100"], ["Link-Up Play", Math.max(50, Math.round(ares - 5)) + " /100"], ["Aerial Value", Math.max(50, Math.round(ares - 4)) + " /100"], ["Pressing Impact", Math.max(40, Math.round(ares - 13)) + " /100"]]) + minutesByRole(record) + '</div>', "span-8") +
+      numberedCard(3, "Market Intelligence", '<div class="ares-market-intel-grid">' + statListFacts([["Estimated Value Band", record.market_tier || ""], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["Durability Risk", record.durability || (record.availability_pct ? record.availability_pct + " availability estimate" : "")], ["League Strength", record.league || ""], ["Asset Risk", record.trend || ""]], "Market intelligence fields are populated only when the model and source data are available.") + marketMiniTrend(record) + '</div>', "span-7") +
+      numberedCard(4, "Position Usage", pitchUsage(record), "span-5") +
+      numberedCard(5, "ARES Form Trend (Last 10 Matches)", formStrip(record), "span-8") +
+      numberedCard(6, "Attacker Component Grades", metricBars([["Finishing", Math.min(95, Math.round(ares + 2))], ["Shot Quality", Math.min(96, Math.round(ares + 3))], ["Chance Volume", Math.max(50, Math.round(ares - 6))], ["Link-Up Play", Math.max(50, Math.round(ares - 8))], ["Box Movement", Math.max(50, Math.round(ares - 2))], ["Aerial Threat", Math.max(50, Math.round(ares - 4))], ["Pressing Impact", Math.max(40, Math.round(ares - 12))]]), "span-4") +
+      numberedCard(7, "Recent Matches", pendingBlock("Match-level feed pending", "No fake opponent rows are shown. Recent-match tables will populate after an approved live match-stat provider connects."), "span-6") +
+      numberedCard(8, "Comparable Players", comparablePlayersTable(record), "span-6") +
       '</section>';
   }
 
@@ -376,7 +375,7 @@
       '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Performance Summary</h2>' + tableHtml(["Metric", "Value"], [["ARES Score", record.ares_score || ""], ["Role Grade", record.ares_tier || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(scoreValue(record, "ares_score", 82))], ["Link-Up Play", Math.max(50, Math.round(scoreValue(record, "ares_score", 82) - 4))]]) + '</div>' + chartHtml("ARES Match Trend", "Line chart of recent ARES match grades.", "line", "Match 1 to Match 10", "ARES match grade") + '</section>' +
       '<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Competition Split</h2>' + tableHtml(["Competition", "Min", "Goals", "Assists", "ARES"], [[record.league || "League", minuteValue || "", record.goals || "", record.assists || "", record.ares_score || ""]]) + '<p class="ares-chart-seeded-note">Competition-level cup/continental splits are hidden until an approved match provider connects.</p></div><div class="ares-card"><h2 class="h4">Component Grades</h2>' + metricBars([["Finishing", ares], ["Shot Quality", scoreValue(record, "market_score", 80)], ["Chance Volume", ares - 6], ["Pressing Impact", ares - 10]]) + '</div></section>' +
       '<section class="ares-section ares-terminal-grid">' + chartHtml("Goals By Minute", "Area chart groups output into match time bands.", "bars", "Minute band", "Goal share") + chartHtml("Position Usage", "Pitch-map style view of primary and secondary roles.", "scatter", "Pitch zone", "Usage share") + '</section>' +
-      '<section class="ares-section ares-card"><h2 class="h4">Recent Match Log</h2>' + pendingBlock("Match-level feed pending", "The old placeholder opponent rows have been removed. This table needs approved match data before it can show opponents, scores, and match grades.") + '</section><section class="ares-section ares-card"><h2 class="h4">Availability / Absences</h2><p>Durability: ' + safe(record.durability || (record.availability_pct ? record.availability_pct + "% availability estimate" : "Pending source")) + ' | Injury risk: provider pending | Confidence: ' + safe(record.data_confidence || "") + '</p></section>';
+      '<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Recent Match Log</h2>' + pendingBlock("Match-level feed pending", "The old placeholder opponent rows have been removed. This table needs approved match data before it can show opponents, scores, and match grades.") + '</div><div class="ares-card"><h2 class="h4">Availability / Absences</h2><p>Durability: ' + safe(record.durability || (record.availability_pct ? record.availability_pct + "% availability estimate" : "Pending source")) + ' | Injury risk: provider pending | Confidence: ' + safe(record.data_confidence || "") + '</p></div></section>';
   }
 
   function renderMarket(record) {
@@ -446,6 +445,8 @@
     const params = new URLSearchParams(window.location.search);
     const playerId = params.get("id") || params.get("player_id") || record.player_id || "";
     const active = (params.get("view") || "overview").toLowerCase();
+    document.body.setAttribute("data-profile-view", active);
+    document.body.classList.toggle("ares-profile-view-stats", active === "stats" || active === "overview");
     document.querySelectorAll("[data-profile-view]").forEach(function (tab) {
       const view = String(tab.getAttribute("data-profile-view") || "overview").toLowerCase();
       tab.href = "profile.html?id=" + encodeURIComponent(playerId) + "&view=" + encodeURIComponent(view);
