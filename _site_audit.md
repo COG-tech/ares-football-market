@@ -13,3 +13,5 @@ Visual audit result: the previous build had seeded rows but still looked too gen
 All seeded rows remain clearly marked `data_mode: "public_beta_demo"`. No restricted feed, scraped player photo, protected club mark, or external image search result is used.
 
 Remaining work: connect approved live football player, transfer, contract, and provider image feeds before presenting the product as a real market database.
+
+Compactness note: the default player profile overview and the `view=stats` tab were tightened to fit a 1366x768 viewport, with the overview trimmed to the core summary cards and the lower detail cards moved behind the dedicated tabs.
