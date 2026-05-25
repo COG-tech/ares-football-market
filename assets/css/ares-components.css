@@ -1158,6 +1158,7 @@ input.ares-search:focus {
   position: relative;
   display: grid;
   grid-template-columns: auto;
+  padding-left: 2.7rem;
   color: var(--ares-white);
   font-size: 1.55rem;
   font-weight: 950;
@@ -1169,13 +1170,14 @@ input.ares-search:focus {
 .ares-profile-brand::before {
   content: "";
   position: absolute;
+  left: 0;
+  top: 50%;
   width: 2.2rem;
   height: 2.2rem;
-  margin-left: -0.1rem;
   background-image: url("../media/brand/ares-logo.png");
   background-position: center;
   background-size: 150%;
-  transform: translateX(-2.6rem);
+  transform: translateY(-50%);
 }
 
 .ares-profile-brand small {
@@ -1309,7 +1311,7 @@ input.ares-search:focus {
 
 .ares-profile-hero {
   display: grid;
-  grid-template-columns: minmax(13rem, 15rem) minmax(26rem, 1fr) minmax(36rem, 1.15fr);
+  grid-template-columns: minmax(12rem, 14.5rem) minmax(24rem, 1fr) minmax(32rem, 1.08fr);
   gap: 1.2rem;
   align-items: stretch;
   padding: 0.55rem 0 1rem;
@@ -1426,12 +1428,14 @@ input.ares-search:focus {
 }
 
 .ares-profile-hero .ares-score-card {
-  min-height: 9.6rem;
-  padding: 1.45rem 1.15rem;
+  min-height: 8.9rem;
+  padding: 1.05rem 0.95rem;
 }
 
 .ares-profile-hero .ares-score-card strong {
-  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-size: clamp(1.75rem, 2.55vw, 2.55rem);
+  line-height: 0.95;
+  overflow-wrap: anywhere;
 }
 
 .ares-profile-hero .ares-score-card:nth-child(3) strong {
@@ -1481,7 +1485,7 @@ input.ares-search:focus {
 
 .ares-profile-dashboard {
   display: grid;
-  grid-template-columns: minmax(18rem, 0.82fr) minmax(18rem, 0.9fr) minmax(18rem, 0.9fr) minmax(18rem, 1fr);
+  grid-template-columns: minmax(17rem, 0.82fr) minmax(17rem, 0.9fr) minmax(17rem, 0.9fr) minmax(17rem, 1fr);
   gap: 0.9rem;
   margin-top: 0.85rem;
 }
@@ -1810,6 +1814,30 @@ input.ares-search:focus {
   margin: 0 0 0.35rem;
 }
 
+.ares-data-pending {
+  padding: 0.9rem 1rem;
+  color: #12335f;
+  background: #F8FAFC;
+  border: 1px dashed rgba(18, 51, 95, 0.28);
+  border-radius: 7px;
+}
+
+.ares-data-pending strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #061a33;
+  font-size: 0.82rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.ares-data-pending p {
+  margin: 0;
+  color: var(--ares-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
 .ares-profile-footer {
   display: flex;
   justify-content: space-between;
@@ -1824,7 +1852,7 @@ input.ares-search:focus {
 
 @media(max-width:1280px){
   .ares-profile-topbar{grid-template-columns:auto minmax(0,1fr) auto auto}.ares-profile-search{display:none}
-  .ares-profile-hero{grid-template-columns:minmax(12rem,16rem) minmax(0,1fr)}.ares-profile-hero .ares-player-score-deck,.ares-profile-hero .ares-player-actions{grid-column:1/-1;margin-top:0;justify-content:flex-start}
+  .ares-profile-hero{grid-template-columns:minmax(12rem,15rem) minmax(0,1fr)}.ares-profile-hero .ares-player-score-deck,.ares-profile-hero .ares-player-actions{grid-column:1/-1;margin-top:0;justify-content:flex-start}
   .ares-profile-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 

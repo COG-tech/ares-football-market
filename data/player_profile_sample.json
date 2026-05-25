@@ -66,5 +66,14 @@
   "role_security": "Medium",
   "durability": "92% availability estimate",
   "slug": "savinho",
-  "foot": "Source review"
+  "foot": "Source review",
+  "identity_source": "Wikidata",
+  "identity_source_url": "https://www.wikidata.org/wiki/Q99485542",
+  "identity_checked": "2026-05-25",
+  "citizenship": "Brazil",
+  "nationality": "Brazil",
+  "sport_country": "Brazil",
+  "national_team_country": "Brazil",
+  "height": "1.76 m",
+  "height_cm": 176
 }

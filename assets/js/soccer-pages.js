@@ -118,6 +118,108 @@
     return window.AresData.safeText(value === undefined || value === null ? "" : value);
   }
 
+  function cleanText(value) {
+    return String(value === undefined || value === null ? "" : value).trim();
+  }
+
+  function hasFact(value) {
+    const text = cleanText(value);
+    if (!text) return false;
+    return !/^(source review|model view|provider pending|not connected|n\/a|null|undefined)$/i.test(text);
+  }
+
+  function factValue(value, fallback) {
+    return hasFact(value) ? value : (fallback || "");
+  }
+
+  function playerCountry(record) {
+    return factValue(record.national_team_country) || factValue(record.sport_country) || factValue(record.nationality) || factValue(record.citizenship) || "";
+  }
+
+  function heightValue(record) {
+    if (hasFact(record.height)) return record.height;
+    if (Number(record.height_cm) > 0) return (Number(record.height_cm) / 100).toFixed(2) + " m";
+    return "";
+  }
+
+  function confidenceDetail(record) {
+    const mode = cleanText(record.stats_mode || record.score_source || "ARES beta estimate");
+    if (/official/i.test(mode)) return "Official provider coverage";
+    return "Identity/photo sourced; scores are beta estimates";
+  }
+
+  function sourceModeNote(record) {
+    return safe(record.stats_mode || "ARES beta estimate; not official match statistics");
+  }
+
+  function per90(count, minutes) {
+    const c = Number(count);
+    const m = Number(minutes);
+    if (!Number.isFinite(c) || !Number.isFinite(m) || m <= 0) return "";
+    return (c * 90 / m).toFixed(2);
+  }
+
+  function profileRows() {
+    return Array.isArray(window.AresProfileRows) ? window.AresProfileRows : [];
+  }
+
+  function positionRank(record) {
+    const position = cleanText(record.position);
+    const rows = profileRows().filter(function (item) {
+      return cleanText(item.position) === position && Number.isFinite(Number(item.ares_score));
+    }).sort(function (left, right) {
+      return Number(right.ares_score || 0) - Number(left.ares_score || 0);
+    });
+    const index = rows.findIndex(function (item) { return cleanText(item.player_id) === cleanText(record.player_id); });
+    if (index >= 0) return "#" + (index + 1) + " / " + rows.length;
+    return position || "";
+  }
+
+  function samePositionComparables(record) {
+    const age = Number(record.age || 0);
+    const ares = scoreValue(record, "ares_score", 82);
+    const market = scoreValue(record, "market_score", 80);
+    const position = cleanText(record.position);
+    return profileRows().filter(function (item) {
+      return cleanText(item.player_id) !== cleanText(record.player_id) && cleanText(item.position) === position;
+    }).map(function (item) {
+      const distance = Math.abs(Number(item.ares_score || 0) - ares) + Math.abs(Number(item.market_score || 0) - market) + Math.abs(Number(item.age || age) - age) * 0.35;
+      return { item: item, distance: distance };
+    }).sort(function (left, right) { return left.distance - right.distance; }).slice(0, 3).map(function (entry, index) {
+      const item = entry.item;
+      return [
+        playerLabel(item),
+        item.age || "",
+        item.club || "",
+        item.position || "",
+        item.ares_score || "",
+        item.market_score || "",
+        Math.max(64, 92 - index * 5 - Math.round(entry.distance)).toString() + "%"
+      ];
+    });
+  }
+
+  function pendingBlock(title, message) {
+    return '<div class="ares-data-pending"><strong>' + safe(title) + '</strong><p>' + safe(message) + '</p></div>';
+  }
+
+  function transferSignal(record) {
+    const raw = cleanText(record.transfer_value_signal || record.trend || "Stable");
+    return raw.replace(/\s[-+]?\d+(\.\d+)?$/, "") || raw;
+  }
+
+  function trendDetail(record) {
+    const trend = cleanText(record.trend);
+    const value = cleanText(record.trend_value);
+    return [trend, value && value !== "0" ? value : ""].filter(Boolean).join(" ");
+  }
+
+  function statListFacts(items, emptyMessage) {
+    const filtered = items.filter(function (item) { return hasFact(item[1]); });
+    if (!filtered.length) return pendingBlock("Source data pending", emptyMessage || "This module is waiting for approved source data.");
+    return statList(filtered);
+  }
+
   function scoreValue(record, key, fallback) {
     const value = Number(record[key]);
     return Number.isFinite(value) ? value : fallback;
@@ -175,6 +277,7 @@
   }
 
   function tableHtml(headers, rows) {
+    if (!rows || !rows.length) return pendingBlock("Data feed pending", "ARES has no approved row-level source for this module yet.");
     return '<div class="table-responsive"><table class="ares-table"><thead><tr>' + headers.map(function (header) {
       return '<th>' + safe(header) + '</th>';
     }).join("") + '</tr></thead><tbody>' + rows.map(function (row) {
@@ -204,11 +307,12 @@
 
   function minutesByRole(record) {
     const minutes = String(record.minutes_role || "").match(/\d+/);
-    return '<div class="ares-role-donut"><div><strong>' + safe(minutes ? minutes[0] : "2610") + '</strong><span>Total Minutes</span></div></div><ul class="ares-role-legend"><li><b></b>' + safe(record.position || "Primary") + ' 85%</li><li><b></b>Secondary Role 12%</li><li><b></b>Other Forward 3%</li></ul>';
+    const total = minutes ? minutes[0] : cleanText(record.minutes);
+    return '<div class="ares-role-donut"><div><strong>' + safe(total || "0") + '</strong><span>Beta minutes</span></div></div><ul class="ares-role-legend"><li><b></b>' + safe(record.position || "Primary") + ' 85%</li><li><b></b>Secondary role 12%</li><li><b></b>Other role 3%</li></ul><p class="ares-chart-seeded-note">' + sourceModeNote(record) + '</p>';
   }
 
   function pitchUsage(record) {
-    return '<div class="ares-pitch-map"><div class="zone zone-top"><strong>' + safe(record.position || "CF") + '</strong><span>85%</span></div><div class="zone zone-mid"><strong>SS</strong><span>12%</span></div><div class="zone zone-low"><strong>OF</strong><span>3%</span></div></div>';
+    return '<div class="ares-pitch-map"><div class="zone zone-top"><strong>' + safe(record.position || "Primary") + '</strong><span>85%</span></div><div class="zone zone-mid"><strong>Secondary</strong><span>12%</span></div><div class="zone zone-low"><strong>Other</strong><span>3%</span></div></div><p class="ares-chart-explainer">How to read: role share is an ARES beta positional model until event and tracking feeds connect.</p>';
   }
 
   function formStrip(record) {
@@ -217,7 +321,7 @@
     return '<div class="ares-form-chart"><div class="ares-form-line"></div>' + values.map(function (value, index) {
       const y = Math.max(10, Math.min(78, 90 - value));
       return '<span style="left:' + (4 + index * 10) + '%;top:' + y + '%"><b>' + safe((value / 10).toFixed(1)) + '</b></span>';
-    }).join("") + '</div><p class="ares-muted-note">ARES Form is a proprietary rating out of 10 based on performance impact.</p>';
+    }).join("") + '</div><p class="ares-muted-note">ARES Form is a beta rating out of 10 based on season profile, role, and ARES score. It is not an official match-feed log.</p>';
   }
 
   function marketMiniTrend(record) {
@@ -235,17 +339,12 @@
   function syntheticRows(record) {
     const ares = scoreValue(record, "ares_score", 82);
     const market = scoreValue(record, "market_score", 80);
+    const comparables = samePositionComparables(record);
     return {
-      recentMatches: [
-        ["May 10", record.league || "League", "Opponent A", 90, 1, 0, (ares / 10).toFixed(1)],
-        ["May 03", record.league || "League", "Opponent B", 86, 0, 1, ((ares - 2) / 10).toFixed(1)],
-        ["Apr 27", record.league || "League", "Opponent C", 78, 0, 0, ((ares - 4) / 10).toFixed(1)]
-      ],
+      recentMatches: [],
       comparable: [
         [playerLabel(record), record.age || "", record.club || "", record.position || "", ares, market, "Reference"],
-        ["Similar profile A", Math.max(18, Number(record.age || 24) - 1), record.league || "", record.position || "", (ares - 1.8).toFixed(1), (market - 1.2).toFixed(1), "86%"],
-        ["Similar profile B", Number(record.age || 24) + 2, record.continent || "", record.position || "", (ares - 3.1).toFixed(1), (market - 2.7).toFixed(1), "81%"]
-      ]
+      ].concat(comparables)
     };
   }
 
@@ -254,42 +353,44 @@
     const ares = scoreValue(record, "ares_score", 82);
     const market = scoreValue(record, "market_score", 80);
     return '<section class="ares-profile-dashboard">' +
-      numberedCard(1, "Player Identity", statList([["Full Name", playerLabel(record)], ["Date of Birth", record.date_of_birth || "Source review"], ["Nationality", record.country || ""], ["Citizenship", record.country || ""], ["Position", record.position || ""], ["Other Position", "Secondary role review"], ["Foot", record.foot || "Source review"], ["Current Club", record.club || ""], ["League", record.league || ""], ["Contract Until", record.contract_end || "Source review"]])) +
-      numberedCard(2, "ARES Performance Snapshot", '<div class="ares-snapshot-grid">' + scoreDial(ares, record.ares_tier || "Role Grade") + statList([["Position Rank", "#1 / 104", record.position || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(ares) + " /100"], ["Link-Up Play", Math.max(50, Math.round(ares - 5)) + " /100"], ["Aerial Value", Math.max(50, Math.round(ares - 4)) + " /100"], ["Pressing Impact", Math.max(40, Math.round(ares - 13)) + " /100"]]) + '<div><h3 class="ares-mini-heading">Minutes By Role</h3>' + minutesByRole(record) + '</div></div><a class="ares-inline-cta" href="profile.html?id=' + safe(record.player_id || "") + '&view=stats">View Detailed Performance -&gt;</a>', "span-2") +
-      numberedCard(3, "Market Intelligence", '<div class="ares-market-intel-grid">' + statList([["Estimated Value Band", record.market_tier || "Model view"], ["Peak Value", "Model view"], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["Durability Risk", record.durability || ""], ["League Strength", record.league || ""], ["Asset Risk", record.transfer_value_signal || "Stable"]]) + marketMiniTrend(record) + '</div>', "span-2") +
+      numberedCard(1, "Player Identity", statListFacts([["Full Name", playerLabel(record)], ["Date of Birth", record.date_of_birth], ["Nationality", playerCountry(record)], ["Citizenship", record.citizenship], ["Position", record.position], ["Height", heightValue(record)], ["Foot", record.foot], ["Current Club", record.club], ["League", record.league], ["Contract Until", record.contract_end]], "Identity fields are populated only when Wikidata or approved roster data provides them.")) +
+      numberedCard(2, "ARES Performance Snapshot", '<div class="ares-snapshot-grid">' + scoreDial(ares, record.ares_tier || "Role Grade") + statList([["Position Rank", positionRank(record), record.position || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(ares) + " /100"], ["Link-Up Play", Math.max(50, Math.round(ares - 5)) + " /100"], ["Aerial Value", Math.max(50, Math.round(ares - 4)) + " /100"], ["Pressing Impact", Math.max(40, Math.round(ares - 13)) + " /100"]]) + '<div><h3 class="ares-mini-heading">Minutes By Role</h3>' + minutesByRole(record) + '</div></div><a class="ares-inline-cta" href="profile.html?id=' + safe(record.player_id || "") + '&view=stats">View Detailed Performance -&gt;</a>', "span-2") +
+      numberedCard(3, "Market Intelligence", '<div class="ares-market-intel-grid">' + statList([["Estimated Value Band", record.market_tier || "ARES market tier"], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["Durability Risk", record.durability || ""], ["League Strength", record.league || ""], ["Asset Risk", transferSignal(record)]]) + marketMiniTrend(record) + '</div>', "span-2") +
       numberedCard(4, "Position Usage", pitchUsage(record)) +
       numberedCard(5, "ARES Form Trend (Last 10 Matches)", formStrip(record), "span-2") +
       numberedCard(6, "Attacker Component Grades", metricBars([["Finishing", Math.round(ares)], ["Shot Quality", Math.round(market)], ["Chance Volume", Math.max(50, Math.round(ares - 6))], ["Link-Up Play", Math.max(50, Math.round(ares - 7))], ["Box Movement", Math.max(50, Math.round(market - 4))], ["Aerial Threat", Math.max(50, Math.round(ares - 4))], ["Pressing Impact", Math.max(40, Math.round(ares - 13))]])) +
-      numberedCard(7, "Recent Matches", tableHtml(["Date", "Comp", "Opponent", "Score", "Min", "G", "A", "ARES"], rows.recentMatches.map(function (row, index) { return [row[0], row[1], row[2], index === 0 ? "1-1" : index === 1 ? "4-0" : "2-1", row[3], row[4], row[5], row[6]]; })), "span-2") +
+      numberedCard(7, "Recent Matches", pendingBlock("Match-level feed pending", "No fake opponent rows are shown. Recent-match tables will populate after an approved live match-stat provider connects."), "span-2") +
       numberedCard(8, "Comparable Players", tableHtml(["Player", "Age", "Club", "Position", "ARES Score", "Market Score", "Similarity"], rows.comparable), "span-2") +
       '</section>';
   }
 
   function renderStats(record) {
-    const rows = syntheticRows(record);
     const minutes = String(record.minutes_role || "").match(/\d+/);
-    const minuteValue = minutes ? minutes[0] : "2604";
+    const minuteValue = minutes ? minutes[0] : cleanText(record.minutes);
+    const goalsPer90 = per90(record.goals, minuteValue);
+    const assistsPer90 = per90(record.assists, minuteValue);
+    const ares = scoreValue(record, "ares_score", 82);
     return tabHeader("Stats Center", "Season performance center with per-role output, component grades, trend, and availability.") +
-      kpiGrid([["Appearances", record.appearances || "32", "Season involvement"], ["Minutes", minuteValue, "Role volume"], ["Goals", record.goals || "Source review", "Output signal"], ["Assists", record.assists || "Source review", "Creation signal"]]) +
-      kpiGrid([["Goals / 90", record.goals_per90 || "Model view", "Public output estimate"], ["xG / 90", record.xg_per90 || "Model view", "Chance quality estimate"], ["ARES Score", record.ares_score || "", "Performance quality"], ["Position Rank", record.position || "", "Role family"]]) +
+      kpiGrid([["Appearances", record.appearances || "", "Beta season estimate"], ["Minutes", minuteValue, "Beta role volume"], ["Goals", record.goals || "", "Beta output estimate"], ["Assists", record.assists || "", "Beta creation estimate"]]) +
+      kpiGrid([["Goals / 90", goalsPer90 || "Feed pending", goalsPer90 ? "computed from goals and minutes" : "requires minute/output source"], ["Assists / 90", assistsPer90 || "Feed pending", assistsPer90 ? "computed from assists and minutes" : "requires minute/output source"], ["ARES Score", record.ares_score || "", "Performance quality"], ["Position Rank", positionRank(record), "Role family"]]) +
       '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Performance Summary</h2>' + tableHtml(["Metric", "Value"], [["ARES Score", record.ares_score || ""], ["Role Grade", record.ares_tier || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(scoreValue(record, "ares_score", 82))], ["Link-Up Play", Math.max(50, Math.round(scoreValue(record, "ares_score", 82) - 4))]]) + '</div>' + chartHtml("ARES Match Trend", "Line chart of recent ARES match grades.", "line", "Match 1 to Match 10", "ARES match grade") + '</section>' +
-      '<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Competition Split</h2>' + tableHtml(["Competition", "Min", "Goals", "Assists", "ARES"], [[record.league || "League", minuteValue, record.goals || "Model", record.assists || "Model", record.ares_score || ""], ["Cup", "180", "Model", "Model", (scoreValue(record, "ares_score", 82) - 1).toFixed(1)], ["Continental", "420", "Model", "Model", (scoreValue(record, "ares_score", 82) - 2).toFixed(1)]]) + '</div><div class="ares-card"><h2 class="h4">Component Grades</h2>' + metricBars([["Finishing", scoreValue(record, "ares_score", 82)], ["Shot Quality", scoreValue(record, "market_score", 80)], ["Chance Volume", scoreValue(record, "ares_score", 82) - 6], ["Pressing Impact", scoreValue(record, "ares_score", 82) - 10]]) + '</div></section>' +
+      '<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Competition Split</h2>' + tableHtml(["Competition", "Min", "Goals", "Assists", "ARES"], [[record.league || "League", minuteValue || "", record.goals || "", record.assists || "", record.ares_score || ""]]) + '<p class="ares-chart-seeded-note">Competition-level cup/continental splits are hidden until an approved match provider connects.</p></div><div class="ares-card"><h2 class="h4">Component Grades</h2>' + metricBars([["Finishing", ares], ["Shot Quality", scoreValue(record, "market_score", 80)], ["Chance Volume", ares - 6], ["Pressing Impact", ares - 10]]) + '</div></section>' +
       '<section class="ares-section ares-terminal-grid">' + chartHtml("Goals By Minute", "Area chart groups output into match time bands.", "bars", "Minute band", "Goal share") + chartHtml("Position Usage", "Pitch-map style view of primary and secondary roles.", "scatter", "Pitch zone", "Usage share") + '</section>' +
-      '<section class="ares-section ares-card"><h2 class="h4">Recent Match Log</h2>' + tableHtml(["Date", "Competition", "Opponent", "Min", "G", "A", "ARES"], rows.recentMatches) + '</section><section class="ares-section ares-card"><h2 class="h4">Availability / Absences</h2><p>Durability: ' + safe(record.durability || "Source review") + ' | Injury risk: source review | Confidence: ' + safe(record.data_confidence || "") + '</p></section>';
+      '<section class="ares-section ares-card"><h2 class="h4">Recent Match Log</h2>' + pendingBlock("Match-level feed pending", "The old placeholder opponent rows have been removed. This table needs approved match data before it can show opponents, scores, and match grades.") + '</section><section class="ares-section ares-card"><h2 class="h4">Availability / Absences</h2><p>Durability: ' + safe(record.durability || (record.availability_pct ? record.availability_pct + "% availability estimate" : "Pending source")) + ' | Injury risk: provider pending | Confidence: ' + safe(record.data_confidence || "") + '</p></section>';
   }
 
   function renderMarket(record) {
     return tabHeader("Market Value Intelligence", "Value logic, age curve, contract signal, and transfer movement.") +
-      kpiGrid([["Market Score", record.market_score || "", record.market_tier || "Asset value"], ["ARES Score", record.ares_score || "", record.ares_tier || "Quality"], ["Transfer Signal", record.transfer_value_signal || "Stable", "Movement"], ["Data Confidence", record.data_confidence || "", "Coverage"]]) +
-      '<section class="ares-section ares-terminal-grid">' + chartHtml("Estimated Value Trend", "Line-area model for public market direction, not a fee claim.", "line", "Season", "Market Score") + '<div class="ares-card"><h2 class="h4">Market Value Summary</h2>' + tableHtml(["Field", "Value"], [["Estimated Value Band", record.market_tier || ""], ["Peak Value", "Model view"], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["League Strength", record.league || ""]]) + '</div></section>' +
+      kpiGrid([["Market Score", record.market_score || "", record.market_tier || "Asset value"], ["ARES Score", record.ares_score || "", record.ares_tier || "Quality"], ["Transfer Signal", transferSignal(record), "Movement"], ["Data Confidence", record.data_confidence || "", confidenceDetail(record)]]) +
+      '<section class="ares-section ares-terminal-grid">' + chartHtml("Estimated Value Trend", "Line-area model for public market direction, not a fee claim.", "line", "Season", "Market Score") + '<div class="ares-card"><h2 class="h4">Market Value Summary</h2>' + tableHtml(["Field", "Value"], [["Estimated Value Band", record.market_tier || ""], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["League Strength", record.league || ""], ["Model Source", record.score_source || "ARES beta estimate"]]) + '</div></section>' +
       '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Market Score Breakdown</h2>' + metricBars([["ARES Quality", scoreValue(record, "ares_score", 82)], ["Age Curve", Number(record.age || 25) <= 23 ? 92 : 76], ["Position Scarcity", scoreValue(record, "market_score", 80)], ["League Strength", 84], ["Role Security", scoreValue(record, "ares_score", 82) - 5]]) + '</div>' + chartHtml("Age Curve", "Line chart shows how asset value changes across age bands.", "line", "Age band", "Market curve") + '</section>' +
-      '<section class="ares-section ares-terminal-grid">' + chartHtml("Comparable Market Assets", "Scatter compares ARES quality against football asset value.", "scatter", "ARES Score", "Market Score") + chartHtml("Transfer Value Signal", "Gauge-style board groups sell, hold, buy, watch, and risk outcomes.", "bars", "Signal type", "Signal strength") + '</section><section class="ares-section ares-card"><h2 class="h4">Recent Market Updates</h2>' + tableHtml(["Date", "Update", "Change", "Reason", "Signal"], [[record.last_updated || "Source review", "Market model refresh", record.trend_value || "Model view", record.reason || "ARES beta score review", record.transfer_value_signal || "Stable"], ["Prior window", "Role and age curve reviewed", "Model view", record.age_curve || "Source review", record.trend || "Stable"]]) + '</section><section class="ares-section ares-card"><h2 class="h4">Club Fit / Market Outlook</h2><p>Ideal context: ' + safe(record.league || "League fit review") + ' | Risk level: ' + safe(record.durability || "Source review") + ' | Signal: ' + safe(record.transfer_value_signal || "Stable") + '</p></section>';
+      '<section class="ares-section ares-terminal-grid">' + chartHtml("Comparable Market Assets", "Scatter compares ARES quality against football asset value.", "scatter", "ARES Score", "Market Score") + chartHtml("Transfer Value Signal", "Gauge-style board groups sell, hold, buy, watch, and risk outcomes.", "bars", "Signal type", "Signal strength") + '</section><section class="ares-section ares-card"><h2 class="h4">Recent Market Updates</h2>' + tableHtml(["Date", "Update", "Change", "Reason", "Signal"], [[record.last_updated || "", "Market model refresh", trendDetail(record) || "Stable", record.reason || "ARES beta score review", transferSignal(record)]]) + '</section><section class="ares-section ares-card"><h2 class="h4">Club Fit / Market Outlook</h2><p>Ideal context: ' + safe(record.league || "League fit pending") + ' | Risk level: ' + safe(record.durability || "availability feed pending") + ' | Signal: ' + safe(transferSignal(record)) + '</p></section>';
   }
 
   function renderTransfers(record) {
     return tabHeader("Transfer Intelligence", "Transfer history, contract window, resale runway, and comparable moves.") +
-      kpiGrid([["Last Major Move", record.club || "Current club"], ["Contract Window", record.contract_end || "Source review"], ["Resale Runway", Number(record.age || 25) <= 23 ? "Long" : "Medium"], ["Transfer Signal", record.transfer_value_signal || "Stable"]]) +
-      '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Transfer History</h2>' + tableHtml(["Date", "From", "To", "Fee", "Age", "Signal"], [["Current", "Source review", record.club || "", "Model view", record.age || "", record.transfer_value_signal || "Stable"], ["Prior", "Development club", record.club || "", "Source review", Math.max(16, Number(record.age || 24) - 2), "Development"]]) + '</div>' + chartHtml("Transfer Value At Move", "Timeline chart places each move against age and value signal.", "line", "Move date", "Value signal") + '</section>' +
+      kpiGrid([["Current Club", record.club || ""], ["Contract Window", record.contract_end || "Contract feed pending"], ["Resale Runway", Number(record.age || 25) <= 23 ? "Long" : "Medium"], ["Transfer Signal", transferSignal(record)]]) +
+      '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Transfer History</h2>' + pendingBlock("Transfer history feed pending", "ARES has not connected an approved transfer-history source for this player, so no fake prior-club rows are displayed.") + '</div>' + chartHtml("Transfer Value At Move", "Timeline chart places each move against age and value signal.", "line", "Move date", "Value signal") + '</section>' +
       '<section class="ares-section ares-terminal-grid">' + chartHtml("Contract Window", "Countdown bar highlights when leverage changes.", "bars", "Contract year", "Leverage") + chartHtml("Comparable Transfers", "Bubble chart compares age, fee context, and ARES score.", "scatter", "Age", "ARES / fee context") + '</section><section class="ares-section ares-card"><h2 class="h4">Transfer Logic</h2><p>Positive: role security, league context, ARES quality, and data confidence. Risks: age curve, contract timing, wage load, and availability.</p></section>';
   }
 
@@ -302,31 +403,31 @@
 
   function renderNational(record) {
     return tabHeader("National Team Profile", "International role, tournament value, national-team output, and squad importance.") +
-      kpiGrid([["Caps", record.caps || "Source review"], ["Goals", record.international_goals || "Source review"], ["Debut", record.international_debut || "Source review"], ["Tournaments", record.tournaments || "Source review"]]) +
-      '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">International Summary</h2>' + tableHtml(["Field", "Value"], [["Country", record.country || ""], ["Role", record.position || ""], ["International ARES", (scoreValue(record, "ares_score", 82) - 1.5).toFixed(1)], ["Tournament Value", record.market_tier || ""], ["Squad Importance", record.ares_tier || ""]]) + '</div>' + chartHtml("Goals By Year", "Line chart shows international output by year when connected.", "line", "Year", "Goals") + '</section>' +
-      '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Tournament Record</h2>' + tableHtml(["Tournament", "Apps", "Goals", "ARES", "Stage"], [["Continental", "Source review", "Source review", record.ares_score || "", "Source review"], ["World", "Source review", "Source review", (scoreValue(record, "ares_score", 82) - 2).toFixed(1), "Source review"]]) + '</div>' + chartHtml("Caps Timeline", "Bar chart groups international caps by year.", "bars", "Year", "Caps") + '</section><section class="ares-section ares-card"><h2 class="h4">Recent International Matches</h2>' + tableHtml(["Date", "Opponent", "Comp", "Min", "Goals", "Assists", "ARES"], [["Source review", "Source review", "International", "Source review", "Source review", "Source review", record.ares_score || ""]]) + '</section>';
+      kpiGrid([["Nationality", playerCountry(record) || "Identity pending"], ["Caps", record.caps || "Feed pending"], ["Goals", record.international_goals || "Feed pending"], ["Debut", record.international_debut || "Feed pending"]]) +
+      '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">International Summary</h2>' + tableHtml(["Field", "Value"], [["Country", playerCountry(record) || "Pending"], ["Role", record.position || ""], ["International ARES", (scoreValue(record, "ares_score", 82) - 1.5).toFixed(1)], ["Tournament Value", record.market_tier || ""], ["Squad Importance", record.ares_tier || ""]]) + '</div>' + chartHtml("Goals By Year", "Line chart shows international output by year when connected.", "line", "Year", "Goals") + '</section>' +
+      '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Tournament Record</h2>' + pendingBlock("International match feed pending", "Caps, tournament rows, and recent international matches need an approved national-team data source before display.") + '</div>' + chartHtml("Caps Timeline", "Bar chart groups international caps by year.", "bars", "Year", "Caps") + '</section><section class="ares-section ares-card"><h2 class="h4">Recent International Matches</h2>' + pendingBlock("Recent international feed pending", "No placeholder international fixtures are displayed.") + '</section>';
   }
 
   function renderNews(record) {
     return tabHeader("Player News Terminal", "Player notes, club notes, market notes, injury notes, and transfer notes translated into signal impact.") +
-      kpiGrid([["Latest Note", "Performance"], ["Market Impact", record.trend || "Stable"], ["Availability", record.durability || "Source review"], ["Transfer Impact", record.transfer_value_signal || "Stable"]]) +
+      kpiGrid([["Latest Note", "ARES model refresh"], ["Market Impact", record.trend || "Stable"], ["Availability", record.durability || "Feed pending"], ["Transfer Impact", transferSignal(record)]]) +
       '<section class="ares-section ares-terminal-grid">' + chartHtml("News Impact Timeline", "Line chart tracks ARES, market, and risk impact from notes.", "line", "Note date", "Impact score") + '<div class="ares-card"><h2 class="h4">Category Filters</h2><p>Market Notes | Club Notes | Injury / Availability | Transfer Notes</p></div></section>' +
-      '<section class="ares-section ares-card"><h2 class="h4">News Cards</h2>' + tableHtml(["Date", "Category", "Headline", "Impact", "Confidence"], [["May 06", "Market", "Value adjusted to current signal", "Market", record.data_confidence || ""], ["Apr 27", "Form", "Strong recent performance window", "ARES", record.data_confidence || ""], ["Apr 15", "Club", "Contract and role context reviewed", "Signal", record.data_confidence || ""]]) + '</section><section class="ares-section ares-card"><h2 class="h4">News Signal Summary</h2><p>Current effect: no major downgrade | Market Signal: ' + safe(record.trend || "Stable") + ' | Availability: ' + safe(record.durability || "Source review") + '</p></section>';
+      '<section class="ares-section ares-card"><h2 class="h4">News Cards</h2>' + tableHtml(["Date", "Category", "Headline", "Impact", "Confidence"], [[record.last_updated || "", "Market", "ARES beta model refreshed from public identity and club context", "Market", record.data_confidence || ""]]) + '</section><section class="ares-section ares-card"><h2 class="h4">News Signal Summary</h2><p>Current effect: no major downgrade | Market Signal: ' + safe(record.trend || "Stable") + ' | Availability: ' + safe(record.durability || "Feed pending") + '</p></section>';
   }
 
   function renderAchievements(record) {
     return tabHeader("Achievements", "Team honours, individual honours, milestones, and ARES career badges.") +
-      kpiGrid([["Team Honours", record.team_honours || "Source review"], ["Individual Honours", record.individual_honours || "Source review"], ["Golden Boots", record.golden_boots || "Source review"], ["ARES Badges", "4", "Career context"]]) +
+      kpiGrid([["Team Honours", record.team_honours || "Feed pending"], ["Individual Honours", record.individual_honours || "Feed pending"], ["Golden Boots", record.golden_boots || "Feed pending"], ["ARES Badges", "4", "Career context"]]) +
       '<section class="ares-section ares-terminal-grid">' + chartHtml("Honours Timeline", "Timeline chart places honours across career phases.", "line", "Year", "Honour count") + chartHtml("Achievement By Career Phase", "Stacked bar groups breakout, peak, and current phase achievements.", "bars", "Career phase", "Achievement count") + '</section>' +
-      '<section class="ares-section ares-card"><h2 class="h4">Achievement Table</h2>' + tableHtml(["Year", "Honour", "Club / Country", "Type", "Career Phase"], [["Source review", "Club honour", record.club || "", "Team", record.age_curve || ""], ["Source review", "ARES high-minutes player", record.club || "", "ARES badge", "Current"], ["Source review", "Market asset watch", record.country || "", "ARES badge", "Current"]]) + '</section><section class="ares-section ares-card"><h2 class="h4">ARES Career Badges</h2><p>Elite output | High-minutes player | Club asset | Market signal</p></section>';
+      '<section class="ares-section ares-card"><h2 class="h4">Achievement Table</h2>' + pendingBlock("Honours feed pending", "Honours are hidden until a structured player achievements source is connected.") + '</section><section class="ares-section ares-card"><h2 class="h4">ARES Career Badges</h2><p>Elite output | High-minutes player | Club asset | Market signal</p></section>';
   }
 
   function renderCareer(record) {
     const ares = scoreValue(record, "ares_score", 82);
     return tabHeader("Career Intelligence", "Career arc, output, minutes, ARES trend, and market development.") +
-      kpiGrid([["Career Goals", record.career_goals || "Source review"], ["Career Assists", record.career_assists || "Source review"], ["Seasons Played", record.seasons_played || "Source review"], ["Peak ARES Score", ares, "Current model"]]) +
-      '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Season-by-Season Career Table</h2>' + tableHtml(["Season", "Club", "Apps", "Min", "G", "A", "ARES"], [["2025/26", record.club || "", "Source review", record.minutes_role || "", "Model", "Model", record.ares_score || ""], ["2024/25", record.club || "", "Source review", "Source review", "Model", "Model", (ares - 1.2).toFixed(1)], ["2023/24", record.club || "", "Source review", "Source review", "Model", "Model", (ares - 2.4).toFixed(1)]]) + '</div>' + chartHtml("ARES Score By Season", "Line chart tracks player quality by season.", "line", "Season", "ARES Score") + '</section>' +
-      '<section class="ares-section ares-terminal-grid">' + chartHtml("Market Score By Season", "Line-area chart tracks market score and asset direction.", "line", "Season", "Market Score") + chartHtml("Goals By Season", "Bar chart groups output by season.", "bars", "Season", "Goals") + '</section><section class="ares-section ares-terminal-grid">' + chartHtml("Minutes By Season", "Bar chart shows role volume by season.", "bars", "Season", "Minutes") + '<div class="ares-card"><h2 class="h4">Career Arc</h2><p>Breakout: source review | Peak: source review | Current phase: ' + safe(record.age_curve || "Source review") + '</p></div></section><section class="ares-section ares-card"><h2 class="h4">Club History | National Team Career | Career Badges</h2><p>Career modules use sourced profile data where available and keep estimates labelled as seeded beta context.</p></section>';
+      kpiGrid([["Career Goals", record.career_goals || "Feed pending"], ["Career Assists", record.career_assists || "Feed pending"], ["Seasons Played", record.seasons_played || "Feed pending"], ["Peak ARES Score", ares, "Current model"]]) +
+      '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Season-by-Season Career Table</h2>' + tableHtml(["Season", "Club", "Apps", "Min", "G", "A", "ARES"], [["Current", record.club || "", record.appearances || "", record.minutes || "", record.goals || "", record.assists || "", record.ares_score || ""]]) + '<p class="ares-chart-seeded-note">Historical season rows are not expanded until approved career data connects.</p></div>' + chartHtml("ARES Score By Season", "Line chart tracks player quality by season.", "line", "Season", "ARES Score") + '</section>' +
+      '<section class="ares-section ares-terminal-grid">' + chartHtml("Market Score By Season", "Line-area chart tracks market score and asset direction.", "line", "Season", "Market Score") + chartHtml("Goals By Season", "Bar chart groups output by season.", "bars", "Season", "Goals") + '</section><section class="ares-section ares-terminal-grid">' + chartHtml("Minutes By Season", "Bar chart shows role volume by season.", "bars", "Season", "Minutes") + '<div class="ares-card"><h2 class="h4">Career Arc</h2><p>Current phase: ' + safe(record.age_curve || "Pending") + ' | Club: ' + safe(record.club || "") + ' | Source mode: ' + sourceModeNote(record) + '</p></div></section><section class="ares-section ares-card"><h2 class="h4">Club History | National Team Career | Career Badges</h2><p>Career modules use sourced profile data where available and keep estimates labelled as seeded beta context.</p></section>';
   }
 
   function renderProfileTab(record, active) {
@@ -370,6 +471,37 @@
     fillText("photo-credit", record.photo_credit || "ARES branded fallback avatar");
   }
 
+  function setOptionalFact(id, value) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    const wrapper = element.closest("div");
+    if (hasFact(value)) {
+      element.textContent = value;
+      if (wrapper) wrapper.hidden = false;
+    } else if (wrapper) {
+      wrapper.hidden = true;
+    } else {
+      element.textContent = "";
+    }
+  }
+
+  function applyProfileIdentity(record) {
+    fillText("country", playerCountry(record));
+    const separator = document.querySelector(".ares-profile-separator");
+    if (separator) separator.hidden = !hasFact(playerCountry(record));
+    setOptionalFact("height", heightValue(record));
+    setOptionalFact("foot", record.foot);
+    setOptionalFact("date-of-birth", record.date_of_birth);
+    setOptionalFact("joined", record.joined);
+    setOptionalFact("agent", record.agent);
+    setOptionalFact("outfitter", record.outfitter);
+    fillText("identity-source", record.identity_source || record.source || "ARES public beta");
+    fillText("stats-mode", record.stats_mode || record.score_source || "ARES beta estimate");
+    fillText("transfer-value-signal", transferSignal(record));
+    fillText("trend", trendDetail(record) || "Stable");
+    fillText("confidence-detail", confidenceDetail(record));
+  }
+
   function fillPlayerLinks(record) {
     const club = document.getElementById("club");
     if (club && record.club_url) {
@@ -384,9 +516,11 @@
 
   function initProfile(dataPath, mapping) {
     window.AresData.loadJson(dataPath).then(function (record) {
+      window.AresProfileRows = [record];
       Object.keys(mapping).forEach(function (id) { fillText(id, record[mapping[id]]); });
       const heading = document.querySelector("h1");
       if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
+      applyProfileIdentity(record);
       fillPlayerImage(record);
       fillPlayerLinks(record);
       renderPlayerProfileTables(record);
@@ -411,6 +545,7 @@
     }
     window.AresData.loadJson(dataPath).then(function (rows) {
       const list = Array.isArray(rows) ? rows : rows.players || [];
+      window.AresProfileRows = list;
       const record = list.find(function (item) {
         return String(item.player_id || "").toLowerCase() === requested || String(item.slug || "").toLowerCase() === requested;
       });
@@ -421,6 +556,7 @@
       Object.keys(mapping).forEach(function (id) { fillText(id, record[mapping[id]]); });
       const heading = document.querySelector("h1");
       if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
+      applyProfileIdentity(record);
       fillPlayerImage(record);
       fillPlayerLinks(record);
       renderPlayerProfileTables(record);
