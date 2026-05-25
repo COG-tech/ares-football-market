@@ -135,13 +135,43 @@
   }
 
   function chartHtml(title, explanation, kind, xAxis, yAxis) {
-    let visual = '<div class="ares-chart-bars"><span style="height:48%"></span><span style="height:72%"></span><span style="height:56%"></span><span style="height:88%"></span><span style="height:64%"></span><span style="height:78%"></span></div>';
-    if (kind === "scatter") {
-      visual = '<div class="ares-chart-scatter"><i style="left:18%;top:58%"></i><i style="left:34%;top:44%"></i><i style="left:52%;top:31%"></i><i style="left:67%;top:22%"></i><i style="left:78%;top:39%"></i></div>';
-    } else if (kind === "line") {
-      visual = '<div class="ares-chart-line"></div>';
+    const titleKey = String(title || "").toLowerCase();
+    let barLabels = [["18", 48], ["22", 72], ["26", 56], ["30", 88], ["32", 64], ["36", 78]];
+    if (titleKey.includes("position") || titleKey.includes("radar")) {
+      barLabels = [["GK", 42], ["DF", 68], ["MF", 74], ["W", 82], ["CF", 91], ["SS", 55]];
+    } else if (titleKey.includes("goals by minute")) {
+      barLabels = [["0-15", 40], ["16-30", 62], ["31-45", 54], ["46-60", 76], ["61-90", 88]];
+    } else if (titleKey.includes("contract")) {
+      barLabels = [["2026", 42], ["2027", 82], ["2028", 58]];
+    } else if (titleKey.includes("transfer value signal")) {
+      barLabels = [["Sell", 36], ["Hold", 84], ["Buy", 52], ["Risk", 28]];
+    } else if (titleKey.includes("caps")) {
+      barLabels = [["2019", 34], ["2021", 52], ["2023", 73], ["2025", 82]];
+    } else if (titleKey.includes("achievement")) {
+      barLabels = [["Breakout", 38], ["Peak", 86], ["Late", 64]];
+    } else if (titleKey.includes("minutes")) {
+      barLabels = [["2022", 65], ["2023", 78], ["2024", 84], ["2025", 72]];
     }
-    return '<div class="ares-graph-card"><h2 class="h4">' + safe(title) + '</h2><p class="ares-muted-note">' + safe(explanation) + '</p><div class="ares-chart-frame">' + visual + '</div><div class="ares-chart-axis"><span>X-axis: ' + safe(xAxis) + '</span><span>Y-axis: ' + safe(yAxis) + '</span></div><div class="ares-chart-legend"><span>ARES</span><span>Market</span><span>Trend</span><span>Confidence</span></div><p class="ares-chart-explainer">How to read: ' + safe(explanation) + '</p></div>';
+    let visual = '<div class="ares-chart-bars">' + barLabels.map(function (item) {
+      return '<span style="height:' + item[1] + '%"><b>' + safe(item[0]) + '</b><em>' + safe(item[1]) + '</em></span>';
+    }).join("") + '</div>';
+    if (kind === "scatter") {
+      let scatterLabels = [["Watch", 15, 62], ["Elite", 48, 26], ["Risk", 70, 42]];
+      if (titleKey.includes("market")) scatterLabels = [["Hidden", 15, 62], ["Elite", 48, 26], ["Overpriced", 67, 42]];
+      if (titleKey.includes("transfer")) scatterLabels = [["Low fee", 15, 62], ["Prime", 48, 26], ["High fee", 67, 42]];
+      visual = '<div class="ares-chart-scatter"><i style="left:18%;top:58%"></i><i style="left:34%;top:44%"></i><i style="left:52%;top:31%"></i><i style="left:67%;top:22%"></i><i style="left:78%;top:39%"></i></div><div class="ares-chart-scatter-labels">' + scatterLabels.map(function (item) {
+        return '<span style="left:' + item[1] + '%;top:' + item[2] + '%">' + safe(item[0]) + '</span>';
+      }).join("") + '</div>';
+    } else if (kind === "line") {
+      let lineLabels = [["82", 6, 56], ["89", 34, 32], ["91", 61, 44], ["95", 82, 20]];
+      if (titleKey.includes("value")) lineLabels = [["2018", 6, 56], ["2021", 34, 32], ["Peak", 61, 22], ["Now", 82, 44]];
+      if (titleKey.includes("year")) lineLabels = [["2015", 6, 56], ["2018", 34, 32], ["2022", 61, 44], ["2025", 82, 20]];
+      if (titleKey.includes("season")) lineLabels = [["2019/20", 6, 56], ["2021/22", 34, 32], ["2023/24", 61, 44], ["2025/26", 82, 20]];
+      visual = '<div class="ares-chart-line"></div><div class="ares-chart-line-labels">' + lineLabels.map(function (item) {
+        return '<span style="left:' + item[1] + '%;top:' + item[2] + '%">' + safe(item[0]) + '</span>';
+      }).join("") + '</div>';
+    }
+    return '<div class="ares-graph-card"><h2 class="h4">' + safe(title) + '</h2><p class="ares-muted-note">' + safe(explanation) + '</p><div class="ares-chart-frame" title="' + safe(title + ": " + explanation) + '">' + visual + '</div><div class="ares-chart-axis"><span>X-axis: ' + safe(xAxis) + '</span><span>Y-axis: ' + safe(yAxis) + '</span></div><div class="ares-chart-legend"><span>ARES quality</span><span>Market value</span><span>Transfer signal</span><span>Confidence</span></div><p class="ares-chart-explainer">How to read: ' + safe(explanation) + '</p><p class="ares-chart-seeded-note">Seeded beta data. Live feeds are not connected.</p></div>';
   }
 
   function tableHtml(headers, rows) {
@@ -158,8 +188,44 @@
     }).join("") + '</div>';
   }
 
+  function numberedCard(index, title, content, extraClass) {
+    return '<section class="ares-numbered-card ' + safe(extraClass || "") + '"><h2><span>' + safe(index) + '</span>' + safe(title) + '<small>i</small></h2>' + content + '</section>';
+  }
+
+  function statList(items) {
+    return '<div class="ares-profile-stat-list">' + items.map(function (item) {
+      return '<div><span>' + safe(item[0]) + '</span><strong>' + safe(item[1]) + '</strong><small>' + safe(item[2] || "") + '</small></div>';
+    }).join("") + '</div>';
+  }
+
+  function scoreDial(value, label) {
+    return '<div class="ares-score-dial"><div><strong>' + safe(Math.round(Number(value) || 0)) + '</strong></div><span>' + safe(label) + '</span></div>';
+  }
+
+  function minutesByRole(record) {
+    const minutes = String(record.minutes_role || "").match(/\d+/);
+    return '<div class="ares-role-donut"><div><strong>' + safe(minutes ? minutes[0] : "2610") + '</strong><span>Total Minutes</span></div></div><ul class="ares-role-legend"><li><b></b>' + safe(record.position || "Primary") + ' 85%</li><li><b></b>Secondary Role 12%</li><li><b></b>Other Forward 3%</li></ul>';
+  }
+
+  function pitchUsage(record) {
+    return '<div class="ares-pitch-map"><div class="zone zone-top"><strong>' + safe(record.position || "CF") + '</strong><span>85%</span></div><div class="zone zone-mid"><strong>SS</strong><span>12%</span></div><div class="zone zone-low"><strong>OF</strong><span>3%</span></div></div>';
+  }
+
+  function formStrip(record) {
+    const ares = scoreValue(record, "ares_score", 82);
+    const values = [ares - 10, ares - 2, ares - 14, ares - 1, ares - 19, ares - 6, ares + 1, ares - 5, ares - 12, ares - 3];
+    return '<div class="ares-form-chart"><div class="ares-form-line"></div>' + values.map(function (value, index) {
+      const y = Math.max(10, Math.min(78, 90 - value));
+      return '<span style="left:' + (4 + index * 10) + '%;top:' + y + '%"><b>' + safe((value / 10).toFixed(1)) + '</b></span>';
+    }).join("") + '</div><p class="ares-muted-note">ARES Form is a proprietary rating out of 10 based on performance impact.</p>';
+  }
+
+  function marketMiniTrend(record) {
+    return '<div class="ares-mini-trend"><h3 class="ares-mini-heading">Market Value Trend</h3><p class="ares-muted-note">Line-area model for public market direction, not a fee claim.</p><div class="ares-mini-line-chart"><span style="left:4%;top:58%">2018</span><span style="left:40%;top:30%">Peak</span><span style="left:82%;top:52%">Now</span></div><div class="ares-chart-axis"><span>X-axis: Season</span><span>Y-axis: Market Score</span></div><p class="ares-chart-explainer">How to read: the curve shows ARES market score direction, with live price feeds not connected.</p><p class="ares-chart-seeded-note">Seeded beta data. Live feeds are not connected.</p></div>';
+  }
+
   function tabHeader(title, text) {
-    return '<div class="ares-section-title"><div><h2 class="h4">' + safe(title) + '</h2><p>' + safe(text) + '</p></div><span class="ares-small-badge">Seeded Beta</span></div>';
+    return '<div class="ares-tab-heading"><div><h2>' + safe(title) + '</h2><p>' + safe(text) + '</p><p class="ares-tab-trust-note">Seeded beta data. Live feeds are not connected.</p></div><span class="ares-beta-badge">Seeded Beta</span></div>';
   }
 
   function playerLabel(record) {
@@ -185,12 +251,18 @@
 
   function renderOverview(record) {
     const rows = syntheticRows(record);
-    return tabHeader("Overview", "One-screen football asset snapshot: quality, value, signal, and risk.") +
-      kpiGrid([["ARES Score", record.ares_score || "", record.ares_tier || "Performance quality"], ["Market Score", record.market_score || "", record.market_tier || "Football asset value"], ["Transfer Signal", record.transfer_value_signal || "Stable", "Movement context"], ["Data Confidence", record.data_confidence || "", "Coverage label"]]) +
-      '<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Player Identity</h2>' + tableHtml(["Field", "Value"], [["Full Name", playerLabel(record)], ["DOB / Age", record.age || ""], ["Height / Foot", record.foot || "Source review"], ["Citizenship", record.country || ""], ["Club / Contract", (record.club || "") + " / " + (record.contract_end || "Source review")]]) + '</div><div class="ares-card"><h2 class="h4">ARES Snapshot</h2>' + tableHtml(["Signal", "Value"], [["Position Rank", record.position || ""], ["Role Grade", record.ares_tier || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(scoreValue(record, "ares_score", 82))], ["Link-Up Play", Math.max(50, Math.round(scoreValue(record, "ares_score", 82) - 4))]]) + '</div><div class="ares-card"><h2 class="h4">Market Intelligence</h2>' + tableHtml(["Signal", "Value"], [["Value Band", record.market_tier || ""], ["Age Curve", record.age_curve || ""], ["Contract", record.contract_end || ""], ["Asset Risk", record.durability || ""], ["Signal", record.transfer_value_signal || ""]]) + '</div></section>' +
-      '<section class="ares-section ares-terminal-grid">' + chartHtml("Position Usage", "Role split by position, minutes, and usage context.", "bars", "Position role", "Usage share") + chartHtml("ARES Form Trend", "Recent match-window direction for performance quality.", "line", "Last 10 matches", "ARES match score") + '</section>' +
-      '<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Component Grades</h2>' + metricBars([["Finishing / Output", scoreValue(record, "ares_score", 82)], ["Shot Quality / Creation", scoreValue(record, "market_score", 80)], ["Link-Up Play", scoreValue(record, "ares_score", 82) - 4], ["Pressing Impact", scoreValue(record, "ares_score", 82) - 8]]) + '</div><div class="ares-card"><h2 class="h4">Recent Matches</h2>' + tableHtml(["Date", "Competition", "Opponent", "Min", "G", "A", "ARES"], rows.recentMatches) + '</div></section>' +
-      '<section class="ares-section ares-card"><h2 class="h4">Comparable Players</h2>' + tableHtml(["Player", "Age", "Club / Market", "Position", "ARES", "Market", "Similarity"], rows.comparable) + '</section>';
+    const ares = scoreValue(record, "ares_score", 82);
+    const market = scoreValue(record, "market_score", 80);
+    return '<section class="ares-profile-dashboard">' +
+      numberedCard(1, "Player Identity", statList([["Full Name", playerLabel(record)], ["Date of Birth", record.date_of_birth || "Source review"], ["Nationality", record.country || ""], ["Citizenship", record.country || ""], ["Position", record.position || ""], ["Other Position", "Secondary role review"], ["Foot", record.foot || "Source review"], ["Current Club", record.club || ""], ["League", record.league || ""], ["Contract Until", record.contract_end || "Source review"]])) +
+      numberedCard(2, "ARES Performance Snapshot", '<div class="ares-snapshot-grid">' + scoreDial(ares, record.ares_tier || "Role Grade") + statList([["Position Rank", "#1 / 104", record.position || ""], ["Minutes / Role", record.minutes_role || ""], ["Goal Threat", Math.round(ares) + " /100"], ["Link-Up Play", Math.max(50, Math.round(ares - 5)) + " /100"], ["Aerial Value", Math.max(50, Math.round(ares - 4)) + " /100"], ["Pressing Impact", Math.max(40, Math.round(ares - 13)) + " /100"]]) + '<div><h3 class="ares-mini-heading">Minutes By Role</h3>' + minutesByRole(record) + '</div></div><a class="ares-inline-cta" href="profile.html?id=' + safe(record.player_id || "") + '&view=stats">View Detailed Performance -&gt;</a>', "span-2") +
+      numberedCard(3, "Market Intelligence", '<div class="ares-market-intel-grid">' + statList([["Estimated Value Band", record.market_tier || "Model view"], ["Peak Value", "Model view"], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["Durability Risk", record.durability || ""], ["League Strength", record.league || ""], ["Asset Risk", record.transfer_value_signal || "Stable"]]) + marketMiniTrend(record) + '</div>', "span-2") +
+      numberedCard(4, "Position Usage", pitchUsage(record)) +
+      numberedCard(5, "ARES Form Trend (Last 10 Matches)", formStrip(record), "span-2") +
+      numberedCard(6, "Attacker Component Grades", metricBars([["Finishing", Math.round(ares)], ["Shot Quality", Math.round(market)], ["Chance Volume", Math.max(50, Math.round(ares - 6))], ["Link-Up Play", Math.max(50, Math.round(ares - 7))], ["Box Movement", Math.max(50, Math.round(market - 4))], ["Aerial Threat", Math.max(50, Math.round(ares - 4))], ["Pressing Impact", Math.max(40, Math.round(ares - 13))]])) +
+      numberedCard(7, "Recent Matches", tableHtml(["Date", "Comp", "Opponent", "Score", "Min", "G", "A", "ARES"], rows.recentMatches.map(function (row, index) { return [row[0], row[1], row[2], index === 0 ? "1-1" : index === 1 ? "4-0" : "2-1", row[3], row[4], row[5], row[6]]; })), "span-2") +
+      numberedCard(8, "Comparable Players", tableHtml(["Player", "Age", "Club", "Position", "ARES Score", "Market Score", "Similarity"], rows.comparable), "span-2") +
+      '</section>';
   }
 
   function renderStats(record) {
@@ -211,7 +283,7 @@
       kpiGrid([["Market Score", record.market_score || "", record.market_tier || "Asset value"], ["ARES Score", record.ares_score || "", record.ares_tier || "Quality"], ["Transfer Signal", record.transfer_value_signal || "Stable", "Movement"], ["Data Confidence", record.data_confidence || "", "Coverage"]]) +
       '<section class="ares-section ares-terminal-grid">' + chartHtml("Estimated Value Trend", "Line-area model for public market direction, not a fee claim.", "line", "Season", "Market Score") + '<div class="ares-card"><h2 class="h4">Market Value Summary</h2>' + tableHtml(["Field", "Value"], [["Estimated Value Band", record.market_tier || ""], ["Peak Value", "Model view"], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["League Strength", record.league || ""]]) + '</div></section>' +
       '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Market Score Breakdown</h2>' + metricBars([["ARES Quality", scoreValue(record, "ares_score", 82)], ["Age Curve", Number(record.age || 25) <= 23 ? 92 : 76], ["Position Scarcity", scoreValue(record, "market_score", 80)], ["League Strength", 84], ["Role Security", scoreValue(record, "ares_score", 82) - 5]]) + '</div>' + chartHtml("Age Curve", "Line chart shows how asset value changes across age bands.", "line", "Age band", "Market curve") + '</section>' +
-      '<section class="ares-section ares-terminal-grid">' + chartHtml("Comparable Market Assets", "Scatter compares ARES quality against football asset value.", "scatter", "ARES Score", "Market Score") + chartHtml("Transfer Value Signal", "Gauge-style board groups sell, hold, buy, watch, and risk outcomes.", "bars", "Signal type", "Signal strength") + '</section><section class="ares-section ares-card"><h2 class="h4">Club Fit / Market Outlook</h2><p>Ideal context: ' + safe(record.league || "League fit review") + ' | Risk level: ' + safe(record.durability || "Source review") + ' | Signal: ' + safe(record.transfer_value_signal || "Stable") + '</p></section>';
+      '<section class="ares-section ares-terminal-grid">' + chartHtml("Comparable Market Assets", "Scatter compares ARES quality against football asset value.", "scatter", "ARES Score", "Market Score") + chartHtml("Transfer Value Signal", "Gauge-style board groups sell, hold, buy, watch, and risk outcomes.", "bars", "Signal type", "Signal strength") + '</section><section class="ares-section ares-card"><h2 class="h4">Recent Market Updates</h2>' + tableHtml(["Date", "Update", "Change", "Reason", "Signal"], [[record.last_updated || "Source review", "Market model refresh", record.trend_value || "Model view", record.reason || "ARES beta score review", record.transfer_value_signal || "Stable"], ["Prior window", "Role and age curve reviewed", "Model view", record.age_curve || "Source review", record.trend || "Stable"]]) + '</section><section class="ares-section ares-card"><h2 class="h4">Club Fit / Market Outlook</h2><p>Ideal context: ' + safe(record.league || "League fit review") + ' | Risk level: ' + safe(record.durability || "Source review") + ' | Signal: ' + safe(record.transfer_value_signal || "Stable") + '</p></section>';
   }
 
   function renderTransfers(record) {

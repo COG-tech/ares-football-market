@@ -21,7 +21,6 @@ FORBIDDEN_HTML = [
     "local dataset",
     "placeholder",
     "Loading open",
-    "Public Beta Demo",
 ]
 
 MAJOR_PAGES = [
@@ -224,23 +223,34 @@ def main() -> int:
         fail("Player profile template contains hard-coded self profile links.", failures)
     if "player-roster-link" not in profile_html:
         fail("Player profile is missing View club roster CTA.", failures)
+    for required_profile_markup in ["ares-profile-topbar", "ares-profile-search", "ares-profile-hero", "ares-player-score-deck", "ares-player-tab-panel", "Public Beta Demo", "Club Fit"]:
+        if required_profile_markup not in profile_html:
+            fail(f"Player profile shell is missing: {required_profile_markup}", failures)
+    if "Loading player intelligence view" in profile_html:
+        fail("Player profile still contains the old loading shell copy.", failures)
     profile_views = set(re.findall(r'data-profile-view="([^"]+)"', profile_html))
     expected_views = {"overview", "stats", "market", "transfers", "rumours", "national-team", "news", "achievements", "career"}
     if profile_views != expected_views:
         fail(f"Player profile tab set is wrong: {sorted(profile_views)}", failures)
-    for label in ["Overview", "Stats", "Market Value", "Transfers", "Rumours", "National Team", "News", "Achievements", "Career"]:
+    for label in ["Profile", "Stats", "Market Value", "Transfers", "Rumours", "National Team", "News", "Achievements", "Career"]:
         if f">{label}<" not in profile_html:
             fail(f"Player profile tab label is missing: {label}", failures)
-    if "Foot:" not in profile_html:
+    if 'id="foot"' not in profile_html or ">Foot<" not in profile_html:
         fail("Shared player header is missing foot field.")
     soccer_js = read("assets/js/soccer-pages.js")
     for title in ["Overview", "Stats Center", "Market Value Intelligence", "Transfer Intelligence", "Rumour Intelligence", "National Team Profile", "Player News Terminal", "Achievements", "Career Intelligence"]:
         if title not in soccer_js:
             fail(f"Player tab renderer is missing title: {title}", failures)
+    for overview_marker in ["ares-profile-dashboard", "ares-numbered-card", "ARES Performance Snapshot", "Market Intelligence", "Position Usage", "ARES Form Trend", "Attacker Component Grades", "Comparable Players"]:
+        if overview_marker not in soccer_js:
+            fail(f"Player overview screenshot module is missing: {overview_marker}", failures)
     if "X-axis:" not in soccer_js or "Y-axis:" not in soccer_js or "How to read:" not in soccer_js:
         fail("Player tab graphs are missing explicit axis labels or explanations.", failures)
+    for required_graph_markup in ["ares-chart-line-labels", "ares-chart-scatter-labels", "ares-chart-seeded-note", "Seeded beta data. Live feeds are not connected."]:
+        if required_graph_markup not in soccer_js:
+            fail(f"Player tab graph labelling is missing: {required_graph_markup}", failures)
     css = read("assets/css/ares-components.css")
-    for required_css in [".ares-player-tabs a.is-active", "rgba(247, 201, 72", ".ares-player-tabs a:hover"]:
+    for required_css in [".ares-player-tabs a.is-active", "rgba(247, 201, 72", ".ares-player-tabs a:hover", ".ares-profile-topbar", ".ares-profile-hero", ".ares-numbered-card", ".ares-score-card", ".ares-profile-dashboard"]:
         if required_css not in css:
             fail(f"Player tab active/hover styling is missing: {required_css}", failures)
 
