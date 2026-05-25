@@ -1818,7 +1818,8 @@ input.ares-search:focus {
   width: 44%;
   display: grid;
   place-items: center;
-  padding: 0.46rem;
+  min-height: 2.25rem;
+  padding: 0.28rem 0.42rem;
   background: rgba(247, 201, 72, 0.7);
   border: 1px solid rgba(247, 201, 72, 0.9);
   text-align: center;
@@ -1835,17 +1836,27 @@ input.ares-search:focus {
 }
 
 .ares-pitch-map .zone-mid {
-  top: 40%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .ares-pitch-map .zone-low {
-  bottom: 8%;
+  bottom: 0.35rem;
 }
 
 .ares-pitch-map strong,
 .ares-pitch-map span {
   display: block;
   font-weight: 950;
+  line-height: 1;
+}
+
+.ares-pitch-map strong {
+  font-size: 0.78rem;
+}
+
+.ares-pitch-map span {
+  font-size: 0.72rem;
 }
 
 .ares-form-chart {
