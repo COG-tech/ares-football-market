@@ -19,3 +19,12 @@ The site now uses demo-mode language instead of public old sample language, keep
 - Live transfer data: not connected.
 - ARES model output: formula defined, not live.
 - Market model output: formula defined, not live.
+
+## Open match cache
+
+The website cache is built from `D:\aRES\football\open_match_csv`.
+
+- Rebuild once per day: `python "D:\aRES\ares-football-market\scripts\integrate_open_match_data.py"`
+- Force a rebuild: `python "D:\aRES\ares-football-market\scripts\integrate_open_match_data.py" --force`
+- Rebuild, commit, and push to GitHub Pages: `python "D:\aRES\ares-football-market\scripts\integrate_open_match_data.py" --publish`
+- Daily runner for upload: `powershell -ExecutionPolicy Bypass -File "D:\aRES\ares-football-market\scripts\run_daily_open_match_cache.ps1"`

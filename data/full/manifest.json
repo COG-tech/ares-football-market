@@ -1,12 +1,54 @@
 {
-  "source": "ARES Football public export from local final CSV outputs",
+  "source": "ARES Football public export with integrated Football-Data.co.uk open match cache",
   "premium_locked": true,
   "premium_note": "ARES, market, and internal model columns are excluded from this public full-data export.",
   "tables": [
     {
-      "source_csv": "matches.csv",
+      "source_csv": "open_matches.csv",
       "path": "full/matches/part-0000.json",
-      "rows": 19080,
+      "partitioned_paths": [
+        {
+          "path": "full/matches/part-0000.json",
+          "rows": 25000
+        },
+        {
+          "path": "full/matches/part-0001.json",
+          "rows": 25000
+        },
+        {
+          "path": "full/matches/part-0002.json",
+          "rows": 25000
+        },
+        {
+          "path": "full/matches/part-0003.json",
+          "rows": 25000
+        },
+        {
+          "path": "full/matches/part-0004.json",
+          "rows": 25000
+        },
+        {
+          "path": "full/matches/part-0005.json",
+          "rows": 25000
+        },
+        {
+          "path": "full/matches/part-0006.json",
+          "rows": 25000
+        },
+        {
+          "path": "full/matches/part-0007.json",
+          "rows": 25000
+        },
+        {
+          "path": "full/matches/part-0008.json",
+          "rows": 25000
+        },
+        {
+          "path": "full/matches/part-0009.json",
+          "rows": 7356
+        }
+      ],
+      "rows": 232356,
       "columns": [
         "match_id",
         "source_season",
@@ -14,6 +56,7 @@
         "league_code",
         "league_name",
         "date",
+        "time",
         "home_team",
         "away_team",
         "full_time_home_goals",
@@ -22,10 +65,13 @@
         "half_time_home_goals",
         "half_time_away_goals",
         "half_time_result",
+        "referee",
         "source_url",
         "source_confidence",
         "is_placeholder"
-      ]
+      ],
+      "source": "Football-Data.co.uk open CSV",
+      "last_updated": "2026-05-26"
     },
     {
       "source_csv": "clubs.csv",
@@ -138,5 +184,6 @@
         "created_at"
       ]
     }
-  ]
+  ],
+  "last_updated": "2026-05-26"
 }

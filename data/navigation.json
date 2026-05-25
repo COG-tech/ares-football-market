@@ -154,6 +154,36 @@
       ]
     },
     {
+      "id": "matches",
+      "label": "Matches",
+      "summary": "Open match results and league coverage from Football-Data.co.uk.",
+      "sidebar": [
+        {
+          "label": "Open Match Data",
+          "href": "matches/index.html"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Open Match Data",
+          "items": [
+            {
+              "label": "Match Board",
+              "href": "matches/index.html"
+            },
+            {
+              "label": "League Coverage",
+              "href": "matches/index.html#coverage"
+            },
+            {
+              "label": "Latest Results",
+              "href": "matches/index.html#latest"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "clubs",
       "label": "Clubs",
       "summary": "Club portfolios, squad market scores, age curves, and need areas.",

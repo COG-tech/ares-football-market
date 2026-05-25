@@ -40,6 +40,7 @@
     if (path.includes("/leagues/mls")) return "mls";
     if (path.includes("/leagues/north-america")) return "north-america";
     if (path.includes("/leagues/")) return "leagues";
+    if (path.includes("/matches/")) return "matches";
     if (path.includes("/transfers/")) return "transfers";
     if (path.includes("/watchlist/")) return "watchlist";
     if (path.includes("/players/")) return "players";
