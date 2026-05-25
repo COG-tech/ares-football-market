@@ -1320,7 +1320,9 @@ input.ares-search:focus {
 
 .ares-profile-hero .ares-player-media-card {
   position: relative;
-  min-height: 8.65rem;
+  height: 8rem;
+  min-height: 0;
+  overflow: hidden;
   border-radius: 8px;
 }
 
@@ -1336,12 +1338,22 @@ input.ares-search:focus {
 }
 
 .ares-profile-hero .ares-profile-photo {
+  display: block;
   width: 100%;
-  height: 100%;
-  min-height: 8.65rem;
+  height: 8rem;
+  min-height: 0;
+  overflow: hidden;
   border: 0;
   border-radius: 0;
   background: transparent;
+}
+
+.ares-profile-hero .ares-profile-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .ares-profile-hero .ares-player-core-card {
@@ -1907,7 +1919,7 @@ body.ares-profile-view-stats .ares-profile-hero {
 
 body.ares-profile-view-stats .ares-profile-hero .ares-player-media-card,
 body.ares-profile-view-stats .ares-profile-hero .ares-profile-photo {
-  min-height: 8rem;
+  height: 7.6rem;
 }
 
 body.ares-profile-view-stats .ares-profile-hero .ares-player-title-row h1 {
