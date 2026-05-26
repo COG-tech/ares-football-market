@@ -160,7 +160,150 @@ def latest_by_league(rows: list[dict[str, Any]], per_league: int = 25) -> list[d
     return out
 
 
-def update_data_status(match_count: int, league_count: int, archive_manifest: dict[str, Any]) -> None:
+def result_points(goals_for: int, goals_against: int) -> tuple[int, str]:
+    if goals_for > goals_against:
+        return 3, "W"
+    if goals_for == goals_against:
+        return 1, "D"
+    return 0, "L"
+
+
+def completed_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        row
+        for row in rows
+        if isinstance(row.get("full_time_home_goals"), int)
+        and isinstance(row.get("full_time_away_goals"), int)
+    ]
+
+
+def build_team_stats(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    stats: dict[tuple[str, str, str, str, str], dict[str, Any]] = {}
+    recent: dict[tuple[str, str, str, str, str], list[tuple[datetime, str]]] = {}
+
+    for row in completed_rows(rows):
+        country = str(row.get("country", ""))
+        league_code = str(row.get("league_code", ""))
+        league_name = str(row.get("league_name", ""))
+        date_value = parse_date(str(row.get("date", "")))
+        home = str(row.get("home_team", "")).strip()
+        away = str(row.get("away_team", "")).strip()
+        hg = int(row["full_time_home_goals"])
+        ag = int(row["full_time_away_goals"])
+        if not home or not away:
+            continue
+
+        for team, venue, gf, ga in ((home, "home", hg, ag), (away, "away", ag, hg)):
+            key = (country, league_code, league_name, team, venue)
+            team_row = stats.setdefault(
+                key,
+                {
+                    "country": country,
+                    "league_code": league_code,
+                    "league_name": league_name,
+                    "team": team,
+                    "venue": venue,
+                    "matches": 0,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 0,
+                    "goals_for": 0,
+                    "goals_against": 0,
+                    "points": 0,
+                    "first_date": "",
+                    "last_date": "",
+                    "source": "Football-Data.co.uk open CSV",
+                },
+            )
+            points, outcome = result_points(gf, ga)
+            team_row["matches"] += 1
+            team_row["wins"] += int(outcome == "W")
+            team_row["draws"] += int(outcome == "D")
+            team_row["losses"] += int(outcome == "L")
+            team_row["goals_for"] += gf
+            team_row["goals_against"] += ga
+            team_row["points"] += points
+            if date_value != datetime.min:
+                current_first = parse_date(str(team_row["first_date"]))
+                current_last = parse_date(str(team_row["last_date"]))
+                if current_first == datetime.min or date_value < current_first:
+                    team_row["first_date"] = date_value.date().isoformat()
+                if current_last == datetime.min or date_value > current_last:
+                    team_row["last_date"] = date_value.date().isoformat()
+                recent.setdefault(key, []).append((date_value, outcome))
+
+    out = []
+    for key, team_row in stats.items():
+        matches = max(int(team_row["matches"]), 1)
+        team_row["goal_difference"] = int(team_row["goals_for"]) - int(team_row["goals_against"])
+        team_row["points_per_match"] = round(float(team_row["points"]) / matches, 3)
+        team_row["goals_for_per_match"] = round(float(team_row["goals_for"]) / matches, 3)
+        team_row["goals_against_per_match"] = round(float(team_row["goals_against"]) / matches, 3)
+        team_row["recent_form"] = "".join(outcome for _, outcome in sorted(recent.get(key, []), reverse=True)[:5])
+        out.append(team_row)
+
+    out.sort(key=lambda row: (row["country"], row["league_name"], -row["points_per_match"], -row["goal_difference"], row["team"], row["venue"]))
+    return out
+
+
+def build_league_stats(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    stats: dict[tuple[str, str, str], dict[str, Any]] = {}
+    teams: dict[tuple[str, str, str], set[str]] = {}
+
+    for row in completed_rows(rows):
+        key = (str(row.get("country", "")), str(row.get("league_code", "")), str(row.get("league_name", "")))
+        hg = int(row["full_time_home_goals"])
+        ag = int(row["full_time_away_goals"])
+        league_row = stats.setdefault(
+            key,
+            {
+                "country": key[0],
+                "league_code": key[1],
+                "league_name": key[2],
+                "completed_matches": 0,
+                "home_wins": 0,
+                "draws": 0,
+                "away_wins": 0,
+                "goals": 0,
+                "home_goals": 0,
+                "away_goals": 0,
+                "first_date": "",
+                "last_date": "",
+                "source": "Football-Data.co.uk open CSV",
+            },
+        )
+        league_row["completed_matches"] += 1
+        league_row["home_wins"] += int(hg > ag)
+        league_row["draws"] += int(hg == ag)
+        league_row["away_wins"] += int(hg < ag)
+        league_row["goals"] += hg + ag
+        league_row["home_goals"] += hg
+        league_row["away_goals"] += ag
+        teams.setdefault(key, set()).update({str(row.get("home_team", "")), str(row.get("away_team", ""))})
+        date_value = parse_date(str(row.get("date", "")))
+        if date_value != datetime.min:
+            current_first = parse_date(str(league_row["first_date"]))
+            current_last = parse_date(str(league_row["last_date"]))
+            if current_first == datetime.min or date_value < current_first:
+                league_row["first_date"] = date_value.date().isoformat()
+            if current_last == datetime.min or date_value > current_last:
+                league_row["last_date"] = date_value.date().isoformat()
+
+    out = []
+    for key, league_row in stats.items():
+        matches = max(int(league_row["completed_matches"]), 1)
+        league_row["teams_seen"] = len({team for team in teams.get(key, set()) if team})
+        league_row["goals_per_match"] = round(float(league_row["goals"]) / matches, 3)
+        league_row["home_win_rate"] = round(float(league_row["home_wins"]) / matches, 3)
+        league_row["draw_rate"] = round(float(league_row["draws"]) / matches, 3)
+        league_row["away_win_rate"] = round(float(league_row["away_wins"]) / matches, 3)
+        out.append(league_row)
+
+    out.sort(key=lambda row: (row["country"], row["league_name"]))
+    return out
+
+
+def update_data_status(match_count: int, league_count: int, team_stats_count: int, archive_manifest: dict[str, Any]) -> None:
     path = SITE_ROOT / "data" / "data_status.json"
     status = read_json(path, {}) or {}
     status.update(
@@ -168,6 +311,7 @@ def update_data_status(match_count: int, league_count: int, archive_manifest: di
             "last_updated": TODAY,
             "open_match_rows": match_count,
             "open_match_leagues": league_count,
+            "open_match_team_stat_rows": team_stats_count,
             "open_match_source": "Football-Data.co.uk open CSV",
             "open_match_cache_generated_at_utc": NOW_UTC,
             "open_match_source_manifest_generated_at_utc": archive_manifest.get("generated_at_utc", ""),
@@ -176,7 +320,7 @@ def update_data_status(match_count: int, league_count: int, archive_manifest: di
     write_json(path, status)
 
 
-def update_full_manifest(match_count: int, parts: list[dict[str, Any]]) -> None:
+def update_full_manifest(match_count: int, team_stats_count: int, league_stats_count: int, parts: list[dict[str, Any]]) -> None:
     path = SITE_ROOT / "data" / "full" / "manifest.json"
     manifest = read_json(path, {}) or {}
     tables = [
@@ -184,6 +328,7 @@ def update_full_manifest(match_count: int, parts: list[dict[str, Any]]) -> None:
         for table in manifest.get("tables", [])
         if table.get("source_csv") not in {"open_matches.csv", "matches.csv"}
         and table.get("path") != "full/matches/part-0000.json"
+        and table.get("source_csv") not in {"open_match_team_stats.json", "open_match_league_stats.json"}
     ]
     tables.insert(
         0,
@@ -194,6 +339,61 @@ def update_full_manifest(match_count: int, parts: list[dict[str, Any]]) -> None:
             "rows": match_count,
             "columns": MATCH_COLUMNS,
             "source": "Football-Data.co.uk open CSV",
+            "last_updated": TODAY,
+        },
+    )
+    tables.insert(
+        1,
+        {
+            "source_csv": "open_match_team_stats.json",
+            "path": "open_match_team_stats.json",
+            "rows": team_stats_count,
+            "columns": [
+                "country",
+                "league_code",
+                "league_name",
+                "team",
+                "venue",
+                "matches",
+                "wins",
+                "draws",
+                "losses",
+                "goals_for",
+                "goals_against",
+                "goal_difference",
+                "points",
+                "points_per_match",
+                "goals_for_per_match",
+                "goals_against_per_match",
+                "recent_form",
+                "first_date",
+                "last_date",
+            ],
+            "source": "Derived from Football-Data.co.uk open CSV",
+            "last_updated": TODAY,
+        },
+    )
+    tables.insert(
+        2,
+        {
+            "source_csv": "open_match_league_stats.json",
+            "path": "open_match_league_stats.json",
+            "rows": league_stats_count,
+            "columns": [
+                "country",
+                "league_code",
+                "league_name",
+                "completed_matches",
+                "teams_seen",
+                "goals",
+                "goals_per_match",
+                "home_win_rate",
+                "draw_rate",
+                "away_win_rate",
+                "first_date",
+                "last_date",
+            ],
+            "source": "Derived from Football-Data.co.uk open CSV",
             "last_updated": TODAY,
         },
     )
@@ -227,6 +427,22 @@ def update_navigation() -> None:
                 ],
             },
         )
+    for menu in menus:
+        if menu.get("id") == "matches":
+            menu["summary"] = "Open match results, coverage, and ARES formula inputs from Football-Data.co.uk."
+            menu["sidebar"] = [{"label": "Open Match Data", "href": "matches/index.html"}]
+            menu["groups"] = [
+                {
+                    "title": "Open Match Data",
+                    "items": [
+                        {"label": "Match Board", "href": "matches/index.html"},
+                        {"label": "League Coverage", "href": "matches/index.html#coverage"},
+                        {"label": "ARES Inputs", "href": "matches/index.html#stats"},
+                        {"label": "Latest Results", "href": "matches/index.html#latest"},
+                    ],
+                }
+            ]
+            break
     write_json(path, nav)
 
 
@@ -248,12 +464,12 @@ def write_matches_page(summary: list[dict[str, Any]]) -> None:
     <nav class=\"ares-nav\" aria-label=\"Primary\">
       <a href=\"../index.html\">Home</a><a href=\"../players/index.html\">Players</a><a href=\"../rankings/ares.html\">ARES Rankings</a><a href=\"../rankings/market.html\">Market Rankings</a><a href=\"../clubs/index.html\">Clubs</a><a href=\"../leagues/index.html\">Leagues</a><a href=\"../matches/index.html\">Matches</a><a href=\"../transfers/index.html\">Transfers</a><a href=\"../continents/\">Continents</a><a href=\"../watchlist/index.html\">Watchlist</a>
     </nav>
-  </header><div class=\"ares-beta-strip\"><strong>Open match data connected</strong><span>Football-Data.co.uk CSV cache integrated {TODAY}.</span></div><main class=\"soccer-main\"><div class=\"ares-page-title\"><h1>Open Match Data</h1><p>Public match result coverage from Football-Data.co.uk, integrated into the ARES Football Market data layer.</p></div><section class=\"ares-section ares-kpi-grid\"><div class=\"ares-kpi-card\"><span class=\"label\">Match Rows</span><span class=\"value\">{total_matches:,}</span><span class=\"meta\">Normalized public rows</span></div><div class=\"ares-kpi-card\"><span class=\"label\">Leagues</span><span class=\"value\">{total_leagues}</span><span class=\"meta\">Mapped open CSV sources</span></div><div class=\"ares-kpi-card\"><span class=\"label\">Cache</span><span class=\"value\">Daily</span><span class=\"meta\">One refresh per date</span></div><div class=\"ares-kpi-card\"><span class=\"label\">Source</span><span class=\"value\">Open CSV</span><span class=\"meta\">Football-Data.co.uk</span></div></section><section id=\"coverage\" class=\"ares-section ares-card\"><div class=\"ares-section-title\"><div><h2 class=\"h4\">League Coverage</h2><p>Coverage by mapped league, with season counts and date ranges.</p></div></div><input id=\"coverage-search\" class=\"ares-search mb-3\" type=\"search\" aria-label=\"Search match coverage\"><div class=\"table-responsive\"><table id=\"coverage-table\" class=\"ares-table\"><thead><tr><th>League</th><th>Country</th><th>Code</th><th>Matches</th><th>Seasons</th><th>Clubs Seen</th><th>First Date</th><th>Last Date</th><th>Source</th></tr></thead><tbody id=\"coverage-body\"></tbody></table></div></section><section id=\"latest\" class=\"ares-section ares-card\"><div class=\"ares-section-title\"><div><h2 class=\"h4\">Latest Open Match Rows</h2><p>Latest results from each mapped league. The complete archive is partitioned under <code>data/full/matches/</code>.</p></div></div><input id=\"latest-search\" class=\"ares-search mb-3\" type=\"search\" aria-label=\"Search latest matches\"><div class=\"table-responsive\"><table id=\"latest-table\" class=\"ares-table\"><thead><tr><th>Date</th><th>League</th><th>Home</th><th>Away</th><th>FT</th><th>HT</th><th>Source</th></tr></thead><tbody id=\"latest-body\"></tbody></table></div></section></main><footer class=\"ares-footer\">ARES Football Market is an independent public beta football intelligence product. <a href=\"../image-credits.html\">Image credits</a>.</footer><script src=\"../assets/plugins/global/plugins.bundle.js\"></script>
+  </header><div class=\"ares-beta-strip\"><strong>Open match data connected</strong><span>Football-Data.co.uk CSV cache integrated {TODAY}.</span></div><main class=\"soccer-main\"><div class=\"ares-page-title\"><h1>Open Match Data</h1><p>Public match result coverage from Football-Data.co.uk, integrated into the ARES Football Market data layer.</p></div><section class=\"ares-section ares-kpi-grid\"><div class=\"ares-kpi-card\"><span class=\"label\">Match Rows</span><span class=\"value\">{total_matches:,}</span><span class=\"meta\">Normalized public rows</span></div><div class=\"ares-kpi-card\"><span class=\"label\">Leagues</span><span class=\"value\">{total_leagues}</span><span class=\"meta\">Mapped open CSV sources</span></div><div class=\"ares-kpi-card\"><span class=\"label\">Cache</span><span class=\"value\">Daily</span><span class=\"meta\">One refresh per date</span></div><div class=\"ares-kpi-card\"><span class=\"label\">Source</span><span class=\"value\">Open CSV</span><span class=\"meta\">Football-Data.co.uk</span></div></section><section id=\"coverage\" class=\"ares-section ares-card\"><div class=\"ares-section-title\"><div><h2 class=\"h4\">League Coverage</h2><p>Coverage by mapped league, with season counts and date ranges.</p></div></div><input id=\"coverage-search\" class=\"ares-search mb-3\" type=\"search\" aria-label=\"Search match coverage\"><div class=\"table-responsive\"><table id=\"coverage-table\" class=\"ares-table\"><thead><tr><th>League</th><th>Country</th><th>Code</th><th>Matches</th><th>Seasons</th><th>Clubs Seen</th><th>First Date</th><th>Last Date</th><th>Source</th></tr></thead><tbody id=\"coverage-body\"></tbody></table></div></section><section id=\"stats\" class=\"ares-section ares-card\"><div class=\"ares-section-title\"><div><h2 class=\"h4\">ARES Formula Inputs</h2><p>Team form, goals, points, and venue splits derived from the open match archive for model use.</p></div></div><input id=\"team-stats-search\" class=\"ares-search mb-3\" type=\"search\" aria-label=\"Search team stats\"><div class=\"table-responsive\"><table id=\"team-stats-table\" class=\"ares-table\"><thead><tr><th>Team</th><th>League</th><th>Venue</th><th>Matches</th><th>Points</th><th>PPM</th><th>GD</th><th>GF/M</th><th>GA/M</th><th>Form</th></tr></thead><tbody id=\"team-stats-body\"></tbody></table></div></section><section id=\"latest\" class=\"ares-section ares-card\"><div class=\"ares-section-title\"><div><h2 class=\"h4\">Latest Open Match Rows</h2><p>Latest results from each mapped league. The complete archive is partitioned under <code>data/full/matches/</code>.</p></div></div><input id=\"latest-search\" class=\"ares-search mb-3\" type=\"search\" aria-label=\"Search latest matches\"><div class=\"table-responsive\"><table id=\"latest-table\" class=\"ares-table\"><thead><tr><th>Date</th><th>League</th><th>Home</th><th>Away</th><th>FT</th><th>HT</th><th>Source</th></tr></thead><tbody id=\"latest-body\"></tbody></table></div></section></main><footer class=\"ares-footer\">ARES Football Market is an independent public beta football intelligence product. <a href=\"../image-credits.html\">Image credits</a>.</footer><script src=\"../assets/plugins/global/plugins.bundle.js\"></script>
   <script src=\"../assets/js/scripts.bundle.js\"></script>
   <script src=\"../assets/js/ares-data-loader.js\"></script>
   <script src=\"../assets/js/ares-tables.js\"></script>
   <script src=\"../assets/js/soccer-pages.js\"></script>
-  <script src=\"../assets/js/ares-mega-nav.js?v=20260523-continent\"></script><script>AresSoccer.initTable({{"dataPath":"../data/open_match_summary.json","tableId":"coverage-table","bodyId":"coverage-body","columns":[{{"key":"league_name","label":"League"}},{{"key":"country","label":"Country"}},{{"key":"league_code","label":"Code"}},{{"key":"matches","label":"Matches"}},{{"key":"seasons","label":"Seasons"}},{{"key":"clubs_seen","label":"Clubs Seen"}},{{"key":"first_date","label":"First Date"}},{{"key":"last_date","label":"Last Date"}},{{"key":"source","label":"Source"}}],"searchId":"coverage-search","sortKey":"matches","sortDirection":"desc"}});AresSoccer.initTable({{"dataPath":"../data/open_match_latest.json","tableId":"latest-table","bodyId":"latest-body","columns":[{{"key":"date","label":"Date"}},{{"key":"league_name","label":"League"}},{{"key":"home_team","label":"Home"}},{{"key":"away_team","label":"Away"}},{{"key":"full_time_score","label":"FT"}},{{"key":"half_time_score","label":"HT"}},{{"key":"source_confidence","label":"Source"}}],"searchId":"latest-search","sortKey":"date","sortDirection":"desc"}});</script></body></html>"""
+  <script src=\"../assets/js/ares-mega-nav.js?v=20260523-continent\"></script><script>AresSoccer.initTable({{"dataPath":"../data/open_match_summary.json","tableId":"coverage-table","bodyId":"coverage-body","columns":[{{"key":"league_name","label":"League"}},{{"key":"country","label":"Country"}},{{"key":"league_code","label":"Code"}},{{"key":"matches","label":"Matches"}},{{"key":"seasons","label":"Seasons"}},{{"key":"clubs_seen","label":"Clubs Seen"}},{{"key":"first_date","label":"First Date"}},{{"key":"last_date","label":"Last Date"}},{{"key":"source","label":"Source"}}],"searchId":"coverage-search","sortKey":"matches","sortDirection":"desc"}});AresSoccer.initTable({{"dataPath":"../data/open_match_team_stats.json","tableId":"team-stats-table","bodyId":"team-stats-body","columns":[{{"key":"team","label":"Team"}},{{"key":"league_name","label":"League"}},{{"key":"venue","label":"Venue"}},{{"key":"matches","label":"Matches"}},{{"key":"points","label":"Points"}},{{"key":"points_per_match","label":"PPM"}},{{"key":"goal_difference","label":"GD"}},{{"key":"goals_for_per_match","label":"GF/M"}},{{"key":"goals_against_per_match","label":"GA/M"}},{{"key":"recent_form","label":"Form"}}],"searchId":"team-stats-search","sortKey":"points_per_match","sortDirection":"desc"}});AresSoccer.initTable({{"dataPath":"../data/open_match_latest.json","tableId":"latest-table","bodyId":"latest-body","columns":[{{"key":"date","label":"Date"}},{{"key":"league_name","label":"League"}},{{"key":"home_team","label":"Home"}},{{"key":"away_team","label":"Away"}},{{"key":"full_time_score","label":"FT"}},{{"key":"half_time_score","label":"HT"}},{{"key":"source_confidence","label":"Source"}}],"searchId":"latest-search","sortKey":"date","sortDirection":"desc"}});</script></body></html>"""
     out = SITE_ROOT / "matches" / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
@@ -315,13 +531,17 @@ def main() -> int:
     summary = league_summary(rows)
     parts = split_chunks(rows, SITE_ROOT / "data" / "full" / "matches")
     latest = make_latest_rows(rows)
+    team_stats = build_team_stats(rows)
+    league_stats = build_league_stats(rows)
 
     write_json(SITE_ROOT / "data" / "matches.json", latest, compact=True)
     write_json(SITE_ROOT / "data" / "open_match_latest.json", latest, compact=True)
     write_json(SITE_ROOT / "data" / "open_match_summary.json", summary)
+    write_json(SITE_ROOT / "data" / "open_match_team_stats.json", team_stats, compact=True)
+    write_json(SITE_ROOT / "data" / "open_match_league_stats.json", league_stats)
     write_json(SITE_ROOT / "data" / "open_match_manifest.json", archive_manifest)
-    update_data_status(len(rows), len(summary), archive_manifest)
-    update_full_manifest(len(rows), parts)
+    update_data_status(len(rows), len(summary), len(team_stats), archive_manifest)
+    update_full_manifest(len(rows), len(team_stats), len(league_stats), parts)
     update_navigation()
     write_matches_page(summary)
     write_json(
@@ -333,6 +553,8 @@ def main() -> int:
             "source_manifest_generated_at_utc": archive_manifest.get("generated_at_utc", ""),
             "match_rows": len(rows),
             "league_rows": len(summary),
+            "team_stat_rows": len(team_stats),
+            "league_stat_rows": len(league_stats),
             "full_match_parts": len(parts),
         },
     )
@@ -345,6 +567,8 @@ def main() -> int:
         SITE_ROOT / "data" / "matches.json",
         SITE_ROOT / "data" / "open_match_latest.json",
         SITE_ROOT / "data" / "open_match_summary.json",
+        SITE_ROOT / "data" / "open_match_team_stats.json",
+        SITE_ROOT / "data" / "open_match_league_stats.json",
         SITE_ROOT / "data" / "open_match_manifest.json",
         SITE_ROOT / "data" / "open_match_cache_state.json",
         SITE_ROOT / "data" / "data_status.json",
@@ -357,6 +581,7 @@ def main() -> int:
         publish_if_requested(touched, f"Update open match data cache {TODAY}")
 
     print(f"Integrated {len(rows):,} open match rows across {len(summary)} leagues into website data.")
+    print(f"Derived {len(team_stats):,} team stat rows and {len(league_stats):,} league stat rows.")
     print(f"Full match chunks: {len(parts)}")
     return 0
 

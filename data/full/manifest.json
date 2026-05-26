@@ -74,6 +74,55 @@
       "last_updated": "2026-05-26"
     },
     {
+      "source_csv": "open_match_team_stats.json",
+      "path": "open_match_team_stats.json",
+      "rows": 2520,
+      "columns": [
+        "country",
+        "league_code",
+        "league_name",
+        "team",
+        "venue",
+        "matches",
+        "wins",
+        "draws",
+        "losses",
+        "goals_for",
+        "goals_against",
+        "goal_difference",
+        "points",
+        "points_per_match",
+        "goals_for_per_match",
+        "goals_against_per_match",
+        "recent_form",
+        "first_date",
+        "last_date"
+      ],
+      "source": "Derived from Football-Data.co.uk open CSV",
+      "last_updated": "2026-05-26"
+    },
+    {
+      "source_csv": "open_match_league_stats.json",
+      "path": "open_match_league_stats.json",
+      "rows": 24,
+      "columns": [
+        "country",
+        "league_code",
+        "league_name",
+        "completed_matches",
+        "teams_seen",
+        "goals",
+        "goals_per_match",
+        "home_win_rate",
+        "draw_rate",
+        "away_win_rate",
+        "first_date",
+        "last_date"
+      ],
+      "source": "Derived from Football-Data.co.uk open CSV",
+      "last_updated": "2026-05-26"
+    },
+    {
       "source_csv": "clubs.csv",
       "path": "full/clubs/part-0000.json",
       "rows": 449,

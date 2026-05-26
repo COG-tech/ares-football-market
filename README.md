@@ -28,3 +28,5 @@ The website cache is built from `D:\aRES\football\open_match_csv`.
 - Force a rebuild: `python "D:\aRES\ares-football-market\scripts\integrate_open_match_data.py" --force`
 - Rebuild, commit, and push to GitHub Pages: `python "D:\aRES\ares-football-market\scripts\integrate_open_match_data.py" --publish`
 - Daily runner for upload: `powershell -ExecutionPolicy Bypass -File "D:\aRES\ares-football-market\scripts\run_daily_open_match_cache.ps1"`
+
+Derived model inputs are exported to `data/open_match_team_stats.json` and `data/open_match_league_stats.json` for ARES formula work.
