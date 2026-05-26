@@ -1,0 +1,22 @@
+{
+  "generated_at_utc": "2026-05-26T03:25:03Z",
+  "generated_date": "2026-05-26",
+  "source_files": [
+    "data/open_match_team_stats.json",
+    "data/open_match_league_stats.json"
+  ],
+  "registry_formulas": 134,
+  "player_registry_formulas": 84,
+  "premium_registry_formulas": 110,
+  "team_input_rows": 2520,
+  "team_formula_output_rows": 2520,
+  "league_input_rows": 24,
+  "league_formula_output_rows": 24,
+  "methodology_cards": 64,
+  "data_modes": [
+    "open_match_derived",
+    "public_beta_demo",
+    "premium_model_required",
+    "provider_data_required"
+  ]
+}

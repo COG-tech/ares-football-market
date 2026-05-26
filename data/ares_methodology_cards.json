@@ -1,0 +1,578 @@
+[
+  {
+    "formula_id": "ares_power_core",
+    "title": "ARES Power Core",
+    "what_it_means": "ARES Power Core is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Measures real club strength, not brand reputation.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_strike_force",
+    "title": "ARES Strike Force",
+    "what_it_means": "ARES Strike Force is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Measures team attacking force.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_shield_index",
+    "title": "ARES Shield Index",
+    "what_it_means": "ARES Shield Index is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Measures defensive control.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_balance_index",
+    "title": "ARES Balance Index",
+    "what_it_means": "ARES Balance Index is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Identifies complete teams.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_form_pulse",
+    "title": "ARES Form Pulse",
+    "what_it_means": "ARES Form Pulse is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Detects current momentum.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_home_fortress",
+    "title": "ARES Home Fortress",
+    "what_it_means": "ARES Home Fortress is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Shows home dominance.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_road_threat",
+    "title": "ARES Road Threat",
+    "what_it_means": "ARES Road Threat is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Shows away strength.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_venue_split_edge",
+    "title": "ARES Venue Split Edge",
+    "what_it_means": "ARES Venue Split Edge is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Shows home reliance or road capability.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_attack_defense_gap",
+    "title": "ARES Attack Defense Gap",
+    "what_it_means": "ARES Attack Defense Gap is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Shows attacking or defensive imbalance.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_warning_zone_flag",
+    "title": "ARES Warning Zone Flag",
+    "what_it_means": "ARES Warning Zone Flag is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Highlights risk.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_fragile_contender_flag",
+    "title": "ARES Fragile Contender Flag",
+    "what_it_means": "ARES Fragile Contender Flag is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Identifies high-result teams with weak structure.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_rising_club_flag",
+    "title": "ARES Rising Club Flag",
+    "what_it_means": "ARES Rising Club Flag is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Finds clubs moving upward using form as the live proxy.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_underrated_club_flag",
+    "title": "ARES Underrated Club Flag",
+    "what_it_means": "ARES Underrated Club Flag is an ARES intelligence lens for team evaluation.",
+    "why_it_matters": "Finds clubs stronger than public reputation where data supports it.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_league_gravity",
+    "title": "ARES League Gravity",
+    "what_it_means": "ARES League Gravity is an ARES intelligence lens for league evaluation.",
+    "why_it_matters": "Measures competitive weight of a league.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_chaos_index",
+    "title": "ARES Chaos Index",
+    "what_it_means": "ARES Chaos Index is an ARES intelligence lens for league evaluation.",
+    "why_it_matters": "Identifies volatile leagues.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_goal_climate",
+    "title": "ARES Goal Climate",
+    "what_it_means": "ARES Goal Climate is an ARES intelligence lens for league evaluation.",
+    "why_it_matters": "Explains whether scoring is inflated or suppressed.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_home_field_gravity",
+    "title": "ARES Home-Field Gravity",
+    "what_it_means": "ARES Home-Field Gravity is an ARES intelligence lens for league evaluation.",
+    "why_it_matters": "Measures home advantage.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_draw_density",
+    "title": "ARES Draw Density",
+    "what_it_means": "ARES Draw Density is an ARES intelligence lens for league evaluation.",
+    "why_it_matters": "Identifies compressed leagues.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_data_trust_index",
+    "title": "ARES Data Trust Index",
+    "what_it_means": "ARES Data Trust Index is an ARES intelligence lens for league evaluation.",
+    "why_it_matters": "Shows reliability of the score inputs.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_coverage_depth",
+    "title": "ARES Coverage Depth",
+    "what_it_means": "ARES Coverage Depth is an ARES intelligence lens for league evaluation.",
+    "why_it_matters": "Shows data sample size.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "ares_competitive_balance",
+    "title": "ARES Competitive Balance",
+    "what_it_means": "ARES Competitive Balance is an ARES intelligence lens for league evaluation.",
+    "why_it_matters": "Shows whether a league is dominated or deep.",
+    "data_status": "calculated from current open match data",
+    "access": "Public Beta Demo",
+    "premium_locked": false
+  },
+  {
+    "formula_id": "gk_ares",
+    "title": "GK ARES",
+    "what_it_means": "GK ARES is an ARES intelligence lens for player position evaluation.",
+    "why_it_matters": "Official position-specific player score.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "cb_ares",
+    "title": "CB ARES",
+    "what_it_means": "CB ARES is an ARES intelligence lens for player position evaluation.",
+    "why_it_matters": "Official position-specific player score.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "fb_wb_ares",
+    "title": "FB/WB ARES",
+    "what_it_means": "FB/WB ARES is an ARES intelligence lens for player position evaluation.",
+    "why_it_matters": "Official position-specific player score.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "dm_ares",
+    "title": "DM ARES",
+    "what_it_means": "DM ARES is an ARES intelligence lens for player position evaluation.",
+    "why_it_matters": "Official position-specific player score.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "cm_ares",
+    "title": "CM ARES",
+    "what_it_means": "CM ARES is an ARES intelligence lens for player position evaluation.",
+    "why_it_matters": "Official position-specific player score.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "am_ares",
+    "title": "AM ARES",
+    "what_it_means": "AM ARES is an ARES intelligence lens for player position evaluation.",
+    "why_it_matters": "Official position-specific player score.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "w_ares",
+    "title": "W ARES",
+    "what_it_means": "W ARES is an ARES intelligence lens for player position evaluation.",
+    "why_it_matters": "Official position-specific player score.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "cf_st_ares",
+    "title": "CF/ST ARES",
+    "what_it_means": "CF/ST ARES is an ARES intelligence lens for player position evaluation.",
+    "why_it_matters": "Official position-specific player score.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ss_ares",
+    "title": "SS ARES",
+    "what_it_means": "SS ARES is an ARES intelligence lens for player position evaluation.",
+    "why_it_matters": "Official position-specific player score.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_role_fit",
+    "title": "ARES Role Fit",
+    "what_it_means": "ARES Role Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "target_man_fit",
+    "title": "Target Man Fit",
+    "what_it_means": "Target Man Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "poacher_fit",
+    "title": "Poacher Fit",
+    "what_it_means": "Poacher Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "false_nine_fit",
+    "title": "False Nine Fit",
+    "what_it_means": "False Nine Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "isolation_winger_fit",
+    "title": "Isolation Winger Fit",
+    "what_it_means": "Isolation Winger Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "inside_forward_fit",
+    "title": "Inside Forward Fit",
+    "what_it_means": "Inside Forward Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "touchline_winger_fit",
+    "title": "Touchline Winger Fit",
+    "what_it_means": "Touchline Winger Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "inverted_fullback_fit",
+    "title": "Inverted Fullback Fit",
+    "what_it_means": "Inverted Fullback Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "overlapping_fullback_fit",
+    "title": "Overlapping Fullback Fit",
+    "what_it_means": "Overlapping Fullback Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ball_winning_midfielder_fit",
+    "title": "Ball-Winning Midfielder Fit",
+    "what_it_means": "Ball-Winning Midfielder Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "deep_lying_playmaker_fit",
+    "title": "Deep-Lying Playmaker Fit",
+    "what_it_means": "Deep-Lying Playmaker Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "box_to_box_midfielder_fit",
+    "title": "Box-to-Box Midfielder Fit",
+    "what_it_means": "Box-to-Box Midfielder Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ball_playing_center_back_fit",
+    "title": "Ball-Playing Center Back Fit",
+    "what_it_means": "Ball-Playing Center Back Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "stopper_center_back_fit",
+    "title": "Stopper Center Back Fit",
+    "what_it_means": "Stopper Center Back Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "sweeper_keeper_fit",
+    "title": "Sweeper Keeper Fit",
+    "what_it_means": "Sweeper Keeper Fit is an ARES intelligence lens for role fit evaluation.",
+    "why_it_matters": "Premium role-fit formula.",
+    "data_status": "requires licensed player event or tracking data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_scarcity_signal",
+    "title": "ARES Scarcity Signal",
+    "what_it_means": "ARES Scarcity Signal is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_transfer_value_signal",
+    "title": "ARES Transfer Value Signal",
+    "what_it_means": "ARES Transfer Value Signal is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_breakout_signal",
+    "title": "ARES Breakout Signal",
+    "what_it_means": "ARES Breakout Signal is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_fall_risk_signal",
+    "title": "ARES Fall Risk Signal",
+    "what_it_means": "ARES Fall Risk Signal is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_role_security_score",
+    "title": "ARES Role Security Score",
+    "what_it_means": "ARES Role Security Score is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_demand_heat",
+    "title": "ARES Demand Heat",
+    "what_it_means": "ARES Demand Heat is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_contract_mobility",
+    "title": "ARES Contract Mobility",
+    "what_it_means": "ARES Contract Mobility is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_asset_risk_score",
+    "title": "ARES Asset Risk Score",
+    "what_it_means": "ARES Asset Risk Score is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_comparable_player_index",
+    "title": "ARES Comparable Player Index",
+    "what_it_means": "ARES Comparable Player Index is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_movement_history_score",
+    "title": "ARES Movement History Score",
+    "what_it_means": "ARES Movement History Score is an ARES intelligence lens for market transfer evaluation.",
+    "why_it_matters": "Premium football asset and transfer intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_team_market_edge",
+    "title": "ARES Team Market Edge",
+    "what_it_means": "ARES Team Market Edge is an ARES intelligence lens for club league premium evaluation.",
+    "why_it_matters": "Premium club or league intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_squad_architecture",
+    "title": "ARES Squad Architecture",
+    "what_it_means": "ARES Squad Architecture is an ARES intelligence lens for club league premium evaluation.",
+    "why_it_matters": "Premium club or league intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_u23_asset_engine",
+    "title": "ARES U23 Asset Engine",
+    "what_it_means": "ARES U23 Asset Engine is an ARES intelligence lens for club league premium evaluation.",
+    "why_it_matters": "Premium club or league intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_contract_control_score",
+    "title": "ARES Contract Control Score",
+    "what_it_means": "ARES Contract Control Score is an ARES intelligence lens for club league premium evaluation.",
+    "why_it_matters": "Premium club or league intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_injury_load_risk",
+    "title": "ARES Injury Load Risk",
+    "what_it_means": "ARES Injury Load Risk is an ARES intelligence lens for club league premium evaluation.",
+    "why_it_matters": "Premium club or league intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_club_strategy_grade",
+    "title": "ARES Club Strategy Grade",
+    "what_it_means": "ARES Club Strategy Grade is an ARES intelligence lens for club league premium evaluation.",
+    "why_it_matters": "Premium club or league intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_translation_risk",
+    "title": "ARES Translation Risk",
+    "what_it_means": "ARES Translation Risk is an ARES intelligence lens for club league premium evaluation.",
+    "why_it_matters": "Premium club or league intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_export_signal",
+    "title": "ARES Export Signal",
+    "what_it_means": "ARES Export Signal is an ARES intelligence lens for club league premium evaluation.",
+    "why_it_matters": "Premium club or league intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  },
+  {
+    "formula_id": "ares_premium_intelligence_lock",
+    "title": "ARES Premium Intelligence Lock",
+    "what_it_means": "ARES Premium Intelligence Lock is an ARES intelligence lens for club league premium evaluation.",
+    "why_it_matters": "Premium club or league intelligence formula.",
+    "data_status": "requires deeper premium model data",
+    "access": "Premium",
+    "premium_locked": true
+  }
+]
