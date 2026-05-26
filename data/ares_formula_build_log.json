@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-26T03:25:03Z",
+  "generated_at_utc": "2026-05-26T07:58:49Z",
   "generated_date": "2026-05-26",
   "source_files": [
     "data/open_match_team_stats.json",
@@ -10,8 +10,10 @@
   "premium_registry_formulas": 110,
   "team_input_rows": 2520,
   "team_formula_output_rows": 2520,
+  "team_formula_card_rows": 2520,
   "league_input_rows": 24,
   "league_formula_output_rows": 24,
+  "position_formula_cards": 9,
   "methodology_cards": 64,
   "data_modes": [
     "open_match_derived",

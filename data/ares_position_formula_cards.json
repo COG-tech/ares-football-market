@@ -1,0 +1,182 @@
+[
+  {
+    "formula_id": "gk_ares",
+    "formula_name": "GK ARES",
+    "position_code": "GK",
+    "website_copy": "Goalkeeper ARES measures shot denial, goal prevention, box command, distribution, sweeper range, usage, volume, and form.",
+    "data_mode": "provider_data_required",
+    "data_status": "requires licensed player event or tracking data",
+    "premium_locked": true,
+    "confidence": {
+      "score": 0,
+      "label": "Provider data required"
+    },
+    "required_fields": [
+      "player event data",
+      "minutes",
+      "role usage",
+      "position-specific components",
+      "trend form"
+    ]
+  },
+  {
+    "formula_id": "cb_ares",
+    "formula_name": "CB ARES",
+    "position_code": "CB",
+    "website_copy": "Center Back ARES measures defensive control, duel authority, aerial command, ball progression, line control, set-piece value, usage, volume, and form.",
+    "data_mode": "provider_data_required",
+    "data_status": "requires licensed player event or tracking data",
+    "premium_locked": true,
+    "confidence": {
+      "score": 0,
+      "label": "Provider data required"
+    },
+    "required_fields": [
+      "player event data",
+      "minutes",
+      "role usage",
+      "position-specific components",
+      "trend form"
+    ]
+  },
+  {
+    "formula_id": "fb_wb_ares",
+    "formula_name": "FB/WB ARES",
+    "position_code": "FB/WB",
+    "website_copy": "Fullback and Wingback ARES measures wide defending, progression, chance creation, delivery, transition recovery, duels, usage, volume, and form.",
+    "data_mode": "provider_data_required",
+    "data_status": "requires licensed player event or tracking data",
+    "premium_locked": true,
+    "confidence": {
+      "score": 0,
+      "label": "Provider data required"
+    },
+    "required_fields": [
+      "player event data",
+      "minutes",
+      "role usage",
+      "position-specific components",
+      "trend form"
+    ]
+  },
+  {
+    "formula_id": "dm_ares",
+    "formula_name": "DM ARES",
+    "position_code": "DM",
+    "website_copy": "Defensive Midfielder ARES measures ball winning, central shielding, possession insurance, link progression, transition control, usage, volume, and form.",
+    "data_mode": "provider_data_required",
+    "data_status": "requires licensed player event or tracking data",
+    "premium_locked": true,
+    "confidence": {
+      "score": 0,
+      "label": "Provider data required"
+    },
+    "required_fields": [
+      "player event data",
+      "minutes",
+      "role usage",
+      "position-specific components",
+      "trend form"
+    ]
+  },
+  {
+    "formula_id": "cm_ares",
+    "formula_name": "CM ARES",
+    "position_code": "CM",
+    "website_copy": "Central Midfielder ARES measures two-way influence, progression, possession control, chance involvement, defensive work, tempo, usage, volume, and form.",
+    "data_mode": "provider_data_required",
+    "data_status": "requires licensed player event or tracking data",
+    "premium_locked": true,
+    "confidence": {
+      "score": 0,
+      "label": "Provider data required"
+    },
+    "required_fields": [
+      "player event data",
+      "minutes",
+      "role usage",
+      "position-specific components",
+      "trend form"
+    ]
+  },
+  {
+    "formula_id": "am_ares",
+    "formula_name": "AM ARES",
+    "position_code": "AM",
+    "website_copy": "Attacking Midfielder ARES measures chance creation, final-third control, goal threat, progression, pressure survival, usage, volume, and form.",
+    "data_mode": "provider_data_required",
+    "data_status": "requires licensed player event or tracking data",
+    "premium_locked": true,
+    "confidence": {
+      "score": 0,
+      "label": "Provider data required"
+    },
+    "required_fields": [
+      "player event data",
+      "minutes",
+      "role usage",
+      "position-specific components",
+      "trend form"
+    ]
+  },
+  {
+    "formula_id": "w_ares",
+    "formula_name": "W ARES",
+    "position_code": "W",
+    "website_copy": "Winger ARES measures one-on-one threat, chance creation, goal threat, carrying progression, final-third output, defensive work, volume, and form.",
+    "data_mode": "provider_data_required",
+    "data_status": "requires licensed player event or tracking data",
+    "premium_locked": true,
+    "confidence": {
+      "score": 0,
+      "label": "Provider data required"
+    },
+    "required_fields": [
+      "player event data",
+      "minutes",
+      "role usage",
+      "position-specific components",
+      "trend form"
+    ]
+  },
+  {
+    "formula_id": "cf_st_ares",
+    "formula_name": "CF/ST ARES",
+    "position_code": "CF/ST",
+    "website_copy": "Striker ARES measures goal output, shot quality, box presence, link play, pressing, aerial value, usage, volume, and form.",
+    "data_mode": "provider_data_required",
+    "data_status": "requires licensed player event or tracking data",
+    "premium_locked": true,
+    "confidence": {
+      "score": 0,
+      "label": "Provider data required"
+    },
+    "required_fields": [
+      "player event data",
+      "minutes",
+      "role usage",
+      "position-specific components",
+      "trend form"
+    ]
+  },
+  {
+    "formula_id": "ss_ares",
+    "formula_name": "SS ARES",
+    "position_code": "SS",
+    "website_copy": "Second Striker ARES measures hybrid attacking value through scoring threat, chance creation, movement, link play, carrying, pressing, usage, volume, and form.",
+    "data_mode": "provider_data_required",
+    "data_status": "requires licensed player event or tracking data",
+    "premium_locked": true,
+    "confidence": {
+      "score": 0,
+      "label": "Provider data required"
+    },
+    "required_fields": [
+      "player event data",
+      "minutes",
+      "role usage",
+      "position-specific components",
+      "trend form"
+    ]
+  }
+]

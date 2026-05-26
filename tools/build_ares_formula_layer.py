@@ -503,6 +503,93 @@ def build_methodology_cards(registry: list[dict[str, Any]]) -> list[dict[str, An
     return cards
 
 
+POSITION_COPY = {
+    "GK ARES": "Goalkeeper ARES measures shot denial, goal prevention, box command, distribution, sweeper range, usage, volume, and form.",
+    "CB ARES": "Center Back ARES measures defensive control, duel authority, aerial command, ball progression, line control, set-piece value, usage, volume, and form.",
+    "FB/WB ARES": "Fullback and Wingback ARES measures wide defending, progression, chance creation, delivery, transition recovery, duels, usage, volume, and form.",
+    "DM ARES": "Defensive Midfielder ARES measures ball winning, central shielding, possession insurance, link progression, transition control, usage, volume, and form.",
+    "CM ARES": "Central Midfielder ARES measures two-way influence, progression, possession control, chance involvement, defensive work, tempo, usage, volume, and form.",
+    "AM ARES": "Attacking Midfielder ARES measures chance creation, final-third control, goal threat, progression, pressure survival, usage, volume, and form.",
+    "W ARES": "Winger ARES measures one-on-one threat, chance creation, goal threat, carrying progression, final-third output, defensive work, volume, and form.",
+    "CF/ST ARES": "Striker ARES measures goal output, shot quality, box presence, link play, pressing, aerial value, usage, volume, and form.",
+    "SS ARES": "Second Striker ARES measures hybrid attacking value through scoring threat, chance creation, movement, link play, carrying, pressing, usage, volume, and form.",
+}
+
+
+def build_position_cards(player_registry: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    out = []
+    for item in player_registry:
+        if item["formula_name"] not in POSITION_COPY:
+            continue
+        out.append(
+            {
+                "formula_id": item["formula_id"],
+                "formula_name": item["formula_name"],
+                "position_code": item["formula_name"].replace(" ARES", ""),
+                "website_copy": POSITION_COPY[item["formula_name"]],
+                "data_mode": item["data_mode"],
+                "data_status": data_status_label(item["data_mode"]),
+                "premium_locked": item["premium_locked"],
+                "confidence": {"score": 0, "label": "Provider data required"},
+                "required_fields": [
+                    "player event data",
+                    "minutes",
+                    "role usage",
+                    "position-specific components",
+                    "trend form",
+                ],
+            }
+        )
+    return out
+
+
+def build_team_cards(team_outputs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    card_formulas = [
+        "ares_power_core",
+        "ares_strike_force",
+        "ares_shield_index",
+        "ares_balance_index",
+        "ares_form_pulse",
+        "ares_home_fortress",
+        "ares_road_threat",
+        "ares_venue_split_edge",
+        "ares_attack_defense_gap",
+        "ares_warning_zone_flag",
+    ]
+    out = []
+    for row in team_outputs:
+        formulas = row.get("formulas", {})
+        compact_formulas = {}
+        for formula_id in card_formulas:
+            formula = formulas.get(formula_id)
+            if not formula:
+                continue
+            compact_formulas[formula_id] = {
+                "formula_name": formula.get("formula_name"),
+                "score": formula.get("score"),
+                "label": formula.get("label"),
+                "confidence": formula.get("confidence"),
+                "premium_locked": formula.get("premium_locked"),
+            }
+        out.append(
+            {
+                "country": row.get("country"),
+                "league_code": row.get("league_code"),
+                "league_name": row.get("league_name"),
+                "team": row.get("team"),
+                "venue": row.get("venue"),
+                "matches": row.get("matches"),
+                "first_date": row.get("first_date"),
+                "last_date": row.get("last_date"),
+                "source": row.get("source"),
+                "data_mode": row.get("data_mode"),
+                "data_status": row.get("data_status"),
+                "formulas": compact_formulas,
+            }
+        )
+    return out
+
+
 def main() -> int:
     team_rows = read_json(DATA / "open_match_team_stats.json")
     league_rows = read_json(DATA / "open_match_league_stats.json")
@@ -510,11 +597,15 @@ def main() -> int:
     team_outputs = build_team_outputs(team_rows, league_rows)
     league_outputs = build_league_outputs(league_rows, team_outputs)
     cards = build_methodology_cards(registry)
+    team_cards = build_team_cards(team_outputs)
+    position_cards = build_position_cards(player_registry)
 
     write_json(DATA / "ares_formula_registry.json", registry)
     write_json(DATA / "ares_team_formula_outputs.json", team_outputs)
+    write_json(DATA / "ares_team_formula_cards.json", team_cards)
     write_json(DATA / "ares_league_formula_outputs.json", league_outputs)
     write_json(DATA / "ares_player_formula_registry.json", player_registry)
+    write_json(DATA / "ares_position_formula_cards.json", position_cards)
     write_json(DATA / "ares_premium_formula_registry.json", premium_registry)
     write_json(DATA / "ares_methodology_cards.json", cards)
     write_json(
@@ -528,8 +619,10 @@ def main() -> int:
             "premium_registry_formulas": len(premium_registry),
             "team_input_rows": len(team_rows),
             "team_formula_output_rows": len(team_outputs),
+            "team_formula_card_rows": len(team_cards),
             "league_input_rows": len(league_rows),
             "league_formula_output_rows": len(league_outputs),
+            "position_formula_cards": len(position_cards),
             "methodology_cards": len(cards),
             "data_modes": ["open_match_derived", "public_beta_demo", "premium_model_required", "provider_data_required"],
         },

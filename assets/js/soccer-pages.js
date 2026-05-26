@@ -167,6 +167,9 @@
     dataStatus: "../data/data_status.json",
     matches: "../data/matches.json",
     openSummary: "../data/open_match_summary.json",
+    teamFormulaCards: "../data/ares_team_formula_cards.json",
+    positionFormulaCards: "../data/ares_position_formula_cards.json",
+    methodologyCards: "../data/ares_methodology_cards.json",
     transfers: "../data/public_transfers.json",
     marketChanges: "../data/public_market_changes.json",
     clubHonours: "../data/club_honours.json"
@@ -201,6 +204,7 @@
   function normalizeName(value) {
     return cleanText(value).toLowerCase()
       .replace(/&/g, " and ")
+      .replace(/\bmanchester\b/g, "man")
       .replace(/\b(f\.?c\.?|afc|cf|sc|club|football|association)\b/g, " ")
       .replace(/[^a-z0-9]+/g, " ")
       .replace(/\s+/g, " ")
@@ -217,6 +221,7 @@
     if (!club || !candidate) return false;
     if (candidate === club || candidate.includes(club) || club.includes(candidate)) return true;
     const clubParts = club.split(" ").filter(function (part) { return part.length > 3; });
+    if (clubParts.length && clubParts[0].length >= 5 && candidate.includes(clubParts[0])) return true;
     return clubParts.length && clubParts.every(function (part) { return candidate.includes(part); });
   }
 
@@ -339,6 +344,92 @@
     if (/\b(CB|DF|DEF|FB|LB|RB|WB|BACK|DEFENDER)\b/.test(raw)) return "DF";
     if (/\b(FW|ST|CF|SS|LW|RW|WINGER|FORWARD|ATTACKER)\b/.test(raw)) return "FW";
     return "MF";
+  }
+
+  function positionFormulaCode(record) {
+    const raw = cleanText(record.position || record.position_label || record.position_usage).toUpperCase();
+    if (/\b(GK|GOALKEEPER)\b/.test(raw)) return "GK";
+    if (/\b(CB|CENTER BACK|CENTRE BACK)\b/.test(raw)) return "CB";
+    if (/\b(FB|LB|RB|WB|FULLBACK|WINGBACK|WING BACK)\b/.test(raw)) return "FB/WB";
+    if (/\b(DM|CDM|DEFENSIVE MID)\b/.test(raw)) return "DM";
+    if (/\b(AM|CAM|ATTACKING MID)\b/.test(raw)) return "AM";
+    if (/\b(W|LW|RW|WINGER|WIDE FORWARD)\b/.test(raw)) return "W";
+    if (/\b(CF|ST|STRIKER|CENTER FORWARD|CENTRE FORWARD)\b/.test(raw)) return "CF/ST";
+    if (/\b(SS|SECOND STRIKER|SHADOW FORWARD)\b/.test(raw)) return "SS";
+    return "CM";
+  }
+
+  function formulaScore(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? number.toFixed(1) : "N/A";
+  }
+
+  function formulaModeLabel(mode) {
+    if (mode === "open_match_derived") return "Open match data connected";
+    if (mode === "public_beta_demo") return "Public Beta Demo";
+    if (mode === "provider_data_required") return "Provider data required";
+    if (mode === "premium_model_required") return "Premium model required";
+    return mode || "ARES model layer";
+  }
+
+  function teamFormulaRows(record) {
+    const rows = contextRows("teamFormulaCards");
+    const club = normalizeName(shortClubName(record) || record.club);
+    const league = normalizeName(record.league);
+    if (!club && !league) return [];
+    return rows.filter(function (item) {
+      const team = normalizeName(item.team);
+      const itemLeague = normalizeName(item.league_name);
+      const clubMatch = club && (team === club || team.includes(club) || club.includes(team));
+      const leagueMatch = league && itemLeague === league;
+      return clubMatch || (leagueMatch && teamMatchesRecord(record, item.team));
+    }).slice(0, 2);
+  }
+
+  function positionFormulaCard(record) {
+    const code = positionFormulaCode(record);
+    const rows = contextRows("positionFormulaCards");
+    return rows.find(function (item) { return cleanText(item.position_code).toUpperCase() === code; }) || {};
+  }
+
+  function formulaSummaryTable(formulas, ids) {
+    const rows = ids.map(function (id) {
+      const formula = formulas[id] || {};
+      const confidence = formula.confidence || {};
+      return [
+        formula.formula_name || id.replace(/^ares_/, "ARES ").replace(/_/g, " "),
+        formulaScore(formula.score),
+        formula.label || "",
+        confidence.label || "",
+        formulaModeLabel(formula.data_mode || "open_match_derived"),
+        formula.short_explanation || ""
+      ];
+    }).filter(function (row) { return hasFact(row[1]) || row[1] === "0.0"; });
+    return rows.length ? tableHtml(["Formula", "Score", "Label", "Confidence", "Data Mode", "Read"], rows) : pendingBlock("ARES model layer", "Team formula outputs are not mapped to this player record yet.");
+  }
+
+  function teamFormulaPanel(record) {
+    const teams = teamFormulaRows(record);
+    if (!teams.length) {
+      return pendingBlock("Open match team context not mapped", "ARES has player formula context for this profile. Team formulas appear when the player club maps to the open match team archive.");
+    }
+    return teams.map(function (team) {
+      const title = [team.team, team.venue ? team.venue.toUpperCase() : "", team.league_name].filter(Boolean).join(" | ");
+      return '<div class="ares-formula-card"><h3>' + safe(title) + '</h3>' +
+        formulaSummaryTable(team.formulas || {}, ["ares_power_core", "ares_strike_force", "ares_shield_index", "ares_balance_index", "ares_form_pulse", "ares_home_fortress", "ares_road_threat", "ares_venue_split_edge", "ares_attack_defense_gap", "ares_warning_zone_flag"]) +
+        '<p class="ares-data-footnote">' + safe(team.data_status || "Open match data connected") + " | " + safe(team.matches || "") + ' matches | Source: ' + safe(team.source || "Football-Data.co.uk open CSV") + '</p></div>';
+    }).join("");
+  }
+
+  function positionFormulaPanel(record) {
+    const card = positionFormulaCard(record);
+    const rows = [
+      ["Position Formula", card.formula_name || (positionFormulaCode(record) + " ARES"), card.website_copy || "Official ARES position formula for this player role."],
+      ["Data Status", formulaModeLabel(card.data_mode || "provider_data_required"), card.data_status || "Requires licensed player event or tracking data"],
+      ["Access", card.premium_locked ? "Premium" : "Public Beta Demo", "Public page shows the formula shape; full component scoring unlocks when provider data is connected."],
+      ["Confidence", card.confidence ? card.confidence.label : "Provider data required", "Missing player event data lowers confidence instead of becoming a zero."]
+    ];
+    return tableHtml(["Field", "Value", "Read"], rows);
   }
 
   function positionFormulaRows(record) {
@@ -478,7 +569,7 @@
   function profileDataNotice(record) {
     const status = contextObject("dataStatus");
     const source = status.open_match_source || "Football-Data.co.uk open CSV";
-    return '<p class="ares-data-footnote">ARES player components are formula estimates from the public player record. Open match rows provide EPL/team context only; they are not player event logs. Source: ' + safe(source) + '.</p>';
+    return '<p class="ares-data-footnote">ARES player components are formula estimates from the public player record. Open match rows provide team and league context; they are not player event logs. Source: ' + safe(source) + '.</p>';
   }
 
   function playerBadges(record) {
@@ -692,8 +783,10 @@
       numberedCard(4, "Position Usage", pitchUsage(record), "span-5") +
       numberedCard(5, "ARES Form Trend (Last 10 Matches)", formStrip(record), "span-8") +
       numberedCard(6, componentTitle(record), componentBars(record), "span-4") +
-      numberedCard(7, "Recent Open Matches", recentMatchesTable(record, 4) + profileDataNotice(record), "span-6") +
-      numberedCard(8, "Comparable Players", comparablePlayersTable(record), "span-6") +
+      numberedCard(7, "Position ARES Blueprint", positionFormulaPanel(record), "span-6") +
+      numberedCard(8, "Current Club Team Formulas", teamFormulaPanel(record), "span-6") +
+      numberedCard(9, "Recent Open Matches", recentMatchesTable(record, 4) + profileDataNotice(record), "span-6") +
+      numberedCard(10, "Comparable Players", comparablePlayersTable(record), "span-6") +
       '</section>';
   }
 
@@ -703,12 +796,13 @@
     const goalsPer90 = per90(record.goals, minuteValue);
     const assistsPer90 = per90(record.assists, minuteValue);
     const metrics = derivedMetrics(record);
-    return tabHeader("Stats Center", "Position-aware ARES formulas built from the public player record plus EPL/open-match context.") +
+    return tabHeader("Stats Center", "Position-aware ARES formulas built from the public player record plus open match team and league context.") +
       kpiGrid([["Appearances", record.appearances || "", "Public beta player row"], ["Starts", record.starts || "", round1(metrics.startRate * 100) + "% start rate"], ["Minutes", minuteValue || "", record.role || "Role load"], ["ARES Score", record.ares_score || "", record.ares_tier || "ARES quality"]]) +
       kpiGrid([["Goals / 90", positionFamily(record) === "GK" ? "N/A" : (goalsPer90 || "0.00"), positionFamily(record) === "GK" ? "Excluded for GK formula" : "computed from goals and minutes"], ["Assists / 90", assistsPer90 || "0.00", "computed from assists and minutes"], ["Progressive / 90", round2(metrics.progressive90), "progressive actions / minutes"], ["Defensive / 90", round2(metrics.defensive90), "defensive actions / minutes"]]) +
       '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Position Formula Breakdown</h2>' + formulaTable(record) + profileDataNotice(record) + '</div><div class="ares-card"><h2 class="h4">' + safe(componentTitle(record)) + '</h2>' + componentBars(record) + '</div></section>' +
       '<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Competition Split</h2>' + tableHtml(["Competition", "Apps", "Starts", "Min", "G", "A", "ARES"], [[record.league || "League", record.appearances || "", record.starts || "", minuteValue || "", record.goals || "", record.assists || "", record.ares_score || ""]]) + '</div><div class="ares-card"><h2 class="h4">Open League Coverage</h2>' + leagueCoverageTable(record) + '</div></section>' +
-      '<section class="ares-section ares-card"><h2 class="h4">Recent Team / EPL Context</h2>' + recentMatchesTable(record, 6) + profileDataNotice(record) + '</section>';
+      '<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Official Position Formula</h2>' + positionFormulaPanel(record) + '</div><div class="ares-card"><h2 class="h4">Current Club Team Formulas</h2>' + teamFormulaPanel(record) + '</div></section>' +
+      '<section class="ares-section ares-card"><h2 class="h4">Recent Team Context</h2>' + recentMatchesTable(record, 6) + profileDataNotice(record) + '</section>';
   }
 
   function renderMarket(record) {
