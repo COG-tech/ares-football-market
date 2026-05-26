@@ -1158,11 +1158,13 @@ input.ares-search:focus {
   position: relative;
   display: grid;
   grid-template-columns: auto;
-  padding-left: 2.15rem;
+  width: 2.25rem;
+  min-height: 46px;
+  padding-left: 0;
   color: var(--ares-white);
-  font-size: 1.22rem;
+  font-size: 0;
   font-weight: 950;
-  line-height: 0.9;
+  line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -1172,19 +1174,25 @@ input.ares-search:focus {
   position: absolute;
   left: 0;
   top: 50%;
-  width: 1.75rem;
-  height: 1.75rem;
-  background-image: url("../media/brand/ares-logo.png");
+  width: 1.85rem;
+  height: 1.85rem;
+  background-image: url("../media/brand/ares-logo-transparent.png");
   background-position: center;
-  background-size: 150%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 7px rgba(247, 201, 72, 0.28));
   transform: translateY(-50%);
 }
 
+.ares-profile-brand span,
 .ares-profile-brand small {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.47rem;
-  font-weight: 850;
-  letter-spacing: 0.07em;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .ares-profile-tab-nav {
@@ -1905,6 +1913,33 @@ input.ares-search:focus {
   line-height: 1.28;
 }
 
+.ares-data-footnote {
+  margin: 0.55rem 0 0;
+  color: var(--ares-muted);
+  font-size: 0.72rem;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
+.ares-badge-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.ares-badge-grid span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.65rem;
+  padding: 0.18rem 0.55rem;
+  color: #061a33;
+  background: rgba(247, 201, 72, 0.22);
+  border: 1px solid rgba(247, 201, 72, 0.68);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
 .ares-profile-footer {
   display: flex;
   justify-content: space-between;
@@ -2062,4 +2097,130 @@ body.ares-profile-view-stats .ares-table-link {
 @media(max-width:760px){
   .ares-profile-topbar{position:static;grid-template-columns:1fr auto auto;gap:.55rem}.ares-profile-tab-nav{grid-column:1/-1;order:3;min-height:2.8rem}.ares-profile-tab-nav a{min-height:2.8rem}
   .ares-profile-hero,.ares-profile-dashboard,.ares-snapshot-grid,.ares-market-intel-grid,.ares-contract-strip,.ares-profile-hero .ares-player-facts,.ares-profile-hero .ares-player-score-deck{grid-template-columns:1fr}.ares-numbered-card.span-2,.ares-numbered-card.span-4,.ares-numbered-card.span-5,.ares-numbered-card.span-6,.ares-numbered-card.span-7,.ares-numbered-card.span-8,.ares-numbered-card.span-12{grid-column:auto}.ares-profile-footer{display:grid}.ares-profile-beta-badge{position:static;display:inline-flex;margin-left:auto}
+}
+
+@media(max-width:760px){
+  .ares-profile-topbar {
+    position: sticky;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.35rem;
+    min-height: 44px;
+    padding: 0 0.45rem;
+  }
+
+  .ares-profile-brand {
+    width: 2rem;
+    min-height: 44px;
+  }
+
+  .ares-profile-brand::before {
+    width: 1.65rem;
+    height: 1.65rem;
+  }
+
+  .ares-profile-search,
+  .ares-profile-icon {
+    display: none;
+  }
+
+  .ares-profile-tab-nav {
+    grid-column: auto;
+    order: 0;
+    min-height: 44px;
+    gap: 0.08rem;
+  }
+
+  .ares-profile-tab-nav a {
+    min-height: 44px;
+    padding: 0 0.48rem;
+    font-size: 0.69rem;
+  }
+
+  .ares-profile-main {
+    padding: 0.35rem 0.45rem 0.65rem;
+  }
+
+  .ares-profile-hero {
+    gap: 0.5rem;
+    padding-bottom: 0.55rem;
+  }
+
+  .ares-profile-hero .ares-player-media-card,
+  .ares-profile-hero .ares-profile-photo {
+    height: 9.5rem;
+  }
+
+  .ares-player-title-row {
+    gap: 0.35rem;
+  }
+
+  .ares-profile-hero .ares-player-title-row h1 {
+    font-size: 1.35rem;
+    line-height: 1.08;
+  }
+
+  .ares-profile-dashboard,
+  body.ares-profile-view-stats .ares-profile-dashboard {
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .ares-tab-heading {
+    display: grid;
+    gap: 0.45rem;
+    padding: 0.68rem;
+  }
+
+  .ares-tab-heading h2 {
+    font-size: 1rem;
+  }
+
+  .ares-tab-heading p,
+  .ares-data-footnote {
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+
+  .ares-kpi-grid {
+    gap: 0.45rem;
+  }
+
+  .ares-kpi-card {
+    min-height: auto;
+    padding: 0.62rem;
+  }
+
+  .ares-kpi-card .value {
+    font-size: 1.2rem;
+  }
+
+  .ares-card,
+  .ares-graph-card,
+  body.ares-profile-view-stats .ares-card,
+  body.ares-profile-view-stats .ares-graph-card {
+    padding: 0.62rem;
+  }
+
+  .ares-graph-card {
+    min-height: auto;
+  }
+
+  .ares-chart-frame,
+  body.ares-profile-view-stats .ares-chart-frame {
+    min-height: 7.5rem;
+    padding: 0.5rem;
+  }
+
+  .ares-table tr {
+    margin-bottom: 0.5rem;
+    padding: 0.52rem;
+  }
+
+  .ares-table td,
+  body.ares-profile-view-stats .ares-table td {
+    grid-template-columns: minmax(6.5rem, 0.43fr) minmax(0, 0.57fr);
+    gap: 0.45rem;
+    padding: 0.38rem 0;
+    font-size: 0.72rem;
+  }
 }
