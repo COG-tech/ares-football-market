@@ -1,0 +1,295 @@
+ARES Football Market Formula Reference
+Generated: 2026-05-26
+
+Status
+This file defines the unique ARES formulas to use for team and player-position scoring.
+The public site currently exposes demo ARES scores plus open match-derived inputs. These formulas are the implementation reference for wiring live ARES calculations.
+
+Scale
+All final scores are normalized to 0-100.
+Component scores are normalized to 0-100 before weighting.
+Missing data should reduce confidence, not automatically force a zero score unless the metric cannot be inferred.
+
+Common Player ARES Score
+ARES_PLAYER_SCORE =
+  Position_Performance * position_weight
++ Efficiency * efficiency_weight
++ Role_Usage * role_weight
++ League_Context * league_weight
++ Volume_Availability * volume_weight
++ Durability * durability_weight
++ Trend_Form * trend_weight
+
+Common Player Market Score
+ARES_MARKET_SCORE =
+  ARES_PLAYER_SCORE * 0.35
++ Age_Curve * 0.20
++ Position_Scarcity * 0.15
++ League_Strength * 0.10
++ Contract_Mobility * 0.10
++ Transfer_Demand * 0.05
++ Durability * 0.05
+
+Common Confidence Score
+ARES_CONFIDENCE =
+  Source_Coverage * 0.30
++ Minutes_Sample * 0.25
++ Recency * 0.20
++ Metric_Completeness * 0.15
++ Cross_Source_Agreement * 0.10
+
+Team ARES Score
+TEAM_ARES_SCORE =
+  Results_Strength * 0.25
++ Goal_Difference_Strength * 0.20
++ Attack_Output * 0.15
++ Defensive_Control * 0.15
++ League_Context * 0.10
++ Squad_ARES_Depth * 0.10
++ Recent_Form * 0.05
+
+Team ARES Inputs
+Results_Strength = normalized points_per_match
+Goal_Difference_Strength = normalized goal_difference_per_match
+Attack_Output = normalized goals_for_per_match plus shot/xG inputs when available
+Defensive_Control = inverse normalized goals_against_per_match plus xGA/clean sheet inputs when available
+League_Context = league strength adjustment
+Squad_ARES_Depth = average weighted player ARES score
+Recent_Form = weighted last 5 to 10 match form
+
+Team Market Score
+TEAM_MARKET_SCORE =
+  Squad_ARES_Depth * 0.30
++ U23_Asset_Strength * 0.20
++ Squad_Age_Curve * 0.15
++ Contract_Control * 0.10
++ League_Market_Tier * 0.10
++ Transfer_Demand * 0.10
++ Injury_Risk_Adjustment * 0.05
+
+League Strength Formula
+LEAGUE_STRENGTH =
+  Team_ARES_Median * 0.30
++ Top_Team_ARES * 0.20
++ Match_Competitiveness * 0.15
++ Goal_Environment * 0.10
++ Export_Value * 0.10
++ Continental_Performance * 0.10
++ Data_Confidence * 0.05
+
+Goalkeeper ARES Formula
+GK_ARES =
+  Shot_Stopping * 0.30
++ Goal_Prevention * 0.20
++ Distribution * 0.15
++ Aerial_Box_Control * 0.10
++ Sweeper_Actions * 0.10
++ Role_Usage * 0.05
++ Volume_Availability * 0.05
++ Trend_Form * 0.05
+
+Goalkeeper Inputs
+Shot_Stopping = save percentage, post-shot xG prevention, penalties saved
+Goal_Prevention = goals prevented, clean sheet context, goals against adjustment
+Distribution = pass completion, long distribution accuracy, build-up involvement
+Aerial_Box_Control = crosses claimed, punches, command actions
+Sweeper_Actions = defensive actions outside box, high-claim support
+
+Center Back ARES Formula
+CB_ARES =
+  Defensive_Actions * 0.25
++ Duel_Aerial_Dominance * 0.20
++ Ball_Progression * 0.15
++ Possession_Security * 0.10
++ Defensive_Line_Control * 0.10
++ Set_Piece_Value * 0.05
++ Role_Usage * 0.05
++ Volume_Availability * 0.05
++ Trend_Form * 0.05
+
+Center Back Inputs
+Defensive_Actions = tackles, interceptions, blocks, clearances, pressure stops
+Duel_Aerial_Dominance = ground duel win rate, aerial win rate
+Ball_Progression = progressive passes, carries, line-breaking actions
+Possession_Security = pass completion under role context, turnovers avoided
+Defensive_Line_Control = offsides forced, recovery actions, team defensive outcomes
+
+Fullback / Wingback ARES Formula
+FB_WB_ARES =
+  Wide_Defending * 0.20
++ Ball_Progression * 0.20
++ Chance_Creation * 0.15
++ Crossing_Final_Third * 0.10
++ Recovery_Transition * 0.10
++ Duel_Output * 0.10
++ Role_Usage * 0.05
++ Volume_Availability * 0.05
++ Trend_Form * 0.05
+
+Fullback / Wingback Inputs
+Wide_Defending = tackles, interceptions, blocks, wide duel success
+Ball_Progression = progressive carries, progressive passes, entries
+Chance_Creation = key passes, expected assists, shot assists
+Crossing_Final_Third = crosses completed, cutbacks, final-third touches
+Recovery_Transition = recoveries, counterpress actions, transition stops
+
+Defensive Midfielder ARES Formula
+DM_ARES =
+  Ball_Winning * 0.25
++ Screening_Positioning * 0.20
++ Possession_Retention * 0.15
++ Progression_Link_Play * 0.15
++ Transition_Control * 0.10
++ Role_Usage * 0.05
++ Volume_Availability * 0.05
++ Trend_Form * 0.05
+
+Defensive Midfielder Inputs
+Ball_Winning = tackles, interceptions, recoveries, pressure regains
+Screening_Positioning = blocks, central zone control, opponent chance suppression
+Possession_Retention = pass security, press resistance, turnovers avoided
+Progression_Link_Play = progressive passes, carries, switches, build-up chains
+Transition_Control = counterpress success, defensive transition actions
+
+Central Midfielder ARES Formula
+CM_ARES =
+  Two_Way_Influence * 0.20
++ Ball_Progression * 0.20
++ Possession_Control * 0.15
++ Chance_Involvement * 0.10
++ Defensive_Work_Rate * 0.10
++ Tempo_Control * 0.10
++ Role_Usage * 0.05
++ Volume_Availability * 0.05
++ Trend_Form * 0.05
+
+Central Midfielder Inputs
+Two_Way_Influence = combined attacking and defensive contribution
+Ball_Progression = progressive passing, carrying, third entries
+Possession_Control = touch volume, pass security, press resistance
+Chance_Involvement = key passes, expected assists, secondary assists
+Defensive_Work_Rate = pressures, tackles, interceptions, recoveries
+Tempo_Control = sequence involvement, switches, possession value
+
+Attacking Midfielder ARES Formula
+AM_ARES =
+  Chance_Creation * 0.25
++ Final_Third_Influence * 0.20
++ Goal_Threat * 0.15
++ Ball_Progression * 0.10
++ Possession_Under_Pressure * 0.10
++ Role_Usage * 0.10
++ Volume_Availability * 0.05
++ Trend_Form * 0.05
+
+Attacking Midfielder Inputs
+Chance_Creation = key passes, expected assists, through balls, shot assists
+Final_Third_Influence = final-third touches, box entries, attacking sequence value
+Goal_Threat = shots, expected goals, non-penalty goals, box touches
+Ball_Progression = carries, progressive passes, central entries
+Possession_Under_Pressure = retention, fouls won, turnovers avoided
+
+Winger ARES Formula
+W_ARES =
+  One_v_One_Threat * 0.20
++ Chance_Creation * 0.20
++ Goal_Threat * 0.20
++ Ball_Carrying_Progression * 0.15
++ Final_Third_Output * 0.10
++ Defensive_Work_Rate * 0.05
++ Volume_Availability * 0.05
++ Trend_Form * 0.05
+
+Winger Inputs
+One_v_One_Threat = successful dribbles, take-ons, fouls won
+Chance_Creation = expected assists, key passes, cutbacks, crosses
+Goal_Threat = non-penalty xG, shots, goals, box touches
+Ball_Carrying_Progression = progressive carries, carries into box
+Final_Third_Output = final-third touches, passes into box, attacking actions
+
+Center Forward / Striker ARES Formula
+CF_ST_ARES =
+  Goal_Output * 0.25
++ Shot_Quality * 0.20
++ Box_Presence * 0.15
++ Link_Play * 0.10
++ Pressing_Defensive_Work * 0.10
++ Aerial_Physical_Value * 0.05
++ Role_Usage * 0.05
++ Volume_Availability * 0.05
++ Trend_Form * 0.05
+
+Center Forward / Striker Inputs
+Goal_Output = non-penalty goals, goals per 90, finishing over/under expectation
+Shot_Quality = non-penalty expected goals, shot locations, shot volume
+Box_Presence = touches in box, receptions, movement value
+Link_Play = layoffs, progressive receptions, assists, chance creation
+Pressing_Defensive_Work = pressures, counterpress wins, defensive actions
+Aerial_Physical_Value = aerial win rate, hold-up actions, set-piece threat
+
+Second Striker / Shadow Forward ARES Formula
+SS_ARES =
+  Goal_Threat * 0.20
++ Chance_Creation * 0.20
++ Off_Ball_Movement * 0.15
++ Link_Play * 0.15
++ Ball_Carrying * 0.10
++ Pressing_Defensive_Work * 0.05
++ Role_Usage * 0.05
++ Volume_Availability * 0.05
++ Trend_Form * 0.05
+
+Second Striker Inputs
+Goal_Threat = shots, non-penalty xG, box touches, goals
+Chance_Creation = key passes, expected assists, through balls
+Off_Ball_Movement = progressive receptions, box entries, attacking runs
+Link_Play = combinations, layoffs, sequence involvement
+Ball_Carrying = carries into danger zones, progressive carries
+
+Universal Adjustments
+League_Adjusted_Component = Raw_Component * League_Context_Multiplier
+Minutes_Adjusted_Component = Raw_Component * Sample_Size_Multiplier
+Age_Adjusted_Market_Component = Raw_Component * Age_Curve_Multiplier
+Confidence_Adjusted_Output = Score * (0.70 + (ARES_CONFIDENCE / 100 * 0.30))
+
+League Context Multipliers
+Tier 1 league: 1.00
+Tier 2 league: 0.92
+Tier 3 league: 0.84
+Tier 4 league: 0.76
+Youth/reserve league: 0.68 unless senior translation data is available
+
+Minutes Sample Multipliers
+2700+ minutes: 1.00
+1800-2699 minutes: 0.97
+900-1799 minutes: 0.92
+450-899 minutes: 0.85
+Under 450 minutes: 0.75
+
+Age Curve Market Multipliers
+Goalkeeper peak band: 26-32
+Center back peak band: 25-31
+Fullback/wingback peak band: 22-28
+Defensive midfielder peak band: 24-30
+Central midfielder peak band: 23-29
+Attacking midfielder peak band: 21-28
+Winger peak band: 20-27
+Center forward peak band: 22-29
+Second striker peak band: 21-28
+
+Position Codes
+GK = goalkeeper
+CB = center back
+FB/WB = fullback or wingback
+DM = defensive midfielder
+CM = central midfielder
+AM = attacking midfielder
+W = winger or wide forward
+CF/ST = center forward or striker
+SS = second striker or shadow forward
+
+Current Open Match Stat Fields Available
+Team stat file: data/open_match_team_stats.json
+League stat file: data/open_match_league_stats.json
+Available team fields: matches, wins, draws, losses, goals_for, goals_against, goal_difference, points, points_per_match, goals_for_per_match, goals_against_per_match, recent_form, first_date, last_date.
+Available league fields: completed_matches, teams_seen, goals, goals_per_match, home_win_rate, draw_rate, away_win_rate, first_date, last_date.
