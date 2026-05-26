@@ -212,6 +212,8 @@ def build_team_stats(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                     "points": 0,
                     "first_date": "",
                     "last_date": "",
+                    "_first_dt": datetime.max,
+                    "_last_dt": datetime.min,
                     "source": "Football-Data.co.uk open CSV",
                 },
             )
@@ -224,11 +226,11 @@ def build_team_stats(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             team_row["goals_against"] += ga
             team_row["points"] += points
             if date_value != datetime.min:
-                current_first = parse_date(str(team_row["first_date"]))
-                current_last = parse_date(str(team_row["last_date"]))
-                if current_first == datetime.min or date_value < current_first:
+                if date_value < team_row["_first_dt"]:
+                    team_row["_first_dt"] = date_value
                     team_row["first_date"] = date_value.date().isoformat()
-                if current_last == datetime.min or date_value > current_last:
+                if date_value > team_row["_last_dt"]:
+                    team_row["_last_dt"] = date_value
                     team_row["last_date"] = date_value.date().isoformat()
                 recent.setdefault(key, []).append((date_value, outcome))
 
@@ -240,6 +242,8 @@ def build_team_stats(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         team_row["goals_for_per_match"] = round(float(team_row["goals_for"]) / matches, 3)
         team_row["goals_against_per_match"] = round(float(team_row["goals_against"]) / matches, 3)
         team_row["recent_form"] = "".join(outcome for _, outcome in sorted(recent.get(key, []), reverse=True)[:5])
+        team_row.pop("_first_dt", None)
+        team_row.pop("_last_dt", None)
         out.append(team_row)
 
     out.sort(key=lambda row: (row["country"], row["league_name"], -row["points_per_match"], -row["goal_difference"], row["team"], row["venue"]))
@@ -269,6 +273,8 @@ def build_league_stats(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "away_goals": 0,
                 "first_date": "",
                 "last_date": "",
+                "_first_dt": datetime.max,
+                "_last_dt": datetime.min,
                 "source": "Football-Data.co.uk open CSV",
             },
         )
@@ -282,11 +288,11 @@ def build_league_stats(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         teams.setdefault(key, set()).update({str(row.get("home_team", "")), str(row.get("away_team", ""))})
         date_value = parse_date(str(row.get("date", "")))
         if date_value != datetime.min:
-            current_first = parse_date(str(league_row["first_date"]))
-            current_last = parse_date(str(league_row["last_date"]))
-            if current_first == datetime.min or date_value < current_first:
+            if date_value < league_row["_first_dt"]:
+                league_row["_first_dt"] = date_value
                 league_row["first_date"] = date_value.date().isoformat()
-            if current_last == datetime.min or date_value > current_last:
+            if date_value > league_row["_last_dt"]:
+                league_row["_last_dt"] = date_value
                 league_row["last_date"] = date_value.date().isoformat()
 
     out = []
@@ -297,6 +303,8 @@ def build_league_stats(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         league_row["home_win_rate"] = round(float(league_row["home_wins"]) / matches, 3)
         league_row["draw_rate"] = round(float(league_row["draws"]) / matches, 3)
         league_row["away_win_rate"] = round(float(league_row["away_wins"]) / matches, 3)
+        league_row.pop("_first_dt", None)
+        league_row.pop("_last_dt", None)
         out.append(league_row)
 
     out.sort(key=lambda row: (row["country"], row["league_name"]))
