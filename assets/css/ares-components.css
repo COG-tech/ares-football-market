@@ -2163,10 +2163,18 @@ body.ares-profile-view-stats .ares-table-link {
   }
 
   .ares-player-title-row {
+    display: block;
     gap: 0.35rem;
   }
 
+  .ares-profile-hero .ares-player-title-row > div {
+    width: 100%;
+    min-width: 0;
+  }
+
   .ares-profile-hero .ares-player-title-row h1 {
+    display: block;
+    max-width: 100%;
     margin-bottom: 0.16rem;
     font-size: 1.05rem;
     line-height: 1.08;
