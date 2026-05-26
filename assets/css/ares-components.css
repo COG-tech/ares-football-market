@@ -2141,13 +2141,25 @@ body.ares-profile-view-stats .ares-table-link {
   }
 
   .ares-profile-hero {
+    grid-template-columns: minmax(4.7rem, 5.25rem) minmax(0, 1fr);
     gap: 0.5rem;
     padding-bottom: 0.55rem;
   }
 
   .ares-profile-hero .ares-player-media-card,
   .ares-profile-hero .ares-profile-photo {
-    height: 9.5rem;
+    height: 6.15rem;
+  }
+
+  .ares-shirt-number {
+    font-size: 2rem;
+  }
+
+  .ares-profile-hero .ares-player-core-card {
+    grid-column: 2;
+    grid-row: 1;
+    gap: 0.28rem;
+    padding: 0;
   }
 
   .ares-player-title-row {
@@ -2155,8 +2167,64 @@ body.ares-profile-view-stats .ares-table-link {
   }
 
   .ares-profile-hero .ares-player-title-row h1 {
-    font-size: 1.35rem;
+    margin-bottom: 0.16rem;
+    font-size: 1.05rem;
     line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+
+  .ares-verified-dot {
+    display: none;
+  }
+
+  .ares-player-title-row p {
+    gap: 0.28rem;
+    font-size: 0.66rem;
+    line-height: 1.18;
+  }
+
+  .ares-profile-hero .ares-player-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.28rem;
+    margin-top: 0.12rem;
+    padding: 0.3rem 0;
+  }
+
+  .ares-player-facts span,
+  .ares-player-facts small {
+    font-size: 0.56rem;
+  }
+
+  .ares-player-facts strong {
+    font-size: 0.68rem;
+  }
+
+  .ares-contract-strip {
+    display: none;
+  }
+
+  .ares-profile-hero .ares-player-score-deck {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.34rem;
+  }
+
+  .ares-profile-hero .ares-score-card {
+    min-height: 4.2rem;
+    padding: 0.44rem 0.5rem;
+  }
+
+  .ares-profile-hero .ares-score-card strong {
+    font-size: 1.2rem;
+  }
+
+  .ares-profile-hero .ares-score-card span,
+  .ares-profile-hero .ares-score-card small {
+    font-size: 0.58rem;
+  }
+
+  .ares-profile-hero .ares-player-actions {
+    display: none;
   }
 
   .ares-profile-dashboard,
