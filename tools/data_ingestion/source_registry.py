@@ -1,0 +1,178 @@
+from __future__ import annotations
+
+from pathlib import Path
+
+from common import REGISTRY_ROOT, ensure_lake_layout, write_json
+
+
+REGISTRY_PATH = REGISTRY_ROOT / "ares_data_sources.json"
+
+
+def build_source_registry() -> list[dict[str, object]]:
+    base = [
+        {
+            "source_id": "football_data_co_uk",
+            "source_name": "Football-Data.co.uk",
+            "source_type": "open_csv",
+            "base_url": "https://www.football-data.co.uk/",
+            "access_method": "direct_csv_download",
+            "requires_api_key": False,
+            "commercial_use_status": "public_reference",
+            "license_notes": "Use as public historical football CSVs for internal ARES analysis; respect site terms and file provenance.",
+            "refresh_frequency": "seasonal",
+            "raw_output_path": str(Path(r"D:\ARES\football\data_lake\raw\football_data_co_uk")),
+            "clean_output_path": str(Path(r"D:\ARES\football\data_lake\clean\matches")),
+            "data_status": "PUBLIC_OPEN",
+            "confidence_default": "High",
+            "allowed_use_inside_ares": ["match results", "goals", "home/away splits", "odds", "team form", "league scoring environment", "team/league public formulas"],
+            "blocked_use_inside_ares": ["Do not claim live or official feed parity if source is stale."],
+        },
+        {
+            "source_id": "football_data_org",
+            "source_name": "football-data.org",
+            "source_type": "api",
+            "base_url": "https://www.football-data.org/",
+            "access_method": "API token",
+            "requires_api_key": True,
+            "commercial_use_status": "paid_or_limited",
+            "license_notes": "API validation and current-season coverage. Respect token quota and terms.",
+            "refresh_frequency": "daily_and_3h_current_season",
+            "raw_output_path": str(Path(r"D:\ARES\football\data_lake\raw\football_data_org")),
+            "clean_output_path": str(Path(r"D:\ARES\football\data_lake\clean")),
+            "data_status": "PROVIDER_REQUIRED",
+            "confidence_default": "High",
+            "allowed_use_inside_ares": ["competitions", "teams", "matches", "standings", "scorers", "schedules", "validation against Football-Data.co.uk"],
+            "blocked_use_inside_ares": ["Do not use without token.", "Do not treat as historical archive replacement."],
+        },
+        {
+            "source_id": "statsbomb_open",
+            "source_name": "StatsBomb Open Data",
+            "source_type": "open_json",
+            "base_url": "https://github.com/statsbomb/open-data",
+            "access_method": "GitHub raw JSON download or local clone",
+            "requires_api_key": False,
+            "commercial_use_status": "open_reference",
+            "license_notes": "Open-data model testing source. Use sample events, lineups, and 360 where available.",
+            "refresh_frequency": "periodic",
+            "raw_output_path": str(Path(r"D:\ARES\football\data_lake\raw\statsbomb_open")),
+            "clean_output_path": str(Path(r"D:\ARES\football\data_lake\clean")),
+            "data_status": "PUBLIC_OPEN",
+            "confidence_default": "High",
+            "allowed_use_inside_ares": ["event model testing", "player action model prototypes", "lineups", "xG/action-value experiments", "360 sample testing"],
+            "blocked_use_inside_ares": ["Do not present as live provider coverage beyond open sample scope."],
+        },
+        {
+            "source_id": "clubelo",
+            "source_name": "ClubElo",
+            "source_type": "csv_api_style_historical_ratings",
+            "base_url": "http://clubelo.com/",
+            "access_method": "direct download or soccerdata reader",
+            "requires_api_key": False,
+            "commercial_use_status": "public_reference",
+            "license_notes": "Historical club strength and backtesting reference. Respect source terms and attribution.",
+            "refresh_frequency": "weekly",
+            "raw_output_path": str(Path(r"D:\ARES\football\data_lake\raw\clubelo")),
+            "clean_output_path": str(Path(r"D:\ARES\football\data_lake\clean\clubelo")),
+            "data_status": "PUBLIC_OPEN",
+            "confidence_default": "High",
+            "allowed_use_inside_ares": ["team strength history", "opponent strength", "league context", "backtesting"],
+            "blocked_use_inside_ares": ["Do not treat as live match feed."],
+        },
+        {
+            "source_id": "fbref_manual",
+            "source_name": "FBref / Sports Reference manual exports",
+            "source_type": "manual_csv",
+            "base_url": "https://fbref.com/",
+            "access_method": "local CSV only",
+            "requires_api_key": False,
+            "commercial_use_status": "user_export_only",
+            "license_notes": "Only ingest user-provided CSV exports. Do not scrape FBref pages.",
+            "refresh_frequency": "manual",
+            "raw_output_path": str(Path(r"D:\ARES\football\data_lake\raw\fbref_manual")),
+            "clean_output_path": str(Path(r"D:\ARES\football\data_lake\clean\player_seasons")),
+            "data_status": "USER_PROVIDED",
+            "confidence_default": "Medium",
+            "allowed_use_inside_ares": ["public player stat layer", "minutes", "goals", "assists", "xG if available", "xA if available", "shots", "passing", "possession", "defending"],
+            "blocked_use_inside_ares": ["Do not scrape FBref.", "Do not bypass blocks."],
+        },
+        {
+            "source_id": "capology_manual",
+            "source_name": "Capology manual exports or user-provided cost files",
+            "source_type": "manual_csv",
+            "base_url": "https://www.capology.com/",
+            "access_method": "local CSV only unless API/license exists",
+            "requires_api_key": False,
+            "commercial_use_status": "user_export_only",
+            "license_notes": "Read user-provided wage and payroll files only.",
+            "refresh_frequency": "manual",
+            "raw_output_path": str(Path(r"D:\ARES\football\data_lake\raw\capology_manual")),
+            "clean_output_path": str(Path(r"D:\ARES\football\data_lake\clean\wages")),
+            "data_status": "USER_PROVIDED",
+            "confidence_default": "Medium",
+            "allowed_use_inside_ares": ["wages", "payrolls", "salary bands", "contract extensions", "club cost layer"],
+            "blocked_use_inside_ares": ["Do not scrape Capology without explicit permission."],
+        },
+        {
+            "source_id": "kaggle_transfermarkt",
+            "source_name": "Kaggle Transfermarkt-derived datasets",
+            "source_type": "downloaded_dataset",
+            "base_url": "https://www.kaggle.com/",
+            "access_method": "local Kaggle dataset only",
+            "requires_api_key": True,
+            "commercial_use_status": "license_required",
+            "license_notes": "Check the dataset license before any commercial use.",
+            "refresh_frequency": "manual",
+            "raw_output_path": str(Path(r"D:\ARES\football\data_lake\raw\kaggle_transfermarkt")),
+            "clean_output_path": str(Path(r"D:\ARES\football\data_lake\clean")),
+            "data_status": "USER_PROVIDED",
+            "confidence_default": "Medium",
+            "allowed_use_inside_ares": ["players", "clubs", "appearances", "transfers", "market values", "player history"],
+            "blocked_use_inside_ares": ["Do not assume commercial use is allowed."],
+        },
+        {
+            "source_id": "sportmonks",
+            "source_name": "Sportmonks Football API",
+            "source_type": "paid_api",
+            "base_url": "https://www.sportmonks.com/football-api/",
+            "access_method": "API token",
+            "requires_api_key": True,
+            "commercial_use_status": "paid_api",
+            "license_notes": "Production coverage for fixtures, events, lineups, squads, standings, and odds when licensed.",
+            "refresh_frequency": "every_3h_active_weekly_backfill",
+            "raw_output_path": str(Path(r"D:\ARES\football\data_lake\raw\sportmonks")),
+            "clean_output_path": str(Path(r"D:\ARES\football\data_lake\clean")),
+            "data_status": "PROVIDER_REQUIRED",
+            "confidence_default": "High",
+            "allowed_use_inside_ares": ["schedules", "historical matches", "match statistics", "events", "lineups", "squads", "standings", "odds", "broad production coverage"],
+            "blocked_use_inside_ares": ["Skip gracefully when token is missing."],
+        },
+        {
+            "source_id": "api_football",
+            "source_name": "API-Football",
+            "source_type": "paid_api",
+            "base_url": "https://www.api-football.com/",
+            "access_method": "API token",
+            "requires_api_key": True,
+            "commercial_use_status": "paid_api",
+            "license_notes": "Current-season refresh source for fixtures, standings, injuries, transfers, and player stats when licensed.",
+            "refresh_frequency": "every_3h_active_daily_transfers_weekly_master",
+            "raw_output_path": str(Path(r"D:\ARES\football\data_lake\raw\api_football")),
+            "clean_output_path": str(Path(r"D:\ARES\football\data_lake\clean")),
+            "data_status": "PROVIDER_REQUIRED",
+            "confidence_default": "High",
+            "allowed_use_inside_ares": ["current-season refresh", "fixtures", "standings", "teams", "players", "lineups", "events", "injuries", "transfers", "player stats"],
+            "blocked_use_inside_ares": ["Skip gracefully when key is missing."],
+        },
+    ]
+    return base
+
+
+def main() -> int:
+    ensure_lake_layout()
+    write_json(REGISTRY_PATH, build_source_registry())
+    print(f"Wrote source registry to {REGISTRY_PATH}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
