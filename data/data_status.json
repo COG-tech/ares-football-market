@@ -1,6 +1,6 @@
 {
   "data_mode": "public_beta_demo",
-  "last_updated": "2026-05-26",
+  "last_updated": "2026-05-24",
   "players_tracked": 3950,
   "clubs_tracked": 247,
   "leagues_tracked": 62,
@@ -8,11 +8,5 @@
   "player_images": "969 licensed Commons image rights records",
   "ares_model": "Beta estimate formula ready",
   "market_model": "Beta estimate formula ready",
-  "source": "Wikidata + Wikimedia Commons + ARES public beta estimates",
-  "open_match_rows": 232356,
-  "open_match_leagues": 24,
-  "open_match_source": "Football-Data.co.uk open CSV",
-  "open_match_cache_generated_at_utc": "2026-05-26T02:41:47Z",
-  "open_match_source_manifest_generated_at_utc": "2026-05-25T13:31:25Z",
-  "open_match_team_stat_rows": 2520
+  "source": "Wikidata + Wikimedia Commons + ARES public beta estimates"
 }

@@ -109,8 +109,12 @@
     if (column.render === "clubLink") return renderLink(value, row.club_url, column.fallbackUrl || "clubs/profile.html", column.pathPrefix);
     if (column.render === "leagueLink") return renderLink(value, row.league_url, column.fallbackUrl || "leagues/league-template.html", column.pathPrefix);
     if (column.render === "link") return renderLink(column.label || value || "Open", row[column.urlKey || "url"], column.fallbackUrl, column.pathPrefix);
+    if (column.key === "player_name" && row.player_url) return renderPlayerIdentity(value, row, column);
+    if (column.key === "top_asset" && row.top_asset_player_url) return renderLink(value, row.top_asset_player_url, null, column.pathPrefix);
     if (column.key === "club" && row.club_url) return renderLink(value, row.club_url, null, column.pathPrefix);
     if (column.key === "club_name" && row.club_url) return renderLink(value, row.club_url, null, column.pathPrefix);
+    if (column.key === "league" && row.league_url) return renderLink(value, row.league_url, null, column.pathPrefix);
+    if (column.key === "league_name" && row.league_url) return renderLink(value, row.league_url, null, column.pathPrefix);
     if (column.key === "from_club" && row.from_club_url) return renderLink(value, row.from_club_url, null, column.pathPrefix);
     if (column.key === "to_club" && row.to_club_url) return renderLink(value, row.to_club_url, null, column.pathPrefix);
     return data.safeText(value);

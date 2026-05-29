@@ -526,25 +526,25 @@
     const rows = playerMarketChanges(record, limit || 5).map(function (item) {
       return [
         item.last_updated || "",
-        item.player_name || "",
-        item.club || "",
+        item.player_url ? linkCell(item.player_name || "", item.player_url) : (item.player_name || ""),
+        item.club_url ? linkCell(item.club || "", item.club_url) : (item.club || ""),
         item.change || "",
         item.trend || "",
         item.reason || "",
         item.source || "ARES public market model"
       ];
     });
-    return rows.length ? tableHtml(["Date", "Player", "Club", "Change", "Trend", "Reason", "Source"], rows) : tableHtml(["Date", "Player", "Club", "Change", "Trend", "Reason", "Source"], [[record.last_updated || "", playerLabel(record), record.club || "", trendDetail(record), record.trend || "", record.reason || "", record.source || "ARES public beta"]]);
+    return rows.length ? tableHtml(["Date", "Player", "Club", "Change", "Trend", "Reason", "Source"], rows) : tableHtml(["Date", "Player", "Club", "Change", "Trend", "Reason", "Source"], [[record.last_updated || "", record.player_url ? linkCell(playerLabel(record), record.player_url) : playerLabel(record), record.club_url ? linkCell(record.club || "", record.club_url) : (record.club || ""), trendDetail(record), record.trend || "", record.reason || "", record.source || "ARES public beta"]]);
   }
 
   function transfersTable(record, limit) {
     const rows = playerTransfers(record, limit || 5).map(function (item) {
       return [
         item.date || "",
-        item.player_name || item.player || "",
+        item.player_url ? linkCell(item.player_name || item.player || "", item.player_url) : (item.player_name || item.player || ""),
         item.position || "",
-        item.from_club || "",
-        item.to_club || "",
+        item.from_club_url ? linkCell(item.from_club || "", item.from_club_url) : (item.from_club || ""),
+        item.to_club_url ? linkCell(item.to_club || "", item.to_club_url) : (item.to_club || ""),
         item.transfer_type || item.movement_type || "",
         item.market_impact || item.ares_impact || item.reason || ""
       ];
@@ -612,9 +612,9 @@
     }).sort(function (left, right) { return left.distance - right.distance; }).slice(0, 3).map(function (entry, index) {
       const item = entry.item;
       return [
-        playerLabel(item),
+        item.player_url ? linkCell(playerLabel(item), item.player_url) : playerLabel(item),
         item.age || "",
-        item.club || "",
+        item.club_url ? linkCell(item.club || "", item.club_url) : (item.club || ""),
         item.position || "",
         item.ares_score || "",
         item.market_score || "",
@@ -625,9 +625,9 @@
 
   function comparablePlayersTable(record) {
     const rows = [[
-      playerLabel(record),
+      record.player_url ? linkCell(playerLabel(record), record.player_url) : playerLabel(record),
       record.age || "",
-      record.club || "",
+      record.club_url ? linkCell(record.club || "", record.club_url) : (record.club || ""),
       record.position || "",
       record.ares_score || "",
       record.market_score || "",
@@ -718,8 +718,15 @@
     return '<div class="table-responsive"><table class="ares-table"><thead><tr>' + headers.map(function (header) {
       return '<th>' + safe(header) + '</th>';
     }).join("") + '</tr></thead><tbody>' + rows.map(function (row) {
-      return '<tr>' + row.map(function (cell, index) { return '<td data-label="' + safe(headers[index] || "") + '">' + safe(cell) + '</td>'; }).join("") + '</tr>';
+      return '<tr>' + row.map(function (cell, index) {
+        const html = cell && typeof cell === "object" && cell.__html ? cell.__html : safe(cell);
+        return '<td data-label="' + safe(headers[index] || "") + '">' + html + '</td>';
+      }).join("") + '</tr>';
     }).join("") + '</tbody></table></div>';
+  }
+
+  function linkCell(label, url) {
+    return { __html: '<a class="ares-table-link" href="' + safe(siteHref(url)) + '">' + safe(label) + '</a>' };
   }
 
   function metricBars(items) {

@@ -154,40 +154,6 @@
       ]
     },
     {
-      "id": "matches",
-      "label": "Matches",
-      "summary": "Open match results, coverage, and ARES formula inputs from Football-Data.co.uk.",
-      "sidebar": [
-        {
-          "label": "Open Match Data",
-          "href": "matches/index.html"
-        }
-      ],
-      "groups": [
-        {
-          "title": "Open Match Data",
-          "items": [
-            {
-              "label": "Match Board",
-              "href": "matches/index.html"
-            },
-            {
-              "label": "League Coverage",
-              "href": "matches/index.html#coverage"
-            },
-            {
-              "label": "ARES Inputs",
-              "href": "matches/index.html#stats"
-            },
-            {
-              "label": "Latest Results",
-              "href": "matches/index.html#latest"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "clubs",
       "label": "Clubs",
       "summary": "Club portfolios, squad market scores, age curves, and need areas.",

@@ -329,6 +329,142 @@ def public_mode(row: dict[str, Any]) -> str:
     return DATA_MODE
 
 
+def safe_float(value: Any, default: float = 0.0) -> float:
+    try:
+        if value in ("", None):
+            return default
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def safe_int(value: Any, default: int = 0) -> int:
+    try:
+        if value in ("", None):
+            return default
+        return int(float(value))
+    except (TypeError, ValueError):
+        return default
+
+
+def per90(value: Any, minutes: Any) -> float:
+    minute_value = safe_float(minutes)
+    if minute_value <= 0:
+        return 0.0
+    return round(float(safe_float(value)) * 90.0 / minute_value, 2)
+
+
+def round1(value: float) -> float:
+    return round(float(value), 1)
+
+
+def position_family(position: Any) -> str:
+    raw = str(position or "").upper()
+    if any(token in raw for token in ("GK", "GOALKEEPER")):
+        return "GK"
+    if any(token in raw for token in ("CB", "CENTER BACK", "CENTRE BACK")):
+        return "CB"
+    if any(token in raw for token in ("FB", "LB", "RB", "WB", "FULLBACK", "WINGBACK", "WING BACK")):
+        return "FB/WB"
+    if any(token in raw for token in ("DM", "CDM", "DEFENSIVE MID")):
+        return "DM"
+    if any(token in raw for token in ("AM", "CAM", "ATTACKING MID")):
+        return "AM"
+    if any(token in raw for token in ("LW", "RW", " W", "WINGER", "WIDE FORWARD")):
+        return "W"
+    if any(token in raw for token in ("CF", "ST", "STRIKER", "CENTER FORWARD", "CENTRE FORWARD", "FW")):
+        return "CF/ST"
+    return "CM"
+
+
+def age_component(age: int) -> float:
+    if age <= 20:
+        return 92.0
+    if age <= 23:
+        return 84.0
+    if age <= 27:
+        return 76.0
+    if age <= 30:
+        return 66.0
+    if age <= 33:
+        return 58.0
+    return 50.0
+
+
+def league_context_component(level: Any, confederation: Any) -> float:
+    base = {"top": 88.0, "second": 74.0, "third": 62.0, "fourth": 56.0}.get(str(level or "").lower(), 68.0)
+    if str(confederation or "").upper() in {"UEFA", "CONMEBOL"}:
+        base += 2.0
+    return round1(base)
+
+
+def tier_for_score(score: float, score_type: str) -> str:
+    if score_type == "market":
+        if score >= 88:
+            return "Franchise Asset"
+        if score >= 82:
+            return "Blue-Chip Asset"
+        if score >= 76:
+            return "Rising Asset"
+        if score >= 68:
+            return "Core Starter"
+        return "Watchlist"
+    if score >= 85:
+        return "Elite"
+    if score >= 78:
+        return "High"
+    if score >= 70:
+        return "Starter"
+    return "Watchlist"
+
+
+def apply_public_formula_scores(row: dict[str, Any]) -> None:
+    minutes = safe_int(row.get("minutes"))
+    appearances = safe_int(row.get("appearances"))
+    starts = safe_int(row.get("starts"))
+    age = safe_int(row.get("age"), 25)
+    goal_contrib90 = per90(safe_float(row.get("goals")) + safe_float(row.get("assists")), minutes)
+    goals90 = per90(row.get("goals"), minutes)
+    assists90 = per90(row.get("assists"), minutes)
+    prog90 = per90(row.get("progressive_actions"), minutes)
+    def90 = per90(row.get("defensive_actions"), minutes)
+    start_rate = (starts / appearances * 100.0) if appearances else 0.0
+    availability = safe_float(row.get("availability_pct"), 65.0)
+    trend_value = safe_float(row.get("trend_value"))
+    trend = round1(max(0.0, min(100.0, 50.0 + trend_value * 10.0)))
+    role_usage = round1(start_rate * 0.65 + min(100.0, minutes / 30.0) * 0.35)
+    volume = round1(min(100.0, minutes / 30.0))
+    attack = round1(min(100.0, goals90 * 18 + assists90 * 12 + prog90 * 5))
+    creation = round1(min(100.0, assists90 * 18 + prog90 * 7 + goal_contrib90 * 8))
+    defense = round1(min(100.0, def90 * 7 + availability * 0.4))
+    family = position_family(row.get("position"))
+    if family in {"CB", "FB/WB"}:
+        performance = round1(attack * 0.14 + creation * 0.14 + defense * 0.42 + role_usage * 0.30)
+    elif family in {"DM", "CM"}:
+        performance = round1(attack * 0.18 + creation * 0.24 + defense * 0.24 + role_usage * 0.34)
+    elif family in {"AM", "W", "CF/ST"}:
+        performance = round1(attack * 0.34 + creation * 0.28 + defense * 0.10 + role_usage * 0.28)
+    else:
+        performance = round1(attack * 0.22 + creation * 0.22 + defense * 0.22 + role_usage * 0.34)
+    efficiency = round1(min(100.0, goal_contrib90 * 14 + start_rate * 0.25))
+    age_upside = age_component(age)
+    league_context = league_context_component(row.get("league_level"), row.get("confederation"))
+    position_value = {"GK": 72.0, "CB": 74.0, "FB/WB": 76.0, "DM": 78.0, "CM": 80.0, "AM": 83.0, "W": 86.0, "CF/ST": 88.0}.get(family, 75.0)
+    legacy_market = safe_float(row.get("market_score"), 70.0)
+    market_signal = round1(min(100.0, legacy_market * 0.65 + trend * 0.35))
+    movement_value = round1(max(0.0, min(100.0, 50.0 + trend_value * 14.0)))
+    formula_ares = round1(performance * 0.30 + efficiency * 0.20 + role_usage * 0.15 + volume * 0.12 + availability * 0.10 + trend * 0.05 + age_upside * 0.04 + league_context * 0.04)
+    formula_market = round1(formula_ares * 0.25 + age_upside * 0.20 + position_value * 0.15 + league_context * 0.15 + market_signal * 0.10 + movement_value * 0.05 + availability * 0.10)
+    row["legacy_ares_score"] = row.get("legacy_ares_score", row.get("ares_score"))
+    row["legacy_market_score"] = row.get("legacy_market_score", row.get("market_score"))
+    row["ares_score"] = formula_ares
+    row["market_score"] = formula_market
+    row["ares_tier"] = tier_for_score(formula_ares, "ares")
+    row["market_tier"] = tier_for_score(formula_market, "market")
+    row["score_source"] = "ARES public formula score"
+    row["stats_mode"] = "ARES public formula score; not official match statistics"
+
+
 def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
     name = row.get("display_name") or row.get("player_name") or row.get("name") or "ARES Player"
     league = row.get("league", "")
@@ -379,6 +515,7 @@ def normalize_player(row: dict[str, Any]) -> dict[str, Any]:
             "league_url": row.get("league_url") or league_profile_url,
         }
     )
+    apply_public_formula_scores(row)
     return row
 
 
@@ -486,6 +623,7 @@ def build_clubs(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "u23_value": avg([float(item.get("market_score", 0)) for item in u23_assets]) if u23_assets else round(avg_market - 3.5, 1),
                 "u23_asset_count": len(u23_assets),
                 "top_asset": top["player_name"],
+                "top_asset_player_url": top.get("player_url", ""),
                 "weakest_unit": "Depth risk review",
                 "need_area": "Role security and U23 depth",
                 "transfer_risk": "Medium" if avg_age > 28 else "Low",
@@ -945,7 +1083,7 @@ def with_prefix(cols: list[dict[str, Any]], prefix: str) -> list[dict[str, Any]]
     out = []
     for col in cols:
         new = dict(col)
-        if new.get("render") in {"playerLink", "clubLink", "leagueLink", "link"} or new.get("key") in {"club", "club_name", "from_club", "to_club"}:
+        if new.get("render") in {"playerLink", "clubLink", "leagueLink", "link"} or new.get("key") in {"player_name", "top_asset", "club", "club_name", "league", "league_name", "from_club", "to_club"}:
             new["pathPrefix"] = prefix
         out.append(new)
     return out
@@ -1060,10 +1198,20 @@ def static_cell(row: dict[str, Any], column: dict[str, Any]) -> str:
         return static_link(value, row.get("league_url"), column.get("fallbackUrl", "leagues/league-template.html"), prefix)
     if render == "link":
         return static_link(column.get("label") or value or "Open", row.get(column.get("urlKey", "url")), column.get("fallbackUrl", "#"), prefix)
+    if column.get("key") == "player_name" and row.get("player_url"):
+        avatar = "" if column.get("showAvatar") is False else static_player_avatar(row, prefix)
+        href = static_prefixed_href(row.get("player_url"), prefix)
+        return f'<a class="ares-player-identity" href="{static_safe(href)}">{avatar}<span>{static_safe(value)}</span></a>'
+    if column.get("key") == "top_asset" and row.get("top_asset_player_url"):
+        return static_link(value, row.get("top_asset_player_url"), "#", prefix)
     if column.get("key") == "club" and row.get("club_url"):
         return static_link(value, row.get("club_url"), "#", prefix)
     if column.get("key") == "club_name" and row.get("club_url"):
         return static_link(value, row.get("club_url"), "#", prefix)
+    if column.get("key") == "league" and row.get("league_url"):
+        return static_link(value, row.get("league_url"), "#", prefix)
+    if column.get("key") == "league_name" and row.get("league_url"):
+        return static_link(value, row.get("league_url"), "#", prefix)
     if column.get("key") == "from_club" and row.get("from_club_url"):
         return static_link(value, row.get("from_club_url"), "#", prefix)
     if column.get("key") == "to_club" and row.get("to_club_url"):
