@@ -3665,6 +3665,21 @@ body.ares-profile-view-stats .ares-profile-hero .ares-score-card strong {
 }
 
 @media(max-width: 980px) {
+  body.ares-shell {
+    overflow-x: hidden;
+  }
+
+  .ares-topbar {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .ares-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.25rem;
+  }
+
   .ares-top-actions {
     display: none;
   }
