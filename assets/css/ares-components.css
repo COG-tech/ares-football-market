@@ -3504,3 +3504,180 @@ body.ares-profile-view-stats .ares-profile-hero .ares-score-card strong {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.ares-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.ares-brand img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.ares-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-left: auto;
+}
+
+.ares-top-actions a,
+.ares-top-actions span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  border-radius: 999px;
+  padding: 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.ares-top-actions a {
+  color: #030408;
+  background: #EAB451;
+}
+
+.ares-top-actions span {
+  color: #dbe7f8;
+  border: 1px solid rgba(234,180,81,0.24);
+  background: rgba(255,255,255,0.06);
+}
+
+.ares-product-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.32fr);
+  gap: 1rem;
+  align-items: stretch;
+  background: linear-gradient(135deg, #030408, #000C1B 55%, #111A26);
+  color: #F5F7FA;
+}
+
+.ares-product-hero h2 {
+  margin: 0.35rem 0 0.5rem;
+  color: #F5F7FA;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 0.95;
+  font-weight: 950;
+}
+
+.ares-product-hero p {
+  max-width: 58rem;
+  margin: 0;
+  color: #c6d1df;
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.ares-product-kicker {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid rgba(234,180,81,0.34);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  color: #F9E095;
+  background: rgba(234,180,81,0.12);
+  font-size: 0.72rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.ares-product-hero aside {
+  display: grid;
+  align-content: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(234,180,81,0.24);
+  border-radius: 0.9rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.06);
+}
+
+.ares-product-hero aside strong {
+  color: #EAB451;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+}
+
+.ares-product-hero aside span {
+  color: #dbe7f8;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.ares-ad-slot {
+  display: grid;
+  place-items: center;
+  min-height: 90px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.85rem;
+  background: #111A26;
+  color: #9AA8BB;
+  text-align: center;
+}
+
+.ares-ad-slot strong {
+  color: #9AA8BB;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.ares-ad-slot span {
+  font-size: 0.8rem;
+}
+
+.ares-related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.ares-related-card {
+  display: grid;
+  gap: 0.35rem;
+  min-height: 7rem;
+  border: 1px solid rgba(234,180,81,0.24);
+  border-radius: 0.85rem;
+  padding: 0.9rem;
+  background: #0B1422;
+}
+
+.ares-related-card strong {
+  color: #EAB451;
+  font-size: 0.98rem;
+}
+
+.ares-related-card span {
+  color: #c6d1df;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.ares-card.premium-lock {
+  border-color: rgba(234,180,81,0.32);
+  background: linear-gradient(135deg, #111A26, #0B1422);
+}
+
+.ares-card.premium-lock h2 {
+  color: #F9E095;
+}
+
+@media(max-width: 980px) {
+  .ares-top-actions {
+    display: none;
+  }
+
+  .ares-product-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .ares-product-hero h2 {
+    font-size: 2rem;
+  }
+
+  .ares-related-grid {
+    grid-template-columns: 1fr;
+  }
+}

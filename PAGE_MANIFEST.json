@@ -1,0 +1,488 @@
+[
+  {
+    "route": "/sitemap.html",
+    "title": "ARES Site Map",
+    "job": "Product map",
+    "kind": "data"
+  },
+  {
+    "route": "/premium.html",
+    "title": "Unlock the ARES Intelligence Layer",
+    "job": "Premium conversion",
+    "kind": "premium"
+  },
+  {
+    "route": "/about.html",
+    "title": "About ARES Football Market",
+    "job": "Brand authority",
+    "kind": "data"
+  },
+  {
+    "route": "/contact.html",
+    "title": "Contact ARES Football Market",
+    "job": "Legitimacy",
+    "kind": "data"
+  },
+  {
+    "route": "/privacy.html",
+    "title": "Privacy Policy",
+    "job": "Trust",
+    "kind": "data"
+  },
+  {
+    "route": "/terms.html",
+    "title": "Terms of Use",
+    "job": "Trust",
+    "kind": "data"
+  },
+  {
+    "route": "/players/search.html",
+    "title": "Advanced Player Search",
+    "job": "Find anyone",
+    "kind": "player"
+  },
+  {
+    "route": "/players/compare.html",
+    "title": "Player Compare",
+    "job": "Better asset",
+    "kind": "player"
+  },
+  {
+    "route": "/players/trending.html",
+    "title": "Trending Players",
+    "job": "What changed",
+    "kind": "player"
+  },
+  {
+    "route": "/players/watch.html",
+    "title": "Player Watch",
+    "job": "Early signal",
+    "kind": "watch"
+  },
+  {
+    "route": "/players/position/gk.html",
+    "title": "GK ARES Board",
+    "job": "Position leaderboard",
+    "kind": "player"
+  },
+  {
+    "route": "/players/position/cb.html",
+    "title": "CB ARES Board",
+    "job": "Position leaderboard",
+    "kind": "player"
+  },
+  {
+    "route": "/players/position/fb-wb.html",
+    "title": "FB/WB ARES Board",
+    "job": "Position leaderboard",
+    "kind": "player"
+  },
+  {
+    "route": "/players/position/dm.html",
+    "title": "DM ARES Board",
+    "job": "Position leaderboard",
+    "kind": "player"
+  },
+  {
+    "route": "/players/position/cm.html",
+    "title": "CM ARES Board",
+    "job": "Position leaderboard",
+    "kind": "player"
+  },
+  {
+    "route": "/players/position/am.html",
+    "title": "AM ARES Board",
+    "job": "Position leaderboard",
+    "kind": "player"
+  },
+  {
+    "route": "/players/position/winger.html",
+    "title": "Winger ARES Board",
+    "job": "Position leaderboard",
+    "kind": "player"
+  },
+  {
+    "route": "/players/position/cf-st.html",
+    "title": "CF/ST ARES Board",
+    "job": "Position leaderboard",
+    "kind": "player"
+  },
+  {
+    "route": "/players/position/second-striker.html",
+    "title": "Second Striker ARES Board",
+    "job": "Position leaderboard",
+    "kind": "player"
+  },
+  {
+    "route": "/rankings/index.html",
+    "title": "ARES Rankings Hub",
+    "job": "Rankings",
+    "kind": "player"
+  },
+  {
+    "route": "/rankings/gap.html",
+    "title": "The ARES Gap Board",
+    "job": "Rankings",
+    "kind": "player"
+  },
+  {
+    "route": "/rankings/u23.html",
+    "title": "U23 Breakout Assets",
+    "job": "Rankings",
+    "kind": "player"
+  },
+  {
+    "route": "/rankings/overheat.html",
+    "title": "Overheat Board",
+    "job": "Rankings",
+    "kind": "player"
+  },
+  {
+    "route": "/rankings/risers-fallers.html",
+    "title": "Risers and Fallers",
+    "job": "Rankings",
+    "kind": "player"
+  },
+  {
+    "route": "/rankings/confidence.html",
+    "title": "ARES Confidence Board",
+    "job": "Rankings",
+    "kind": "player"
+  },
+  {
+    "route": "/rankings/position-rankings.html",
+    "title": "Position Rankings",
+    "job": "Rankings",
+    "kind": "player"
+  },
+  {
+    "route": "/rankings/league-adjusted.html",
+    "title": "League-Adjusted ARES Rankings",
+    "job": "Rankings",
+    "kind": "player"
+  },
+  {
+    "route": "/rankings/thin-data.html",
+    "title": "Thin Data Watch",
+    "job": "Rankings",
+    "kind": "player"
+  },
+  {
+    "route": "/clubs/portfolio.html",
+    "title": "Club Asset Portfolio",
+    "job": "Club portfolio",
+    "kind": "club"
+  },
+  {
+    "route": "/clubs/u23-assets.html",
+    "title": "Club U23 Asset Board",
+    "job": "Club portfolio",
+    "kind": "club"
+  },
+  {
+    "route": "/clubs/contract-risk.html",
+    "title": "Club Contract Risk Board",
+    "job": "Club portfolio",
+    "kind": "club"
+  },
+  {
+    "route": "/clubs/need-areas.html",
+    "title": "Club Need Areas",
+    "job": "Club portfolio",
+    "kind": "club"
+  },
+  {
+    "route": "/clubs/risers.html",
+    "title": "Club Risers",
+    "job": "Club portfolio",
+    "kind": "club"
+  },
+  {
+    "route": "/clubs/overheated-squads.html",
+    "title": "Overheated Squads",
+    "job": "Club portfolio",
+    "kind": "club"
+  },
+  {
+    "route": "/clubs/compare.html",
+    "title": "Club Compare",
+    "job": "Club portfolio",
+    "kind": "club"
+  },
+  {
+    "route": "/leagues/europe.html",
+    "title": "Europe Market Board",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/liga-mx.html",
+    "title": "Liga MX Market Terminal",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/premier-league.html",
+    "title": "Premier League Market Terminal",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/la-liga.html",
+    "title": "La Liga Market Terminal",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/serie-a.html",
+    "title": "Serie A Market Terminal",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/bundesliga.html",
+    "title": "Bundesliga Market Terminal",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/ligue-1.html",
+    "title": "Ligue 1 Market Terminal",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/j1-league.html",
+    "title": "J1 League Market Terminal",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/k-league-1.html",
+    "title": "K League 1 Market Terminal",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/saudi-pro-league.html",
+    "title": "Saudi Pro League Market Terminal",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/profile/index.html",
+    "title": "League Profile Directory",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/leagues/compare.html",
+    "title": "League Compare",
+    "job": "League terminal",
+    "kind": "league"
+  },
+  {
+    "route": "/transfers/latest.html",
+    "title": "Latest Transfer Signals",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/transfers/transfer-signals.html",
+    "title": "Transfer Signal Board",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/transfers/contract-watch.html",
+    "title": "Contract Watch",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/transfers/free-agents.html",
+    "title": "Free Agent Board",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/transfers/loan-watch.html",
+    "title": "Loan Watch",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/transfers/academy-promotions.html",
+    "title": "Academy Promotions",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/transfers/market-fit.html",
+    "title": "Market Fit Board",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/transfers/rumours.html",
+    "title": "Rumour Intelligence",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/transfers/confirmed.html",
+    "title": "Confirmed Movement",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/transfers/movement-history.html",
+    "title": "Movement History",
+    "job": "Movement",
+    "kind": "transfer"
+  },
+  {
+    "route": "/watchlist/u23-watch.html",
+    "title": "U23 Watch",
+    "job": "Watchlist",
+    "kind": "watch"
+  },
+  {
+    "route": "/watchlist/loan-watch.html",
+    "title": "Loan Watch",
+    "job": "Watchlist",
+    "kind": "watch"
+  },
+  {
+    "route": "/watchlist/free-agent-watch.html",
+    "title": "Free Agent Watch",
+    "job": "Watchlist",
+    "kind": "watch"
+  },
+  {
+    "route": "/watchlist/role-expansion.html",
+    "title": "Role Expansion Watch",
+    "job": "Watchlist",
+    "kind": "watch"
+  },
+  {
+    "route": "/watchlist/thin-data.html",
+    "title": "Thin Data Watch",
+    "job": "Watchlist",
+    "kind": "watch"
+  },
+  {
+    "route": "/watchlist/asia-watch.html",
+    "title": "Asia Watch",
+    "job": "Watchlist",
+    "kind": "watch"
+  },
+  {
+    "route": "/watchlist/mls-watch.html",
+    "title": "MLS Watch",
+    "job": "Watchlist",
+    "kind": "watch"
+  },
+  {
+    "route": "/watchlist/north-america-watch.html",
+    "title": "North America Watch",
+    "job": "Watchlist",
+    "kind": "watch"
+  },
+  {
+    "route": "/reports/index.html",
+    "title": "ARES Reports",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/reports/daily-market-pulse.html",
+    "title": "Daily Market Pulse",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/reports/weekly-market-pulse.html",
+    "title": "Weekly Market Pulse",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/reports/player-reports.html",
+    "title": "Player Reports",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/reports/club-reports.html",
+    "title": "Club Reports",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/reports/league-reports.html",
+    "title": "League Reports",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/reports/transfer-reports.html",
+    "title": "Transfer Reports",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/reports/u23-reports.html",
+    "title": "U23 Reports",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/reports/overheat-reports.html",
+    "title": "Overheat Reports",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/reports/gap-reports.html",
+    "title": "Gap Reports",
+    "job": "Reports",
+    "kind": "player"
+  },
+  {
+    "route": "/data/coverage.html",
+    "title": "ARES Data Coverage",
+    "job": "Database trust",
+    "kind": "data"
+  },
+  {
+    "route": "/data/sources.html",
+    "title": "ARES Sources",
+    "job": "Database trust",
+    "kind": "data"
+  },
+  {
+    "route": "/data/public-beta.html",
+    "title": "Public Beta Demo",
+    "job": "Database trust",
+    "kind": "data"
+  },
+  {
+    "route": "/data/open-match-data.html",
+    "title": "Open Match Data",
+    "job": "Database trust",
+    "kind": "data"
+  },
+  {
+    "route": "/data/image-rights.html",
+    "title": "Image Rights",
+    "job": "Database trust",
+    "kind": "data"
+  },
+  {
+    "route": "/data/update-log.html",
+    "title": "ARES Update Log",
+    "job": "Database trust",
+    "kind": "data"
+  }
+]
