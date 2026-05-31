@@ -1086,9 +1086,9 @@ def page(prefix: str, title: str, meta: str, canonical: str, h1: str, intro: str
   </header>"""
     js = f"""<script src="{prefix}assets/plugins/global/plugins.bundle.js"></script>
   <script src="{prefix}assets/js/scripts.bundle.js"></script>
-  <script src="{prefix}assets/js/ares-data-loader.js"></script>
-  <script src="{prefix}assets/js/ares-tables.js"></script>
-  <script src="{prefix}assets/js/soccer-pages.js"></script>
+  <script src="{prefix}assets/js/ares-data-loader.js?v=20260531-auditfix"></script>
+  <script src="{prefix}assets/js/ares-tables.js?v=20260531-auditfix"></script>
+  <script src="{prefix}assets/js/soccer-pages.js?v=20260531-auditfix"></script>
   <script src="{prefix}assets/js/ares-mega-nav.js?v=20260523-continent"></script>"""
     if scripts:
         js += f"<script>{scripts}</script>"
@@ -1105,9 +1105,9 @@ def profile_page(prefix: str, title: str, meta: str, canonical: str, body: str, 
   </header>"""
     js = f"""<script src="{prefix}assets/plugins/global/plugins.bundle.js"></script>
   <script src="{prefix}assets/js/scripts.bundle.js"></script>
-  <script src="{prefix}assets/js/ares-data-loader.js"></script>
-  <script src="{prefix}assets/js/ares-tables.js"></script>
-  <script src="{prefix}assets/js/soccer-pages.js"></script>
+  <script src="{prefix}assets/js/ares-data-loader.js?v=20260531-auditfix"></script>
+  <script src="{prefix}assets/js/ares-tables.js?v=20260531-auditfix"></script>
+  <script src="{prefix}assets/js/soccer-pages.js?v=20260531-auditfix"></script>
   <script src="{prefix}assets/js/ares-mega-nav.js?v=20260523-continent"></script>"""
     if scripts:
         js += f"<script>{scripts}</script>"
