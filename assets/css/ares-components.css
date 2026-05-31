@@ -237,7 +237,8 @@
   font-weight: 750;
 }
 
-.ares-chart-axis {
+.ares-chart-axis,
+.ares-chart-caption {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -2492,7 +2493,8 @@ body.ares-profile-view-stats .ares-profile-hero .ares-score-card strong {
   font-size: 0.92rem;
 }
 
-.ares-v6-header button {
+.ares-v6-header button,
+.ares-v6-gap-link {
   display: none;
   border: 1px solid rgba(255,255,255,0.28);
   border-radius: 999px;
@@ -2501,6 +2503,11 @@ body.ares-profile-view-stats .ares-profile-hero .ares-score-card strong {
   background: var(--navy4);
   font-size: 0.72rem;
   font-weight: 900;
+  text-decoration: none;
+}
+
+.ares-v6-gap-link {
+  display: inline-flex;
 }
 
 .ares-v6-pulse {
@@ -3215,7 +3222,8 @@ body.ares-profile-view-stats .ares-profile-hero .ares-score-card strong {
     display: none;
   }
 
-  .ares-v6-header button {
+  .ares-v6-header button,
+  .ares-v6-gap-link {
     display: inline-flex;
   }
 
@@ -3897,6 +3905,14 @@ body.ares-profile-view-stats .ares-profile-hero .ares-score-card strong {
 .ares-tool-panel {
   display: grid;
   gap: .9rem;
+}
+
+.ares-search-label {
+  color: var(--ares-gold);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .ares-chip-row {

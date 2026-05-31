@@ -735,7 +735,7 @@
       const cls = cleanText(item.player_id) === cleanText(record.player_id) ? " class=\"is-selected\"" : "";
       return '<i' + cls + ' style="left:' + x + '%;top:' + y + '%" title="' + safe(playerLabel(item)) + '"></i>';
     }).join("");
-    return '<div class="ares-card"><h2 class="h4">Similar Player Scatter</h2><div class="ares-chart-frame"><div class="ares-chart-scatter ares-profile-scatter">' + points + '</div></div><div class="ares-chart-axis"><span>X-axis: Market Score</span><span>Y-axis: ARES Score</span></div></div>';
+    return '<div class="ares-card"><h2 class="h4">Similar Player Scatter</h2><div class="ares-chart-frame"><div class="ares-chart-scatter ares-profile-scatter">' + points + '</div></div><div class="ares-chart-caption"><span>Market Score</span><span>ARES Score</span></div></div>';
   }
 
   function componentBarStack(record) {
@@ -826,7 +826,7 @@
         return '<span style="left:' + item[1] + '%;top:' + item[2] + '%">' + safe(item[0]) + '</span>';
       }).join("") + '</div>';
     }
-    return '<div class="ares-graph-card"><h2 class="h4">' + safe(title) + '</h2><p class="ares-muted-note">' + safe(explanation) + '</p><div class="ares-chart-frame" title="' + safe(title + ": " + explanation) + '">' + visual + '</div><div class="ares-chart-axis"><span>X-axis: ' + safe(xAxis) + '</span><span>Y-axis: ' + safe(yAxis) + '</span></div><div class="ares-chart-legend"><span>ARES quality</span><span>Market value</span><span>Transfer signal</span><span>Confidence</span></div><p class="ares-chart-explainer">How to read: ' + safe(explanation) + '</p><p class="ares-chart-seeded-note">Public Beta Demo. Current public profile row only.</p></div>';
+    return '<div class="ares-graph-card"><h2 class="h4">' + safe(title) + '</h2><p class="ares-muted-note">' + safe(explanation) + '</p><div class="ares-chart-frame" title="' + safe(title + ": " + explanation) + '">' + visual + '</div><div class="ares-chart-caption"><span>' + safe(xAxis) + '</span><span>' + safe(yAxis) + '</span></div><div class="ares-chart-legend"><span>ARES quality</span><span>Market value</span><span>Transfer signal</span><span>Confidence</span></div><p class="ares-chart-explainer">Signal read: ' + safe(explanation) + '</p><p class="ares-chart-seeded-note">Public Beta Demo. Current public profile row only.</p></div>';
   }
 
   function tableHtml(headers, rows) {
@@ -872,7 +872,7 @@
   }
 
   function pitchUsage(record) {
-    return '<div class="ares-pitch-map"><div class="zone zone-top"><strong>' + safe(record.position || "Primary") + '</strong><span>85%</span></div><div class="zone zone-mid"><strong>Secondary</strong><span>12%</span></div><div class="zone zone-low"><strong>Other</strong><span>3%</span></div></div><p class="ares-chart-explainer">How to read: role share is an ARES beta positional model until event and tracking feeds connect.</p>';
+    return '<div class="ares-pitch-map"><div class="zone zone-top"><strong>' + safe(record.position || "Primary") + '</strong><span>85%</span></div><div class="zone zone-mid"><strong>Secondary</strong><span>12%</span></div><div class="zone zone-low"><strong>Other</strong><span>3%</span></div></div><p class="ares-chart-explainer">Signal read: role share is an ARES beta positional model until event and tracking feeds connect.</p>';
   }
 
   function formStrip(record) {
@@ -885,7 +885,7 @@
   }
 
   function marketMiniTrend(record) {
-    return '<div class="ares-mini-trend"><h3 class="ares-mini-heading">Market Value Trend</h3><p class="ares-muted-note">Line-area model for public market direction, not a fee claim.</p><div class="ares-mini-line-chart"><span style="left:4%;top:58%">Start</span><span style="left:40%;top:30%">High</span><span style="left:82%;top:52%">Now</span></div><div class="ares-chart-axis"><span>X-axis: Season</span><span>Y-axis: Market Score</span></div><p class="ares-chart-explainer">How to read: the curve shows ARES market score direction from the public profile row.</p><p class="ares-chart-seeded-note">Public Beta Demo. Current public profile row only.</p></div>';
+    return '<div class="ares-mini-trend"><h3 class="ares-mini-heading">Market Value Trend</h3><p class="ares-muted-note">Line-area model for public market direction, not a fee claim.</p><div class="ares-mini-line-chart"><span style="left:4%;top:58%">Start</span><span style="left:40%;top:30%">High</span><span style="left:82%;top:52%">Now</span></div><div class="ares-chart-caption"><span>Season</span><span>Market Score</span></div><p class="ares-chart-explainer">Signal read: the curve shows ARES market score direction from the public profile row.</p><p class="ares-chart-seeded-note">Public Beta Demo. Current public profile row only.</p></div>';
   }
 
   function tabHeader(title, text) {
