@@ -61,7 +61,7 @@
 
   function imageIsSafe(row) {
     const status = String(row.photo_license_status || "").toLowerCase();
-    return Boolean(row.photo_url) && ["ares_owned", "provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider"].includes(status);
+    return Boolean(row.photo_url) && ["ares_owned", "provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider", "available"].includes(status);
   }
 
   function renderPlayerAvatar(row) {
@@ -92,6 +92,19 @@
     return '<a class="ares-table-link" href="' + data.safeText(prefixedHref(url || fallbackUrl || "#", prefix)) + '">' + data.safeText(label) + "</a>";
   }
 
+  function renderActionButtons(row, column) {
+    const prefix = column.pathPrefix || "";
+    const playerHref = prefixedHref(row.player_url || row.url || "players/profile.html", prefix);
+    const compareHref = prefixedHref("players/compare.html?player_id=" + encodeURIComponent(row.player_id || row.slug || ""), prefix);
+    const watchHref = prefixedHref("watchlist/index.html?q=" + encodeURIComponent(row.player_name || row.club || ""), prefix);
+    const buttons = [
+      '<a class="ares-inline-action" href="' + data.safeText(playerHref) + '">Profile</a>',
+      '<a class="ares-inline-action" href="' + data.safeText(compareHref) + '">Compare</a>'
+    ];
+    if (column.includeWatch !== false) buttons.push('<a class="ares-inline-action is-watch" href="' + data.safeText(watchHref) + '">Watch</a>');
+    return '<div class="ares-inline-actions">' + buttons.join("") + "</div>";
+  }
+
   function renderCell(row, column) {
     const value = row[column.key];
     if (typeof column.render === "function") return column.render(value, row, column);
@@ -109,6 +122,7 @@
     if (column.render === "clubLink") return renderLink(value, row.club_url, column.fallbackUrl || "clubs/profile.html", column.pathPrefix);
     if (column.render === "leagueLink") return renderLink(value, row.league_url, column.fallbackUrl || "leagues/league-template.html", column.pathPrefix);
     if (column.render === "link") return renderLink(column.label || value || "Open", row[column.urlKey || "url"], column.fallbackUrl, column.pathPrefix);
+    if (column.render === "actions") return renderActionButtons(row, column);
     if (column.key === "player_name" && row.player_url) return renderPlayerIdentity(value, row, column);
     if (column.key === "top_asset" && row.top_asset_player_url) return renderLink(value, row.top_asset_player_url, null, column.pathPrefix);
     if (column.key === "club" && row.club_url) return renderLink(value, row.club_url, null, column.pathPrefix);

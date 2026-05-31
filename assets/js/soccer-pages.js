@@ -26,6 +26,13 @@
       });
     }
     if (options.limit) prepared = prepared.slice(0, Number(options.limit));
+    if (options.rankKey) {
+      prepared = prepared.map(function (row, index) {
+        const next = Object.assign({}, row);
+        next[options.rankKey] = index + 1;
+        return next;
+      });
+    }
     return prepared;
   }
 
@@ -1024,6 +1031,13 @@
     }
   }
 
+  function profileRecordReady(record) {
+    if (!record) return false;
+    return ["player_name", "club", "league", "position", "ares_score", "market_score", "reason"].every(function (key) {
+      return hasFact(record[key]);
+    });
+  }
+
   function setOptionalFact(id, value) {
     const element = document.getElementById(id);
     if (!element) return;
@@ -1099,6 +1113,9 @@
   }
 
   function showProfileMessage(message) {
+    document.querySelectorAll(".ares-profile-hero, .ares-section, .table-grid, .ares-profile-source-card").forEach(function (node) {
+      if (node.id !== "profile-message") node.hidden = true;
+    });
     const panel = document.getElementById("profile-message");
     if (panel) {
       panel.hidden = false;
@@ -1120,7 +1137,7 @@
       const record = list.find(function (item) {
         return String(item.player_id || "").toLowerCase() === requested || String(item.slug || "").toLowerCase() === requested;
       });
-      if (!record) {
+      if (!profileRecordReady(record)) {
         showProfileMessage("Player not found.");
         return;
       }
