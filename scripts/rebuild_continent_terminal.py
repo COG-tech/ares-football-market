@@ -1063,8 +1063,8 @@ def common_head(prefix: str, title: str, meta: str, canonical: str) -> str:
   <link href="{prefix}assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
   <link href="{prefix}assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css">
   <link href="{prefix}assets/css/style.bundle.css" rel="stylesheet" type="text/css">
-  <link href="{prefix}assets/css/ares-theme.css?v=20260523-continent" rel="stylesheet" type="text/css">
-  <link href="{prefix}assets/css/ares-components.css?v=20260523-continent" rel="stylesheet" type="text/css">
+  <link href="{prefix}assets/css/ares-theme.css?v=20260531-metronic" rel="stylesheet" type="text/css">
+  <link href="{prefix}assets/css/ares-components.css?v=20260531-metronic" rel="stylesheet" type="text/css">
   <style>.soccer-main{{width:min(100%,1440px);margin:0 auto;padding:clamp(1rem,2.5vw,2rem)}}.table-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}}.table-grid .wide{{grid-column:1/-1}}.hero-grid{{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(18rem,.75fr);gap:1rem;align-items:start}}.continent-grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}}.premium-lock{{position:relative;min-height:8rem}}.premium-lock:after{{content:"Premium";position:absolute;right:1rem;top:1rem}}@media(max-width:1000px){{.table-grid,.hero-grid,.continent-grid{{grid-template-columns:1fr}}}}</style>"""
 
 
