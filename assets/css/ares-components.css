@@ -3823,3 +3823,107 @@ body.ares-profile-view-stats .ares-profile-hero .ares-score-card strong {
     grid-template-columns: 1fr;
   }
 }
+
+.ares-tool-panel {
+  display: grid;
+  gap: .9rem;
+}
+
+.ares-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+
+.ares-chip-row a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.1rem;
+  padding: .35rem .75rem;
+  border: 1px solid rgba(247, 201, 72, .36);
+  border-radius: 999px;
+  color: var(--ares-gold);
+  background: rgba(247, 201, 72, .08);
+  font-size: .82rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.ares-signal-card-grid,
+.ares-report-card-grid,
+.ares-premium-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ares-signal-card,
+.ares-report-card,
+.ares-premium-preview {
+  display: grid;
+  gap: .45rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 8px;
+  background: rgba(7, 12, 22, .78);
+  color: var(--ares-ink);
+  text-decoration: none;
+}
+
+.ares-signal-card strong,
+.ares-report-card strong,
+.ares-premium-preview h3 {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.ares-signal-card span,
+.ares-report-card span,
+.ares-premium-preview span {
+  color: var(--ares-gold);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ares-signal-card small,
+.ares-report-card small,
+.ares-premium-preview small,
+.ares-premium-preview p {
+  color: var(--ares-muted);
+  font-size: .84rem;
+  line-height: 1.35;
+}
+
+.ares-signal-card b,
+.ares-report-card b {
+  justify-self: start;
+  color: var(--ares-blue);
+  font-size: .9rem;
+}
+
+.ares-premium-preview {
+  position: relative;
+  min-height: 11rem;
+}
+
+.ares-premium-preview:after {
+  content: "Premium";
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  color: var(--ares-gold);
+  font-size: .7rem;
+  font-weight: 900;
+}
+
+@media(max-width: 900px) {
+  .ares-signal-card-grid,
+  .ares-report-card-grid,
+  .ares-premium-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}

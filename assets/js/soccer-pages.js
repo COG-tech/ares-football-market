@@ -905,6 +905,14 @@
     fillText("photo-source", record.photo_source || "ARES fallback");
     fillText("photo-license", record.photo_license_status || "branded_fallback");
     fillText("photo-credit", record.photo_credit || "ARES branded fallback avatar");
+    const sourceLine = document.getElementById("photo-source-line");
+    if (sourceLine) {
+      if (imageIsSafe(record)) {
+        sourceLine.textContent = "Source: " + (record.photo_source || "approved image record") + ". License: " + (record.photo_license_status || "approved") + ". Credit: " + (record.photo_credit || record.player_name || "ARES image registry") + ".";
+      } else {
+        sourceLine.textContent = "ARES fallback avatar, no external image used.";
+      }
+    }
   }
 
   function setOptionalFact(id, value) {
@@ -925,9 +933,16 @@
     fillText("country", playerCountry(record));
     const separator = document.querySelector(".ares-profile-separator");
     if (separator) separator.hidden = !hasFact(playerCountry(record));
+    setOptionalFact("age", record.age);
+    setOptionalFact("position", record.position);
     setOptionalFact("height", heightValue(record));
     setOptionalFact("foot", record.foot);
     setOptionalFact("date-of-birth", record.date_of_birth);
+    setOptionalFact("contract-end", record.contract_end);
+    setOptionalFact("last-updated", record.last_updated);
+    setOptionalFact("ares-score", record.ares_score);
+    setOptionalFact("market-score", record.market_score);
+    setOptionalFact("confidence", record.data_confidence || record.confidence);
     setOptionalFact("joined", record.joined);
     setOptionalFact("agent", record.agent);
     setOptionalFact("outfitter", record.outfitter);

@@ -10,7 +10,7 @@ import re
 import shutil
 import statistics
 import unicodedata
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
@@ -987,7 +987,7 @@ def chart_axis_defaults(title: str, kind: str) -> tuple[str, str, str]:
         return "Position group", "Squad strength", "Bars compare strength across the main football position groups."
     if "license" in text or "source" in text:
         return "Asset status", "Record count", "Bars summarize source and rights coverage before images are shown publicly."
-    return "Category", "Score / Count", "Bars summarize the strongest market and performance signals on this page."
+    return "ARES board segment", "Visible real-data rows", "Bars summarize sourced records and score signals on this page."
 
 
 def chart_card(title: str, subtitle: str, kind: str = "bars", x_label: str = "", y_label: str = "", explanation: str = "") -> str:
@@ -1072,7 +1072,7 @@ def page(prefix: str, title: str, meta: str, canonical: str, h1: str, intro: str
     nav = f"""<header class="ares-topbar" data-ares-root="{root_attr(prefix)}">
     <a class="ares-brand" href="{prefix}index.html"><img src="{prefix}assets/media/brand/ares-logo.png" alt="" width="44" height="44">ARES Football Market</a>
     <nav class="ares-nav" aria-label="Primary">
-      <a href="{prefix}index.html">Home</a><a href="{prefix}players/index.html">Players</a><a href="{prefix}rankings/ares.html">Rankings</a><a href="{prefix}clubs/index.html">Clubs</a><a href="{prefix}leagues/index.html">Leagues</a><a href="{prefix}transfers/index.html">Transfers</a><a href="{prefix}watchlist/index.html">Watchlist</a><a href="{prefix}reports/index.html">Reports</a><a href="{prefix}methodology.html">Methodology</a>
+      <a href="{prefix}index.html">Home</a><a href="{prefix}players/index.html">Players</a><a href="{prefix}rankings/ares.html">Rankings</a><a href="{prefix}clubs/index.html">Clubs</a><a href="{prefix}leagues/index.html">Leagues</a><a href="{prefix}transfers/index.html">Transfers</a><a href="{prefix}watchlist/index.html">Watchlist</a><a href="{prefix}reports/index.html">Reports</a><a href="{prefix}methodology.html">Methodology</a><a href="{prefix}about.html">About</a>
     </nav>
     <div class="ares-top-actions"><a href="{prefix}rankings/gap.html">Open Gap Board</a><span>Public Beta Demo</span></div>
   </header>"""
@@ -1084,7 +1084,7 @@ def page(prefix: str, title: str, meta: str, canonical: str, h1: str, intro: str
   <script src="{prefix}assets/js/ares-mega-nav.js?v=20260523-continent"></script>"""
     if scripts:
         js += f"<script>{scripts}</script>"
-    return f"""<!DOCTYPE html><html lang="en"><head>{common_head(prefix, title, meta, canonical)}</head><body class="ares-shell">{nav}{beta_note()}<main class="soccer-main"><div class="ares-page-title"><h1>{h1}</h1><p>{intro}</p></div>{body}</main><footer class="ares-footer">ARES Football Market is an independent public beta football intelligence product. <a href="{prefix}image-credits.html">Image credits</a>. <span class="ares-brand-switch"><a href="{prefix}index.html">Global Football</a><a href="https://cog-tech.github.io/ares-gridiron-market/">ARES Gridiron Market</a></span></footer>{js}</body></html>"""
+    return f"""<!DOCTYPE html><html lang="en"><head>{common_head(prefix, title, meta, canonical)}</head><body class="ares-shell">{nav}{beta_note()}<main class="soccer-main"><div class="ares-page-title"><h1>{h1}</h1><p>{intro}</p></div>{body}</main><footer class="ares-footer">ARES Football Market is an independent public beta football intelligence product. <a href="{prefix}about.html">About</a>. <a href="{prefix}image-credits.html">Image credits</a>. <span class="ares-brand-switch"><a href="{prefix}index.html">Global Football</a><a href="https://cog-tech.github.io/ares-gridiron-market/">ARES Gridiron Market</a></span></footer>{js}</body></html>"""
 
 
 def profile_page(prefix: str, title: str, meta: str, canonical: str, body: str, scripts: str = "") -> str:
@@ -1416,7 +1416,7 @@ def home_v6_page(players: list[dict[str, Any]], clubs: list[dict[str, Any]], lea
     feature_meta = " | ".join(str(feature_player.get(key) or "") for key in ["club", "league", "position"] if feature_player.get(key))
     confidence = str(feature_player.get("data_confidence") or "Medium")
 
-    nav = """<header class="ares-v6-header"><a class="ares-v6-brand" href="index.html"><span>ARES</span><strong>Football Market</strong></a><nav aria-label="Primary"><a href="index.html">Pulse</a><a href="rankings/gap.html">Gap Board</a><a href="players/index.html?q=U23">U23</a><a href="rankings/market.html">Overheats</a><a href="clubs/index.html">Clubs</a><a href="leagues/index.html">Leagues</a><a href="transfers/index.html">Transfers</a><a href="methodology.html">Reports</a></nav><form class="ares-v6-search" action="players/index.html"><input name="q" type="search" aria-label="Search players, clubs, leagues, or signals"></form><button type="button">Menu</button></header>"""
+    nav = """<header class="ares-v6-header"><a class="ares-v6-brand" href="index.html"><span>ARES</span><strong>Football Market</strong></a><nav aria-label="Primary"><a href="index.html">Pulse</a><a href="rankings/gap.html">Gap Board</a><a href="players/index.html?q=U23">U23</a><a href="rankings/market.html">Overheats</a><a href="clubs/index.html">Clubs</a><a href="leagues/index.html">Leagues</a><a href="transfers/index.html">Transfers</a><a href="reports/index.html">Reports</a><a href="about.html">About</a></nav><form class="ares-v6-search" action="players/index.html"><input name="q" type="search" aria-label="Search players, clubs, leagues, or signals"></form><button type="button">Menu</button></header>"""
     pulse = f"""<section class="ares-v6-pulse"><strong>ARES Market Pulse</strong><span>{new_signal_count} New Signals</span><span>{len([r for r in gap_rows if r['move'] != 0])} Rank Changes</span><span>Gap Index Active</span><span>Updated {static_safe(updated)}</span><em>Open Data Connected</em></section><section class="ares-v6-ticker" aria-label="Moving market ticker"><div>{ticker_html}</div></section>"""
 
     return f"""<!DOCTYPE html><html lang="en"><head>{common_head("", "ARES Market Pulse | Football Mispricing Intelligence", "ARES compares on-field quality with market attention and turns the difference into daily football asset signals.", "")}</head><body class="ares-v6-page">{nav}{beta_note()}{pulse}<main class="ares-v6-shell">
@@ -1729,8 +1729,10 @@ def signal_cards(players: list[dict[str, Any]], clubs: list[dict[str, Any]], lea
     }
     items = [item for item in cards.get(kind, cards["player"]) if item[1] not in ("", None)]
     if "rankings/gap.html" in route:
+        rank_leader = home_rank_rows(players)[0] if players else {"player": {}, "gap": ""}
+        top_gap = rank_leader["player"]
         items = [
-            ("Gap Leader", top_gap.get("player_name"), signed_num(gap_value(top_gap)) if top_gap else ""),
+            ("Gap Leader", top_gap.get("player_name"), f"+{rank_leader['gap']}" if safe_float(rank_leader.get("gap")) > 0 else rank_leader.get("gap")),
             ("ARES Score", top_gap.get("club"), static_num(top_gap.get("ares_score")) if top_gap else ""),
             ("Market Score", top_gap.get("league"), static_num(top_gap.get("market_score")) if top_gap else ""),
             ("Confidence", top_gap.get("data_confidence"), "Source coverage"),
@@ -1745,6 +1747,8 @@ def page_table_for_spec(spec: dict[str, Any], players: list[dict[str, Any]], clu
         return "Open Match Coverage", "Coverage rows come from the open match summary file and drive source confidence.", ["League", "Country", "Source", "First Date", "Last Date", "Matches", "Clubs Seen"], coverage_rows(14)
     if route == "data/sources.html":
         return "Connected Source Files", "Only project-owned JSON files with records are listed.", ["Source", "Type", "Use", "Rows", "Status", "Data Mode"], source_table_rows()
+    if route == "rankings/gap.html":
+        return "Gap Board", "Rank-gap rows use the same ARES-rank versus Market-rank logic as the homepage.", ["#", "Player", "Age", "Pos", "Club", "League", "ARES Rank", "Market Rank", "Rank Gap", "7D Move", "Confidence", "Why ARES Sees It"], gap_rank_rows(players, 10)
     if kind == "club":
         return "Club Portfolio Board", "Club rows are sorted by squad market score and include ARES depth, U23 count, risk, and need area.", ["#", "Club", "League", "Country", "Team ARES", "Team Market", "U23", "Avg Age", "Risk", "Need Area", "Confidence"], club_rows(clubs)
     if kind == "league":
@@ -1776,12 +1780,178 @@ def formula_modules(kind: str) -> str:
 </section>"""
 
 
+def gap_rank_rows(players: list[dict[str, Any]], limit: int = 10) -> list[list[Any]]:
+    rows = []
+    for idx, item in enumerate(home_rank_rows(players)[:limit], 1):
+        player = item["player"]
+        rows.append([
+            idx,
+            player.get("player_name"),
+            player.get("age"),
+            player.get("position"),
+            player.get("club"),
+            player.get("league"),
+            f"#{item['ares_rank']}",
+            f"#{item['market_rank']}",
+            f"+{item['gap']}" if item["gap"] > 0 else str(item["gap"]),
+            static_signed(item["move"]),
+            player.get("data_confidence") or player.get("confidence"),
+            item["why"],
+        ])
+    return rows
+
+
+def player_mini_cards(rows: list[dict[str, Any]], prefix: str, label_key: str = "gap") -> str:
+    cards = []
+    for item in rows[:6]:
+        player = item.get("player", item)
+        href = static_prefixed_href(player.get("player_url") or "players/index.html", prefix)
+        value = item.get(label_key)
+        if value is None:
+            value = static_num(player.get("market_score") or player.get("ares_score"))
+        cards.append(
+            f'<a class="ares-signal-card" href="{static_safe(href)}">{static_player_avatar(player, prefix)}'
+            f'<span>{static_safe(player.get("position") or player.get("league"))}</span><strong>{static_safe(player.get("player_name"))}</strong>'
+            f'<small>{static_safe(player.get("club"))} | {static_safe(player.get("league"))}</small><b>{static_safe(value)}</b></a>'
+        )
+    return '<div class="ares-signal-card-grid">' + "".join(cards) + "</div>" if cards else ""
+
+
+def gap_special_modules(players: list[dict[str, Any]], prefix: str) -> str:
+    rank_rows = home_rank_rows(players)
+    u23_rows = [item for item in rank_rows if safe_int(item["player"].get("age"), 99) <= 23]
+    overheat_rows = sorted(rank_rows, key=lambda item: (safe_float(item["player"].get("market_score")) - safe_float(item["player"].get("ares_score")), safe_float(item["player"].get("market_score"))), reverse=True)
+    confidence_counts = Counter(str(row.get("data_confidence") or row.get("confidence") or "Review") for row in players)
+    confidence_table = static_table(["Confidence", "Players"], [[key, value] for key, value in confidence_counts.most_common()])
+    report_links = "".join([
+        f'<a class="ares-related-card" href="{prefix}reports/gap-reports.html"><strong>Gap Reports</strong><span>Turn rank gap leaders into proof-led reads.</span></a>',
+        f'<a class="ares-related-card" href="{prefix}reports/u23-reports.html"><strong>U23 Reports</strong><span>Open younger mispricing cases.</span></a>',
+        f'<a class="ares-related-card" href="{prefix}reports/overheat-reports.html"><strong>Overheat Reports</strong><span>Find market leaders ahead of football proof.</span></a>',
+        f'<a class="ares-related-card" href="{prefix}methodology.html"><strong>Formula Notes</strong><span>See why rank gap differs from price.</span></a>',
+    ])
+    return f"""
+<section class="ares-section ares-terminal-grid">
+  {chart_card("ARES Rank Gap Scatter", "Rank gap compares ARES rank with Market rank so homepage and board signals match.", "scatter", "ARES rank", "Market rank", "Players above the diagonal grade better by ARES than by market attention.")}
+  <div class="ares-card"><h2 class="h4">Gap Lens Tabs</h2><div class="ares-chip-row"><a href="#gap-leaders">Gap leaders</a><a href="#u23-gap">U23 gap</a><a href="#overheat-risk">Overheat risk</a><a href="#confidence-mix">Confidence mix</a></div><p class="ares-muted-note">Each lens uses the same public player records and hides unavailable modules instead of padding the board.</p></div>
+</section>
+<section id="gap-leaders" class="ares-section ares-card"><div class="ares-section-title"><div><h2 class="h4">Rank Gap Leaders</h2><p>Same rank-gap logic as the homepage: ARES rank minus market attention, with real confidence labels.</p></div></div>{static_table(["#", "Player", "Age", "Pos", "Club", "League", "ARES Rank", "Market Rank", "Rank Gap", "7D Move", "Confidence", "Why"], gap_rank_rows(players, 10))}</section>
+<section id="u23-gap" class="ares-section ares-card"><h2 class="h4">U23 Gap Watch</h2>{player_mini_cards(u23_rows, prefix, "gap")}</section>
+<section id="overheat-risk" class="ares-section ares-card"><h2 class="h4">Overheat Lens</h2>{player_mini_cards(overheat_rows, prefix, "gap")}</section>
+<section id="confidence-mix" class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Confidence Distribution</h2>{confidence_table}</div>{chart_card("Confidence Distribution", "Real player rows grouped by public data confidence.", "bars", "Confidence label", "Player count", "Use confidence before treating a rank gap as decision-grade.")}</section>
+<section class="ares-section ares-card"><h2 class="h4">Report Paths</h2><div class="ares-related-grid">{report_links}</div></section>
+"""
+
+
+def premium_modules(players: list[dict[str, Any]], prefix: str) -> str:
+    sample = best_players(players, "market_score", 1)[0] if players else {}
+    comparison = static_table(
+        ["Layer", "Free", "Premium"],
+        [
+            ["Top-line scores", "ARES Score, Market Score, confidence", "Full score history and export"],
+            ["Player proof", "Visible board reason", "Component grades, comps, role fit, risk"],
+            ["Club strategy", "Club portfolio board", "Need-area model, squad fit, shortlist export"],
+            ["Reports", "Public report cards", "Custom boards and saved intelligence packs"],
+        ],
+    )
+    previews = [
+        ("Component Breakdown", "Performance, role, usage, age curve, durability, and confidence weights."),
+        ("Comparable Pool", "Same-role players ranked by ARES, Market, league context, and age curve."),
+        ("Club Fit + Risk", "Need-area fit, contract window, role blockage, and movement risk."),
+    ]
+    cards = "".join(f'<div class="ares-premium-preview premium-lock"><span>Locked</span><h3>{static_safe(title)}</h3><p>{static_safe(copy)}</p><small>{static_safe(sample.get("player_name") or "Public board leader")}</small></div>' for title, copy in previews)
+    return f'<section class="ares-section ares-card"><h2 class="h4">Free vs Premium</h2>{comparison}</section><section class="ares-section ares-premium-preview-grid">{cards}</section>'
+
+
+def ares_ranking_modules(players: list[dict[str, Any]], prefix: str = "../") -> str:
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for player in players:
+        grouped[position_family(player.get("position"))].append(player)
+    leaders = []
+    for family, rows in sorted(grouped.items()):
+        leader = best_players(rows, "ares_score", 1)[0]
+        leaders.append([family, leader.get("player_name"), leader.get("club"), static_num(leader.get("ares_score")), leader.get("data_confidence")])
+    weights = static_table(
+        ["Score Component", "What It Captures"],
+        [
+            ["Performance", "On-ball and role-adjusted football output"],
+            ["Role + Usage", "Minutes role, position usage, and responsibility"],
+            ["Context", "League strength, opponent context, and club setting"],
+            ["Durability + Trend", "Availability, movement, and recent signal"],
+            ["Confidence", "Source coverage and metric completeness"],
+        ],
+    )
+    return f"""
+<section class="ares-section ares-terminal-grid">
+  {chart_card("Top 10 ARES Scores", "Real player rows sorted by ARES Score with confidence attached.", "bars", "Leaderboard rank", "ARES Score", "The first table remains the authoritative sort; this chart is a scannable score shape.")}
+  <div class="ares-card"><h2 class="h4">Position Leaders</h2>{static_table(["Position Group", "Leader", "Club", "ARES", "Confidence"], leaders[:9])}</div>
+</section>
+<section class="ares-section ares-card"><h2 class="h4">Formula Weights</h2>{weights}</section>
+<section class="ares-section ares-card"><h2 class="h4">Why Rows Rank</h2><p>Each row combines role evidence, performance level, league context, durability, trend, and confidence. Use the player link to inspect the public profile source and component tables.</p></section>
+"""
+
+
+def report_hub_body(players: list[dict[str, Any]], clubs: list[dict[str, Any]], leagues: list[dict[str, Any]], prefix: str) -> str:
+    gap = home_rank_rows(players)[0] if players else {"player": {}, "gap": ""}
+    u23 = next((item for item in home_rank_rows(players) if safe_int(item["player"].get("age"), 99) <= 23), gap)
+    overheat = overheat_players(players, 1)[0] if players else {}
+    top_club = max(clubs, key=lambda row: safe_float(row.get("squad_market_score")), default={})
+    top_league = max(leagues, key=lambda row: safe_float(row.get("league_strength")), default={})
+    reports = [
+        ("Daily Market Pulse", gap["player"].get("player_name"), f"Rank gap {gap.get('gap')}", "reports/daily-market-pulse.html"),
+        ("Gap Report", gap["player"].get("player_name"), gap["player"].get("data_confidence"), "reports/gap-reports.html"),
+        ("U23 Report", u23["player"].get("player_name"), u23["player"].get("club"), "reports/u23-reports.html"),
+        ("Overheat Report", overheat.get("player_name"), static_num(overheat.get("market_score")), "reports/overheat-reports.html"),
+        ("Club Report", top_club.get("club_name"), top_club.get("need_area"), "reports/club-reports.html"),
+        ("League Report", top_league.get("league_name"), top_league.get("export_signal"), "reports/league-reports.html"),
+    ]
+    cards = "".join(
+        f'<a class="ares-report-card" href="{static_safe(prefix + href)}"><span>{static_safe(title)}</span><strong>{static_safe(subject)}</strong><small>{static_safe(meta)}</small><b>Open report</b></a>'
+        for title, subject, meta, href in reports
+        if subject not in ("", None)
+    )
+    return f"""
+<section class="ares-product-hero ares-section ares-card"><div><span class="ares-product-kicker">Reports</span><h2>ARES Reports Hub</h2><p>Proof-led report cards for gaps, U23 assets, overheats, clubs, leagues, and movement.</p><div class="ares-hero-actions"><a href="{prefix}rankings/gap.html">Open Gap Board</a><a href="{prefix}premium.html">Compare Premium</a></div></div></section>
+{kpi_cards([("Report Cards", len([item for item in reports if item[1]]), "real subjects from public JSON"), ("Top Gap", gap["player"].get("player_name"), "rank-gap leader"), ("Top Club", top_club.get("club_name"), "club portfolio"), ("Top League", top_league.get("league_name"), "league strength")])}
+<section class="ares-section ares-report-card-grid">{cards}</section>
+<section class="ares-section ares-ad-slot"><strong>ADVERTISEMENT</strong><span>Quiet placement after report cards</span></section>
+{formula_modules("player")}
+<section class="ares-section ares-card premium-lock"><h2 class="h4">Premium Report Builder</h2><p>Unlock saved report packs, component evidence, comparable pools, exportable boards, and club-fit risk views.</p></section>
+<section class="ares-section ares-card"><h2 class="h4">Source + Trust</h2><p>Report cards only link to public records already present in ARES JSON outputs and source coverage files.</p></section>
+"""
+
+
+def coverage_modules() -> str:
+    rows = coverage_rows(200)
+    total_matches = sum(safe_int(row[5]) for row in rows)
+    country_counts = Counter(str(row[1]) for row in rows if row[1])
+    top_countries = static_table(["Country", "Coverage Rows"], [[country, count] for country, count in country_counts.most_common(8)])
+    return f"""
+<section class="ares-section ares-terminal-grid">
+  {chart_card("Open Match Coverage Map", f"{len(rows)} coverage rows and {total_matches} matches from connected open match files.", "bars", "Covered country", "Coverage rows", "Coverage depth drives confidence, not synthetic table volume.")}
+  <div class="ares-card"><h2 class="h4">Country Coverage</h2>{top_countries}</div>
+</section>
+"""
+
+
+def about_body(players: list[dict[str, Any]], clubs: list[dict[str, Any]], leagues: list[dict[str, Any]]) -> str:
+    return f"""
+<section class="ares-product-hero ares-section ares-card"><div><span class="ares-product-kicker">About ARES</span><h2>Football asset intelligence built from public, auditable records.</h2><p>ARES separates football quality, market attention, source confidence, and rights safety so users can inspect where a signal comes from.</p><div class="ares-hero-actions"><a href="methodology.html">Methodology</a><a href="data/sources.html">Sources</a></div></div></section>
+{kpi_cards([("Players", len(players), "public_players.json"), ("Clubs", len(clubs), "public_clubs.json"), ("Leagues", len(leagues), "public_leagues.json"), ("Data Mode", "Public Beta Demo", "trust label only")])}
+<section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">What ARES Is</h2><p>A public football market terminal for comparing ARES Score, Market Score, rank gap, trend, and confidence.</p></div><div class="ares-card"><h2 class="h4">What ARES Is Not</h2><p>ARES is not an official transfer fee source, betting line, salary estimate, or restricted commercial database copy.</p></div><div class="ares-card"><h2 class="h4">Trust Rules</h2><p>Visible rows come from project-owned JSON and CSV-derived files. Missing sections are omitted instead of filled with invented rows.</p></div><div class="ares-card"><h2 class="h4">Product Direction</h2><p>The public board shows the signal. Premium explains component grades, comps, risk, club fit, and saved reports.</p></div></section>
+<section class="ares-section ares-card"><h2 class="h4">Next Clicks</h2><div class="ares-related-grid"><a class="ares-related-card" href="rankings/gap.html"><strong>Gap Board</strong><span>Find mispriced players.</span></a><a class="ares-related-card" href="players/index.html"><strong>Player Search</strong><span>Inspect real public records.</span></a><a class="ares-related-card" href="reports/index.html"><strong>Reports</strong><span>Open proof-led reads.</span></a><a class="ares-related-card" href="premium.html"><strong>Premium</strong><span>Compare the intelligence layer.</span></a></div></section>
+"""
+
+
 def terminal_product_body(spec: dict[str, Any], players: list[dict[str, Any]], clubs: list[dict[str, Any]], leagues: list[dict[str, Any]]) -> str:
     kind = spec.get("kind", "player")
     prefix = route_prefix(spec["route"])
+    if spec["route"] == "reports/index.html":
+        return report_hub_body(players, clubs, leagues, prefix)
+    if spec["route"] == "about.html":
+        return about_body(players, clubs, leagues)
     table_title, table_intro, headers, rows = page_table_for_spec(spec, players, clubs, leagues)
     formula_id, formula_text = formula_copy(kind)
-    top_player = gap_players(players, 1)[0] if players else {}
+    top_player = (home_rank_rows(players)[0]["player"] if spec["route"] == "rankings/gap.html" and players else gap_players(players, 1)[0]) if players else {}
     related = spec.get("related") or [
         ("Gap Board", "Find players whose football signal beats market attention.", "rankings/gap.html"),
         ("ARES Rankings", "See the pure football quality board.", "rankings/ares.html"),
@@ -1807,6 +1977,9 @@ def terminal_product_body(spec: dict[str, Any], players: list[dict[str, Any]], c
   {hero_card}
 </section>
 {signal_cards(players, clubs, leagues, kind, spec["route"])}
+{gap_special_modules(players, prefix) if spec["route"] == "rankings/gap.html" else ""}
+{premium_modules(players, prefix) if spec["route"] == "premium.html" else ""}
+{coverage_modules() if spec["route"] == "data/coverage.html" else ""}
 {table_section}
 <section class="ares-section ares-ad-slot"><strong>ADVERTISEMENT</strong><span>Premium quiet placement after first value block</span></section>
 {formula_modules(kind)}
@@ -2107,7 +2280,15 @@ def build_pages(players: list[dict[str, Any]], clubs: list[dict[str, Any]], leag
 
 def filter_bar(prefix: str) -> str:
     links = "".join(f'<a class="ares-filter-chip" href="?continent={slug(c).replace("-", "%20").title()}"><strong>{c}</strong><span>{CONFED_BY_CONTINENT[c]}</span></a>' for c in CONTINENTS)
-    return f'<section class="ares-section ares-card"><div class="ares-filter-bar">{links}</div><input id="board-search" class="ares-search mb-3" type="search" aria-label="Search player, club, league, country, continent, region, or confidence"></section>'
+    quick = "".join([
+        '<a href="?q=U23">U23</a>',
+        '<a href="?q=High">High confidence</a>',
+        '<a href="?q=Rising">Rising</a>',
+        '<a href="?q=Forward">Forwards</a>',
+        '<a href="?q=Midfielder">Midfielders</a>',
+        '<a href="?q=Defender">Defenders</a>',
+    ])
+    return f'<section class="ares-section ares-card ares-tool-panel"><div class="ares-filter-bar">{links}</div><div class="ares-chip-row">{quick}</div><input id="board-search" class="ares-search mb-3" type="search" aria-label="Search player, club, league, country, continent, region, or confidence"></section>'
 
 
 def build_board_pages() -> None:
@@ -2142,7 +2323,7 @@ def build_board_pages() -> None:
 
     ares_cols = [{"key": "rank", "label": "Rank"}, *PLAYER_COLS[:9], {"key": "ares_score", "label": "ARES Score", "render": "score"}, {"key": "ares_tier", "label": "Tier", "render": "tier"}, {"key": "trend", "label": "Trend", "render": "trend"}, {"key": "data_confidence", "label": "Confidence", "render": "confidence"}, {"key": "data_mode", "label": "Mode", "render": "mode"}]
     ares_table = terminal_table_card("Rankings Table", "Performance quality by position, role, minutes, trend, and confidence.", "ares-table", ["Rank", "Image", "Player", "Age", "Position", "Club", "League", "Country", "Continent", "Minutes / Role", "ARES Score", "Tier", "Trend", "Confidence", "Mode"])
-    body = board_hero("ARES Player Rankings", "Rank players by on-field football quality, role, efficiency, usage, durability, opponent context, and trend.", "Who is best") + kpi_cards([("Highest ARES Score", static_num(top_ares_player.get("ares_score")) if top_ares_player else "", top_ares_player.get("player_name", "")), ("Top U23 Rows", u23_count, "real U23 player records"), ("High Confidence", high_conf_players, "usable for tighter trust filters"), ("Clubs Covered", len({row.get('club') for row in players if row.get('club')}), "player rows with club mapping")]) + filter_bar("../") + '<section class="ares-section ares-card"><p>ARES Score measures on-field football quality. It is not a transfer fee and not a market price.</p></section>' + terminal_pair(ares_table, "Top 20 ARES Scores", "Horizontal score view for elite performers and role-adjusted leaders.", "bars") + money_tail_player
+    body = board_hero("ARES Player Rankings", "Rank players by on-field football quality, role, efficiency, usage, durability, opponent context, and trend.", "Who is best") + kpi_cards([("Highest ARES Score", static_num(top_ares_player.get("ares_score")) if top_ares_player else "", top_ares_player.get("player_name", "")), ("Top U23 Rows", u23_count, "real U23 player records"), ("High Confidence", high_conf_players, "usable for tighter trust filters"), ("Clubs Covered", len({row.get('club') for row in players if row.get('club')}), "player rows with club mapping")]) + filter_bar("../") + ares_ranking_modules(players, "../") + '<section class="ares-section ares-card"><p>ARES Score measures on-field football quality. It is not a transfer fee and not a market price.</p></section>' + terminal_pair(ares_table, "Top 20 ARES Scores", "Horizontal score view for elite performers and role-adjusted leaders.", "bars") + money_tail_player
     scripts = script_init([script_paths("../", "data/public_players.json", "ares-table", ares_cols, searchId="board-search", sortKey="ares_score", sortDirection="desc")])
     write_text("rankings/ares.html", page("../", "ARES Player Rankings | Football Quality Scores by Position, League & Continent", "Rank football players by ARES Score, on-field quality, role, usage, durability, trend, position, league, continent, and data confidence.", "rankings/ares.html", "ARES Player Rankings", "Rank players by on-field football quality, role, efficiency, usage, durability, opponent context, and trend.", body, scripts))
 
@@ -2230,7 +2411,7 @@ def build_legacy_region_pages() -> None:
 
 
 def build_templates() -> None:
-    profile_body = """<div class="ares-profile-beta-badge">Public Beta Demo</div><section class="ares-profile-hero"><div class="ares-player-media-card"><div class="ares-shirt-number">9</div><div id="player-photo" class="ares-profile-photo">AR</div></div><div class="ares-player-core-card"><div class="ares-player-title-row"><div><h1 id="player-name">ARES Player Report</h1><p><span id="club"></span><span class="ares-profile-separator">|</span><span id="country"></span></p></div><span class="ares-verified-dot" aria-label="Verified beta profile"></span></div><div class="ares-player-facts"><div><span>Age</span><strong id="age"></strong><small id="date-of-birth"></small></div><div><span>Height</span><strong id="height"></strong></div><div><span>Foot</span><strong id="foot"></strong></div><div><span>Position</span><strong id="position"></strong><small id="role"></small></div></div><div class="ares-contract-strip"><div><span>Contract until</span><strong id="contract-end"></strong></div><div><span>Identity source</span><strong id="identity-source"></strong></div><div><span>Stats mode</span><strong id="stats-mode"></strong></div><div><span>Last updated</span><strong id="last-updated"></strong></div></div></div><div class="ares-player-score-deck"><div class="ares-score-card"><span>ARES Score</span><strong id="ares-score"></strong><small id="ares-tier"></small><i class="ares-score-ring" aria-hidden="true"></i></div><div class="ares-score-card"><span>Market Score</span><strong id="market-score"></strong><small id="market-tier"></small><i class="ares-score-ring" aria-hidden="true"></i></div><div class="ares-score-card"><span>Transfer Value Signal</span><strong id="transfer-value-signal"></strong><small id="trend"></small></div><div class="ares-score-card"><span>Data Confidence</span><strong id="confidence"></strong><small id="confidence-detail"></small></div></div><div class="ares-player-actions"><a class="ares-action-button" href="../watchlist/">* Watchlist</a><a class="ares-action-button" href="../players/">&lt;-&gt; Compare</a><a id="player-roster-link" class="ares-action-button" href="#" hidden>+ Club Fit</a><a class="ares-action-button is-light" href="../methodology.html">i Methodology</a></div></section><section id="player-view-note" class="ares-player-tab-panel"><h2 class="h4">Overview</h2><p>Open any player from search to view ARES score, Market Score, confidence, source status, and image rights from the public player record.</p></section><section class="ares-section ares-ad-slot"><strong>ADVERTISEMENT</strong><span>Quiet placement after player value</span></section><section class="ares-section ares-terminal-grid"><div class="ares-card ares-formula-card"><span>Formula</span><h2 class="h4">ARES_PLAYER_SCORE</h2><p>Player reports combine position performance, role usage, league context, availability, movement, and confidence.</p></div><div class="ares-card ares-confidence-card"><span>Confidence</span><h2 class="h4">Source + Rights</h2><p>Profile confidence reflects public record coverage, score status, and approved image attribution.</p></div></section><section class="ares-section ares-card"><h2 class="h4">Related Boards</h2><div class="ares-related-grid"><a class="ares-related-card" href="../rankings/gap.html"><strong>Gap Board</strong><span>Find the same mispricing pattern.</span></a><a class="ares-related-card" href="../rankings/ares.html"><strong>ARES Rankings</strong><span>Compare pure football quality.</span></a><a class="ares-related-card" href="../players/index.html"><strong>Player Search</strong><span>Open same-position alternatives.</span></a><a class="ares-related-card" href="../reports/index.html"><strong>Reports</strong><span>Turn the profile into a second click.</span></a></div></section><section class="ares-section ares-card premium-lock"><h2 class="h4">Premium Intelligence Teaser</h2><p>Unlock full component grades, comparable players, risk scoring, club fit, and movement history.</p></section><section class="ares-profile-source-card"><h2 class="h4">Image Source</h2><p>Source: <span id="photo-source"></span>. License: <span id="photo-license"></span>. Credit: <span id="photo-credit"></span>.</p></section><section id="profile-message" class="ares-section ares-card" hidden></section>"""
+    profile_body = """<div class="ares-profile-beta-badge">Public Beta Demo</div><section class="ares-profile-hero"><div class="ares-player-media-card"><div class="ares-shirt-number">9</div><div id="player-photo" class="ares-profile-photo">AR</div></div><div class="ares-player-core-card"><div class="ares-player-title-row"><div><h1 id="player-name">ARES Player Report</h1><p><span id="club"></span><span class="ares-profile-separator">|</span><span id="country"></span></p></div><span class="ares-verified-dot" aria-label="Verified beta profile"></span></div><div class="ares-player-facts"><div><span>Age</span><strong id="age"></strong><small id="date-of-birth"></small></div><div><span>Height</span><strong id="height"></strong></div><div><span>Foot</span><strong id="foot"></strong></div><div><span>Position</span><strong id="position"></strong><small id="role"></small></div></div><div class="ares-contract-strip"><div><span>Contract until</span><strong id="contract-end"></strong></div><div><span>Identity source</span><strong id="identity-source"></strong></div><div><span>Stats mode</span><strong id="stats-mode"></strong></div><div><span>Last updated</span><strong id="last-updated"></strong></div></div></div><div class="ares-player-score-deck"><div class="ares-score-card"><span>ARES Score</span><strong id="ares-score"></strong><small id="ares-tier"></small><i class="ares-score-ring" aria-hidden="true"></i></div><div class="ares-score-card"><span>Market Score</span><strong id="market-score"></strong><small id="market-tier"></small><i class="ares-score-ring" aria-hidden="true"></i></div><div class="ares-score-card"><span>Transfer Value Signal</span><strong id="transfer-value-signal"></strong><small id="trend"></small></div><div class="ares-score-card"><span>Data Confidence</span><strong id="confidence"></strong><small id="confidence-detail"></small></div></div><div class="ares-player-actions"><a class="ares-action-button" href="../watchlist/">* Watchlist</a><a class="ares-action-button" href="../players/">&lt;-&gt; Compare</a><a id="player-roster-link" class="ares-action-button" href="#" hidden>+ Club Fit</a><a class="ares-action-button is-light" href="../methodology.html">i Methodology</a></div></section><section id="player-view-note" class="ares-player-tab-panel"><h2 class="h4">Overview</h2><p>Open any player from search to view ARES score, Market Score, confidence, source status, and image rights from the public player record.</p></section><section class="ares-section table-grid"><div class="ares-card"><h2 class="h4">Season Signal</h2><div class="table-responsive"><table class="ares-table"><tbody id="player-season-body"></tbody></table></div></div><div class="ares-card"><h2 class="h4">Role Components</h2><div class="table-responsive"><table class="ares-table"><tbody id="player-role-body"></tbody></table></div></div><div class="ares-card wide"><h2 class="h4">Market Components</h2><div class="table-responsive"><table class="ares-table"><tbody id="player-market-body"></tbody></table></div></div></section><section class="ares-section ares-ad-slot"><strong>ADVERTISEMENT</strong><span>Quiet placement after player value</span></section><section class="ares-section ares-terminal-grid"><div class="ares-card ares-formula-card"><span>Formula</span><h2 class="h4">ARES_PLAYER_SCORE</h2><p>Player reports combine position performance, role usage, league context, availability, movement, and confidence.</p></div><div class="ares-card ares-confidence-card"><span>Confidence</span><h2 class="h4">Source + Rights</h2><p>Profile confidence reflects public record coverage, score status, and approved image attribution.</p></div></section><section class="ares-section ares-card"><h2 class="h4">Related Boards</h2><div class="ares-related-grid"><a class="ares-related-card" href="../rankings/gap.html"><strong>Gap Board</strong><span>Find the same mispricing pattern.</span></a><a class="ares-related-card" href="../rankings/ares.html"><strong>ARES Rankings</strong><span>Compare pure football quality.</span></a><a class="ares-related-card" href="../players/index.html"><strong>Player Search</strong><span>Open same-position alternatives.</span></a><a class="ares-related-card" href="../reports/index.html"><strong>Reports</strong><span>Turn the profile into a second click.</span></a></div></section><section class="ares-section ares-card premium-lock"><h2 class="h4">Premium Intelligence Teaser</h2><p>Unlock full component grades, comparable players, risk scoring, club fit, and movement history.</p></section><section class="ares-profile-source-card"><h2 class="h4">Image Source</h2><p id="photo-source-line">ARES fallback avatar, no external image used.</p><p class="ares-source-note" hidden>Source: <span id="photo-source"></span>. License: <span id="photo-license"></span>. Credit: <span id="photo-credit"></span>.</p></section><section id="profile-message" class="ares-section ares-card" hidden></section>"""
     profile_mapping = {"player-name":"player_name","position":"position","club":"club","league":"league","country":"country","age":"age","date-of-birth":"date_of_birth","foot":"foot","contract-end":"contract_end","role":"role","confidence":"data_confidence","last-updated":"last_updated","ares-score":"ares_score","ares-tier":"ares_tier","kpi-ares-score":"ares_score","market-score":"market_score","kpi-market-score":"market_score","market-tier":"market_tier","age-curve":"age_curve","trend":"trend","reason":"reason","continent":"continent","minutes-role":"minutes_role","position-usage":"position_usage","transfer-value-signal":"transfer_value_signal","kpi-transfer-signal":"transfer_value_signal","role-security":"role_security","durability":"durability","kpi-confidence":"data_confidence"}
     search_script = 'AresSoccer.initSearch("profile-search","profile-search-results","../data/public_search.json");'
     profile_script = f'{search_script}AresSoccer.initProfile("../data/player_profile_sample.json",{json.dumps(profile_mapping, ensure_ascii=False)});'
