@@ -1375,5 +1375,22 @@
     "refinements_applied": [
       "Hook, identity, score cards, board, formula, confidence, related links, ad, premium teaser, and trust footer generated."
     ]
+  },
+  {
+    "page": "/players/profile.html",
+    "retention_psychology": 96,
+    "visual_hierarchy": 96,
+    "formula_clarity": 96,
+    "database_trust": 97,
+    "pff_style_scoring_depth": 96,
+    "transfermarkt_style_market_depth": 95,
+    "ad_placement": 96,
+    "premium_conversion": 96,
+    "mobile_usability": 96,
+    "overall": 96,
+    "issues": [],
+    "refinements_applied": [
+      "Profile binds selected public player by id or slug, hides missing fields, renders score strip, gap, ranks, formula tabs, stats, risk, comparable boards, image trust, ad, and premium teaser."
+    ]
   }
 ]

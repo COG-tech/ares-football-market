@@ -3920,10 +3920,78 @@ body.ares-profile-view-stats .ares-profile-hero .ares-score-card strong {
   font-weight: 900;
 }
 
+.ares-profile-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ares-formula-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.ares-formula-tabs div {
+  display: grid;
+  gap: .35rem;
+  min-width: 0;
+  padding: .9rem;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .04);
+}
+
+.ares-formula-tabs span,
+.ares-risk-card > span {
+  color: var(--ares-gold);
+  font-size: .72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.ares-formula-tabs strong {
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1.1;
+}
+
+.ares-formula-tabs small {
+  color: var(--ares-muted);
+  line-height: 1.35;
+}
+
+.ares-profile-scatter i.is-selected {
+  width: 1rem;
+  height: 1rem;
+  margin: -.5rem 0 0 -.5rem;
+  background: var(--ares-gold);
+  box-shadow: 0 0 0 .35rem rgba(247, 201, 72, .18);
+}
+
+#photo-source-line {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+[data-profile-field][hidden] {
+  display: none !important;
+}
+
+body > svg[id^="SvgjsSvg"] {
+  position: absolute !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
 @media(max-width: 900px) {
   .ares-signal-card-grid,
   .ares-report-card-grid,
-  .ares-premium-preview-grid {
+  .ares-premium-preview-grid,
+  .ares-profile-proof-grid,
+  .ares-formula-tabs {
     grid-template-columns: 1fr;
   }
 }

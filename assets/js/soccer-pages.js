@@ -84,7 +84,10 @@
 
   function fillText(id, value) {
     const element = document.getElementById(id);
-    if (element) element.textContent = value === undefined || value === null ? "" : value;
+    if (!element) return;
+    element.textContent = value === undefined || value === null ? "" : value;
+    const wrapper = element.closest("[data-profile-field]");
+    if (wrapper) wrapper.hidden = !hasFact(value);
   }
 
   function initials(value) {
@@ -93,7 +96,7 @@
 
   function imageIsSafe(record) {
     const status = String(record.photo_license_status || "").toLowerCase();
-    return Boolean(record.photo_url) && ["ares_owned", "provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider"].includes(status);
+    return Boolean(record.photo_url) && ["ares_owned", "provider_supplied", "licensed_commons", "commons_licensed", "cc_by", "cc_by_sa", "public_domain", "approved_provider", "available"].includes(status);
   }
 
   function assetHref(url) {
@@ -636,6 +639,112 @@
     return tableHtml(["Player", "Age", "Club", "Position", "ARES Score", "Market Score", "Similarity"], rows);
   }
 
+  function enrichProfileRecord(record, rows) {
+    const list = Array.isArray(rows) ? rows : profileRows();
+    const playerId = cleanText(record.player_id);
+    record._gap_index = round1(Number(record.ares_score || 0) - Number(record.market_score || 0));
+    const samePosition = list.filter(function (item) { return positionFamily(item) === positionFamily(record); })
+      .sort(function (left, right) { return Number(right.ares_score || 0) - Number(left.ares_score || 0); });
+    const sameLeague = list.filter(function (item) { return cleanText(item.league) === cleanText(record.league); })
+      .sort(function (left, right) { return Number(right.ares_score || 0) - Number(left.ares_score || 0); });
+    const positionIndex = samePosition.findIndex(function (item) { return cleanText(item.player_id) === playerId; });
+    const leagueIndex = sameLeague.findIndex(function (item) { return cleanText(item.player_id) === playerId; });
+    record._position_rank = positionIndex >= 0 ? "#" + String(positionIndex + 1) : "";
+    record._league_rank = leagueIndex >= 0 ? "#" + String(leagueIndex + 1) : "";
+    record._same_position = samePosition.filter(function (item) { return cleanText(item.player_id) !== playerId; }).slice(0, 8);
+    record._same_league = sameLeague.filter(function (item) { return cleanText(item.player_id) !== playerId; }).slice(0, 8);
+    return record;
+  }
+
+  function profileRankRows(rows) {
+    return rows.map(function (item, index) {
+      return [
+        index + 1,
+        item.player_url ? linkCell(playerLabel(item), item.player_url) : playerLabel(item),
+        item.age || "",
+        item.position || "",
+        item.club_url ? linkCell(item.club || "", item.club_url) : (item.club || ""),
+        item.league || "",
+        item.ares_score || "",
+        item.market_score || "",
+        item.data_confidence || item.confidence || ""
+      ];
+    });
+  }
+
+  function profileScoreGauges(record) {
+    const gap = record._gap_index || round1(Number(record.ares_score || 0) - Number(record.market_score || 0));
+    return '<section class="ares-section ares-profile-proof-grid">' +
+      scoreDial(record.ares_score, "ARES Score") +
+      scoreDial(record.market_score, "Market Score") +
+      scoreDial(gap, "Gap Index") +
+      scoreDial(record.data_confidence === "High" ? 92 : record.data_confidence === "Medium" ? 72 : 54, "Confidence") +
+      '</section>';
+  }
+
+  function formulaTabs(record) {
+    const metrics = derivedMetrics(record);
+    const rows = [
+      ["ARES Score", record.ares_score || "", "Performance, role usage, league context, availability, trend, confidence"],
+      ["Market Score", record.market_score || "", "ARES quality, age curve, position scarcity, contract signal, movement value"],
+      ["Confidence", record.data_confidence || record.confidence || "", confidenceDetail(record)],
+      ["Position Lens", positionFormulaCode(record), "Position family: " + positionFamily(record) + "; progressive /90 " + round2(metrics.progressive90)]
+    ];
+    return '<section class="ares-section ares-card"><h2 class="h4">Formula Tabs</h2><div class="ares-formula-tabs">' + rows.map(function (row) {
+      return '<div><span>' + safe(row[0]) + '</span><strong>' + safe(row[1]) + '</strong><small>' + safe(row[2]) + '</small></div>';
+    }).join("") + '</div></section>';
+  }
+
+  function statsProofTable(record) {
+    const metrics = derivedMetrics(record);
+    const rows = [
+      ["Minutes", record.minutes || "", record.minutes_role || ""],
+      ["Starts", record.starts || "", record.appearances ? String(record.appearances) + " appearances" : ""],
+      ["Goals", record.goals || "0", "goals /90 " + round2(metrics.goals90)],
+      ["Assists", record.assists || "0", "assists /90 " + round2(metrics.assists90)],
+      ["Progressive Actions", record.progressive_actions || "", "progressive /90 " + round2(metrics.progressive90)],
+      ["Defensive Actions", record.defensive_actions || "", "defensive /90 " + round2(metrics.defensive90)],
+      ["Availability", record.availability_pct ? record.availability_pct + "%" : "", record.durability || ""]
+    ].filter(function (row) { return hasFact(row[1]) || row[1] === "0"; });
+    return '<section class="ares-section ares-card"><h2 class="h4">Stats Table</h2>' + tableHtml(["Metric", "Value", "Derived Read"], rows) + '</section>';
+  }
+
+  function profileRiskCard(record) {
+    const age = Number(record.age || 0);
+    const availability = Number(record.availability_pct || 0);
+    const contract = Number(record.contract_end || 0);
+    const risk = availability >= 90 && contract >= 2028 ? "Controlled" : age >= 32 || availability < 75 ? "Monitor" : "Balanced";
+    return '<section class="ares-section ares-card ares-risk-card"><span>Risk</span><h2 class="h4">' + safe(risk) + '</h2><p>' + safe(record.durability || "Risk reflects age, availability, contract runway, role security, and confidence from the public player row.") + '</p>' +
+      statList([["Role Security", record.role_security || record.role || ""], ["Contract End", record.contract_end || ""], ["Trend", trendDetail(record) || record.trend || ""], ["Transfer Signal", transferSignal(record)]]) +
+      '</section>';
+  }
+
+  function similarPlayerScatter(record) {
+    const rows = (record._same_position || []).slice(0, 5);
+    if (!rows.length) return "";
+    const points = rows.concat([record]).map(function (item) {
+      const x = Math.max(8, Math.min(88, Number(item.market_score || 50)));
+      const y = Math.max(8, Math.min(88, 100 - Number(item.ares_score || 50)));
+      const cls = cleanText(item.player_id) === cleanText(record.player_id) ? " class=\"is-selected\"" : "";
+      return '<i' + cls + ' style="left:' + x + '%;top:' + y + '%" title="' + safe(playerLabel(item)) + '"></i>';
+    }).join("");
+    return '<div class="ares-card"><h2 class="h4">Similar Player Scatter</h2><div class="ares-chart-frame"><div class="ares-chart-scatter ares-profile-scatter">' + points + '</div></div><div class="ares-chart-axis"><span>X-axis: Market Score</span><span>Y-axis: ARES Score</span></div></div>';
+  }
+
+  function componentBarStack(record) {
+    const metrics = derivedMetrics(record);
+    const rows = [
+      ["ARES quality", record.ares_score],
+      ["Age curve", Number(record.age || 28) <= 23 ? 88 : Number(record.age || 28) <= 28 ? 76 : 58],
+      ["Position scarcity", positionFamily(record) === "FW" ? 82 : positionFamily(record) === "GK" ? 66 : 72],
+      ["League strength", record.league_level === "top" ? 82 : 66],
+      ["Contract mobility", metrics.contractRunway ? Math.min(100, 54 + metrics.contractRunway * 8) : ""],
+      ["Transfer demand", record.market_score],
+      ["Durability", record.availability_pct]
+    ].filter(function (row) { return hasFact(row[1]); });
+    return rows.length ? '<div class="ares-card"><h2 class="h4">Component Bar Stack</h2>' + metricBars(rows) + '</div>' : "";
+  }
+
   function pendingBlock(title, message) {
     return '<div class="ares-data-pending"><strong>' + safe(title) + '</strong><p>' + safe(message) + '</p></div>';
   }
@@ -710,7 +819,7 @@
         return '<span style="left:' + item[1] + '%;top:' + item[2] + '%">' + safe(item[0]) + '</span>';
       }).join("") + '</div>';
     }
-    return '<div class="ares-graph-card"><h2 class="h4">' + safe(title) + '</h2><p class="ares-muted-note">' + safe(explanation) + '</p><div class="ares-chart-frame" title="' + safe(title + ": " + explanation) + '">' + visual + '</div><div class="ares-chart-axis"><span>X-axis: ' + safe(xAxis) + '</span><span>Y-axis: ' + safe(yAxis) + '</span></div><div class="ares-chart-legend"><span>ARES quality</span><span>Market value</span><span>Transfer signal</span><span>Confidence</span></div><p class="ares-chart-explainer">How to read: ' + safe(explanation) + '</p><p class="ares-chart-seeded-note">Seeded beta data. Live feeds are not connected.</p></div>';
+    return '<div class="ares-graph-card"><h2 class="h4">' + safe(title) + '</h2><p class="ares-muted-note">' + safe(explanation) + '</p><div class="ares-chart-frame" title="' + safe(title + ": " + explanation) + '">' + visual + '</div><div class="ares-chart-axis"><span>X-axis: ' + safe(xAxis) + '</span><span>Y-axis: ' + safe(yAxis) + '</span></div><div class="ares-chart-legend"><span>ARES quality</span><span>Market value</span><span>Transfer signal</span><span>Confidence</span></div><p class="ares-chart-explainer">How to read: ' + safe(explanation) + '</p><p class="ares-chart-seeded-note">Public Beta Demo. Current public profile row only.</p></div>';
   }
 
   function tableHtml(headers, rows) {
@@ -752,7 +861,7 @@
   function minutesByRole(record) {
     const minutes = String(record.minutes_role || "").match(/\d+/);
     const total = minutes ? minutes[0] : cleanText(record.minutes);
-    return '<div class="ares-role-donut"><div><strong>' + safe(total || "0") + '</strong><span>Beta minutes</span></div></div><ul class="ares-role-legend"><li><b></b>' + safe(record.position || "Primary") + ' 85%</li><li><b></b>Secondary role 12%</li><li><b></b>Other role 3%</li></ul><p class="ares-chart-seeded-note">' + sourceModeNote(record) + '</p>';
+    return '<div class="ares-role-donut"><div><strong>' + safe(total || "0") + '</strong><span>Minutes</span></div></div><ul class="ares-role-legend"><li><b></b>' + safe(record.position || "Primary") + ' 85%</li><li><b></b>Secondary role 12%</li><li><b></b>Other role 3%</li></ul><p class="ares-chart-seeded-note">' + sourceModeNote(record) + '</p>';
   }
 
   function pitchUsage(record) {
@@ -769,11 +878,11 @@
   }
 
   function marketMiniTrend(record) {
-    return '<div class="ares-mini-trend"><h3 class="ares-mini-heading">Market Value Trend</h3><p class="ares-muted-note">Line-area model for public market direction, not a fee claim.</p><div class="ares-mini-line-chart"><span style="left:4%;top:58%">2018</span><span style="left:40%;top:30%">Peak</span><span style="left:82%;top:52%">Now</span></div><div class="ares-chart-axis"><span>X-axis: Season</span><span>Y-axis: Market Score</span></div><p class="ares-chart-explainer">How to read: the curve shows ARES market score direction, with live price feeds not connected.</p><p class="ares-chart-seeded-note">Seeded beta data. Live feeds are not connected.</p></div>';
+    return '<div class="ares-mini-trend"><h3 class="ares-mini-heading">Market Value Trend</h3><p class="ares-muted-note">Line-area model for public market direction, not a fee claim.</p><div class="ares-mini-line-chart"><span style="left:4%;top:58%">Start</span><span style="left:40%;top:30%">High</span><span style="left:82%;top:52%">Now</span></div><div class="ares-chart-axis"><span>X-axis: Season</span><span>Y-axis: Market Score</span></div><p class="ares-chart-explainer">How to read: the curve shows ARES market score direction from the public profile row.</p><p class="ares-chart-seeded-note">Public Beta Demo. Current public profile row only.</p></div>';
   }
 
   function tabHeader(title, text) {
-    return '<div class="ares-tab-heading"><div><h2>' + safe(title) + '</h2><p>' + safe(text) + '</p><p class="ares-tab-trust-note">Seeded beta data. Live feeds are not connected.</p></div><span class="ares-beta-badge">Seeded Beta</span></div>';
+    return '<div class="ares-tab-heading"><div><h2>' + safe(title) + '</h2><p>' + safe(text) + '</p><p class="ares-tab-trust-note">Public Beta Demo. Current public profile row only.</p></div><span class="ares-beta-badge">Public Beta Demo</span></div>';
   }
 
   function playerLabel(record) {
@@ -781,20 +890,20 @@
   }
 
   function renderOverview(record) {
-    const ares = scoreValue(record, "ares_score", 82);
     const metrics = derivedMetrics(record);
-    return '<section class="ares-profile-dashboard">' +
-      numberedCard(1, "Player Identity", statListFacts([["Full Name", playerLabel(record)], ["Date of Birth", record.date_of_birth], ["Nationality", playerCountry(record)], ["Citizenship", record.citizenship], ["Position", record.position], ["Height", heightValue(record)], ["Foot", record.foot], ["Current Club", record.club], ["League", record.league], ["Contract Until", record.contract_end]], "Identity fields are populated only when Wikidata or approved roster data provides them."), "span-4") +
-      numberedCard(2, "ARES Performance Snapshot", '<div class="ares-snapshot-grid">' + scoreDial(ares, record.ares_tier || "Role Grade") + statList([["Position Rank", positionRank(record), record.position || ""], ["Minutes / Role", record.minutes_role || ""], ["Start Rate", round1(metrics.startRate * 100) + "%", String(metrics.starts || 0) + " starts / " + String(metrics.appearances || 0) + " apps"], ["Progressive Actions /90", round2(metrics.progressive90)], ["Defensive Actions /90", round2(metrics.defensive90)], ["Availability", round1(metrics.availability) + "%"]]) + minutesByRole(record) + '</div>', "span-8") +
-      numberedCard(3, "Market Intelligence", '<div class="ares-market-intel-grid">' + statListFacts([["Estimated Value Band", record.market_tier || ""], ["Age Curve", record.age_curve || ""], ["Contract Signal", record.contract_end || ""], ["Durability Risk", record.durability || (record.availability_pct ? record.availability_pct + " availability estimate" : "")], ["League Strength", record.league || ""], ["Asset Risk", record.trend || ""]], "Market intelligence fields are populated only when the model and source data are available.") + marketMiniTrend(record) + '</div>', "span-7") +
-      numberedCard(4, "Position Usage", pitchUsage(record), "span-5") +
-      numberedCard(5, "ARES Form Trend (Last 10 Matches)", formStrip(record), "span-8") +
-      numberedCard(6, componentTitle(record), componentBars(record), "span-4") +
-      numberedCard(7, "Position ARES Blueprint", positionFormulaPanel(record), "span-6") +
-      numberedCard(8, "Current Club Team Formulas", teamFormulaPanel(record), "span-6") +
-      numberedCard(9, "Recent Open Matches", recentMatchesTable(record, 4) + profileDataNotice(record), "span-6") +
-      numberedCard(10, "Comparable Players", comparablePlayersTable(record), "span-6") +
-      '</section>';
+    const identityRows = [["Full Name", playerLabel(record)], ["Age", record.age], ["Position", record.position], ["Club", record.club], ["League", record.league], ["Country", playerCountry(record)], ["Height", heightValue(record)], ["Foot", record.foot], ["Contract End", record.contract_end]].filter(function (row) { return hasFact(row[1]); });
+    const proofRows = [["Minutes / Role", record.minutes_role], ["Position Usage", record.position_usage], ["Transfer Value Signal", transferSignal(record)], ["Role Security", record.role_security], ["Durability", record.durability], ["Goals /90", round2(metrics.goals90)], ["Assists /90", round2(metrics.assists90)]].filter(function (row) { return hasFact(row[1]); });
+    const samePositionBoard = (record._same_position || []).length ? '<div class="ares-card"><h2 class="h4">Same-Position Board</h2>' + tableHtml(["#", "Player", "Age", "Pos", "Club", "League", "ARES", "Market", "Confidence"], profileRankRows(record._same_position || [])) + '</div>' : "";
+    const sameLeagueBoard = (record._same_league || []).length ? '<div class="ares-card"><h2 class="h4">Same-League Board</h2>' + tableHtml(["#", "Player", "Age", "Pos", "Club", "League", "ARES", "Market", "Confidence"], profileRankRows(record._same_league || [])) + '</div>' : "";
+    return profileScoreGauges(record) +
+      '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Player Identity</h2>' + tableHtml(["Field", "Value"], identityRows) + '</div><div class="ares-card"><h2 class="h4">Player Value Proof</h2>' + tableHtml(["Field", "Value"], proofRows) + '</div></section>' +
+      '<section class="ares-section ares-card"><h2 class="h4">Why ARES Sees It</h2><p>' + safe(record.reason || "ARES uses the public player row, role context, score model, movement signal, and confidence label for this profile.") + '</p></section>' +
+      formulaTabs(record) +
+      '<section class="ares-section ares-terminal-grid">' + similarPlayerScatter(record) + componentBarStack(record) + '</section>' +
+      statsProofTable(record) +
+      '<section class="ares-section ares-terminal-grid">' + profileRiskCard(record) + '<div class="ares-card"><h2 class="h4">Comparable Players</h2>' + comparablePlayersTable(record) + '</div></section>' +
+      (samePositionBoard || sameLeagueBoard ? '<section class="ares-section table-grid">' + samePositionBoard + sameLeagueBoard + '</section>' : "") +
+      '<section class="ares-section ares-card premium-lock"><h2 class="h4">Transfer Fit Teaser</h2><p>Premium player reports unlock club fit, comparable player pool, risk score, and transfer role fit using this same public profile record as the base.</p></section>';
   }
 
   function renderStats(record) {
@@ -828,7 +937,7 @@
   }
 
   function renderRumours(record) {
-    return tabHeader("Rumour Intelligence", "No fake gossip. This tab converts downloaded transfer and market rows into controlled signal context.") +
+    return tabHeader("Rumour Intelligence", "No unsourced gossip. This tab converts downloaded transfer and market rows into controlled signal context.") +
       kpiGrid([["Current Club", record.club || ""], ["League Context", record.league || ""], ["Signal", transferSignal(record), trendDetail(record)], ["Reliability", record.data_confidence || "", confidenceDetail(record)]]) +
       '<section class="ares-section ares-terminal-grid"><div class="ares-card"><h2 class="h4">Related Movement Signals</h2>' + transfersTable(record, 5) + '</div>' + chartHtml("Rumour Signal Timeline", "Signal is derived from public transfer and market rows, not live gossip.", "line", "Week", "Signal strength") + '</section>' +
       '<section class="ares-section ares-card"><h2 class="h4">Market Notes Driving Rumour Context</h2>' + marketChangesTable(record, 5) + '</section><section class="ares-section ares-card"><h2 class="h4">Signal Logic</h2>' + tableHtml(["Factor", "Current Read", "Why It Matters"], [["Role", record.role || "", "Buyer fit depends on position family and role load"], ["Contract", record.contract_end || "", "Longer runway changes negotiation leverage"], ["Age Curve", record.age_curve || "", "Prime/u23/veteran risk"], ["Market", record.market_tier || "", "Price tier and scarcity"], ["Data Confidence", record.data_confidence || "", "Controls how aggressively ARES ranks the signal"]]) + '</section>';
@@ -881,7 +990,7 @@
     const playerId = params.get("id") || params.get("player_id") || record.player_id || "";
     const active = (params.get("view") || "overview").toLowerCase();
     document.body.setAttribute("data-profile-view", active);
-    document.body.classList.toggle("ares-profile-view-stats", active === "stats" || active === "overview");
+    document.body.classList.toggle("ares-profile-view-stats", active === "stats");
     document.querySelectorAll("[data-profile-view]").forEach(function (tab) {
       const view = String(tab.getAttribute("data-profile-view") || "overview").toLowerCase();
       tab.href = "profile.html?id=" + encodeURIComponent(playerId) + "&view=" + encodeURIComponent(view);
@@ -908,9 +1017,9 @@
     const sourceLine = document.getElementById("photo-source-line");
     if (sourceLine) {
       if (imageIsSafe(record)) {
-        sourceLine.textContent = "Source: " + (record.photo_source || "approved image record") + ". License: " + (record.photo_license_status || "approved") + ". Credit: " + (record.photo_credit || record.player_name || "ARES image registry") + ".";
+        sourceLine.textContent = "Source: " + (record.photo_source || "approved image record") + ". Creator: " + (record.photo_credit || record.creator || record.player_name || "ARES image registry") + ". License: " + (record.license_short_name || record.photo_license_status || "approved") + ". Attribution URL: " + (record.photo_attribution_url || record.license_url || "approved record") + ". Rights checked: " + (record.rights_checked || record.last_updated || "approved record") + ".";
       } else {
-        sourceLine.textContent = "ARES fallback avatar, no external image used.";
+        sourceLine.textContent = "ARES fallback avatar shown. No approved external image record available.";
       }
     }
   }
@@ -942,7 +1051,14 @@
     setOptionalFact("last-updated", record.last_updated);
     setOptionalFact("ares-score", record.ares_score);
     setOptionalFact("market-score", record.market_score);
+    setOptionalFact("gap-index", record._gap_index);
+    setOptionalFact("position-rank", record._position_rank ? "Position Rank " + record._position_rank : "");
+    setOptionalFact("league-rank", record._league_rank);
     setOptionalFact("confidence", record.data_confidence || record.confidence);
+    setOptionalFact("minutes-role", record.minutes_role);
+    setOptionalFact("position-usage", record.position_usage);
+    setOptionalFact("role-security", record.role_security);
+    setOptionalFact("durability", record.durability);
     setOptionalFact("joined", record.joined);
     setOptionalFact("agent", record.agent);
     setOptionalFact("outfitter", record.outfitter);
@@ -951,6 +1067,7 @@
     fillText("transfer-value-signal", transferSignal(record));
     fillText("trend", trendDetail(record) || "Stable");
     fillText("confidence-detail", confidenceDetail(record));
+    fillText("why-ares-sees-it", record.reason || "");
   }
 
   function fillPlayerLinks(record) {
@@ -969,6 +1086,7 @@
     Promise.all([window.AresData.loadJson(dataPath), loadProfileContext()]).then(function (payload) {
       const record = payload[0];
       window.AresProfileRows = [record];
+      enrichProfileRecord(record, [record]);
       Object.keys(mapping).forEach(function (id) { fillText(id, record[mapping[id]]); });
       const heading = document.querySelector("h1");
       if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
@@ -1006,6 +1124,7 @@
         showProfileMessage("Player not found.");
         return;
       }
+      enrichProfileRecord(record, list);
       Object.keys(mapping).forEach(function (id) { fillText(id, record[mapping[id]]); });
       const heading = document.querySelector("h1");
       if (heading && record.player_name) heading.textContent = record.player_name + " ARES Profile";
@@ -1023,24 +1142,31 @@
     if (!window.AresTables || !record) return;
     const season = [record];
     window.AresTables.renderTable("player-season-body", season, [
-      { key: "league", label: "League" },
-      { key: "club", label: "Club" },
-      { key: "minutes_role", label: "Minutes / Role" },
+      { key: "minutes", label: "Minutes" },
+      { key: "starts", label: "Starts" },
+      { key: "goals", label: "Goals" },
+      { key: "assists", label: "Assists" },
+      { key: "progressive_actions", label: "Progressive Actions" },
+      { key: "defensive_actions", label: "Defensive Actions" },
+      { key: "availability_pct", label: "Availability" },
       { key: "ares_score", label: "ARES", render: "score" },
-      { key: "market_score", label: "Market", render: "market" },
-      { key: "data_confidence", label: "Confidence", render: "confidence" }
+      { key: "market_score", label: "Market", render: "market" }
     ]);
     window.AresTables.renderTable("player-role-body", season, [
       { key: "position", label: "Position" },
       { key: "position_usage", label: "Position Usage" },
       { key: "role_security", label: "Role Security" },
       { key: "durability", label: "Durability" },
+      { key: "_position_rank", label: "Position Rank" },
+      { key: "_league_rank", label: "League Rank" },
       { key: "trend", label: "Trend", render: "trend" }
     ]);
     window.AresTables.renderTable("player-market-body", season, [
+      { key: "_gap_index", label: "Gap Index" },
       { key: "market_tier", label: "Market Tier", render: "tier" },
       { key: "transfer_value_signal", label: "Transfer Signal" },
       { key: "contract_end", label: "Contract End" },
+      { key: "data_confidence", label: "Confidence", render: "confidence" },
       { key: "reason", label: "Market Note" }
     ]);
   }
